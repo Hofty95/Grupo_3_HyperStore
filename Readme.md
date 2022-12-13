@@ -1,5 +1,3 @@
-<img src="/port.png" alt="banner">
-
 # HyperStore
 
 Somos un equipo de desarrolladores que se encarga de la creación del e-commerce HyperStore el cuál se va a encargar de vender toda una gama de hardware y además ofrecer el servicio de armado de pc según la necesidad y presupuesto del cliente. El target de HyperStore esta principalmente constituido por público geek/gamer y para usuarios de uso cotidiano y/o de oficina.

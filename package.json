@@ -1,0 +1,23 @@
+{
+  "name": "tp_integrador_hyperstore",
+  "version": "1.0.0",
+  "description": "Somos un equipo de desarrolladores que se encarga de la creación del e-commerce HyperStore el cuál se va a encargar de vender toda una gama de hardware y además ofrecer el servicio de armado de pc según la necesidad y presupuesto del cliente. El target de HyperStore esta principalmente constituido por público geek/gamer y para usuarios de uso cotidiano y/o de oficina.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hofty95/Grupo_3_HyperStore.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hofty95/Grupo_3_HyperStore/issues"
+  },
+  "homepage": "https://github.com/Hofty95/Grupo_3_HyperStore#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

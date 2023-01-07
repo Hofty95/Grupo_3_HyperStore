@@ -1,0 +1,12 @@
+@import "./botones.css";
+@import "./carrito.css";
+@import "./detalle.css";
+@import "./footer.css";
+@import "./formularios.css";
+@import "./general.css";
+@import "./header.css";
+@import "./home.css";
+@import "./login.css";
+@import "./register.css";
+@import "./variables.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');

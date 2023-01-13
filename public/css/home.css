@@ -168,6 +168,10 @@
     display: block;
   }
 
+  .home__main__section__article__banner img {
+    height: 250px;
+  }
+
   .botones__home {
     flex-direction: row;
     justify-content: space-around;

@@ -1,14 +1,14 @@
 /* Mobile First */
 .footer__section{
-    background-color: var(--colorFondo);
+    background-color: black;
     position: absolute;
-    top: 100%;
+/*     top: 100%; */
     padding: 30px;
     width: 100%;
 }
-.footer__section__container{
+/* .footer__section__container{
 
-}
+} */
 .footer__section__container__redes{
     color: white;
     text-align: center;
@@ -41,8 +41,8 @@
         padding: 5px 0px;
   
     }
-    .footer__section__container__listas li{
-    }
+/*     .footer__section__container__listas li{
+    } */
 }
 /* Desktop */
 @media (min-width: 1024px){

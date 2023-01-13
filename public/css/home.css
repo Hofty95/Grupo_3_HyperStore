@@ -16,6 +16,8 @@
 
 .home__main__section__article__banner img {
   width: 100%;
+  height: 450px;
+  object-fit: cover;
 }
 
 .home__main__section__article__content {

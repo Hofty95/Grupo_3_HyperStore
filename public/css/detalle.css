@@ -1,0 +1,120 @@
+.main__section{
+    padding: 10px 20px 20px;
+}
+.main__section__categoria{
+    padding: 20px;
+    font-size: 12px;
+}
+.main__section__article1{
+    border: 1px solid var(--colorGris);
+    border-radius: 8px;
+    padding: 20px;
+}
+.main__section__article1__description{
+    padding: 10px 0px 15px;
+}
+.main__section__article1 h1{
+    font-size: 22px;
+    text-transform: uppercase;
+    color: white
+}
+.main__section__article1 h2{
+    font-size: 24px;
+    text-transform: uppercase;
+    color: var(--colorVioleta)
+}
+.main__section__article1 small{
+    color: white;
+}
+.main__section__carousel img{
+    width: 100%;
+}
+.main__section__imagenes img{
+    width: 100%;
+    border-radius: 8px;
+}
+.main__section__carouselnav div{
+    padding: 5px;
+}
+/* ARROWS */
+.slick-prev:before, .slick-next:before{
+    visibility: hidden;
+}
+.main__section__article1__precio{
+    text-align: center;
+    margin: 0px auto;
+    padding: 0px 0px 15px 0px;
+}
+.main__section__article1__precio i{
+    color: var(--colorVioleta);
+    font-size: 10px;
+}
+.main__section__article1__precio small{
+    color: var(--colorVioleta);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.main__section__article1__precio h2{
+    padding: 10px 0px 10px 0px;
+}
+.main__section__article1__descuento div{
+    padding: 10px;
+}
+.main__section__article1__descuento p{
+    border: 1px solid white;
+    border-radius: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 11px;
+}
+.main__section__article1__info{
+    
+}
+.main__section__article1__info__container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: auto;
+}
+.main__section__article1__info div{
+    padding: 20px;
+}
+.main__section__article1__info i{
+    color: white;
+    font-size: 25px;
+}
+.main__section__article1__info h3{
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+}
+.main__section__article1__info small{
+    text-transform: uppercase;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+}
+.main__section__article1__info b{
+    color: var(--colorVioleta);
+}
+.main__section__article1__add{
+    display: flex;
+    justify-content: center;
+    padding: 0px 0px 35px 0px;
+}
+.main__section__article1__add__signo1{
+    border: 1px solid white;
+    padding: 15px 10px;
+    border-radius: 8px 0px 0px 8px;
+}
+.main__section__article1__add__signo2{
+    border: 1px solid white;
+    padding: 15px 10px;
+    border-radius: 0px 8px 8px 0px;
+}
+.main__section__article1__add__1{
+    border: 1px solid white;
+    padding: 15px 25px;
+}

@@ -1,0 +1,15 @@
+.boton__general button{
+    width: 100%;
+    font-family: var(--fuenteBase);
+    font-weight: var(--WeigthFuenteTitulares);
+    display: block;
+    color: var(--colorFondo);
+    border: none;
+    border-radius: 6px;
+    background-color: var(--colorVioleta);
+    padding: 10px;
+    transition: all 350ms;
+}
+.boton__general:hover button{
+    background-color: #5200a5;
+}

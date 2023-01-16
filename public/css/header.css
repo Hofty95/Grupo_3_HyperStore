@@ -6,6 +6,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px 0;
+    align-items: center;
 }
 
 .header__section__bars{

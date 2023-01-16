@@ -1,0 +1,104 @@
+.login__main{
+
+}
+
+.login__main__section{
+    margin: 60px 30px;
+}
+.login__main__section__titular{
+    padding: 10px 0;
+}
+.login__main__section__titular h2{
+    font-size: 20px;
+    color: #fff;
+    padding: 7px 0;
+}
+
+.login__main__section__titular h4{
+    color: #fff;
+    font-size: 14px;
+}
+
+.form__box__login{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    position: relative;
+}
+
+.form__box__login label{
+    color: #fff;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.form__box__login input{
+    background-color: var(--colorFondo);
+    width: 90%;
+    border: 1px solid var(--colorGris);
+    border-radius: 7px;
+    margin-top: 5px;
+    padding: 14px 10px;
+}
+
+.form__box__login button{
+    color: var(--colorGris);
+    background-color: var(--colorFondo);
+    border: none;
+    display: block;
+    position: absolute;
+    font-size: 15px;
+    top: 49px;
+    right: 32px;
+}
+
+.form__box__login button i{
+    font-size: 16px;
+}
+
+.button__login button{
+    width: 100%;
+    font-weight: 500;
+    display: block;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--colorVioleta);
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 10px;
+}
+
+.login__socialmedia{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.login__socialmedia h4{
+    width: 100%;
+    color: #fff;
+    font-size: 14px;
+}
+
+.login__socialmedia button{
+    background-color: var(--colorFondo);
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    padding: 10px 13px;
+    margin: 15px 10px;
+    width: 40%;
+}
+
+.login__forget-account{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.login__forget-account h4{
+    color: var(--colorGris);
+}

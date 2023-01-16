@@ -21,3 +21,14 @@ a{
     text-decoration: none;
     color: white;
 }
+
+p{
+    color: white;
+}
+/* CARROUSEL SLICK */
+.slick-dots li button:before{
+    color: var(--colorVioleta);
+}
+.slick-dots li.slick-active button:before{
+    color: white;
+}

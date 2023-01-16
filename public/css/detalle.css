@@ -1,0 +1,234 @@
+.main__section{
+    padding: 10px 20px 20px;
+}
+.main__section__categoria{
+    padding: 20px;
+    font-size: 12px;
+}
+.main__section__article1{
+    border: 1px solid var(--colorGris);
+    border-radius: 8px;
+    padding: 20px;
+}
+.main__section__article1__description{
+    padding: 10px 0px 15px;
+}
+.main__section__article1 h1{
+    font-size: 22px;
+    text-transform: uppercase;
+    color: white
+}
+.main__section__article1 h2{
+    font-size: 24px;
+    text-transform: uppercase;
+    color: var(--colorVioleta)
+}
+.main__section__article1 small{
+    color: white;
+}
+.main__section__carousel img{
+    width: 100%;
+}
+.main__section__imagenes img{
+    width: 100%;
+    border-radius: 8px;
+}
+.main__section__carouselnav div{
+    padding: 5px;
+}
+/* ARROWS */
+.slick-prev:before, .slick-next:before{
+    visibility: hidden;
+}
+.main__section__article1__precio{
+    text-align: center;
+    margin: 0px auto;
+    padding: 0px 0px 15px 0px;
+}
+.main__section__article1__precio i{
+    color: var(--colorVioleta);
+    font-size: 10px;
+}
+.main__section__article1__precio small{
+    color: var(--colorVioleta);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.main__section__article1__precio h2{
+    padding: 10px 0px 10px 0px;
+}
+.main__section__article1__descuento div{
+    padding: 10px;
+}
+.main__section__article1__descuento p{
+    border: 1px solid white;
+    border-radius: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 11px;
+}
+.main__section__article1__info{
+    
+}
+.main__section__article1__info__container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: auto;
+}
+.main__section__article1__info div{
+    padding: 20px;
+}
+.main__section__article1__info i{
+    color: white;
+    font-size: 25px;
+    transition: all 800ms;
+}
+.main__section__article1__info i:hover{
+    transform: rotate(360deg);
+    color: var(--colorVioleta);
+}
+.main__section__article1__info h3{
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+}
+.main__section__article1__info small{
+    text-transform: uppercase;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+}
+.main__section__article1__info b{
+    color: var(--colorVioleta);
+}
+.main__section__article1__add{
+    display: flex;
+    justify-content: center;
+    padding: 0px 0px 15px 0px;
+}
+.main__section__article1__add__signo1{
+    border: 1px solid white;
+    padding: 15px 10px;
+    border-radius: 8px 0px 0px 8px;
+}
+.main__section__article1__add__signo2{
+    border: 1px solid white;
+    padding: 15px 10px;
+    border-radius: 0px 8px 8px 0px;
+}
+.main__section__article1__add__1{
+    border: 1px solid white;
+    padding: 15px 25px;
+}
+.main__section__article1__boton{
+}
+.main__section__article1__boton button{
+    width: 100%;
+    font-family: var(--fuenteBase);
+    font-weight: var(--WeigthFuenteTitulares);
+    display: block;
+    color: var(--colorFondo);
+    border: none;
+    border-radius: 6px;
+    background-color: var(--colorVioleta);
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 10px;
+    transition: all 350ms;
+}
+.main__section__article1__boton:hover button{
+    background-color: #5200a5;
+}
+.main__section__article1__specs{
+    padding: 22px;
+}
+.main__section__article1__specs h3{
+    text-transform: uppercase;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    padding: 15px 0px;
+}
+.main__section__article1__specs b{
+    color: white;
+    font-size: 14px;
+}
+.main__section__article1__datos{
+    padding: 10px 0px;
+}
+.main__section__article1__datos p{
+    font-size: 14px;
+    padding: 5px 0px;
+}
+.main__section__recomendados{
+}
+.main__section__recomendados__titulo1{
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 300;
+}
+.main__section__recomendados__titulo2{
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+.main__section__recomendados__titulos{
+    padding: 20px 0px 0px 0px;
+}
+.main__section__recomendados__articulos{
+    border: 1px solid var(--colorGris);
+    border-radius: 8px;
+    margin: 20px 0px;
+}
+.main__section__recomendados__articulos img{
+    width: 100%;
+    border-radius: 5px;
+}
+.main__section__recomendados__precio{
+    color: var(--colorVioleta);
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    padding: 20px 5px;
+}
+.main__section__recomendados__boton button{
+    width: 100%;
+    font-family: var(--fuenteBase);
+    font-weight: var(--WeigthFuenteTitulares);
+    display: block;
+    color: var(--colorFondo);
+    border: none;
+    border-radius: 6px;
+    background-color: var(--colorVioleta);
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 10px;
+    transition: all 350ms;
+}
+.main__section__recomendados__boton:hover button{
+    background-color: #5200a5;
+}
+.main__section__recomendados__articulos__detalle{
+    text-align: center;
+    color: white;
+}
+.main__section__recomendados__articulos{
+    text-align: center;
+    padding: 10px;
+}
+.main__section__recomendados__articulos__detalle{
+    padding: 20px 0px;
+}
+.main__section__recomendados__cuotas{
+    color: var(--colorVioleta);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.main__section__recomendados__articulos small{
+    text-align: center;
+    font-size: 12px;
+}

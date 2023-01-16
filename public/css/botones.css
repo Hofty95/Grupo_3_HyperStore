@@ -1,4 +1,4 @@
-.boton__general{
+.boton__general-carrito{
     color: white;
     background-color: var(--colorVioleta);
     padding: 5px;
@@ -8,7 +8,7 @@
     font-family: var(--fuenteBase);
 }
 
-.boton__general:hover{
+.boton__general-carrito:hover{
     box-shadow: 0px 0px 30px 14px var(--colorVioleta);
 }
 
@@ -17,4 +17,19 @@
 .main__cart__article__total__botones .cancelar:hover{
     background-color: rgb(131, 17, 17);
     box-shadow: 0px 0px 30px 14px red;
+}
+.boton__general button{
+    width: 100%;
+    font-family: var(--fuenteBase);
+    font-weight: var(--WeigthFuenteTitulares);
+    display: block;
+    color: var(--colorFondo);
+    border: none;
+    border-radius: 6px;
+    background-color: var(--colorVioleta);
+    padding: 10px;
+    transition: all 350ms;
+}
+.boton__general:hover button{
+    background-color: #5200a5;
 }

@@ -1,23 +1,30 @@
 .main__cart{
     padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .main__cart__section{
     display: flex;
     flex-wrap: wrap;
-    
+    flex-direction: column;
+    max-width: 768px;
 }
 
 .main__cart__article__productos{
-    border: 1px solid var(--colorVioleta);
+    border: 1px solid var(--colorGris);
     border-radius: 5px;
     margin-bottom: 20px;
+    width: 100%;
+    height: fit-content;
 }
 
 .carrito__vacio{
     color: white;
     text-align: center;
     padding: 20px;
+    display: none;
 }
 
 .carrito__vacio i{
@@ -30,23 +37,25 @@
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.carrito__ocupado h3{
-    display: inline-block;
+.nombre {
+    display: block;
     width: 80%;
 }
 
-.carrito__ocupado h4{
-    display: inline-block;
-    width: 100%;
-}
 
-.carrito__ocupado i{
+.desechar {
     display: inline-block;
     width: 20px;
     text-align: center;
     font-size: 16px;
+}
+
+.carrito__ocupado__imagen{
+    width: 100;
 }
 
 .carrito__ocupado img{
@@ -55,16 +64,91 @@
 }
 
 .main__cart__article__total{
-    border: 1px solid var(--colorVioleta);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--colorGris);
     border-radius: 5px;
     width: 100%;
+    height: fit-content;
+ /*    padding: 10px; */
+}
+
+.main__cart__article__total__botones{
+    margin: 5px;
+}
+
+.main__cart__article__total__botones button{
+    margin: 5px;
 }
 
 .main__cart__article__total--resumen{
     color: white;
+    padding: 10px;
 }
 
 .main__cart__article__total--descuento{
-    border: 1px solid var(--colorVioleta);
+    color: white;
+    border: 1px solid var(--colorGris);
     border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.main__cart__article__total--descuento input{
+    background-color: var(--colorFondo);
+    padding: 10px;
+    width: 70%;
+    border-radius: 7px;
+    border: solid 2px grey;
+    color: white;
+}
+
+.main__cart__article__total--descuento button{
+    margin: 0;
+}
+
+
+/* Tablet */
+@media (min-width:768px) {
+    .main__cart__section{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .carrito__ocupado{
+        flex-direction: row;
+    }
+
+    .carrito__ocupado__imagen{
+        width: 30%;
+    }
+
+    .nombre_precio{
+        width: 60%;
+        display: inline-block;
+    }
+    
+/*     .carrito__ocupado i{
+        display: inline-block;
+        width: 20px;
+        text-align: center;
+        font-size: 16px;
+    } */
+
+    .main__cart__article__productos{
+        width: 65%;
+    }
+
+    .main__cart__article__total{
+        width: 30%;
+        height: fit-content;
+    }
+
+    .main__cart__article__total--descuento input{
+        width: 100%;
+    }
+
+    .main__cart__article__total--descuento button{
+        margin: 5px;
+    }
 }

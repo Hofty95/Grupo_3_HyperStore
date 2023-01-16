@@ -1,0 +1,20 @@
+.boton__general{
+    color: white;
+    background-color: var(--colorVioleta);
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-weight: var(--WeigthFuenteSubtitulos);
+    font-family: var(--fuenteBase);
+}
+
+.boton__general:hover{
+    box-shadow: 0px 0px 30px 14px var(--colorVioleta);
+}
+
+/* Boton Carrito */
+
+.main__cart__article__total__botones .cancelar:hover{
+    background-color: rgb(131, 17, 17);
+    box-shadow: 0px 0px 30px 14px red;
+}

@@ -25,7 +25,10 @@ a{
 p{
     color: white;
 }
+
+
 /* CARROUSEL SLICK */
+
 .slick-dots li button:before{
     color: var(--colorVioleta);
 }

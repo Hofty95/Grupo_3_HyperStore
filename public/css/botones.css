@@ -29,3 +29,18 @@
     padding: 15px 0px 20px 0px;
 }
 
+
+.btn-primary{
+    --bs-btn-hover-bg: var(--colorVioleta);
+}
+
+.btn{
+    color: white;
+    background-color: var(--colorVioleta);
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-weight: var(--WeigthFuenteSubtitulos);
+    font-family: var(--fuenteBase);
+    transition: all 350ms;
+}

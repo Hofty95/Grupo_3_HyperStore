@@ -1,3 +1,148 @@
-/* .register__main{
-    background-image: url("/images/background-img.jpg");
-} */
+.register__main {
+  background-image: url("/images/background-img.jpg");
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.register__main__section {
+  width: 80%;
+  background-color: var(--colorFondo);
+  margin: 25px 0px;
+  border-radius: 10px;
+}
+.register__main__section__titulares {
+  padding: 10px 0;
+  margin: 0px 15px;
+}
+.register__main__section__titulares h2 {
+  font-size: 20px;
+  color: white;
+  padding: 7px 0px;
+}
+.register__main__section__titulares h4 {
+  color: white;
+  font-size: 14px;
+}
+.register__main__section__form {
+  margin: 15px 0px;
+}
+.register__form__box {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  position: relative;
+  align-content: space-around;
+}
+.register__form__box label {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.register__form__box input {
+  background-color: var(--colorFondo);
+  color: white;
+  width: 90%;
+  border: 1px solid var(--colorGris);
+  border-radius: 10px;
+  margin-top: 5px;
+  padding: 14px 10px;
+}
+.register__form__box button {
+  color: var(--colorGris);
+  background-color: var(--colorFondo);
+  border: none;
+  display: block;
+  position: absolute;
+  font-size: 15px;
+  top: 49px;
+  right: 24px;
+}
+.register__button {
+  display: flex;
+  justify-content: space-around;
+}
+.register__button button {
+  width: 90%;
+  font-weight: 500;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 10px;
+}
+.register__socialmedia {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.register__socialmedia h4 {
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  font-size: 15px;
+}
+.register__socialmedia button {
+  background-color: var(--colorFondo);
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  margin: 15px 10px;
+  padding: 10px 15px;
+}
+.register__forget-account {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.register__forget-account h4 {
+  color: var(--colorGris);
+}
+
+@media (min-width: 768px) {
+  .register__main__section {
+    width: 60%;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 70px 0;
+  }
+  .register__main__section__titulares {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 10px;
+    width: 80%;
+  }
+  .register__form__box {
+    margin: 10px 0px;
+  }
+  .register__form__box button {
+    right: 32px;
+  }
+  .register__socialmedia button {
+    width: 40%;
+    padding: 13px 12px;
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+  .register__forget-account {
+    width: 60%;
+    padding: 10px 0;
+    margin: 0px 20px;
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: 1024px) {
+    .register__main__section{
+        width: 40%;
+    }
+    .register__main__section__titulares{
+        width: 65%;
+    }
+    .register__forget-account{
+        width: 70%;
+        padding: 10px 0;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+}

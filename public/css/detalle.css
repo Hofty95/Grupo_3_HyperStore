@@ -128,7 +128,7 @@
     border: 1px solid white;
     padding: 15px 25px;
 }
-.main__section__article1__boton{
+/* .main__section__article1__boton{
 }
 .main__section__article1__boton button{
     width: 100%;
@@ -146,7 +146,7 @@
 }
 .main__section__article1__boton:hover button{
     background-color: #5200a5;
-}
+} */
 .main__section__article1__specs{
     padding: 22px;
 }

@@ -11,7 +11,7 @@
 
 .boton__general:hover{
     background-color: #5200a5;
-    box-shadow: 0px 0px 30px 14px var(--colorVioleta);
+    box-shadow: 0px 0px 10px 5px var(--colorVioleta);
 }
 
 /* Boton Carrito */
@@ -19,4 +19,28 @@
 .main__cart__article__total__botones .cancelar:hover{
     background-color: rgb(131, 17, 17);
     box-shadow: 0px 0px 30px 14px red;
+}
+/* BOTONES DETALLE PRODUCTO */
+.article1__boton__general button{
+    width: 100%;
+    color: white;
+}
+.article1__boton__general{
+    padding: 15px 0px 20px 0px;
+}
+
+
+.btn-primary{
+    --bs-btn-hover-bg: var(--colorVioleta);
+}
+
+.btn{
+    color: white;
+    background-color: var(--colorVioleta);
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-weight: var(--WeigthFuenteSubtitulos);
+    font-family: var(--fuenteBase);
+    transition: all 350ms;
 }

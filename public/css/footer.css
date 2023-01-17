@@ -23,6 +23,15 @@
     font-size: 14px;
     padding: 10px;
 }
+.icono__animacion i{
+    color: white;
+    font-size: 25px;
+    transition: all 800ms;
+}
+.icono__animacion i:hover{
+    transform: rotate(360deg);
+    color: var(--colorVioleta);
+}
 
 /* Tablet */
 @media (min-width: 768px){

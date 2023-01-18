@@ -1,0 +1,117 @@
+.main__info__section {
+    padding: 5px 20px 5px;
+}
+
+.main__info__section__container {
+    padding: 10px;
+}
+
+.main__info__section h2 {
+    color: white;
+    padding: 10px 0px;
+    font-size: 20px;
+}
+
+.main__info__section small {
+    color: white;
+}
+
+.main__info__section hr {
+    display: none;
+}
+
+.container__checkbox {
+    display: none;
+}
+
+.main__info__menutablet{
+    display: none;
+}
+
+.main__info__section p {
+    font-size: 13px;
+}
+
+.main__info__section select {
+    color: white;
+    background-color: var(--colorVioleta);
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.main__section__article {
+    padding: 0px 20px 20px;
+}
+
+.main__section__recomendados__articulos__tablet{
+    display: none;
+}
+
+.flechas__navegador{
+    color: white;
+    text-align: center;
+    padding: 0px 10px 25px 10px;
+}
+
+.flechas__navegador a {
+    padding: 10px;
+}
+
+.flechas__navegador i {
+    padding: 0px 10px 0px 10px;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+    .main__info__section {
+        padding: 30px 20px 5px;
+    }
+
+    .main__info__section__container {
+        border: 1px solid var(--colorGris);
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    .container__checkbox {
+        display: block;
+        position: relative;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 18px;
+        color: white;
+    }
+
+    .main__info__section hr {
+        display: block;
+        margin: 20px 0px;
+        border-color: var(--colorVioleta);
+    }
+
+    .main__info__menutablet{
+        display: block;
+    }
+
+    .main__section__article {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .main__section__recomendados__articulos__tablet{
+        text-align: center;
+    }
+}
+
+/* DESKTOP */
+
+@media (min-width: 1024px){
+    .main__info__section__container {
+        width: 75%;
+        margin: auto;
+    }
+    .main__section__article {
+        width: 75%;
+        margin: auto;
+    }
+}

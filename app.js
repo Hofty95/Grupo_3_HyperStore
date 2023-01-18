@@ -18,6 +18,9 @@ app.get("/login", (req, res) => res.sendFile(path.resolve(__dirname, "views", "l
 app.get("/register", (req, res) => res.sendFile(path.resolve(__dirname, "views", "register.html")));
 app.get("/detalle", (req, res) => res.sendFile(path.resolve(__dirname, "views", "detalle.html")));
 app.get("/carrito", (req, res) => res.sendFile(path.resolve(__dirname, "views", "carrito.html")));
+app.get("/resultado", (req, res) => res.sendFile(path.resolve(__dirname, "views", "busqueda.html")));
+app.get("/help", (req, res) => res.sendFile(path.resolve(__dirname, "views", "help.html")));
+
 
 
 /* Servidor */

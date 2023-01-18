@@ -24,6 +24,7 @@
 .article1__boton__general button{
     width: 100%;
     color: white;
+    padding: 10px;
 }
 .article1__boton__general{
     padding: 15px 0px 20px 0px;

@@ -12,7 +12,13 @@
 .footer__section__container__redes{
     color: white;
     text-align: center;
-    
+}
+.footer__section__container__redes h3{
+    padding: 0px;
+    margin: 0px;
+    font-family: var(--fuenteBase);
+    font-weight: var(--WeigthFuenteTitulares);
+    font-size: 18px;
 }
 .footer__section__container__redes i{
     padding: 15px;
@@ -49,10 +55,15 @@
         display: block;
         flex-direction: column;
         padding: 5px 0px;
-  
     }
-/*     .footer__section__container__listas li{
-    } */
+    .footer__section__container__listas h3{
+        display: block;
+        color: var(--colorVioleta);
+        font-size: 16px;
+        padding: 10px 0px;
+        font-weight: bolder;
+        margin: 0px;
+    }
 }
 /* Desktop */
 @media (min-width: 1024px){

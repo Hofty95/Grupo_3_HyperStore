@@ -20,7 +20,7 @@ app.get("/detalle", (req, res) => res.sendFile(path.resolve(__dirname, "views", 
 app.get("/carrito", (req, res) => res.sendFile(path.resolve(__dirname, "views", "carrito.html")));
 app.get("/resultado", (req, res) => res.sendFile(path.resolve(__dirname, "views", "busqueda.html")));
 app.get("/help", (req, res) => res.sendFile(path.resolve(__dirname, "views", "help.html")));
-app.get("/dashboard/listadeusuarios", (req, res) => res.sendFile(path.resolve(__dirname, "views", "dashboardusuarios.html")));
+app.get("/dashboard", (req, res) => res.sendFile(path.resolve(__dirname, "views", "dashboard.html")));
 
 
 

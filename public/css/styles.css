@@ -1,12 +1,15 @@
 @import "./category.css";
 @import "./botones.css";
 @import "./busqueda.css";
+@import "./cambioContraseña.css";
 @import "./carrito.css";
+@import "./dashboard.css";
 @import "./detalle.css";
 @import "./footer.css";
 @import "./formularios.css";
 @import "./general.css";
 @import "./header.css";
+@import "./help.css";
 @import "./home.css";
 @import "./login.css";
 @import "./register.css";

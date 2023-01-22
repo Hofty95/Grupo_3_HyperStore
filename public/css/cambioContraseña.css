@@ -1,0 +1,211 @@
+.cambioClave__main__section {
+  background-image: url("/images/background-img.jpg");
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 20px 0px;
+}
+
+.cambioClave__main__section h2 {
+  font-size: 16px;
+  text-align: center;
+  color: white;
+}
+
+.cambioClave__main__section__form {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid white;
+  border-radius: 4px;
+  background-color: var(--colorFondo);
+  margin: 15px 0px;
+  padding: 10px 0px;
+}
+
+.cambioClave__main__section__form p {
+  text-align: center;
+  padding: 10px 15px;
+  font-weight: 500;
+}
+
+.cambioClave__main__section__form__box {
+  margin: 10px 0px;
+  padding: 10px 15px;
+}
+
+.cambioClave__main__section__form__box label {
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+}
+
+.cambioClave__main__section__form__box input {
+  background-color: var(--colorFondo);
+  padding: 10px;
+  width: 100%;
+  border-radius: 7px;
+  border: solid 2px white;
+  color: white;
+  margin: 10px 0px;
+}
+
+.cambioClave__main__section__form__box button {
+  width: 40%;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 5px;
+  border-radius: 7px;
+}
+
+.cambioClave__main__section__form__terms {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cambioClave__main__section__form__terms label {
+  color: white;
+  margin-left: 3px;
+}
+
+.cambioClave__main__section__form__btn {
+  display: flex;
+  width: 90%;
+  margin: 10px 0px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  border-radius: 5px;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 17px;
+  user-select: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 0px rgb(183, 183, 183);
+}
+
+.checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.container input:checked ~ .checkmark {
+  box-shadow: 3px 3px 0px rgb(183, 183, 183);
+  transition: all 0.2s;
+  opacity: 1;
+  background-image: linear-gradient(
+    45deg,
+    rgb(100, 61, 219) 0%,
+    rgb(217, 21, 239) 100%
+  );
+}
+
+.container input ~ .checkmark {
+  transition: all 0.2s;
+  opacity: 1;
+  box-shadow: 1px 1px 0px rgb(183, 183, 183);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.container input:checked ~ .checkmark:after {
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+.container .checkmark:after {
+  left: 0.45em;
+  top: 0.25em;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid white;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+}
+
+@media (min-width: 768px) {
+  .cambioClave__main__section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  .cambioClave__main__section h2 {
+    width: 100%;
+    font-size: 18px;
+    margin: 25px 0px;
+  }
+  .cambioClave__main__section__form {
+    width: 60%;
+  }
+  .cambioClave__main__section__form p {
+    font-size: 17px;
+    margin: 15px 0px;
+  }
+  .cambioClave__main__section__form button {
+    width: 33%;
+    font-size: 15px;
+    padding: 8px;
+    margin: 7px 0px;
+  }
+  .cambioClave__main__section__form__terms {
+    width: 70%;
+    margin-bottom: 15px;
+  }
+  .cambioClave__main__section__form__terms label {
+    font-size: 17px;
+  }
+  .cambioClave__main__section__form__btn {
+    width: 60%;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cambioClave__main__section h2 {
+    font-size: 20px;
+  }
+  .cambioClave__main__section__form {
+    width: 50%;
+    padding: 20px 0px 20px;
+  }
+  .cambioClave__main__section__form__box {
+    padding: 10px 35px;
+  }
+  .cambioClave__main__section__form__btn {
+    width: 50%;
+  }
+  .cambioClave__main__section__form__btn button{
+    padding: 9px;
+    font-size: 15px;
+  }
+  .cambioClave__main__section__form__terms {
+    width: 50%;
+}
+}

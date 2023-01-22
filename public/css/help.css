@@ -1,0 +1,120 @@
+.help__main {
+  width: 100%;
+}
+
+.help__main__section-consultation {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.help__main__section-consultation h2 {
+  display: inline-block;
+  font-size: 17px;
+  color: var(--colorGris);
+  padding: 5px 10px;
+}
+
+.help__main__section__article {
+  color: white;
+  border: 1px solid var(--colorGris);
+  font-weight: 400;
+  font-size: 13px;
+  margin: 10px 20px;
+}
+
+.help__main__section__article {
+  padding: 40px 15px;
+}
+.help__main__section-questions div {
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+}
+.help__main__section-questions h2 {
+  display: inline-block;
+  font-size: 17px;
+  color: var(--colorGris);
+  padding: 5px 10px;
+}
+.help__buttons {
+  margin: 14px 0px 15px;
+}
+
+.help__buttons button {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--colorNegro);
+  width: 80%;
+  padding: 15px 0px;
+}
+
+.help__main__section-questions {
+  margin: 20px 15px;
+}
+
+.help__main__section__box {
+  color: white;
+  border: 1px solid var(--colorGris);
+  font-weight: 400;
+  font-size: 13px;
+  margin: 25px 0px;
+}
+
+.help__main__section__box i {
+  font-size: 34px;
+  padding-bottom: 10px;
+}
+
+.help__main__section__box h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.help__main__section__box li {
+  margin: 5px 0px;
+  font: 15px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .help__main__section-consultation {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .help__main__section-consultation div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .help__main__section-consultation h2 {
+    font-size: 24px;
+    padding: 14px 0px;
+  }
+  .help__main__section__article {
+    width: 25%;
+    text-align: center;
+  }
+  .help__main__section-questions {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .help__main__section__article__questions {
+    width: 48%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .help__main__section-consultation {
+    justify-content: center;
+  }
+  .help__main__section__article {
+    width: 27%;
+  }
+  .help__main__section__article__questions {
+    width: 30%;
+  }
+  .help__main__section-questions h2 {
+    font-size: 24px;
+  }
+}

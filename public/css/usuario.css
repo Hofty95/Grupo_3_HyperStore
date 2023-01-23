@@ -25,6 +25,7 @@
 
 .main__article__user__menu{
     border: solid 1px var(--colorGris);
+    border-radius: 5px;
     margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -35,6 +36,7 @@
 
 .main__article__user__datos{
     border: solid 1px var(--colorGris);
+    border-radius: 5px;
     margin-top: 10px;
     background-color: var(--colorFondo);
 }
@@ -48,6 +50,7 @@
 
 .main__article__user__direcciones{
     border: solid 1px var(--colorGris);
+    border-radius: 5px;
     margin-top: 10px;
     background-color: var(--colorFondo);
 }
@@ -104,8 +107,8 @@
     .main__section__user{
         display: flex;
         flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
     width: 70%;
     }
@@ -120,6 +123,6 @@
 
     .main__article__user__direcciones{
         width: 50%;
-        align-self: flex-start;
+        
     }
 }

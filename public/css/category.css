@@ -8,6 +8,7 @@
     border: 1px solid var(--colorGris);
     border-radius: 5px;
     padding: 10px;
+    margin: auto;
 }
 
 .main__category__room{
@@ -117,9 +118,62 @@
 
 
 /* Tablet */
-@media (min-width:768px) {
+@media (min-width:1024px) {
+    .main__category__article1{
+        width: 1000px;
+        position: relative;
+    }
+    
     button.learn-more {
-        width: 100%;
-        height: auto;
-       }
+        width: 200px;
+        position: absolute;
+    }
+
+    .button-text{
+        visibility: hidden;
+        text-align: right;
+    }
+
+    .learn-more:hover .button-text{
+        visibility: visible;
+    }
+
+    .btn1{
+        top:200px;
+        left: 450px;
+    }
+
+    .btn2{
+        top:447px;
+        right: 15px;
+    }
+
+    .btn3{
+        top: 379px;
+        left: 405px;
+    }
+
+    .btn4{
+        top: 538px;
+        right: 153px;
+    }
+
+    .btn5{
+        top: 280px;
+        right: 258px;
+    }
+
+    .btn6{
+        top: 428px;
+        right: 281px;
+    }
+
+    .btn7{
+        top: 508px;
+        left: 203px;
+    }
+
+    .main__category__room img{
+        width:100%;
+    }
 }

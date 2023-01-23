@@ -1,10 +1,12 @@
 .main__user{
     background-image: url(/images/background-img.jpg);
+    background-size: cover;
+    padding: 25px 0;
 }
 
 .main__section__user{
     width: 90%;
-    margin: 20px auto;
+    margin: 0 auto;
 }
 
 .main__section__user h2{
@@ -101,28 +103,30 @@
     width: 100%;
 }
 
+
+
 /* desktop */
 
 @media (min-width:1024px) {
     .main__section__user{
         display: flex;
         flex-wrap: wrap;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
-        align-items: center;
-    width: 70%;
+        align-items: flex-start;
+        width: 70%;
     }
 
     .main__article__user__menu{
-        width:25% ;
+        width:90% ;
     }
 
     .main__article__user__datos{
-        width: 45%;
+        width: 90%;
     }
 
     .main__article__user__direcciones{
-        width: 50%;
+        width: 90%;
         
     }
 }

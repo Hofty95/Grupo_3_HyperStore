@@ -88,14 +88,6 @@
   margin: 15px 10px;
   padding: 10px 15px;
 }
-.register__forget-account {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.register__forget-account h4 {
-  color: var(--colorGris);
-}
 
 @media (min-width: 768px) {
   .register__main__section {
@@ -125,24 +117,13 @@
     font-size: 15px;
     letter-spacing: 2px;
   }
-  .register__forget-account {
-    width: 60%;
-    padding: 10px 0;
-    margin: 0px 20px;
-    margin-bottom: 10px;
-  }
 }
 @media (min-width: 1024px) {
     .register__main__section{
-        width: 40%;
+        width: 35%;
+        border-bottom: 15px;
     }
     .register__main__section__titulares{
         width: 65%;
-    }
-    .register__forget-account{
-        width: 70%;
-        padding: 10px 0;
-        margin-left: 20px;
-        margin-bottom: 20px;
     }
 }

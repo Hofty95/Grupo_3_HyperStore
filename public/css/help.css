@@ -73,6 +73,11 @@
   margin: 5px 0px;
   font: 15px;
   font-weight: 500;
+  transition: all 350ms;
+}
+
+.help__main__section__box li:hover{
+  color: silver;
 }
 
 @media (min-width: 768px) {

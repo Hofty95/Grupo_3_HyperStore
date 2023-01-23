@@ -44,6 +44,9 @@ app.get("/404", (req, res) =>
 app.get("/recuperarClave", (req, res) =>
   res.sendFile(path.resolve(__dirname, "views", "cambioContraseñal.html"))
 );
+app.get("/user", (req, res) =>
+  res.sendFile(path.resolve(__dirname, "views", "usuario.html"))
+);
 
 /* Servidor */
 

@@ -1,5 +1,9 @@
 /* Mobile First */
 
+.header__bootstrap{
+    padding: 40px 0px;
+}
+
 .header__section{
     background-color: var(--colorNegro);
     display: flex;
@@ -7,12 +11,21 @@
     justify-content: space-around;
     padding: 20px 0;
     align-items: center;
+    display: none;
 }
 
-.header__section__bars{
+.navbar__mobile{
+    display: block;
+}
+
+.navbar{
+    --bs-navbar-padding-y: 15px
+}
+
+/* .header__section__bars{
     width: 20%;
     text-align: center;
-}
+} */
 
 .header__section__bars button{
     color: white;
@@ -162,11 +175,21 @@
 /* Tablet */
 
 @media (min-width:768px) {
+    .header__section{
+        display: flex;
+    }
+    .header__bootstrap{
+        padding: 0px;
+    }
     .header__section__logo1{
         width: 20%;
     }
 
     .header__section__bars{
+        display: none;
+    }
+
+    .navbar__mobile{
         display: none;
     }
 

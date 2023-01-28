@@ -1,34 +1,80 @@
     <!-- HEADER -->
     <header>
-        <section class="header__section">
-            <div class="header__section__bars">
-                <button><i class="fa-solid fa-bars"></i></button>
+        <section class="header__bootstrap">
+            <!-- BOOTSTRAP -->
+            <div class="navbar__mobile">
+            <nav class="navbar navbar-dark bg-dark fixed-top">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">
+                    <div class="header__section__logo1">
+                        <a href="/"><img src="/images/logo1.png" alt="hyperstore"></a>
+                    </div>
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                    <div class="offcanvas-header">
+                      <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+                        <div class="header__section__logo1">
+                            <a href="/"><img src="/images/logo1.png" alt="hyperstore"></a>
+                        </div>
+                      </h5>
+                      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                          <a class="nav-link" href="/login">Mi Cuenta</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/carrito">Mi Carrito</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Búsqueda por categoría</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Armá tu PC</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Contactános!</a>
+                        </li>
+                      </ul>
+                      <form class="d-flex mt-3" role="search">
+                        <input class="header__section__buscador__barra" type="search" placeholder="Buscar productos" aria-label="Search">
+                        <button class="boton__general" type="submit">Buscar</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </nav>
             </div>
-            <div class="header__section__logo1">
-                <a href="/"><img src="/images/logo1.png" alt="hyperstore"></a>
-            </div>
-            <div class="header__section__logo2">
-                <a href="/"><img  src="/images/logo2.png" alt="hyperstore"></a>
-            </div>
-            <div class="header__section__buscador">
-                <form action="">
-                    <input class="header__section__buscador__barra" type="text" placeholder="Buscar productos, marcas">
-                    <button class="header__section__buscador__boton" type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
-            <div class="header__section__menu1">
-               <a href="/login"><i class="fa-solid fa-user"></i></a> 
-               <a href=""><i class="fa-solid fa-magnifying-glass"></i></a> 
-               <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-            </div>
-            <div class="header__section__menu2">
-                <ul>
-                    <li><a href="/login"><span><i class="fa-solid fa-user"></i></span> Mi Cuenta</a></li>
-                    <li><a href="/carrito"><span><i class="fa-solid fa-cart-shopping"></i></span> Mi Carrito <span><p class="header__section__menu2__contador">0</p></span></a></li>
-                    
-                </ul>
-                
-            </div>
+              <!-- HEADER -->
+            <section class="header__section">
+                <div class="header__section__logo1">
+                    <a href="/"><img src="/images/logo1.png" alt="hyperstore"></a>
+                </div>
+                <div class="header__section__logo2">
+                    <a href="/"><img  src="/images/logo2.png" alt="hyperstore"></a>
+                </div>
+                <div class="header__section__buscador">
+                    <form action="">
+                        <input class="header__section__buscador__barra" type="text" placeholder="Buscar productos">
+                        <button class="header__section__buscador__boton" type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+                <div class="header__section__menu1">
+                   <a href="/login"><i class="fa-solid fa-user"></i></a> 
+                   <a href=""><i class="fa-solid fa-magnifying-glass"></i></a> 
+                   <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+                <div class="header__section__menu2">
+                    <ul>
+                        <li><a href="/login"><span><i class="fa-solid fa-user"></i></span> Mi Cuenta</a></li>
+                        <li><a href="/carrito"><span><i class="fa-solid fa-cart-shopping"></i></span> Mi Carrito <span><p class="header__section__menu2__contador">0</p></span></a></li>
+                    </ul>
+                </div>
+            </section>
         </section>
         <section class="header__section2">
             <div class="header__section2__categorias">

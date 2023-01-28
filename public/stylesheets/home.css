@@ -27,6 +27,7 @@
 
 .home__main__section__article__content h2 {
   color: var(--colorGris);
+  padding: 15px 0px 0px 0px;
 }
 
 .home__main__section__article__content hr {

@@ -1,4 +1,4 @@
-const label = document.querySelector('.label__general')
+/* const label = document.querySelector('.label__general')
 const input = document.querySelector('.input__general')
 
 input.addEventListener('blur',() => {
@@ -6,9 +6,9 @@ input.addEventListener('blur',() => {
     label.style.display = "none"
   }else{
     label.style.display = "block"
-  }
+  }qqqqqqq
 });
-
+ */
 /* const labels = document.querySelectorAll(".label__general");
 const inputs = document.querySelectorAll(".input__general");
 
@@ -27,7 +27,7 @@ inputsArray.forEach((input) => {
     });
 }); */
 
-/* const labels = document.querySelectorAll(".label__general");
+const labels = document.querySelectorAll(".label__general");
 const inputs = document.querySelectorAll(".input__general")
 
   const labelsArray = Array.from(labels);
@@ -46,4 +46,4 @@ inputsArray.forEach((input) => {
       }
     });
     });
-}); */
+});

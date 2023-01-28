@@ -1,66 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hyper Store | User</title>
-        <!-- Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <!-- Slick -->
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-        <!-- Me -->
-        <link rel="stylesheet" href="/css/styles.css">
-        <link rel="website icon" href="/images/Hyperstore_Logo_Circle.png" type="png">
-        <!-- Fontawesome -->
-        <script src="https://kit.fontawesome.com/30aba88446.js" crossorigin="anonymous"></script>
-    </head>
+    <%- include('../partials/head')  %> 
 <body>
-        <!-- HEADER -->
-        <header>
-            <section class="header__section">
-                <div class="header__section__bars">
-                    <button><i class="fa-solid fa-bars"></i></button>
-                </div>
-                <div class="header__section__logo1">
-                    <a href="/"><img src="/images/logo1.png" alt="hyperstore"></a>
-                </div>
-                <div class="header__section__logo2">
-                    <a href="/"><img  src="/images/logo2.png" alt="hyperstore"></a>
-                </div>
-                <div class="header__section__buscador">
-                    <form action="">
-                        <input class="header__section__buscador__barra" type="text" placeholder="Buscar productos, marcas">
-                        <button class="header__section__buscador__boton" type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                </div>
-                <div class="header__section__menu1">
-                    <button><i class="fa-solid fa-user"></i></button>
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <button><i class="fa-solid fa-cart-shopping"></i></button>
-                </div>
-                <div class="header__section__menu2">
-                    <ul>
-                        <li><a href="/login"><i class="fa-solid fa-user"></i>Mi Cuenta</a></li>
-                        <li><a href="/carrito"><i class="fa-solid fa-cart-shopping"></i>Mi Carrito</a></li>
-                        <p class="header__section__menu2__contador">0</p>
-                    </ul>
-                    
-                </div>
-            </section>
-            <section class="header__section2">
-                <div class="header__section2__categorias">
-                    <button><i class="fa-solid fa-bars"></i> BÚSQUEDA POR CATEGORÍA</button>
-                </div>
-                <div class="header__section2__armarpc">
-                    <button>Armá tu Pc</button>
-                </div>
-                <div class="header__section2__contacto">
-                    <button>Contactános!</button>
-                </div>
-            </section>
-        </header>
+    <%- include('../partials/header')  %> 
         <!-- MAIN -->
         <main class="main__user">
             <section class="main__section__user">
@@ -132,73 +74,7 @@
                 </article>    
             </section>
         </main>
-            <!-- FOOTER -->
-    <footer>
-        <section class="footer__section">
-            <div class="footer__section__container__redes">
-                <h3>SEGUINOS EN LAS REDES</h3>
-                <div class="icono__animacion">
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href=""><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer__section__container">
-                <div class="footer__section__container__listas">
-                    <h3>Categorías</h3>
-                    <ul>
-                        <li>
-                            <a href="">Placas de video</a>
-                            <a href="">Procesadores</a>
-                            <a href="">Memorias</a>
-                            <a href="">Almacenamiento</a>
-                            <a href="">Refrigeración</a>
-                            <a href="">Todas las categorías</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer__section__container__listas">
-                    <h3>Marcas</h3>
-                    <ul>
-                        <li>
-                            <a href="">Intel</a>
-                            <a href="">Ryzen</a>
-                            <a href="">AMD</a>
-                            <a href="">Asus</a>
-                            <a href="">Nvidia</a>
-                            <a href="">Razer</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer__section__container__listas">
-                    <h3>Lo más buscado</h3>
-                    <ul>
-                        <li>
-                            <a href="">Placa de video Nvidia</a>
-                            <a href="">Placa de video AMD</a>
-                            <a href="">Gabinetes</a>
-                            <a href="">Monitores</a>
-                            <a href="">Teclados mecánicos</a>
-                            <a href="">Silla gamer</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer__section__container__listas">
-                    <h3>Ayuda</h3>
-                    <ul>
-                        <li>
-                            <a href="">Whatsapp</a>
-                            <a href="">FAQ</a>
-                            <a href="">Garantía</a>
-                            <a href="">Arrepentimiento</a>
-                            <a href="">Contactanos</a>
-                            <a href="">Sucursales</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </footer>
+    <%- include('../partials/footer')  %> 
 
     <script src="/javascripts/user.js" type="text/javascript"></script>
 </body>

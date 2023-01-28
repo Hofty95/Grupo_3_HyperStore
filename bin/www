@@ -89,6 +89,4 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-app.listen(port, () =>
-  console.log(`Server Running in: http://localhost:${port}`)
-);
+console.log(`Server Running in: http://localhost:${port}`)

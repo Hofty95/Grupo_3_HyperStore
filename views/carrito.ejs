@@ -1,180 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hyper Store | Cart</title>
-  <link rel="stylesheet" href="/css/styles.css" />
-  <script src="https://kit.fontawesome.com/30aba88446.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-  <!-- HEADER -->
-  <header>
-    <section class="header__section">
-      <div class="header__section__bars">
-        <button><i class="fa-solid fa-bars"></i></button>
-      </div>
-      <div class="header__section__logo1">
-        <a href="/"><img src="/images/logo1.png" alt="hyperstore" /></a>
-      </div>
-      <div class="header__section__logo2">
-        <a href="/"><img src="/images/logo2.png" alt="hyperstore" /></a>
-      </div>
-      <div class="header__section__buscador">
-        <form action="">
-          <input class="header__section__buscador__barra" type="text" placeholder="Buscar productos, marcas" />
-          <button class="header__section__buscador__boton" type="submit">
-            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-      </div>
-      <div class="header__section__menu1">
-        <button><i class="fa-solid fa-user"></i></button>
-        <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        <button><i class="fa-solid fa-cart-shopping"></i></button>
-      </div>
-      <div class="header__section__menu2">
-        <ul>
-          <li>
-            <a href="/login"><i class="fa-solid fa-user"></i>Mi Cuenta</a>
-          </li>
-          <li>
-            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i>Mi Carrito</a>
-          </li>
-          <p class="header__section__menu2__contador">0</p>
-        </ul>
-      </div>
-    </section>
-    <section class="header__section2">
-      <div class="header__section2__categorias">
-        <button>
-          <i class="fa-solid fa-bars"></i> Busqueda por categoría
-        </button>
-      </div>
-      <div class="header__section2__armarpc">
-        <button>Arma tu Pc</button>
-      </div>
-      <div class="header__section2__contacto">
-        <button>Contactanos!</button>
-      </div>
-    </section>
-  </header>
-  <!-- MAIN -->
-  <main class="main__cart">
-    <section class="main__cart__section">
-      <article class="main__cart__article__productos">
-        <div class="carrito__vacio">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <h2>¡Aun no hay items en el carrito!</h2>
-          <p>Agrega un producto en el carrito para poder visualizarlo</p>
-        </div>
-        <div class="carrito__ocupado">
-          <div class="carrito__ocupado__imagen">
-            <img src="/images/Productos-img/imagen_producto_temporal.webp" alt="" />
+  <%- include('../partials/head')  %> 
+  <body>
+    <%- include('../partials/head')  %> 
+    <!-- MAIN -->
+    <main class="main__cart">
+      <section class="main__cart__section">
+        <article class="main__cart__article__productos">
+          <div class="carrito__vacio">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h2>¡Aun no hay items en el carrito!</h2>
+            <p>Agrega un producto en el carrito para poder visualizarlo</p>
           </div>
-          <div class="nombre_precio">
-            <h3>Nombre</h3>
-            <h4>Precio</h4>
+          <div class="carrito__ocupado">
+            <div class="carrito__ocupado__imagen">
+              <img
+                src="/images/Productos-img/imagen_producto_temporal.webp" alt=""/>
+            </div>
+            <div class="nombre_precio">
+                <h3>Nombre</h3>
+                <h4>Precio</h4>   
+            </div>
+            <div class="desechar">
+                <i class="fa-regular fa-trash-can"></i>    
+            </div>
           </div>
+        </article>
+        <article class="main__cart__article__total">
           <div>
-            <label for="Cantidad">Cantidad:</label>
-            <input type="number" id="Cantidad" name="Cantidad" min="1" max="10">
+            <div class="main__cart__article__total--resumen">
+              <h2>Resumen del pedido</h2>
+              <h3>Total</h3>
+              <h3>$0.00</h3>
+            </div>
+            <div class="main__cart__article__total--descuento">
+              <h2>Cupon de descuento</h2>
+              <form action="">
+                <input type="text" />
+                <button class="boton__general">Ingresar</button>
+              </form>
+            </div>
+            <div class="main__cart__article__total__botones">
+              <button class="boton__general cancelar" type="reset">CANCELAR</button>
+              <button class="boton__general" type="submit">CONFIRMAR</button>
+            </div>
           </div>
-          <div class="desechar">
-            <i class="fa-regular fa-trash-can"></i>
-          </div>
-        </div>
-      </article>
-      <article class="main__cart__article__total">
-        <div>
-          <div class="main__cart__article__total--resumen">
-            <h2>Resumen del pedido</h2>
-            <h3>Total</h3>
-            <h3>$0.00</h3>
-          </div>
-          <div class="main__cart__article__total--descuento">
-            <h2>Cupon de descuento</h2>
-            <form action="">
-              <input type="text" />
-              <button class="boton__general">Ingresar</button>
-            </form>
-          </div>
-          <div class="main__cart__article__total__botones">
-            <button class="boton__general cancelar" type="reset">CANCELAR</button>
-            <button class="boton__general" type="submit">CONFIRMAR</button>
-          </div>
-        </div>
-      </article>
-    </section>
-  </main>
-  <!-- FOOTER -->
-  <footer>
-    <section class="footer__section">
-      <div class="footer__section__container__redes">
-        <h3>SEGUINOS EN LAS REDES</h3>
-        <a href=""><i class="fa-brands fa-facebook"></i></a>
-        <a href=""><i class="fa-brands fa-instagram"></i></a>
-        <a href=""><i class="fa-brands fa-youtube"></i></a>
-      </div>
-      <div class="footer__section__container">
-        <div class="footer__section__container__listas">
-          <h3>Categorías</h3>
-          <ul>
-            <li>
-              <a href="">Placas de video</a>
-              <a href="">Procesadores</a>
-              <a href="">Memorias</a>
-              <a href="">Almacenamiento</a>
-              <a href="">Refrigeración</a>
-              <a href="">Todas las categorías</a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer__section__container__listas">
-          <h3>Marcas</h3>
-          <ul>
-            <li>
-              <a href="">Intel</a>
-              <a href="">Ryzen</a>
-              <a href="">AMD</a>
-              <a href="">Asus</a>
-              <a href="">Nvidia</a>
-              <a href="">Razer</a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer__section__container__listas">
-          <h3>Lo más buscado</h3>
-          <ul>
-            <li>
-              <a href="">Placa de video Nvidia</a>
-              <a href="">Placa de video AMD</a>
-              <a href="">Gabinetes</a>
-              <a href="">Monitores</a>
-              <a href="">Teclados mecánicos</a>
-              <a href="">Silla gamer</a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer__section__container__listas">
-          <h3>Ayuda</h3>
-          <ul>
-            <li>
-              <a href="">Whatsapp</a>
-              <a href="">FAQ</a>
-              <a href="">Garantía</a>
-              <a href="">Arrepentimiento</a>
-              <a href="">Contactanos</a>
-              <a href="">Sucursales</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </footer>
-</body>
-
+        </article>
+      </section>
+    </main>
+    <%- include('../partials/footer')  %> 
+  </body>
 </html>

@@ -9,9 +9,7 @@ Somos un equipo de desarrolladores que se encarga de la creación del e-commerce
 
 - Victoria Hofstetter - 27 Años - Ingeniero Maschwitz - Aficionada a los videojuegos, comics y cultura geek,  amante de la tecnología, siempre buscando aprender mas del tema, dentro de mis estudios al respecto realice cursos de reparación de pcs, notebooks y hardware , incursionando en el mundo de la programación y siempre lista para dar lo máximo de mi.
 
-- Thiago Delgado - 18 años - Avellaneda - Actualmente aprendo de manera activa desarrollo web, además estoy aprendiendo y enseñando calistenia. Y en un futuro no muy lejano considero tomar un curso de cafetería.
-
-- Franco Celiz - 23 Años - San Miguel - Apasionado de la tecnología, libros e idiomas . Estudiando actualmente programación y a futuro me gustaría poder formarme como traductor.
+- Thiago Delgado - 19 años - Avellaneda - Actualmente aprendo de manera activa desarrollo web, apasionado por la ciencia en general, siempre aprendiendo cosas nuevas en general entorno a la programacion o cualquier otra cosa. 
 
 ### Inspiraciones
 

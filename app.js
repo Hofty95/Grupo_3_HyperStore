@@ -1,55 +1,41 @@
-/* Constantes Base */
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-const express = require("express");
-const app = express();
-const path = require("path");
-const port = 3030;
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 
-/* Elementos Estaticos */
+var app = express();
 
-app.use(express.static(path.resolve(__dirname, "public")));
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-/* Rutas */
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "views", "home.html"))
-);
-app.get("/login", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "views", "login.html"))
-);
-app.get("/register", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "views", "register.html"))
-);
-app.get("/detalle", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "views", "detalle.html"))
-);
-app.get("/carrito", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "views", "carrito.html"))
-);
-app.get("/resultado", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "views", "busqueda.html"))
-);
-app.get("/help", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "views", "help.html"))
-);
-app.get("/dashboard", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "views", "dashboard.html"))
-);
-app.get("/category", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "views", "category.html"))
-);
-app.get("/404", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "views", "404.html"))
-);
-app.get("/recuperarClave", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "views", "cambioContraseñal.html"))
-);
-app.get("/user", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "views", "usuario.html"))
-);
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
-/* Servidor */
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
-app.listen(port, () =>
-  console.log(`Server Running in: http://localhost:${port}`)
-);
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;

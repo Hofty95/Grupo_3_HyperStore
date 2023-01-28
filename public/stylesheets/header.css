@@ -82,7 +82,7 @@
     align-items: center;
 }
 
-.header__section__menu1 button{
+.header__section__menu1 a{
     color: white;
     border: none;
     border-radius: none;

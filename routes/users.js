@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const {login, register} = require('../controllers/userController')
 
 /* /user */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router
+  .get('/login',login)
+  .get('/register',register)
 
 module.exports = router;
-q

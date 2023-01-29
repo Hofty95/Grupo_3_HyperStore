@@ -1,55 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./partials/head')  %> 
+<%- include('./partials/head') %>
+
   <body>
     <!-- header -->
-    <%- include('./partials/head')  %> 
-    <!-- MAIN -->
-    <main class="main__cart">
-      <section class="main__cart__section">
-        <article class="main__cart__article__productos">
-          <div class="carrito__vacio">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <h2>¡Aun no hay items en el carrito!</h2>
-            <p>Agrega un producto en el carrito para poder visualizarlo</p>
-          </div>
-          <div class="carrito__ocupado">
-            <div class="carrito__ocupado__imagen">
-              <img
-                src="/images/Productos-img/imagen_producto_temporal.webp" alt=""/>
+    <%- include('./partials/head') %>
+      <!-- MAIN -->
+      <main class="main__cart">
+        <%- include('./partials/header')  %> 
+        <section class="main__cart__section">
+          <article class="main__cart__article__productos">
+            <div class="carrito__vacio">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <h2>¡Aun no hay items en el carrito!</h2>
+              <p>Agrega un producto en el carrito para poder visualizarlo</p>
             </div>
-            <div class="nombre_precio">
+            <div class="carrito__ocupado">
+              <div class="carrito__ocupado__imagen">
+                <img src="/images/Productos-img/imagen_producto_temporal.webp" alt="" />
+              </div>
+              <div class="nombre_precio">
                 <h3>Nombre</h3>
-                <h4>Precio</h4>   
+                <h4>Precio</h4>
+              </div>
+              <div class="desechar">
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
             </div>
-            <div class="desechar">
-                <i class="fa-regular fa-trash-can"></i>    
+          </article>
+          <article class="main__cart__article__total">
+            <div>
+              <div class="cart__article__contador">
+                <form>
+                  <label for="quantity">Agregar cantidad:</label>
+                  <input type="number" id="quantity" name="quantity" min="1" max="5">
+                  <button class="boton__general" type="submit">Ingresar</button>
+                </form>
+
+              </div>
+              <div class="main__cart__article__total--resumen">
+                <h2>Resumen del pedido</h2>
+                <h3>Total</h3>
+                <h3>$0.00</h3>
+              </div>
+              <div class="main__cart__article__total--descuento">
+                <h2>Cupon de descuento</h2>
+                <form action="">
+                  <input type="text" />
+                  <button class="boton__general">Ingresar</button>
+                </form>
+              </div>
+              <div class="main__cart__article__total__botones">
+                <button class="boton__general cancelar" type="reset">CANCELAR</button>
+                <button class="boton__general" type="submit">CONFIRMAR</button>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="main__cart__article__total">
-          <div>
-            <div class="main__cart__article__total--resumen">
-              <h2>Resumen del pedido</h2>
-              <h3>Total</h3>
-              <h3>$0.00</h3>
-            </div>
-            <div class="main__cart__article__total--descuento">
-              <h2>Cupon de descuento</h2>
-              <form action="">
-                <input type="text" />
-                <button class="boton__general">Ingresar</button>
-              </form>
-            </div>
-            <div class="main__cart__article__total__botones">
-              <button class="boton__general cancelar" type="reset">CANCELAR</button>
-              <button class="boton__general" type="submit">CONFIRMAR</button>
-            </div>
-          </div>
-        </article>
-      </section>
-    </main>
-    <!-- Fotter -->
-    <%- include('./partials/footer')  %> 
+          </article>
+        </section>
+      </main>
+      <!-- Fotter -->
+      <%- include('./partials/footer') %>
   </body>
+
 </html>

@@ -10,6 +10,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     max-width: 768px;
+    padding: 20px 0px;
 }
 
 .main__cart__article__productos{
@@ -18,6 +19,10 @@
     margin-bottom: 20px;
     width: 100%;
     height: fit-content;
+}
+
+.main__cart__article__total{
+    padding: 20px;
 }
 
 .carrito__vacio{
@@ -84,6 +89,23 @@
 .main__cart__article__total--resumen{
     color: white;
     padding: 10px;
+}
+
+.cart__article__contador{
+    color: white;
+    border: 1px solid var(--colorGris);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.cart__article__contador input{
+    background-color: var(--colorFondo);
+    padding: 10px;
+    width: 70%;
+    border-radius: 7px;
+    border: solid 2px grey;
+    color: white;
 }
 
 .main__cart__article__total--descuento{

@@ -83,6 +83,15 @@
         color: white;
     }
 
+    .marcas__container{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .marcas__container label{
+        width: 30%;
+    }
+
     .main__info__section hr {
         display: block;
         margin: 20px 0px;

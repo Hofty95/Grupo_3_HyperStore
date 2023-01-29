@@ -275,8 +275,13 @@
     .main__section__article1__add__tablet{
         display: flex;
         justify-content: center;
-        padding: 35px 0px 15px 0px;
+        padding: 10px 0px 15px 0px;
     }
+
+    .main__section__article1__descuento div {
+        padding: 0px;
+    }
+    
     .main__section__article1__add{
         display: none;
     }

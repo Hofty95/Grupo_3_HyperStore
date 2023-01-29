@@ -28,6 +28,10 @@
     display: none;
 }
 
+.h2__marcas{
+    display: none;
+}
+
 .main__info__section p {
     font-size: 13px;
 }
@@ -81,6 +85,10 @@
         cursor: pointer;
         font-size: 18px;
         color: white;
+    }
+
+    .h2__marcas{
+        display: block;
     }
 
     .marcas__container{

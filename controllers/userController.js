@@ -8,7 +8,7 @@ module.exports = {
     usuario : (req,res) =>{
         return res.render('usuario')
     },
-    cambioContraseña : (req,res) =>{
+    changepass : (req,res) =>{
         return res.render('cambioContraseña')
     }
 }

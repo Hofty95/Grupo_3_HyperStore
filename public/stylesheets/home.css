@@ -23,6 +23,7 @@
 .home__main__section__article__content {
   margin: 0 auto;
   width: 80%;
+
 }
 
 .home__main__section__article__content h2 {
@@ -130,6 +131,8 @@
 
 .marcas img{
   width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
 }
 
 .productos {

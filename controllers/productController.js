@@ -1,14 +1,14 @@
 module.exports = {
     busqueda:(req,res) => {
-        return res.render('busqueda')
+        return res.render('product/busqueda')
     },
     carrito:(req,res) => {
-        return res.render('carrito')
+        return res.render('product/carrito')
     },
     category:(req,res) => {
-        return res.render('category')
+        return res.render('product/category')
     },
     detalle:(req,res) => {
-        return res.render('detalle')
+        return res.render('product/detalle')
     }
 }

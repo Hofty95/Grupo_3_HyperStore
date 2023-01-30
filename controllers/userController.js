@@ -1,14 +1,14 @@
 module.exports = {
     login : (req,res) =>{
-        return res.render('login');
+        return res.render('users/login');
     },
     register : (req,res) =>{
-        return res.render('register');
+        return res.render('users/register');
     },
     usuario : (req,res) =>{
-        return res.render('usuario')
+        return res.render('users/usuario')
     },
     changepass : (req,res) =>{
-        return res.render('cambioContraseña')
+        return res.render('users/cambioContraseña')
     }
 }

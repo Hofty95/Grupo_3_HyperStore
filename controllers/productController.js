@@ -1,6 +1,10 @@
 module.exports = {
     busqueda:(req,res) => {
-        return res.render('busqueda')
+        const {keywords} = req.query
+        
+        return res.render('busqueda',{
+            keywords
+        })
     },
     carrito:(req,res) => {
         return res.render('carrito')

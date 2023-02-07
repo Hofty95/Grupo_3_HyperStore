@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 const {busqueda, carrito, category, detalle} = require('../controllers/productController')
-
 /* product */
 
 router.get('/busqueda', busqueda)

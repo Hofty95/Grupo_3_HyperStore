@@ -1,5 +1,5 @@
 module.exports = {
     Admin : (req, res) => {
-        return res.render("dashboard")
+        return res.render("admin/dashboard")
     }
 }

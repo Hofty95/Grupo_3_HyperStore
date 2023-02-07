@@ -165,6 +165,15 @@
   color: var(--colorGris);
 }
 
+.slick-dotted.slick-slider {
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.slick-prev:before, .slick-next:before {
+  visibility: hidden;
+}
+
 
 /* Tablet */
 @media (min-width:768px) {
@@ -188,6 +197,10 @@
   .boton__home__second {
     width: 30%;
   }
+
+  .slick-prev:before, .slick-next:before {
+    visibility: visible;
+  }
 }
 
 /* Desktop */
@@ -199,5 +212,9 @@
 
   .boton__home__second {
     height: 350px;
+  }
+
+  .slick-prev:before, .slick-next:before {
+    visibility: visible;
   }
 }

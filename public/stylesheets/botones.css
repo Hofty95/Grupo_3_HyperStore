@@ -179,3 +179,15 @@
   background: rgb(93, 53, 176);
   border-color: rgb(255, 255, 255);
 }
+
+/* BOTON DASHBOARD PROVISORIO */
+.BOTON__DASHBOARD__PROVISORIO{
+  background-color: goldenrod;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 0px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}

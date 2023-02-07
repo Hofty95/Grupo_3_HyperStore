@@ -5,6 +5,6 @@ const {Admin} = require("../controllers/adminController")
 
 /* /Admin */
 
-router.get("/", Admin);
+router.get("/dashboard", Admin);
 
 module.exports = router

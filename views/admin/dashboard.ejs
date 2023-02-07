@@ -1,325 +1,331 @@
 <!doctype html>
 <html lang="en">
-    <%- include('../partials/head')  %> 
-  <body>
-    <!-- Header -->
-    <%- include('../partials/header')  %> 
-    <!-- MAIN -->
-    <main>
-        <!-- MENÚ DE NAVEGACIÓN -->
-        <section class="dash__section">
-            <div class="dash__container">
-                <div class="dashboard__section__container">
-                    <button><i class="fa-solid fa-house"></i></button><a href="">
-                        <p>Dashboard</p>
-                    </a>
-                    <button><i class="fa-solid fa-cart-shopping"></i></button><a href="">
-                        <p>Artículos en venta</p>
-                    </a>
-                    <button><i class="fa-solid fa-plus"></i></button><a href="">
-                        <p>Añadir producto</p>
-                    </a>
-                    <button><i class="fa-solid fa-user"></i></button><a href="">
-                        <p>Usuarios</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-        <!-- ESTADÍSTICAS -->
-        <div class="estadisticas">
-            <section class="estadisticas__section">
-                <div class="estadisticas__container">
-                    <h2>Ventas Totales</h2>
-                    <p>0000</p>
-                </div>
-                <div class="estadisticas__container">
-                    <h2>Usuarios Registrados</h2>
-                    <p>0000</p>
-                </div>
-                <div class="estadisticas__container">
-                    <h2>Visitas Totales</h2>
-                    <p>0000</p>
-                </div>
-                <div class="estadisticas__container">
-                    <h2>Ofertas Vendidas</h2>
-                    <p>0000</p>
-                </div>
-            </section>
-        </div>
-        <!-- ARTICULOS EN VENTA -->
-        <div>
-            <div>
+<%- include('../partials/head') %>
+
+    <body>
+        <!-- Header -->
+        <%- include('../partials/header') %>
+            <!-- MAIN -->
+            <main>
+                <!-- MENÚ DE NAVEGACIÓN -->
                 <section class="dash__section">
-                    <div class="lista__container">
-                        <h2>ARTÍCULOS EN VENTA</h2>
-                        <div>
-                            <table class="table">
-                                <table class="table table-dark table-sm">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Producto</th>
-                                            <th scope="col">Código</th>
-                                            <th class="table__email" scope="col">Fecha</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mother ASRock</td>
-                                            <td>123-456-678</td>
-                                            <td class="table__email">D/M/A</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Mouse Genius</td>
-                                            <td>123-456-678</td>
-                                            <td class="table__email">D/M/A</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>NVidia 3080ti</td>
-                                            <td>123-456-678</td>
-                                            <td class="table__email">D/M/A</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Teclado Red Dragon</td>
-                                            <td>123-456-678</td>
-                                            <td class="table__email">D/M/A</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td>Auriculares Razer</td>
-                                            <td>123-456-678</td>
-                                            <td class="table__email">D/M/A</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">6</th>
-                                            <td>Monitor ViewSonic</td>
-                                            <td>123-456-678</td>
-                                            <td class="table__email">D/M/A</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                    <div class="dash__container">
+                        <div class="dashboard__section__container">
+                            <button><i class="fa-solid fa-cart-shopping"></i></button><a href="#articulos_en_venta">
+                                <p>Artículos en Venta</p>
+                            </a>
+                            <button><i class="fa-solid fa-plus"></i></button><a href="#agregar_producto">
+                                <p>Agregar Producto</p>
+                            </a>
+                            <button><i class="fa-solid fa-pen-to-square"></i></button><a href="#editar_producto">
+                                <p>Editar Producto</p>
+                            </a>
+                            <button><i class="fa-solid fa-user"></i></button><a href="#usuarios">
+                                <p>Usuarios</p>
+                            </a>
                         </div>
                     </div>
                 </section>
-            </div>
-        </div>
-        <!-- AÑADIR PRODUCTO -->
-        <div class="producto__container">
-            <div class="producto">
-                <section>
-                    <h3>Agregar Producto</h3>
-                    <div class="form__box__login">
-                        <label for="">Introducir Nombre</label>
-                        <input type="text" placeholder="Ejemplo: HyperX Cloud Flight" />
-                    </div>
-                    <div class="form__box__login">
-                        <label for="">Introducir Código</label>
-                        <input type="text" placeholder="Ejemplo: 987-654-321" />
-                    </div>
-                    <div class="form__box__login">
-                        <label for="">Introducir Precio</label>
-                        <input type="text" placeholder="Ejemplo: $25.999" />
-                    </div>
-                </section>
-                <section class="producto__file">
-                    <h3>Agregar Imágenes</h3>
-                    <input type="file" accept="jpg, png" multiple name="" id="">
-                </section>
-                <section>
-                    <h3>Agregar Descripción</h3>
-                    <div class="form__box__login">
-                        <label for="">Descripción del Producto</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                </section>
-                <section>
-                    <div class="form__box__login">
-                        <label for="">Agregar Dato 1</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                    <div class="form__box__login">
-                        <label for="">Agregar Dato 2</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                    <div class="form__box__login">
-                        <label for="">Agregar Dato 3</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                    <div class="form__box__login">
-                        <label for="">Agregar Dato 4</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                    <div class="form__box__login">
-                        <label for="">Agregar Dato 5</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                    <div class="form__box__login">
-                        <label for="">Agregar Dato 6</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                </section>
-                <div class="article1__boton__general button">
-                    <button class="boton__general" type="submit">
-                        Enviar
-                    </button>
+                <!-- ESTADÍSTICAS -->
+                <div class="estadisticas">
+                    <section class="estadisticas__section">
+                        <div class="estadisticas__container">
+                            <h2>Ventas Totales</h2>
+                            <p>0000</p>
+                        </div>
+                        <div class="estadisticas__container">
+                            <h2>Usuarios Registrados</h2>
+                            <p>0000</p>
+                        </div>
+                        <div class="estadisticas__container">
+                            <h2>Visitas Totales</h2>
+                            <p>0000</p>
+                        </div>
+                        <div class="estadisticas__container">
+                            <h2>Ofertas Vendidas</h2>
+                            <p>0000</p>
+                        </div>
+                    </section>
                 </div>
-            </div>
-        </div>
-        <!-- EDITAR PRODUCTO -->
-        <div class="producto__container">
-            <div class="producto">
-                <section>
-                    <h3>Editar Producto</h3>
+                <!-- ARTICULOS EN VENTA -->
+                <div>
                     <div>
-                        <p>Seleccionar el producto a editar</p>
-                        <label for="cars">Producto:</label>
-                        <select name="cars" id="cars">
-                            <optgroup label="Mouses">
-                                <option value="mouse1">Mouse1</option>
-                                <option value="mouse2">Mouse2</option>
-                            </optgroup>
-                            <optgroup label="Teclados">
-                                <option value="teclado1">Teclado1</option>
-                                <option value="teclado2">teclado2</option>
-                            </optgroup>
-                        </select>
-                        <br><br>
+                        <section class="dash__section">
+                            <div class="lista__container">
+                                <h2 id="articulos_en_venta">Artículos en venta</h2>
+                                <div>
+                                    <table class="table">
+                                        <table class="table table-dark table-sm">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Producto</th>
+                                                    <th scope="col">Código</th>
+                                                    <th class="table__email" scope="col">Fecha</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Mother ASRock</td>
+                                                    <td>123-456-678</td>
+                                                    <td class="table__email">D/M/A</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>Mouse Genius</td>
+                                                    <td>123-456-678</td>
+                                                    <td class="table__email">D/M/A</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>NVidia 3080ti</td>
+                                                    <td>123-456-678</td>
+                                                    <td class="table__email">D/M/A</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>Teclado Red Dragon</td>
+                                                    <td>123-456-678</td>
+                                                    <td class="table__email">D/M/A</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">5</th>
+                                                    <td>Auriculares Razer</td>
+                                                    <td>123-456-678</td>
+                                                    <td class="table__email">D/M/A</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">6</th>
+                                                    <td>Monitor ViewSonic</td>
+                                                    <td>123-456-678</td>
+                                                    <td class="table__email">D/M/A</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <!-- AÑADIR PRODUCTO -->
+                <div class="producto__container">
+                    <div class="producto">
+                        <section>
+                            <h3 id="agregar_producto">Agregar Producto</h3>
+                            <div class="form__box__login">
+                                <label for="">Introducir Nombre</label>
+                                <input type="text" placeholder="Ejemplo: HyperX Cloud Flight" />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="">Introducir Código</label>
+                                <input type="text" placeholder="Ejemplo: 987-654-321" />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="">Introducir Precio</label>
+                                <input type="text" placeholder="Ejemplo: $25.999" />
+                            </div>
+                        </section>
+                        <section class="producto__file">
+                            <h3>Añadir Imágenes</h3>
+                            <input type="file" accept="jpg, png" multiple name="" id="">
+                        </section>
+                        <section>
+                            <h3>Añadir Descripción</h3>
+                            <div class="form__box__login">
+                                <label for="">Descripción del Producto</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                        </section>
+                        <section>
+                            <div class="form__box__login">
+                                <label for="">Agregar Dato 1</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="">Agregar Dato 2</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="">Agregar Dato 3</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="">Agregar Dato 4</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="">Agregar Dato 5</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="">Agregar Dato 6</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                        </section>
                         <div class="article1__boton__general button">
                             <button class="boton__general" type="submit">
                                 Enviar
                             </button>
                         </div>
-                        <div class="form__box__login">
-                            <label for="">Editar Nombre</label>
-                            <input type="text" placeholder="Ejemplo: HyperX Cloud Flight" />
-                        </div>
-                        <div class="form__box__login">
-                            <label for="">Editar Código</label>
-                            <input type="text" placeholder="Ejemplo: 987-654-321" />
-                        </div>
-                        <div class="form__box__login">
-                            <label for="">Editar Precio</label>
-                            <input type="text" placeholder="Ejemplo: $25.999" />
-                        </div>
-                </section>
-                <section class="producto__file">
-                    <h3>Editar Imágenes</h3>
-                    <input type="file" accept="jpg, png" multiple name="" id="">
-                </section>
-                <section>
-                    <h3>Editar Descripción</h3>
-                    <div class="form__box__login">
-                        <label for="">Descripción del Producto</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                </section>
-                <section>
-                    <div class="form__box__login">
-                        <label for="">Editar Dato 1</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                    <div class="form__box__login">
-                        <label for="">Editar Dato 2</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                    <div class="form__box__login">
-                        <label for="">Editar Dato 3</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                    <div class="form__box__login">
-                        <label for="">Editar Dato 4</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                    <div class="form__box__login">
-                        <label for="">Editar Dato 5</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                    <div class="form__box__login">
-                        <label for="">Editar Dato 6</label>
-                        <input type="text" placeholder="Introducir Texto..." />
-                    </div>
-                </section>
-                <div class="article1__boton__general button">
-                    <button class="boton__general" type="submit">
-                        Enviar
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- LISTA DE USUARIOS -->
-        <div>
-            <section class="dash__section">
-                <div class="lista__container">
-                    <h2>USUARIOS REGISTRADOS</h2>
-                    <div>
-                        <table class="table">
-                            <table class="table table-dark table-sm">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Usuario</th>
-                                        <th scope="col">Número</th>
-                                        <th class="table__email" scope="col">Email</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>123-456-678</td>
-                                        <td class="table__email">@gmail.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>123-456-678</td>
-                                        <td class="table__email">@gmail.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>123-456-678</td>
-                                        <td class="table__email">@gmail.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Jason</td>
-                                        <td>123-456-678</td>
-                                        <td class="table__email">@gmail.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Damon</td>
-                                        <td>123-456-678</td>
-                                        <td class="table__email">@gmail.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">6</th>
-                                        <td>Bob</td>
-                                        <td>123-456-678</td>
-                                        <td class="table__email">@gmail.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
                     </div>
                 </div>
-            </section>
-        </div>
-        <!-- ARROWS -->
-        <div class="flechas__navegador">
-            <i class="fa-solid fa-arrow-left"></i>
-            <a href="">1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-            <i class="fa-solid fa-arrow-right"></i>
-        </div>
-    </main>
-    <!-- Footer -->
-    <%- include('../partials/footer')  %> 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  </body>
+                <!-- EDITAR PRODUCTO -->
+                <div class="producto__container">
+                    <div class="producto">
+                        <section>
+                            <h3 id="editar_producto">Editar Producto</h3>
+                            <div>
+                                <div class="main__info__section select">
+                                    <p>Seleccionar el producto a editar</p>
+                                    <label for="cars">Producto:</label>
+                                    <select name="cars" id="cars">
+                                        <optgroup label="Mouses">
+                                            <option value="mouse1">Mouse1</option>
+                                            <option value="mouse2">Mouse2</option>
+                                        </optgroup>
+                                        <optgroup label="Teclados">
+                                            <option value="teclado1">Teclado1</option>
+                                            <option value="teclado2">teclado2</option>
+                                        </optgroup>
+                                    </select>
+                                    <br><br>
+                                </div>
+                                <div class="article1__boton__general button">
+                                    <button class="boton__general" type="submit">
+                                        Enviar
+                                    </button>
+                                </div>
+                                <div class="form__box__login">
+                                    <label for="">Editar Nombre</label>
+                                    <input type="text" placeholder="Ejemplo: HyperX Cloud Flight" />
+                                </div>
+                                <div class="form__box__login">
+                                    <label for="">Editar Código</label>
+                                    <input type="text" placeholder="Ejemplo: 987-654-321" />
+                                </div>
+                                <div class="form__box__login">
+                                    <label for="">Editar Precio</label>
+                                    <input type="text" placeholder="Ejemplo: $25.999" />
+                                </div>
+                        </section>
+                        <section class="producto__file">
+                            <h3>Editar Imágenes</h3>
+                            <input type="file" accept="jpg, png" multiple name="" id="">
+                        </section>
+                        <section>
+                            <h3>Editar Descripción</h3>
+                            <div class="form__box__login">
+                                <label for="">Descripción del Producto</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                        </section>
+                        <section>
+                            <div class="form__box__login">
+                                <label for="">Editar Dato 1</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="">Editar Dato 2</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="">Editar Dato 3</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="">Editar Dato 4</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="">Editar Dato 5</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="">Editar Dato 6</label>
+                                <input type="text" placeholder="Introducir Texto..." />
+                            </div>
+                        </section>
+                        <div class="article1__boton__general button">
+                            <button class="boton__general" type="submit">
+                                Enviar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- LISTA DE USUARIOS -->
+                <div>
+                    <section class="dash__section">
+                        <div class="lista__container">
+                            <h2 id="usuarios">USUARIOS REGISTRADOS</h2>
+                            <div>
+                                <table class="table">
+                                    <table class="table table-dark table-sm">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Usuario</th>
+                                                <th scope="col">Número</th>
+                                                <th class="table__email" scope="col">Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>123-456-678</td>
+                                                <td class="table__email">@gmail.com</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>123-456-678</td>
+                                                <td class="table__email">@gmail.com</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                                <td>123-456-678</td>
+                                                <td class="table__email">@gmail.com</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Jason</td>
+                                                <td>123-456-678</td>
+                                                <td class="table__email">@gmail.com</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>Damon</td>
+                                                <td>123-456-678</td>
+                                                <td class="table__email">@gmail.com</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">6</th>
+                                                <td>Bob</td>
+                                                <td>123-456-678</td>
+                                                <td class="table__email">@gmail.com</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- ARROWS -->
+                <div class="flechas__navegador">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <a href="">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </main>
+            <!-- Footer -->
+            <%- include('../partials/footer') %>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+                    crossorigin="anonymous"></script>
+    </body>
+
 </html>

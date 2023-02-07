@@ -68,6 +68,10 @@
 
 /* TABLET */
 @media (min-width: 768px) {
+    .busqueda__checkbox__container{
+        display: flex;
+        justify-content: space-around;
+    }
     .main__info__section {
         padding: 30px 20px 5px;
     }

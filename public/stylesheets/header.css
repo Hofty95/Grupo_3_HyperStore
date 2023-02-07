@@ -128,7 +128,7 @@
 
 .header__section2{
     background-color: var(--colorVioleta);
-    padding: 4px;
+    padding: 5px;
     display: none;
 }
 
@@ -140,7 +140,7 @@
     border: none;
     background-color: rgba(0, 0, 0, 0);
     color: white;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -153,7 +153,7 @@
     border: none;
     background-color: rgba(0, 0, 0, 0);
     color: white;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -166,7 +166,7 @@
     border: none;
     background-color: rgba(0, 0, 0, 0);
     color: white;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
 }

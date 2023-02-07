@@ -85,7 +85,7 @@
    }
    
    button.learn-more .button-text {
-    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    transition: all 0.20s cubic-bezier(0.65, 0, 0.076, 1);
     position: absolute;
     top: 0;
     left: 0;
@@ -117,7 +117,7 @@
 
 
 
-/* Tablet */
+/* desktop */
 @media (min-width:1024px) {
     .main__category__article1{
         width: 1000px;
@@ -132,10 +132,23 @@
     .button-text{
         visibility: hidden;
         text-align: right;
+        vertical-align: middle;
     }
 
     .learn-more:hover .button-text{
         visibility: visible;
+    }
+
+    .learn-more .circle{
+        width: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    button.learn-more .button-text{
+        left: 55px;
+        margin: 0;
+        color: white;
     }
 
     .btn1{

@@ -153,7 +153,10 @@
 }
 
 .card:hover{
-  box-shadow: 0px 0px 30px 14px var(--colorVioleta);
+/*   box-shadow: 0px 0px 3px 3px var(--colorVioleta); */
+box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
+-webkit-box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
+-moz-box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
   z-index: 100;
 }
 
@@ -163,6 +166,15 @@
 
 .card-text{
   color: var(--colorGris);
+}
+
+.slick-dotted.slick-slider {
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.slick-prev:before, .slick-next:before {
+  visibility: hidden;
 }
 
 
@@ -188,6 +200,10 @@
   .boton__home__second {
     width: 30%;
   }
+
+  .slick-prev:before, .slick-next:before {
+    visibility: visible;
+  }
 }
 
 /* Desktop */
@@ -199,5 +215,9 @@
 
   .boton__home__second {
     height: 350px;
+  }
+
+  .slick-prev:before, .slick-next:before {
+    visibility: visible;
   }
 }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head')  %> 
+  <%- include('../partials/head') %>
   <body>
     <!-- header -->
-    <% include('../partials/header')  %> 
+    <% include('../partials/header') %>
     <main class="cambioClave__main">
       <section class="cambioClave__main__section">
         <h2>¿Olvido su contraseña?</h2>
@@ -17,12 +17,12 @@
             <input type="email" id="email" />
             <button type="submit" class="boton__general">Enviar</button>
           </div>
-          <div class="cambioClave__main__section__form__terms">
-            <label class="container">
-              <input type="checkbox" checked="checked" name="terminos" />
-              <div class="checkmark"></div>
+          <div class="cambioClave__main__section__form__box">
+            <label class="b-contain">
+              <span>Acepto las politicas de privacidad</span>
+              <input type="checkbox" />
+              <div class="b-input"></div>
             </label>
-            <label for="terminos">Acepto la política de privacidad</label>
           </div>
         </form>
         <div class="cambioClave__main__section__form__btn">
@@ -31,7 +31,11 @@
       </section>
     </main>
     <!-- Footer -->
-    <% include('../partials/footer')  %> 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <% include('../partials/footer') %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -76,8 +76,7 @@
 .button__login button {
   width: 90%;
   font-weight: 500;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin: 20px 0px;
   padding: 10px;
 }
 
@@ -153,7 +152,18 @@
     align-content: space-around;
   }
   .form__box__login button {
-    right: 34px;
+    right: 38px;
+    top: 53px;
+    font-size: 18px;
+  }
+
+  .form__box__login__link {
+    margin-top: 10px;
+    transition: all 0.5ms;
+  }
+
+  .form__box__login__link:hover {
+    color: #e0edef;
   }
   .button__login {
     display: flex;

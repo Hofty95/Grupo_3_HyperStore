@@ -1,0 +1,30 @@
+[
+    {
+        "id" : 1,
+        "name" : "Pc"
+    },
+    {
+        "id" : 2,
+        "name" : "Monitores"
+    },
+    {
+        "id" : 3,
+        "name" : "Mouse"
+    },
+    {
+        "id" : 4,
+        "name" : "Teclado"
+    },
+    {
+        "id" : 5,
+        "name" : "Audio"
+    },
+    {
+        "id" : 6,
+        "name" : "Mobiliario"
+    },
+    {
+        "id" : 7,
+        "name" : "Perifericos"
+    }
+]

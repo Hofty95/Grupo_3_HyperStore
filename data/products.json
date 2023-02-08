@@ -37,8 +37,8 @@
   },
   {
     "id": 4,
-    "codigo-producto": "Monitor LED 20 Viewsonic VA2055SM",
-    "name": "Tobe",
+    "codigo-producto": "45674-456",
+    "name": "Monitor LED 20 Viewsonic VA2055SM",
     "price": 1516.6,
     "discount": true,
     "discount-amount": 28,
@@ -49,8 +49,8 @@
   },
   {
     "id": 5,
-    "codigo-producto": "Monitor LED 19 Samsung LS19A330NHL VGA HDMI",
-    "name": "Lacee",
+    "codigo-producto": "78921-12",
+    "name": "Monitor LED 19 Samsung LS19A330NHL VGA HDMI",
     "price": 232.82,
     "discount": false,
     "discount-amount": 56,
@@ -140,7 +140,7 @@
     "discount-amount": 35,
     "description": "Repair Left Kidney, Percutaneous Approach",
     "sub-description": "Repair Left Kidney, Percutaneous Approach",
-    "category": "Moviliario",
+    "category": "Mobiliario",
     "image": null
   },
   {
@@ -152,7 +152,7 @@
     "discount-amount": 49,
     "description": "Removal of Nonautologous Tissue Substitute from Pancreatic Duct, Open Approach",
     "sub-description": "Removal of Nonaut Sub from Pancreat Duct, Open Approach",
-    "category": "Moviliario",
+    "category": "Mobiliario",
     "image": null
   },
   {

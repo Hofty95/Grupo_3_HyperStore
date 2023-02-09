@@ -115,18 +115,26 @@
                                 <label for="subDescription">Sub-Descripcion</label>
                                 <input type="text" name="subDescription" placeholder="Introducir Texto..." />
                             </div>
-                            <div class="form__box__login">
-                                <label for="discount">Descuento</label>
-                                <input type="text" name="discount" placeholder="Introducir Texto..." />
+                            <div class="main__info__section select">
+                                <p>Seleccione si el producto posee descuento o no.</p>
+                                <label for="discount">Descuento:</label>
+                                <select name="discount" id="discount">
+                                    <optgroup label="Descuento">
+                                        <option value="" selected hidden>Seleccione...</option>
+                                        <option value="true">Con descuento</option>
+                                        <option value="false">Sin descuento</option>
+                                    </optgroup>
+                                </select>
+                                <br><br>
                             </div>
                             <div class="form__box__login">
                                 <label for="discountAmount">Porcentaje de Descuento</label>
-                                <input type="text" name="discountAmount" placeholder="Introducir Texto..." />
+                                <input type="text" name="discountAmount" placeholder="Introducir porcentaje de Descuento..." />
                             </div>
                             <div class="main__info__section select">
                                 <p>Seleccionar Categoria</p>
-                                <label for="cars">Categorias:</label>
-                                <select name="cars" id="cars">
+                                <label for="category">Categorias:</label>
+                                <select name="category" id="category">
                                     <optgroup label="Categorias">
                                         <option value="" selected hidden>Seleccione...</option>
                                         <% categories.forEach(category => { %>
@@ -135,10 +143,6 @@
                                     </optgroup>
                                 </select>
                                 <br><br>
-                            </div>
-                            <div class="form__box__login">
-                                <label for="category">Categoria</label>
-                                <input type="text" name="category" placeholder="Introducir Texto..." />
                             </div>
                         </section>
                         <div class="article1__boton__general button">

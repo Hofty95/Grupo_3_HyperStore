@@ -5,8 +5,7 @@ const categories = require("../data/categories.json");
 const products = require("../data/products.json");
 const users = require("../data/users.json");
 
-const readJson = (json) => { return JSON.parse(fs.readFileSync(path.resolve(__dirname,json)))};
-const writeJson = (json, array) => { return fs.writeFileSync(path.resolve(__dirname, json), JSON.stringify(array, null ,3), "utf-8")};
+const {readJson, writeJson} = require("../data/readWrite")
 
 module.exports = {
     Admin : (req, res) => {
@@ -17,7 +16,26 @@ module.exports = {
         })
     },
     storeProduct : (req, res) => {
-        return res.send(req.body)
+        const products = readJson('products.json')
+        const {code, name, price, discount, discountAmount, description, subDescription, category} = req.body
+        const newProduct = {
+            id : products[products.length - 1].id + 1,
+            code : code,
+            name : name,
+            price : price,
+            discount : discount,
+            discountAmount : discountAmount,
+            description : description,
+            subDescription : subDescription,
+            category : category,
+            Image : null
+        }
+
+        products.push(newProduct)
+
+        writeJson('products.json', products)
+
+        res.redirect("/admin/dashboard");
     },
     editProduct : (req, res) => {
 

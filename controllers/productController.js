@@ -14,10 +14,13 @@ module.exports = {
     detalle:(req,res) => {
         const {id} = req.params;
         
+        const ofertProduct = products.filter(product => product.discount)
         const product = products.find((product) => product.id === +id)
         return res.render('product/detalle',{
             title: 'Detalle de producto',
             ...product,
+            products,
+            ofertProduct,
             toThousand
         })
     }

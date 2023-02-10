@@ -61,46 +61,18 @@
                                                     <th scope="col">#</th>
                                                     <th scope="col">Producto</th>
                                                     <th scope="col">Código</th>
-                                                    <th class="table__email" scope="col">Fecha</th>
+                                                    <th class="table__email" scope="col">Precio</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <% products.forEach(product => { %>
                                                 <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Mother ASRock</td>
-                                                    <td>123-456-678</td>
-                                                    <td class="table__email">D/M/A</td>
+                                                    <th scope="row"><%= product.id %></th>
+                                                    <td><%= product.name %></td>
+                                                    <td><%= product.code %></td>
+                                                    <td class="table__email">$<%= product.price %></td>
                                                 </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Mouse Genius</td>
-                                                    <td>123-456-678</td>
-                                                    <td class="table__email">D/M/A</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>NVidia 3080ti</td>
-                                                    <td>123-456-678</td>
-                                                    <td class="table__email">D/M/A</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">4</th>
-                                                    <td>Teclado Red Dragon</td>
-                                                    <td>123-456-678</td>
-                                                    <td class="table__email">D/M/A</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">5</th>
-                                                    <td>Auriculares Razer</td>
-                                                    <td>123-456-678</td>
-                                                    <td class="table__email">D/M/A</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">6</th>
-                                                    <td>Monitor ViewSonic</td>
-                                                    <td>123-456-678</td>
-                                                    <td class="table__email">D/M/A</td>
-                                                </tr>
+                                                <% }) %>
                                             </tbody>
                                         </table>
                                 </div>
@@ -111,19 +83,20 @@
                 <!-- AÑADIR PRODUCTO -->
                 <div class="producto__container">
                     <div class="producto">
+                        <form action="" method="post">
                         <section>
                             <h3 id="agregar_producto">Agregar Producto</h3>
                             <div class="form__box__login">
-                                <label for="">Introducir Nombre</label>
-                                <input type="text" placeholder="Ejemplo: HyperX Cloud Flight" />
+                                <label for="name">Introducir Nombre</label>
+                                <input type="text" name="name" placeholder="Ejemplo: HyperX Cloud Flight" />
                             </div>
                             <div class="form__box__login">
-                                <label for="">Introducir Código</label>
-                                <input type="text" placeholder="Ejemplo: 987-654-321" />
+                                <label for="code">Introducir Código</label>
+                                <input type="text" name="code" placeholder="Ejemplo: 987-654-321" />
                             </div>
                             <div class="form__box__login">
-                                <label for="">Introducir Precio</label>
-                                <input type="text" placeholder="Ejemplo: $25.999" />
+                                <label for="price">Introducir Precio</label>
+                                <input type="number" name="price" placeholder="Ejemplo: $25.999" />
                             </div>
                         </section>
                         <section class="producto__file">
@@ -133,41 +106,51 @@
                         <section>
                             <h3>Añadir Descripción</h3>
                             <div class="form__box__login">
-                                <label for="">Descripción del Producto</label>
-                                <input type="text" placeholder="Introducir Texto..." />
+                                <label for="description">Descripción del Producto</label>
+                                <input type="text" name="description" placeholder="Introducir Texto..." />
                             </div>
                         </section>
                         <section>
                             <div class="form__box__login">
-                                <label for="">Agregar Dato 1</label>
-                                <input type="text" placeholder="Introducir Texto..." />
+                                <label for="subDescription">Sub-Descripcion</label>
+                                <input type="text" name="subDescription" placeholder="Introducir Texto..." />
+                            </div>
+                            <div class="main__info__section select">
+                                <p>Seleccione si el producto posee descuento o no.</p>
+                                <label for="discount">Descuento:</label>
+                                <select name="discount" id="discount">
+                                    <optgroup label="Descuento">
+                                        <option value="" selected hidden>Seleccione...</option>
+                                        <option value="true">Con descuento</option>
+                                        <option value="false">Sin descuento</option>
+                                    </optgroup>
+                                </select>
+                                <br><br>
                             </div>
                             <div class="form__box__login">
-                                <label for="">Agregar Dato 2</label>
-                                <input type="text" placeholder="Introducir Texto..." />
+                                <label for="discountAmount">Porcentaje de Descuento</label>
+                                <input type="text" name="discountAmount" placeholder="Introducir porcentaje de Descuento..." />
                             </div>
-                            <div class="form__box__login">
-                                <label for="">Agregar Dato 3</label>
-                                <input type="text" placeholder="Introducir Texto..." />
-                            </div>
-                            <div class="form__box__login">
-                                <label for="">Agregar Dato 4</label>
-                                <input type="text" placeholder="Introducir Texto..." />
-                            </div>
-                            <div class="form__box__login">
-                                <label for="">Agregar Dato 5</label>
-                                <input type="text" placeholder="Introducir Texto..." />
-                            </div>
-                            <div class="form__box__login">
-                                <label for="">Agregar Dato 6</label>
-                                <input type="text" placeholder="Introducir Texto..." />
+                            <div class="main__info__section select">
+                                <p>Seleccionar Categoria</p>
+                                <label for="category">Categorias:</label>
+                                <select name="category" id="category">
+                                    <optgroup label="Categorias">
+                                        <option value="" selected hidden>Seleccione...</option>
+                                        <% categories.forEach(category => { %>
+                                        <option value="<%= category.name %>"><%= category.name %></option> 
+                                        <% }) %>
+                                    </optgroup>
+                                </select>
+                                <br><br>
                             </div>
                         </section>
                         <div class="article1__boton__general button">
                             <button class="boton__general" type="submit">
                                 Enviar
                             </button>
-                        </div>
+                        </div>                            
+                        </form>
                     </div>
                 </div>
                 <!-- EDITAR PRODUCTO -->

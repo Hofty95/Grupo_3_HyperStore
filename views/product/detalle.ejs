@@ -10,7 +10,7 @@
             <p class="main__section__categoria">Categoría > Subcategoría</p>
             <article class="main__section__article1">
                 <div class="main__section__article1__description">
-                    <h1>Auricular HyperX Cloud Blue HHSC2-FA-BL/N PS5/PS4</h1>
+                    <h1><%= name %></h1>
                     <small>código</small>
                 </div>
                 <div class="main__section__container">
@@ -52,8 +52,8 @@
                     </div>
                     <div class="main__section__article1__panel">
                         <div class="main__section__article1__precio">
-                            <h2>$17.027</h2>
-                            <p>PAGO CONTADO <b>10% OFF</b></p>
+                            <p>PAGO CONTADO <b><%= discountAmount %>% OFF</b></p>
+                            <h2><%= toThousand(price) %></h2>
                             <i class="fa-solid fa-shield"></i>
                             <small>1 año de garantía</small></i>
                         </div>

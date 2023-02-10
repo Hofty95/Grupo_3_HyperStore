@@ -1,3 +1,6 @@
+const products = require('../data/products.json')
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
 module.exports = {
     busqueda:(req,res) => {
         return res.render('product/busqueda')
@@ -9,6 +12,13 @@ module.exports = {
         return res.render('product/category')
     },
     detalle:(req,res) => {
-        return res.render('product/detalle')
+        const {id} = req.params;
+        
+        const product = products.find((product) => product.id === +id)
+        return res.render('product/detalle',{
+            title: 'Detalle de producto',
+            ...product,
+            toThousand
+        })
     }
 }

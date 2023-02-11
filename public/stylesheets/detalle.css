@@ -257,7 +257,7 @@
         border-radius: 8px;
         padding: 15px;
         width: 49%;
-        height: 415px;
+        height: 100%;
     }
     .main__section__imagenes{
         width: 49%;
@@ -337,7 +337,7 @@
         margin: 0 auto;
     }
     .main__section__article1__panel{
-        height: 425px;
+        height: 100%;
     }
     .main__section__recomendados__container{
         width: 75%;

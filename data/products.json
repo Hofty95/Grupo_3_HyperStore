@@ -180,15 +180,15 @@
       "image": null
    },
    {
-      "id": 16,
+      "id": "16",
       "code": "123-321-23",
-      "name": "joystick",
+      "name": "joystick asd",
       "price": "12000",
-      "discount": "true",
+      "discount": "selected",
       "discountAmount": "30",
       "description": "un joystick gamer",
       "subDescription": "es re gamer",
-      "category": "Perifericos",
+      "category": "",
       "Image": null
    }
 ]

@@ -9,7 +9,7 @@
                 <div class="producto__container">
                     <div class="producto">
                         <h3 id="editar_producto">Editar Producto</h3>
-                        <form action="/dashboard?_method:put" method="post">
+                        <form action="/admin/dashboard/edit/<%= id %>?_method=PUT" method="post">
                         <section>
                             <div class="form__box__login">
                                 <label for="name">Introducir Nombre</label>

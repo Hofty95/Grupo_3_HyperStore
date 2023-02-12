@@ -54,7 +54,7 @@ module.exports = {
         const {code, name, price, discount, discountAmount, description, subDescription, category} = req.body
 
         let productsEdited = products.map((product) => {
-            if (products.id === +id){
+            if (product.id === +id){
                 let productEdited = {
                 id : id,
                 code : code,

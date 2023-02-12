@@ -275,7 +275,7 @@
     .main__section__article1__add__tablet{
         display: flex;
         justify-content: center;
-        padding: 10px 0px 15px 0px;
+        padding: 3px 0px 15px 0px;
     }
 
     .main__section__article1__descuento div {
@@ -337,7 +337,7 @@
         margin: 0 auto;
     }
     .main__section__article1__panel{
-        height: 425px;
+        height: 435px;
     }
     .main__section__recomendados__container{
         width: 75%;

@@ -53,7 +53,10 @@
                     <div class="main__section__article1__panel">
                         <div class="main__section__article1__precio">
                             <p>PAGO CONTADO <b><%= discountAmount %>% OFF</b></p>
-                            <h2><%= toThousand(price) %></h2>
+                            <h2>$<%= toThousand(price) %></h2>
+                            <p>
+                        Precio con descuento: $<%= toThousand(Math.floor(price - (price * discountAmount) / 100)) %>
+                            </p>
                             <i class="fa-solid fa-shield"></i>
                             <small>1 año de garantía</small></i>
                         </div>

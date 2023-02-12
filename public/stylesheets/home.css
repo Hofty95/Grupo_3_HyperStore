@@ -160,7 +160,7 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
   z-index: 100;
 }
 
-.card-title{
+.card-title a{
   color: var(--colorVioleta);
 }
 

@@ -1,8 +1,8 @@
 <div class="card">
     <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title"><%= name %></h5>
-      <p class="card-text"><%= price %></p>
+      <h5 class="card-title"><a href="/product/detalle/<%= id %>"><%= name %></a></h5>
+      <p class="card-text">$<%= toThousand(price) %></p>
       <a href="/product/detalle/<%= id %>" class="btn btn-primary">Ver Mas</a>
     </div>
   </div>

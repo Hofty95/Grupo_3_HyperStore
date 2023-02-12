@@ -1,21 +1,5 @@
 [
    {
-      "id": 2,
-      "userName": "ilearmonth1",
-      "email": "ilearmonth1@fotki.com",
-      "firstName": "Iggy",
-      "lastName": "Learmonth",
-      "phone": "428-444-7289",
-      "dni": "601-83-4957",
-      "addressName": "Pawling",
-      "addressNumber": "050",
-      "deptFloor": 2,
-      "deptNum": 2,
-      "postalCode": "350 02",
-      "province": null,
-      "location": "Cheb"
-   },
-   {
       "id": 3,
       "userName": "hizachik2",
       "email": "hizachik2@seesaa.net",

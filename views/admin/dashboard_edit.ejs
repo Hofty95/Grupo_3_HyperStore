@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+    <body>
+        <!-- Header -->
+        <%- include('../partials/header') %>
+            <main>
+                <!-- EDITAR PRODUCTO -->
+                <div class="producto__container">
+                    <div class="producto">
+                        <h3 id="editar_producto">Editar Producto</h3>
+                        <form action="/dashboard?_method:put" method="post">
+                        <section>
+                            <div class="form__box__login">
+                                <label for="name">Introducir Nombre</label>
+                                <input type="text" name="name" value="<%= name %>"/>
+                            </div>
+                            <div class="form__box__login">
+                                <label for="code">Introducir Código</label>
+                                <input type="text" name="code" value="<%= code %>"/>
+                            </div>
+                            <div class="form__box__login">
+                                <label for="price">Introducir Precio</label>
+                                <input type="number" name="price" value="<%= price %>"/>
+                            </div>
+                        </section>
+                        <section class="producto__file">
+                            <h3>Añadir Imágenes</h3>
+                            <input type="file" accept="jpg, png" multiple name="" id="">
+                        </section>
+                        <section>
+                            <h3>Añadir Descripción</h3>
+                            <div class="form__box__login">
+                                <label for="description">Descripción del Producto</label>
+                                <input type="text" name="description" value="<%= description %>"/>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="form__box__login">
+                                <label for="subDescription">Sub-Descripcion</label>
+                                <input type="text" name="subDescription" value="<%= subDescription %>"/>
+                            </div>
+                            <div class="main__info__section select">
+                                <p>Seleccione si el producto posee descuento o no.</p>
+                                <label for="discount">Descuento:</label>
+                                <select name="discount" id="discount">
+                                    <optgroup label="Descuento">
+                                        <option value="<%= discount === "true" && "selected" %>">Con descuento</option>
+                                        <option value="<%= discount === "false" && "selected" %>">Sin descuento</option>
+                                    </optgroup>
+                                </select>
+                                <br><br>
+                            </div>
+                            <div class="form__box__login">
+                                <label for="discountAmount">Porcentaje de Descuento</label>
+                                <input type="text" name="discountAmount" value="<%= discountAmount %>"/>
+                            </div>
+                            <div class="main__info__section select">
+                                <p>Seleccionar Categoria</p>
+                                <label for="category">Categorias:</label>
+                                <select name="category" id="category">
+                                    <optgroup label="Categorias">
+                                        <% categories.forEach(category=> { %>
+                                            <option value="<%= category.name === category ? category.name : null%>">
+                                                <%= category.name %>
+                                            </option>
+                                            <% }) %>
+                                    </optgroup>
+                                </select>
+                                <br><br>
+                            </div>
+                        </section>
+                        <div class="article1__boton__general button">
+                            <button class="boton__general" type="submit">
+                                Enviar
+                            </button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+            <%- include('../partials/footer') %>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+                    crossorigin="anonymous"></script>
+    </body>
+</html>

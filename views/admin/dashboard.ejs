@@ -62,6 +62,7 @@
                                                     <th scope="col">Producto</th>
                                                     <th scope="col">Código</th>
                                                     <th class="table__email" scope="col">Precio</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -71,6 +72,7 @@
                                                     <td><%= product.name %></td>
                                                     <td><%= product.code %></td>
                                                     <td class="table__email">$<%= product.price %></td>
+                                                    <td><form action="/admin/dashboard/edit/<%= product.id %>" method="get" class=""><button class="boton__general">Edit</button></form></td>
                                                 </tr>
                                                 <% }) %>
                                             </tbody>
@@ -153,89 +155,7 @@
                         </form>
                     </div>
                 </div>
-                <!-- EDITAR PRODUCTO -->
-                <div class="producto__container">
-                    <div class="producto">
-                        <section>
-                            <h3 id="editar_producto">Editar Producto</h3>
-                            <div>
-                                <div class="main__info__section select">
-                                    <p>Seleccionar el producto a editar</p>
-                                    <label for="cars">Producto:</label>
-                                    <select name="cars" id="cars">
-                                        <optgroup label="Mouses">
-                                            <option value="mouse1">Mouse1</option>
-                                            <option value="mouse2">Mouse2</option>
-                                        </optgroup>
-                                        <optgroup label="Teclados">
-                                            <option value="teclado1">Teclado1</option>
-                                            <option value="teclado2">teclado2</option>
-                                        </optgroup>
-                                    </select>
-                                    <br><br>
-                                </div>
-                                <div class="article1__boton__general button">
-                                    <button class="boton__general" type="submit">
-                                        Enviar
-                                    </button>
-                                </div>
-                                <div class="form__box__login">
-                                    <label for="">Editar Nombre</label>
-                                    <input type="text" placeholder="Ejemplo: HyperX Cloud Flight" />
-                                </div>
-                                <div class="form__box__login">
-                                    <label for="">Editar Código</label>
-                                    <input type="text" placeholder="Ejemplo: 987-654-321" />
-                                </div>
-                                <div class="form__box__login">
-                                    <label for="">Editar Precio</label>
-                                    <input type="text" placeholder="Ejemplo: $25.999" />
-                                </div>
-                        </section>
-                        <section class="producto__file">
-                            <h3>Editar Imágenes</h3>
-                            <input type="file" accept="jpg, png" multiple name="" id="">
-                        </section>
-                        <section>
-                            <h3>Editar Descripción</h3>
-                            <div class="form__box__login">
-                                <label for="">Descripción del Producto</label>
-                                <input type="text" placeholder="Introducir Texto..." />
-                            </div>
-                        </section>
-                        <section>
-                            <div class="form__box__login">
-                                <label for="">Editar Dato 1</label>
-                                <input type="text" placeholder="Introducir Texto..." />
-                            </div>
-                            <div class="form__box__login">
-                                <label for="">Editar Dato 2</label>
-                                <input type="text" placeholder="Introducir Texto..." />
-                            </div>
-                            <div class="form__box__login">
-                                <label for="">Editar Dato 3</label>
-                                <input type="text" placeholder="Introducir Texto..." />
-                            </div>
-                            <div class="form__box__login">
-                                <label for="">Editar Dato 4</label>
-                                <input type="text" placeholder="Introducir Texto..." />
-                            </div>
-                            <div class="form__box__login">
-                                <label for="">Editar Dato 5</label>
-                                <input type="text" placeholder="Introducir Texto..." />
-                            </div>
-                            <div class="form__box__login">
-                                <label for="">Editar Dato 6</label>
-                                <input type="text" placeholder="Introducir Texto..." />
-                            </div>
-                        </section>
-                        <div class="article1__boton__general button">
-                            <button class="boton__general" type="submit">
-                                Enviar
-                            </button>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- LISTA DE USUARIOS -->
                 <div>
                     <section class="dash__section">

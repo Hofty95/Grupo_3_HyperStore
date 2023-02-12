@@ -38,6 +38,41 @@ module.exports = {
         res.redirect("/admin/dashboard");
     },
     editProduct : (req, res) => {
+        const products = readJson('products.json');
+        const {id} = req.params
+        const productToEdit = products.find(product => product.id === +id);
 
+
+        return res.render("admin/dashboard_edit",{
+            categories,
+            ...productToEdit
+        })
+    },
+    saveEditProduct : (req, res) => {
+        const products = readJson('products.json');
+        const {id} = req.params;
+        const {code, name, price, discount, discountAmount, description, subDescription, category} = req.body
+
+        let productsEdited = products.map((product) => {
+            if (products.id === +id){
+                let productEdited = {
+                id : id,
+                code : code,
+                name : name,
+                price : price,
+                discount : discount,
+                discountAmount : discountAmount,
+                description : description,
+                subDescription : subDescription,
+                category : category,
+                Image : null
+                };
+                return productEdited
+            }
+            return product
+        })
+        writeJson('products.json', productsEdited)
+
+        res.redirect("/admin/dashboard");
     }
 }

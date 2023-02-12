@@ -178,5 +178,17 @@
       "subDescription": "Introduction of Nutritional into Periph Vein, Perc Approach",
       "category": "Perifericos",
       "image": null
+   },
+   {
+      "id": 16,
+      "code": "123-321-23",
+      "name": "joystick",
+      "price": "12000",
+      "discount": "true",
+      "discountAmount": "30",
+      "description": "un joystick gamer",
+      "subDescription": "es re gamer",
+      "category": "Perifericos",
+      "Image": null
    }
 ]

@@ -58,7 +58,7 @@ module.exports = {
         let productsEdited = products.map((product) => {
             if (product.id === +id){
                 let productEdited = {
-                id : id,
+                id : +id,
                 code : code,
                 name : name,
                 price : price,
@@ -76,5 +76,6 @@ module.exports = {
         writeJson('products.json', productsEdited)
 
         res.redirect("/admin/dashboard");
+
     }
 }

@@ -3,13 +3,19 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
     busqueda:(req,res) => {
-        return res.render('product/busqueda')
+        return res.render('product/busqueda',{
+            title: 'Search'
+        })
     },
     carrito:(req,res) => {
-        return res.render('product/carrito')
+        return res.render('product/carrito',{
+            title: 'Carrito'
+        })
     },
     category:(req,res) => {
-        return res.render('product/category')
+        return res.render('product/category',{
+            title:'Category'
+        })
     },
     detalle:(req,res) => {
         const {id} = req.params;

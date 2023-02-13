@@ -13,7 +13,9 @@ module.exports={
         })
       },
     Help:(req, res) => {
-      return res.render('help')
+      return res.render('help',{
+        title:'Help'
+      })
     },
     p404:(req, res) => {
       return res.render('404')

@@ -226,15 +226,27 @@
 .main__section__recomendados__boton:hover button{
     background-color: #5200a5;
 }
-.main__section__recomendados__articulos__detalle{
+.main__section__recomendados__articulos__detalle p{
     text-align: center;
     color: white;
+}
+
+.detalle__main__title{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+    transition: all 450ms;
+}
+.detalle__main__title:hover{
+        text-overflow:initial;
+        overflow: visible;
+        white-space:normal;
 }
 .main__section__recomendados__articulos{
     text-align: center;
     padding: 10px;
 }
-.main__section__recomendados__articulos__detalle{
+.main__section__recomendados__articulos__detalle p{
     padding: 20px 0px;
 }
 .main__section__recomendados__cuotas{
@@ -257,7 +269,7 @@
         border-radius: 8px;
         padding: 15px;
         width: 49%;
-        height: 415px;
+        height: 100%;
     }
     .main__section__imagenes{
         width: 49%;
@@ -275,7 +287,7 @@
     .main__section__article1__add__tablet{
         display: flex;
         justify-content: center;
-        padding: 10px 0px 15px 0px;
+        padding: 3px 0px 15px 0px;
     }
 
     .main__section__article1__descuento div {
@@ -337,7 +349,7 @@
         margin: 0 auto;
     }
     .main__section__article1__panel{
-        height: 425px;
+        height: 100%;
     }
     .main__section__recomendados__container{
         width: 75%;

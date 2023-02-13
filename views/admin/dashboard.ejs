@@ -63,6 +63,7 @@
                                                     <th scope="col">Código</th>
                                                     <th class="table__email" scope="col">Precio</th>
                                                     <th></th>
+                                                    <th scope="col"><i class="fa-solid fa-trash"></i></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -73,6 +74,7 @@
                                                     <td><%= product.code %></td>
                                                     <td class="table__email">$<%= product.price %></td>
                                                     <td><form action="/admin/dashboard/edit/<%= product.id %>" method="get" class=""><button class="boton__general">Edit</button></form></td>
+                                                    <td><a href="/product/remove/<%= product.id %>"><i class="fa-solid fa-trash"></i></a>
                                                 </tr>
                                                 <% }) %>
                                             </tbody>
@@ -170,45 +172,19 @@
                                                 <th scope="col">Usuario</th>
                                                 <th scope="col">Número</th>
                                                 <th class="table__email" scope="col">Email</th>
+                                                <th scope="col"><i class="fa-solid fa-trash"></i></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>123-456-678</td>
-                                                <td class="table__email">@gmail.com</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>123-456-678</td>
-                                                <td class="table__email">@gmail.com</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>123-456-678</td>
-                                                <td class="table__email">@gmail.com</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>Jason</td>
-                                                <td>123-456-678</td>
-                                                <td class="table__email">@gmail.com</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td>Damon</td>
-                                                <td>123-456-678</td>
-                                                <td class="table__email">@gmail.com</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">6</th>
-                                                <td>Bob</td>
-                                                <td>123-456-678</td>
-                                                <td class="table__email">@gmail.com</td>
-                                            </tr>
+                                            <% users.forEach(user => { %>
+                                                <tr>
+                                                    <th scope="row"><%= user.id %></th>
+                                                    <td><%= user.userName %></td>
+                                                    <td><%= user.phone %></td>
+                                                    <td class="table__email"><%= user.email %></td>
+                                                    <td><a href="/user/remove/<%= user.id %>"><i class="fa-solid fa-trash"></i></a>
+                                                </tr>
+                                            <% }) %>
                                         </tbody>
                                     </table>
                             </div>

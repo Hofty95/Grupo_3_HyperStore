@@ -13,10 +13,14 @@ module.exports = {
         });
     },
     usuario : (req,res) =>{
-        return res.render('users/usuario')
+        return res.render('users/usuario',{
+            title: "HyperStore | user"
+        })
     },
     changepass : (req,res) =>{
-        return res.render('users/cambioContraseña')
+        return res.render('users/cambioContraseña',{
+            title: "HyperStore | cambio pass",
+        })
     },
     confirmRemoveUser : (req, res) => {
         const id = req.params.id;
@@ -24,6 +28,7 @@ module.exports = {
         
 
         return res.render('users/confirmRemoveUser', {
+            title: "HyperStore | confirm",
             ...user
         })
     },

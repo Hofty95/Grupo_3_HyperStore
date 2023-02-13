@@ -37,6 +37,7 @@ module.exports = {
         
 
         return res.render('product/confirmRemove', {
+            title: "HyperStore | remove",
             ...product
         })
     },

@@ -13,7 +13,7 @@
                      <h3 class="text-center">¿Estás seguro que querés eliminar el producto: <%= name %></h3>
                      <p class="text-center">No podrás revertir los cambios</p>
                      <div class="d-flex justify-content-center gap-2 align-items-center">
-                         <a class="btn btn-secondary" href="/product/detalle">No, me arrepentí</a>
+                         <a class="btn btn-secondary" href="/product/detalle/<%= id %>">No, me arrepentí</a>
                          <form action="/product/remove/<%= id %>?_method=DELETE" method="POST">
                              <button type="submit" class="btn btn-danger">Si, borralo</button>
                          </form>

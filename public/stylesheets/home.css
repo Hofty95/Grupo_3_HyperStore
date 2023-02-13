@@ -160,6 +160,17 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
   z-index: 100;
 }
 
+.home__main__title b{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: all 450ms;
+}
+.home__main__title:hover{
+  text-overflow:initial;
+  overflow: visible;
+  white-space:normal;
+}
 .card-title a{
   color: var(--colorVioleta);
 }

@@ -226,15 +226,27 @@
 .main__section__recomendados__boton:hover button{
     background-color: #5200a5;
 }
-.main__section__recomendados__articulos__detalle{
+.main__section__recomendados__articulos__detalle p{
     text-align: center;
     color: white;
+}
+
+.detalle__main__title{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+    transition: all 450ms;
+}
+.detalle__main__title:hover{
+        text-overflow:initial;
+        overflow: visible;
+        white-space:normal;
 }
 .main__section__recomendados__articulos{
     text-align: center;
     padding: 10px;
 }
-.main__section__recomendados__articulos__detalle{
+.main__section__recomendados__articulos__detalle p{
     padding: 20px 0px;
 }
 .main__section__recomendados__cuotas{

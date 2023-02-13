@@ -7,3 +7,7 @@
 ## Retrospectiva Sprint 2
 
 ![Grupo_3_HyperStore](/public/images/starfish02.jpg "Título alternativo")
+
+## Retrospectiva Sprint 3
+
+![Grupo_3_HyperStore](/public/images/starfish03.jpg "Título alternativo")

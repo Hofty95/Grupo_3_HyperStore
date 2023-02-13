@@ -43,62 +43,16 @@
                 <h2>Ofertas</h2>
                 <hr>
                 <div class="productos">
-                    <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
+                  <% products.forEach(({name,price,id,toThousand,discount}) => { %>
+                      <% if (discount) { %>
+                    <%- include('./partials/cardArticle',{
+                      name,
+                      price,
+                      id,
+                      toThousand
+                  }) %>
+                  <% } %>
+                  <% }) %>
                 </div>
                 <h2>PCs Recomendados</h2>
                 <hr>
@@ -123,125 +77,31 @@
                 <img src="/images/Banner3.webp" alt="">
             </article>
             <article class="home__main__section__article__content">
-                <h2>Destacados</h2>
+                <h2>PC Destacado</h2>
                 <hr>
                 <div class="productos">
-                    <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
+                  <% products.forEach(product => { %>
+                    <% if (product.category === 'PC') { %>
+                      <%- include('./partials/cardArticle',{
+                    name: product.name,
+                    price: product.price,
+                    id: product.id,
+                }) %>
+                <% } %>
+                <% }) %>
                 </div>
                 <h2>Ultimos Ingresos</h2>
                 <hr>
                 <div class="productos">
-                    <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="/images/Productos-img/imagen_producto_temporal.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Precio</p>
-                          <a href="/product/detalle" class="btn btn-primary">Ver Mas</a>
-                        </div>
-                      </div>
+                  <% products.forEach(product => { %>
+                    <% if (product.category === 'Perifericos') { %>
+                      <%- include('./partials/cardArticle',{
+                    name: product.name,
+                    price: product.price,
+                    id: product.id,
+                }) %>
+                <% } %>
+                <% }) %>
                 </div>
                 </div>
             </article>

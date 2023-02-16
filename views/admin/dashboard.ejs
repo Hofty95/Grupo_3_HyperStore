@@ -62,21 +62,33 @@
                                                     <th scope="col">Producto</th>
                                                     <th scope="col">Código</th>
                                                     <th class="table__email" scope="col">Precio</th>
-                                                    <th></th>
+                                                    <th><i class="fa-solid fa-pen-to-square"></i></th>
                                                     <th scope="col"><i class="fa-solid fa-trash"></i></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <% products.forEach(product => { %>
-                                                <tr>
-                                                    <th scope="row"><%= product.id %></th>
-                                                    <td><%= product.name %></td>
-                                                    <td><%= product.code %></td>
-                                                    <td class="table__email">$<%= product.price %></td>
-                                                    <td><form action="/admin/dashboard/edit/<%= product.id %>" method="get" class=""><button class="boton__general">Edit</button></form></td>
-                                                    <td><a href="/product/remove/<%= product.id %>"><i class="fa-solid fa-trash"></i></a>
-                                                </tr>
-                                                <% }) %>
+                                                <% products.forEach(product=> { %>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <%= product.id %>
+                                                        </th>
+                                                        <td>
+                                                            <%= product.name %>
+                                                        </td>
+                                                        <td>
+                                                            <%= product.code %>
+                                                        </td>
+                                                        <td>
+                                                            $<%= product.price %>
+                                                        </td>
+                                                        <td>
+                                                            <form action="/admin/dashboard/edit/<%= product.id %>"
+                                                                method="get"><button><i class="fa-solid fa-pen-to-square"></i></button>
+                                                                </form>
+                                                        </td>
+                                                        <td><a href="/product/remove/<%= product.id %>"><i class="fa-solid fa-trash"></i></a>
+                                                    </tr>
+                                                    <% }) %>
                                             </tbody>
                                         </table>
                                 </div>
@@ -88,72 +100,85 @@
                 <div class="producto__container">
                     <div class="producto">
                         <form action="" method="post">
-                        <section>
-                            <h3 id="agregar_producto">Agregar Producto</h3>
-                            <div class="form__box__login">
-                                <label for="name">Introducir Nombre</label>
-                                <input type="text" name="name" placeholder="Ejemplo: HyperX Cloud Flight" />
-                            </div>
-                            <div class="form__box__login">
-                                <label for="code">Introducir Código</label>
-                                <input type="text" name="code" placeholder="Ejemplo: 987-654-321" />
-                            </div>
-                            <div class="form__box__login">
-                                <label for="price">Introducir Precio</label>
-                                <input type="number" name="price" placeholder="Ejemplo: $25.999" />
-                            </div>
-                        </section>
-                        <section class="producto__file">
-                            <h3>Añadir Imágenes</h3>
-                            <input type="file" accept="jpg, png" multiple name="" id="">
-                        </section>
-                        <section>
-                            <h3>Añadir Descripción</h3>
-                            <div class="form__box__login">
+                            <section>
+                                <h3 id="agregar_producto">Agregar Producto</h3>
+                                <div class="form__box__login">
+                                    <label for="name">Introducir Nombre</label>
+                                    <input type="text" name="name" placeholder="Ejemplo: HyperX Cloud Flight" />
+                                </div>
+                                <div class="form__box__login">
+                                    <label for="code">Introducir Código</label>
+                                    <input type="text" name="code" placeholder="Ejemplo: 987-654-321" />
+                                </div>
+                                <div class="form__box__login">
+                                    <label for="price">Introducir Precio</label>
+                                    <input type="number" name="price" placeholder="Ejemplo: $25.999" />
+                                </div>
+                            </section>
+                            <section class="producto__file">
+                                <h3>Añadir Imágenes</h3>
+                                <input type="file" accept="jpg, png" multiple name="" id="">
+                            </section>
+                            <section>
+                                <h3>Añadir Descripción</h3>
+                                <!-- <div class="form__box__login">
                                 <label for="description">Descripción del Producto</label>
                                 <input type="text" name="description" placeholder="Introducir Texto..." />
+                            </div> -->
+                                <div class="col-12 mb-3">
+                                    <label for="description" class="form-label">Descripción del Producto</label>
+                                    <textarea class="form-control" id="description" rows="3"
+                                        name="description"></textarea>
+                                </div>
+                            </section>
+                            <section>
+                                <!-- <div class="form__box__login">
+                                    <label for="subDescription">Sub-Descripcion</label>
+                                    <input type="text" name="subDescription" placeholder="Introducir Texto..." />
+                                </div> -->
+                                <div class="col-12 mb-3">
+                                    <label for="subDescription" class="form-label">Sub-Descripción</label>
+                                    <textarea class="form-control" id="subDescription" rows="3"
+                                        name="subDescription"></textarea>
+                                </div>
+                                <div class="main__info__section select">
+                                    <p>Seleccione si el producto posee descuento o no.</p>
+                                    <label for="discount">Descuento:</label>
+                                    <select name="discount" id="discount">
+                                        <optgroup label="Descuento">
+                                            <option value="" selected hidden>Seleccione...</option>
+                                            <option value="true">Con descuento</option>
+                                            <option value="false">Sin descuento</option>
+                                        </optgroup>
+                                    </select>
+                                    <br><br>
+                                </div>
+                                <div class="form__box__login">
+                                    <label for="discountAmount">Porcentaje de Descuento</label>
+                                    <input type="text" name="discountAmount"
+                                        placeholder="Introducir porcentaje de Descuento..." />
+                                </div>
+                                <div class="main__info__section select">
+                                    <p>Seleccionar Categoria</p>
+                                    <label for="category">Categorias:</label>
+                                    <select name="category" id="category">
+                                        <optgroup label="Categorias">
+                                            <option value="" selected hidden>Seleccione...</option>
+                                            <% categories.forEach(category=> { %>
+                                                <option value="<%= category.name %>">
+                                                    <%= category.name %>
+                                                </option>
+                                                <% }) %>
+                                        </optgroup>
+                                    </select>
+                                    <br><br>
+                                </div>
+                            </section>
+                            <div class="article1__boton__general button">
+                                <button class="boton__general" type="submit">
+                                    Enviar
+                                </button>
                             </div>
-                        </section>
-                        <section>
-                            <div class="form__box__login">
-                                <label for="subDescription">Sub-Descripcion</label>
-                                <input type="text" name="subDescription" placeholder="Introducir Texto..." />
-                            </div>
-                            <div class="main__info__section select">
-                                <p>Seleccione si el producto posee descuento o no.</p>
-                                <label for="discount">Descuento:</label>
-                                <select name="discount" id="discount">
-                                    <optgroup label="Descuento">
-                                        <option value="" selected hidden>Seleccione...</option>
-                                        <option value="true">Con descuento</option>
-                                        <option value="false">Sin descuento</option>
-                                    </optgroup>
-                                </select>
-                                <br><br>
-                            </div>
-                            <div class="form__box__login">
-                                <label for="discountAmount">Porcentaje de Descuento</label>
-                                <input type="text" name="discountAmount" placeholder="Introducir porcentaje de Descuento..." />
-                            </div>
-                            <div class="main__info__section select">
-                                <p>Seleccionar Categoria</p>
-                                <label for="category">Categorias:</label>
-                                <select name="category" id="category">
-                                    <optgroup label="Categorias">
-                                        <option value="" selected hidden>Seleccione...</option>
-                                        <% categories.forEach(category => { %>
-                                        <option value="<%= category.name %>"><%= category.name %></option> 
-                                        <% }) %>
-                                    </optgroup>
-                                </select>
-                                <br><br>
-                            </div>
-                        </section>
-                        <div class="article1__boton__general button">
-                            <button class="boton__general" type="submit">
-                                Enviar
-                            </button>
-                        </div>                            
                         </form>
                     </div>
                 </div>
@@ -176,15 +201,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <% users.forEach(user => { %>
+                                            <% users.forEach(user=> { %>
                                                 <tr>
-                                                    <th scope="row"><%= user.id %></th>
-                                                    <td><%= user.userName %></td>
-                                                    <td><%= user.phone %></td>
-                                                    <td class="table__email"><%= user.email %></td>
-                                                    <td><a href="/user/remove/<%= user.id %>"><i class="fa-solid fa-trash"></i></a>
+                                                    <th scope="row">
+                                                        <%= user.id %>
+                                                    </th>
+                                                    <td>
+                                                        <%= user.userName %>
+                                                    </td>
+                                                    <td>
+                                                        <%= user.phone %>
+                                                    </td>
+                                                    <td class="table__email">
+                                                        <%= user.email %>
+                                                    </td>
+                                                    <td><a href="/user/remove/<%= user.id %>"><i
+                                                                class="fa-solid fa-trash"></i></a>
                                                 </tr>
-                                            <% }) %>
+                                                <% }) %>
                                         </tbody>
                                     </table>
                             </div>

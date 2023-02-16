@@ -30,15 +30,17 @@
                         </section>
                         <section>
                             <h3>Añadir Descripción</h3>
-                            <div class="form__box__login">
-                                <label for="description">Descripción del Producto</label>
-                                <input type="text" name="description" value="<%= description %>"/>
+                            <div class="col-12 mb-3">
+                                <label for="description" class="form-label">Descripción del Producto</label>
+                                <textarea class="form-control" id="description" rows="3"
+                                    name="description"><%= description %></textarea>
                             </div>
                         </section>
                         <section>
-                            <div class="form__box__login">
-                                <label for="subDescription">Sub-Descripcion</label>
-                                <input type="text" name="subDescription" value="<%= subDescription %>"/>
+                            <div class="col-12 mb-3">
+                                <label for="subDescription" class="form-label">Sub-Descripcion</label>
+                                <textarea class="form-control" id="subDescription" rows="3"
+                                    name="subDescription"><%= subDescription %></textarea>
                             </div>
                             <div class="main__info__section select">
                                 <p>Seleccione si el producto posee descuento o no.</p>

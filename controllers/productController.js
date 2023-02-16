@@ -20,6 +20,8 @@ module.exports = {
         })
     },
     detalle:(req,res) => {
+        const products = readJson('products.json')
+
         const {id} = req.params;
         const ofertProduct = products.filter(product => product.discount)
         const product = products.find((product) => product.id === +id)
@@ -32,6 +34,8 @@ module.exports = {
         })
     },
     confirmRemove : (req, res) => {
+        const products = readJson('products.json')
+
         const id = req.params.id;
         const product = products.find(product => product.id === +id);
         
@@ -42,6 +46,8 @@ module.exports = {
         })
     },
     remove : (req, res) => {
+        const products = readJson('products.json')
+        
         const id = req.params.id;
         const deleteProduct = products.filter(product => product.id !== +id);
 

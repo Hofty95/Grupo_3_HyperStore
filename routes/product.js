@@ -8,7 +8,6 @@ const {busqueda, carrito, category, detalle, confirmRemove, remove} = require('.
 router.get('/busqueda', busqueda)
 router.get('/carrito', carrito)
 router.get('/category', category)
-router.get('/detalle', detalle)
 router.get('/detalle/:id', detalle)
 router.get('/remove/:id', confirmRemove)
 router.delete('/remove/:id', remove)

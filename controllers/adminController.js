@@ -9,6 +9,7 @@ const {readJson, writeJson} = require("../data/readWrite")
 
 module.exports = {
     Admin : (req, res) => {
+    const products = readJson("../data/products.json")
         return res.render("admin/dashboard",{
             title: "HyperStore | dashboard",
             categories,
@@ -23,14 +24,15 @@ module.exports = {
             id : products[products.length - 1].id + 1,
             code : code,
             name : name,
-            price : price,
-            discount : discount,
-            discountAmount : discountAmount,
-            description : description,
-            subDescription : subDescription,
+            price : +price,
+            discount : discount ? true : false,
+            discountAmount : +discountAmount,
+            description : description.trim(),
+            subDescription : subDescription.trim(),
             category : category,
             Image : null
         }
+       return res.send(newProduct)
 
         products.push(newProduct)
 

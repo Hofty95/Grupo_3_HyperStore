@@ -10,6 +10,7 @@ const {readJson, writeJson} = require("../data/readWrite")
 module.exports = {
     Admin : (req, res) => {
         const products = readJson('products.json')
+        const users = readJson('users.json')
 
         return res.render("admin/dashboard",{
             title: "HyperStore | dashboard",

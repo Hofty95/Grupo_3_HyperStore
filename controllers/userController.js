@@ -25,14 +25,17 @@ module.exports = {
     confirmRemoveUser : (req, res) => {
         const id = req.params.id;
         const user = users.find(user => user.id === +id);
+        const users = readJson('users.json');
         
+/*         
 
         return res.render('users/confirmRemoveUser', {
             title: "HyperStore | confirm",
             ...user
-        })
+        }) */
     },
     removeUser : (req, res) => {
+        const users = readJson('users.json');
         const id = req.params.id;
         const deleteUser = users.filter(user => user.id !== +id);
 

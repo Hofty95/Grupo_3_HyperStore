@@ -2,6 +2,7 @@ const products = require("../data/products.json");
 
 const {readJson, writeJson} = require("../data/readWrite")
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+/* const Swal = require('sweetalert2') */
 
 module.exports = {
     busqueda:(req,res) => {
@@ -40,10 +41,10 @@ module.exports = {
         const product = products.find(product => product.id === +id);
         
 
-        return res.render('product/confirmRemove', {
+        /* return res.render('product/confirmRemove', {
             title: "HyperStore | remove",
             ...product
-        })
+        }) */
     },
     remove : (req, res) => {
         const products = readJson('products.json')

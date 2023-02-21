@@ -5,6 +5,7 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
     busqueda:(req,res) => {
+        const products = readJson('products.json')
         return res.render('product/busqueda',{
             title: 'Search'
         })

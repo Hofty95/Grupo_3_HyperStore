@@ -19,7 +19,7 @@ module.exports = {
     },
     storeProduct : (req, res) => {
         const products = readJson('products.json')
-        const {code, name, price, discount, discountAmount, description, subDescription, category} = req.body
+        const {code, name, price, discount, discountAmount, description, subDescription, category,image} = req.body
         const newProduct = {
             id : products[products.length - 1].id + 1,
             code : code,
@@ -30,10 +30,10 @@ module.exports = {
             description : description.trim(),
             subDescription : subDescription.trim(),
             category : category,
-            Image : null
+            images : req.files.map(file=> file.filename),
         }
-       return res.send(newProduct)
-
+       // return res.send(newProduct)
+ 
         products.push(newProduct)
 
         writeJson('products.json', products)

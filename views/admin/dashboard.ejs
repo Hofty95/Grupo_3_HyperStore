@@ -87,7 +87,7 @@
                 <!-- AÑADIR PRODUCTO -->
                 <div class="producto__container">
                     <div class="producto">
-                        <form action="" method="post">
+                        <form action="" method="post" enctype="multipart/form-data">
                         <section>
                             <h3 id="agregar_producto">Agregar Producto</h3>
                             <div class="form__box__login">
@@ -105,7 +105,7 @@
                         </section>
                         <section class="producto__file">
                             <h3>Añadir Imágenes</h3>
-                            <input type="file" accept="jpg, png" multiple name="" id="">
+                            <input type="file" name="images" id="images" multiple>
                         </section>
                         <section>
                             <h3>Añadir Descripción</h3>

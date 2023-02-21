@@ -9,7 +9,14 @@
       "description": "Release Cervical Nerve, Percutaneous Approach",
       "subDescription": "Release Cervical Nerve, Percutaneous Approach",
       "category": "PC",
-      "image": null
+      "images": [
+         "notebook.webp",
+         "notebook.webp",
+         "notebook.webp",
+         "notebook.webp",
+         "notebook.webp",
+         "notebook.webp"
+      ]
    },
    {
       "id": 2,
@@ -21,7 +28,14 @@
       "description": "Release Accessory Nerve, Percutaneous Approach",
       "subDescription": "Release Accessory Nerve, Percutaneous Approach",
       "category": "PC",
-      "image": null
+      "images": [
+         "pc-armada1.webp",
+         "pc-armada1.webp",
+         "pc-armada1.webp",
+         "pc-armada1.webp",
+         "pc-armada1.webp",
+         "pc-armada1.webp"
+      ]
    },
    {
       "id": 3,
@@ -33,7 +47,14 @@
       "description": "Excision of Common Bile Duct, Percutaneous Endoscopic Approach",
       "subDescription": "Excision of Common Bile Duct, Perc Endo Approach",
       "category": "PC",
-      "image": null
+      "images": [
+         "placa-de-video-nvidia.webp",
+         "placa-de-video-nvidia.webp",
+         "placa-de-video-nvidia.webp",
+         "placa-de-video-nvidia.webp",
+         "placa-de-video-nvidia.webp",
+         "placa-de-video-nvidia.webp"
+      ]
    },
    {
       "id": 4,
@@ -45,7 +66,14 @@
       "description": "Urinary System, Drainage",
       "subDescription": "Audio",
       "category": "Monitores",
-      "image": null
+      "images": [
+         "monitor1.webp",
+         "monitor1.webp",
+         "monitor1.webp",
+         "monitor1.webp",
+         "monitor1.webp",
+         "monitor1.webp"
+      ]
    },
    {
       "id": 5,
@@ -57,7 +85,14 @@
       "description": "Dilation of Right Internal Mammary Artery with Four or More Intraluminal Devices, Percutaneous Approach",
       "subDescription": "Dilate of R Int Mamm Art with 4+ Intralum Dev, Perc Approach",
       "category": "Monitores",
-      "image": null
+      "images": [
+         "monitor-samsung.jpg",
+         "monitor-samsung.jpg",
+         "monitor-samsung.jpg",
+         "monitor-samsung.jpg",
+         "monitor-samsung.jpg",
+         "monitor-samsung.jpg"
+      ]
    },
    {
       "id": 6,
@@ -69,7 +104,14 @@
       "description": "Replacement of Coccyx with Synthetic Substitute, Percutaneous Approach",
       "subDescription": "Replacement of Coccyx with Synth Sub, Perc Approach",
       "category": "Mouse",
-      "image": null
+      "images": [
+         "mouse-gris-1.webp",
+         "mouse-gris.webp",
+         "mouse-gris.webp",
+         "mouse-gris.webp",
+         "mouse-gris.webp",
+         "mouse-gris.webp"
+      ]
    },
    {
       "id": 7,
@@ -81,7 +123,14 @@
       "description": "Replacement of Lumbar Vertebral Disc with Autologous Tissue Substitute, Open Approach",
       "subDescription": "Replacement of Lum Disc with Autol Sub, Open Approach",
       "category": "Mouse",
-      "image": null
+      "images": [
+         "mouse-2.jpeg",
+         "mouse-2.jpeg",
+         "mouse-2.jpeg",
+         "mouse-2.jpeg",
+         "mouse-2.jpeg",
+         "mouse-2.jpeg"
+      ]
    },
    {
       "id": 8,
@@ -93,7 +142,14 @@
       "description": "Repair Hymen, Open Approach",
       "subDescription": "Repair Hymen, Open Approach",
       "category": "Teclado",
-      "image": null
+      "images": [
+         "teclado-qbox.jpg",
+         "teclado1.jpg",
+         "teclado1.jpg",
+         "teclado1.jpg",
+         "teclado1.jpg",
+         "teclado1.jpg"
+      ]
    },
    {
       "id": 9,
@@ -105,7 +161,14 @@
       "description": "Decompression, Circulatory, Multiple",
       "subDescription": "Decompression, Circulatory, Multiple",
       "category": "Teclado",
-      "image": null
+      "images": [
+         "teclado-mecanico.webp",
+         "teclado-mecanico.webp",
+         "teclado-mecanico.webp",
+         "teclado-mecanico.webp",
+         "teclado-mecanico.webp",
+         "teclado-mecanico.webp"
+      ]
    },
    {
       "id": 10,
@@ -117,7 +180,14 @@
       "description": "Dilation of Left Common Iliac Artery with Three Drug-eluting Intraluminal Devices, Percutaneous Approach",
       "subDescription": "Dilation of L Com Iliac Art with 3 Drug-elut, Perc Approach",
       "category": "Audio",
-      "image": null
+      "images": [
+         "auricular-genesis-1.webp",
+         "auricular-genesis.webp",
+         "auricular-genesis.webp",
+         "auricular-genesis.webp",
+         "auricular-genesis.webp",
+         "auricular-genesis.webp"
+      ]
    },
    {
       "id": 11,
@@ -129,7 +199,14 @@
       "description": "Revision of Synthetic Substitute in Hair, External Approach",
       "subDescription": "Revision of Synthetic Substitute in Hair, External Approach",
       "category": "Audio",
-      "image": null
+      "images": [
+         "parlantes-genius.webp",
+         "parlantes-genius.webp",
+         "parlantes-genius.webp",
+         "parlantes-genius.webp",
+         "parlantes-genius.webp",
+         "parlantes-genius.webp"
+      ]
    },
    {
       "id": 12,
@@ -141,7 +218,14 @@
       "description": "Repair Left Kidney, Percutaneous Approach",
       "subDescription": "Repair Left Kidney, Percutaneous Approach",
       "category": "Mobiliario",
-      "image": null
+      "images": [
+         "escritorio-genesis-holm.-1.jpg",
+         "escritorio-genesis-holm.jpg",
+         "escritorio-genesis-holm.jpg",
+         "escritorio-genesis-holm.jpg",
+         "escritorio-genesis-holm.jpg",
+         "escritorio-genesis-holm.jpg"
+      ]
    },
    {
       "id": 13,
@@ -153,7 +237,14 @@
       "description": "Removal of Nonautologous Tissue Substitute from Pancreatic Duct, Open Approach",
       "subDescription": "Removal of Nonaut Sub from Pancreat Duct, Open Approach",
       "category": "Mobiliario",
-      "image": null
+      "images": [
+         "silla-gamer-genesis.jpg",
+         "silla-gamer-genesis.jpg",
+         "silla-gamer-genesis.jpg",
+         "silla-gamer-genesis.jpg",
+         "silla-gamer-genesis.jpg",
+         "silla-gamer-genesis.jpg"
+      ]
    },
    {
       "id": 14,
@@ -165,7 +256,14 @@
       "description": "Replacement of Left Knee Joint, Femoral Surface with Synthetic Substitute, Open Approach",
       "subDescription": "Replace of L Knee Jt, Femoral with Synth Sub, Open Approach",
       "category": "Perifericos",
-      "image": null
+      "images": [
+         "joystick-genesis.jpg",
+         "joystick-genesis.jpg",
+         "joystick-genesis.jpg",
+         "joystick-genesis.jpg",
+         "joystick-genesis.jpg",
+         "joystick-genesis.jpg"
+      ]
    },
    {
       "id": 15,
@@ -177,18 +275,29 @@
       "description": "Introduction of Nutritional Substance into Peripheral Vein, Percutaneous Approach",
       "subDescription": "Introduction of Nutritional into Periph Vein, Perc Approach",
       "category": "Perifericos",
-      "image": null
+      "images": [
+         "mousepad-rgb-darkflash.jpg",
+         "mousepad-rgb-darkflash.jpg",
+         "mousepad-rgb-darkflash.jpg",
+         "mousepad-rgb-darkflash.jpg",
+         "mousepad-rgb-darkflash.jpg",
+         "mousepad-rgb-darkflash.jpg"
+      ]
    },
    {
       "id": 16,
-      "code": "123-321-23",
-      "name": "joystick asdasd",
-      "price": "12000",
-      "discount": "false",
-      "discountAmount": "30",
-      "description": "un joystick gamer",
-      "subDescription": "es re gamer",
-      "category": "",
-      "Image": null
+      "code": "534-343-33",
+      "name": "Webcam Solarmax Look Pro 2000 QHD 2K Autofocus",
+      "price": 90800,
+      "discount": true,
+      "discountAmount": 15,
+      "description": "Ya no tenés que preocuparte si tu PC no tiene cámara. Este dispositivo de Solarmax brinda la calidad de imagen y funciones que necesitás para comunicarte de manera fácil y efectiva en la virtualidad.",
+      "subDescription": "Funcionalidad Esta cámara web ofrece micrófono incorporado, lo que permite capturar el sonido del ambiente. Podrás disfrutar de conversaciones con altavoz o con auriculares, si buscás mayor privacidad.",
+      "category": "Perifericos",
+      "images": [
+         "1677016487246_product_.webp",
+         "1677016487247_product_.webp",
+         "1677016487247_product_.webp"
+      ]
    }
 ]

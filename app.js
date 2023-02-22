@@ -31,8 +31,8 @@ app.use('/user', userRouter);
 app.use('/product', productRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use('*', function(req, res) {
+  res.render('404');
 });
 
 // error handler

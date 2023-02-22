@@ -16,9 +16,12 @@
                 <div class="main__section__container">
                     <div class="main__section__imagenes">
                         <div class="main__section__carousel2">
-                            <div>
-                                <img src="/images/Productos-img/<%= images.length ? images[0] : 'default-image.jpg' %>" alt="">
-                            </div>                           
+                            <% images.forEach(image => { %>
+                                <div>
+                                    <img src="/images/Productos-img/<%= image %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
+                                    style="cursor:pointer">
+                                </div>
+                                <% }) %>                        
                         </div>
                         <div class="main__section__carouselnav">
                             <% images.forEach(image => { %>

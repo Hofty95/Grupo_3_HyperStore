@@ -16,38 +16,20 @@
                 <div class="main__section__container">
                     <div class="main__section__imagenes">
                         <div class="main__section__carousel2">
-                            <div>
-                                <img src="/images/Productos-img/mouse (1).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (2).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (3).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (4).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (5).webp" alt="">
-                            </div>
+                            <% images.forEach(image => { %>
+                                <div>
+                                    <img src="/images/Productos-img/<%= image %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
+                                    style="cursor:pointer">
+                                </div>
+                                <% }) %>                        
                         </div>
                         <div class="main__section__carouselnav">
-                            <div>
-                                <img src="/images/Productos-img/mouse (1).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (2).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (3).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (4).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (5).webp" alt="">
-                            </div>
+                            <% images.forEach(image => { %>
+                                <div>
+                                    <img src="/images/Productos-img/<%= image %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
+                                    style="cursor:pointer">
+                                </div>
+                                <% }) %>
                         </div>
                     </div>
                     <div class="main__section__article1__panel">
@@ -77,8 +59,8 @@
                             <p class="main__section__article1__add__signo2">+</p>
                         </div>
                         <div class="d-flex justify-content-around">
-                            <form action="/admin/dashboard/" method="get" class=""><button class="boton__general">Editar Producto</button></form>
-                            <a href="/product/remove/1"><button type="submit" class="btn btn-danger">Eliminar Producto</button></i></a>
+                            <form action="/admin/dashboard/edit/<%= id %>" method="get" class=""><button class="boton__general">Editar Producto</button></form>
+                            <form action="/product/remove/<%= id %>?_method=DELETE" id="form-delete" method="POST"><button type="submit" class="btn btn-danger">Eliminar Producto</button></form>
                         </div>
                     </div>
                 </div>
@@ -174,6 +156,9 @@
     <script src="https://code.jquery.com/jquery-migrate-3.4.0.min.js"
         integrity="sha256-mBCu5+bVfYzOqpYyK4jm30ZxAZRomuErKEFJFIyrwvM=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <!-- SWEET ALERT -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/javascripts/removeProductAlert.js"></script>
     <!-- SCRIPT DE SLICK -->
     <script type="text/javascript">
         $(document).ready(function () {

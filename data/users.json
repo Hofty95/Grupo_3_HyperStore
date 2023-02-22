@@ -64,22 +64,6 @@
       "location": "Ludvika"
    },
    {
-      "id": 7,
-      "userName": "ajerromes6",
-      "email": "ajerromes6@bandcamp.com",
-      "firstName": "Aurelie",
-      "lastName": "Jerromes",
-      "phone": "191-889-3863",
-      "dni": "686-12-9695",
-      "addressName": "Magdeline",
-      "addressNumber": "23",
-      "deptFloor": 7,
-      "deptNum": 7,
-      "postalCode": null,
-      "province": null,
-      "location": "Krajan Satu"
-   },
-   {
       "id": 8,
       "userName": "krainger7",
       "email": "krainger7@geocities.com",

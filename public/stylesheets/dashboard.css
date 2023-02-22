@@ -43,11 +43,13 @@
     width: 75%;
     margin: auto;
 }
-
-.table__email{
+.table__mobile{
+    display: block;
+    background-color: aqua;
+}
+.table__desk{
     display: none;
 }
-
 .lista__container h2{
     color: white;
     font-weight: 600;
@@ -137,7 +139,10 @@
         font-size: 10px;
         display: block;
     }
-    .table__email{
+    .table__mobile{
+        display: none;
+    }
+    .table__desk{
         display: block;
     }
     .estadisticas__section h2{

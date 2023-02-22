@@ -2,6 +2,7 @@ const products = require("../data/products.json");
 
 const { readJson, writeJson } = require("../data/readWrite");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+/* const Swal = require('sweetalert2') */
 
 module.exports = {
   busqueda: (req, res) => {

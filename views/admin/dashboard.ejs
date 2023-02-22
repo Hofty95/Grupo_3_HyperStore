@@ -140,29 +140,29 @@
                 <!-- AÑADIR PRODUCTO -->
                 <div class="producto__container">
                     <div class="producto">
-                        <form action="" method="post">
-                            <section>
-                                <h3 id="agregar_producto">Agregar Producto</h3>
-                                <div class="form__box__login">
-                                    <label for="name">Introducir Nombre</label>
-                                    <input type="text" name="name" placeholder="Ejemplo: HyperX Cloud Flight" />
-                                </div>
-                                <div class="form__box__login">
-                                    <label for="code">Introducir Código</label>
-                                    <input type="text" name="code" placeholder="Ejemplo: 987-654-321" />
-                                </div>
-                                <div class="form__box__login">
-                                    <label for="price">Introducir Precio</label>
-                                    <input type="number" name="price" placeholder="Ejemplo: $25.999" />
-                                </div>
-                            </section>
-                            <section class="producto__file">
-                                <h3>Añadir Imágenes</h3>
-                                <input type="file" accept="jpg, png" multiple name="" id="">
-                            </section>
-                            <section>
-                                <h3>Añadir Descripción</h3>
-                                <!-- <div class="form__box__login">
+                        <form action="" method="post" enctype="multipart/form-data">
+                        <section>
+                            <h3 id="agregar_producto">Agregar Producto</h3>
+                            <div class="form__box__login">
+                                <label for="name">Introducir Nombre</label>
+                                <input type="text" name="name" placeholder="Ejemplo: HyperX Cloud Flight" />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="code">Introducir Código</label>
+                                <input type="text" name="code" placeholder="Ejemplo: 987-654-321" />
+                            </div>
+                            <div class="form__box__login">
+                                <label for="price">Introducir Precio</label>
+                                <input type="number" name="price" placeholder="Ejemplo: $25.999" />
+                            </div>
+                        </section>
+                        <section class="producto__file">
+                            <h3>Añadir Imágenes</h3>
+                            <input type="file" name="images" id="images" multiple>
+                        </section>
+                        <section>
+                            <h3>Añadir Descripción</h3>
+                            <div class="form__box__login">
                                 <label for="description">Descripción del Producto</label>
                                 <input type="text" name="description" placeholder="Introducir Texto..." />
                             </div> -->

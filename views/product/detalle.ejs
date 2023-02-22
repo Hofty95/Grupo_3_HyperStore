@@ -16,38 +16,20 @@
                 <div class="main__section__container">
                     <div class="main__section__imagenes">
                         <div class="main__section__carousel2">
-                            <div>
-                                <img src="/images/Productos-img/mouse (1).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (2).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (3).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (4).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (5).webp" alt="">
-                            </div>
+                            <% images.forEach(image => { %>
+                                <div>
+                                    <img src="/images/Productos-img/<%= image %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
+                                    style="cursor:pointer">
+                                </div>
+                                <% }) %>                        
                         </div>
                         <div class="main__section__carouselnav">
-                            <div>
-                                <img src="/images/Productos-img/mouse (1).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (2).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (3).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (4).webp" alt="">
-                            </div>
-                            <div>
-                                <img src="/images/Productos-img/mouse (5).webp" alt="">
-                            </div>
+                            <% images.forEach(image => { %>
+                                <div>
+                                    <img src="/images/Productos-img/<%= image %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
+                                    style="cursor:pointer">
+                                </div>
+                                <% }) %>
                         </div>
                     </div>
                     <div class="main__section__article1__panel">

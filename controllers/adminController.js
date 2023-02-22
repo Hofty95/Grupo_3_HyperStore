@@ -9,9 +9,7 @@ const {readJson, writeJson} = require("../data/readWrite")
 
 module.exports = {
     Admin : (req, res) => {
-        const products = readJson('products.json')
-        const users = readJson('users.json')
-
+    const products = readJson("../data/products.json")
         return res.render("admin/dashboard",{
             title: "HyperStore | dashboard",
             categories,
@@ -21,21 +19,21 @@ module.exports = {
     },
     storeProduct : (req, res) => {
         const products = readJson('products.json')
-
-        const {code, name, price, discount, discountAmount, description, subDescription, category} = req.body
+        const {code, name, price, discount, discountAmount, description, subDescription, category,image} = req.body
         const newProduct = {
             id : products[products.length - 1].id + 1,
             code : code,
             name : name,
-            price : price,
-            discount : discount,
-            discountAmount : discountAmount,
-            description : description,
-            subDescription : subDescription,
+            price : +price,
+            discount : discount ? true : false,
+            discountAmount : +discountAmount,
+            description : description.trim(),
+            subDescription : subDescription.trim(),
             category : category,
-            Image : null
+            images : req.files.map(file=> file.filename),
         }
-
+       // return res.send(newProduct)
+ 
         products.push(newProduct)
 
         writeJson('products.json', products)

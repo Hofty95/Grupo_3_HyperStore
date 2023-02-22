@@ -32,6 +32,8 @@
 .main__section__imagenes img{
     width: 100%;
     border-radius: 8px;
+    aspect-ratio: 3/2.8;
+    object-fit: unset;
 }
 .main__section__carouselnav div{
     padding: 5px;
@@ -275,6 +277,9 @@
         width: 49%;
         border-radius: 8px;
     }
+    .main__section__imagenes img{
+        aspect-ratio: 3/3.5;
+    }
     .main__section__article1__info__container{
         justify-content: center;
     }
@@ -344,6 +349,9 @@
 }
 /* DESKTOP */
 @media (min-width:1024px) {
+    .main__section__imagenes img{
+        aspect-ratio: 3/3;
+    }
     .main__section__article1{
         width: 75%;
         margin: 0 auto;
@@ -365,3 +373,8 @@
         box-shadow: rgba(127, 0, 255, 0.45)  0px 25px 20px -20px;
     }
   } 
+  @media (min-width:1180px) {
+    .main__section__imagenes img{
+        aspect-ratio: 3/2;
+    }
+  }

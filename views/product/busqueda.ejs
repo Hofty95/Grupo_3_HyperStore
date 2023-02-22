@@ -15,9 +15,9 @@
                         <hr>
                         <h2>Ordenar productos</h2>
                         <ul>
-                            <li><a href="/products/busqueda?state=relevant">Mayor Relevancia</a></li>
-                            <li><a href="/products/busqueda?state=desc">Mayor Precio</a></li>
-                            <li><a href="/products/busqueda?state=asc">Menor Precio</a></li>
+                            <li><a href="/product/busqueda?state=relevant">Mayor Relevancia</a></li>
+                            <li><a href="/product/busqueda?state=desc">Mayor Precio</a></li>
+                            <li><a href="/product/busqueda?state=asc">Menor Precio</a></li>
                         </ul>
                         <hr>
                         <div class="main__info__menutablet">
@@ -25,7 +25,7 @@
                            <ul>
                             <li>
                             <% categories.forEach(category => { %>
-                             <a href="/products/busqueda?category=<%= category.name %>"><%= category.name %></a>
+                             <a href="/product/busqueda?category=<%= category.name %>"><%= category.name %></a>
                             <% }) %>
                             </li>
                            </ul>

@@ -8,7 +8,7 @@
       "discountAmount": 21,
       "description": "Release Cervical Nerve, Percutaneous Approach",
       "subDescription": "Release Cervical Nerve, Percutaneous Approach",
-      "category": "PC",
+      "category": "Pc",
       "image": null
    },
    {
@@ -20,7 +20,7 @@
       "discountAmount": 16,
       "description": "Release Accessory Nerve, Percutaneous Approach",
       "subDescription": "Release Accessory Nerve, Percutaneous Approach",
-      "category": "PC",
+      "category": "Pc",
       "image": null
    },
    {
@@ -32,7 +32,7 @@
       "discountAmount": 54,
       "description": "Excision of Common Bile Duct, Percutaneous Endoscopic Approach",
       "subDescription": "Excision of Common Bile Duct, Perc Endo Approach",
-      "category": "PC",
+      "category": "Pc",
       "image": null
    },
    {
@@ -188,7 +188,7 @@
       "discountAmount": "30",
       "description": "un joystick gamer",
       "subDescription": "es re gamer",
-      "category": "",
+      "category": "Perifericos",
       "Image": null
    }
 ]

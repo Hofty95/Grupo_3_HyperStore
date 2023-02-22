@@ -14,23 +14,24 @@
                         <small>Nº de resultados: 0</small>
                         <hr>
                         <h2>Ordenar productos</h2>
-                        <select name="categoria" id="categoria">
-                            <option value="categoria">Más relevantes</option>
-                            <option value="categoria">Menor precio</option>
-                            <option value="categoria">Mayor precio</option>
-                        </select>
+                        <ul>
+                            <li><a href="/products/busqueda?state=relevant">Mayor Relevancia</a></li>
+                            <li><a href="/products/busqueda?state=desc">Mayor Precio</a></li>
+                            <li><a href="/products/busqueda?state=asc">Menor Precio</a></li>
+                        </ul>
                         <hr>
                         <div class="main__info__menutablet">
                             <h2>Categorías</h2>
-                            <a href="">
-                                <p>Categoría relacionada</p>
-                            </a>
-                            <a href="">
-                                <p>Categoría relacionada</p>
-                            </a>
+                           <ul>
+                            <li>
+                            <% categories.forEach(category => { %>
+                             <a href="/products/busqueda?category=<%= category.name %>"><%= category.name %></a>
+                            <% }) %>
+                            </li>
+                           </ul>
                             <hr>
                         </div>
-                        <h2 class="h2__marcas">Marcas</h2>
+<!--                         <h2 class="h2__marcas">Marcas</h2>
                         <div class="cambioClave__main__section__form__box">
                             <div class="busqueda__checkbox__container">
                                 <div>
@@ -82,143 +83,24 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
                 <section>
                     <div class="main__section__article">
-                        <article class="main__section__recomendados__articulos">
-                            <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                alt="">
-                            <b class="main__section__recomendados__articulos__detalle">Nombre del producto +
-                                detalles</b>
-                            <h2 class="main__section__recomendados__precio">$10.000</h2>
-                            <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general">VER MÁS</button>
-                            </div>
-                        </article>
-                        <article class="main__section__recomendados__articulos">
-                            <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                alt="">
-                            <b class="main__section__recomendados__articulos__detalle">Nombre del producto +
-                                detalles</b>
-                            <h2 class="main__section__recomendados__precio">$10.000</h2>
-                            <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general">VER MÁS</button>
-                            </div>
-                        </article>
-                        <article class="main__section__recomendados__articulos">
-                            <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                alt="">
-                            <b class="main__section__recomendados__articulos__detalle">Nombre del producto +
-                                detalles</b>
-                            <h2 class="main__section__recomendados__precio">$10.000</h2>
-                            <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general">VER MÁS</button>
-                            </div>
-                        </article>
-                        <article class="main__section__recomendados__articulos">
-                            <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                alt="">
-                            <b class="main__section__recomendados__articulos__detalle">Nombre del producto +
-                                detalles</b>
-                            <h2 class="main__section__recomendados__precio">$10.000</h2>
-                            <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general">VER MÁS</button>
-                            </div>
-                        </article>
-                        <article class="main__section__recomendados__articulos">
-                            <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                alt="">
-                            <b class="main__section__recomendados__articulos__detalle">Nombre del producto +
-                                detalles</b>
-                            <h2 class="main__section__recomendados__precio">$10.000</h2>
-                            <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general">VER MÁS</button>
-                            </div>
-                        </article>
-                        <article class="main__section__recomendados__articulos">
-                            <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                alt="">
-                            <b class="main__section__recomendados__articulos__detalle">Nombre del producto +
-                                detalles</b>
-                            <h2 class="main__section__recomendados__precio">$10.000</h2>
-                            <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general">VER MÁS</button>
-                            </div>
-                        </article>
-                        <article class="main__section__recomendados__articulos">
-                            <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                alt="">
-                            <b class="main__section__recomendados__articulos__detalle">Nombre del producto +
-                                detalles</b>
-                            <h2 class="main__section__recomendados__precio">$10.000</h2>
-                            <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general">VER MÁS</button>
-                            </div>
-                        </article>
-                        <article class="main__section__recomendados__articulos">
-                            <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                alt="">
-                            <b class="main__section__recomendados__articulos__detalle">Nombre del producto +
-                                detalles</b>
-                            <h2 class="main__section__recomendados__precio">$10.000</h2>
-                            <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general">VER MÁS</button>
-                            </div>
-                        </article>
-                        <article class="main__section__recomendados__articulos">
-                            <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                alt="">
-                            <b class="main__section__recomendados__articulos__detalle">Nombre del producto +
-                                detalles</b>
-                            <h2 class="main__section__recomendados__precio">$10.000</h2>
-                            <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general">VER MÁS</button>
-                            </div>
-                        </article>
-                        <article class="main__section__recomendados__articulos__tablet">
-                            <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                alt="">
-                            <b class="main__section__recomendados__articulos__detalle">Nombre del producto +
-                                detalles</b>
-                            <h2 class="main__section__recomendados__precio">$10.000</h2>
-                            <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general">VER MÁS</button>
-                            </div>
-                        </article>
-                        <article class="main__section__recomendados__articulos__tablet">
-                            <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                alt="">
-                            <b class="main__section__recomendados__articulos__detalle">Nombre del producto +
-                                detalles</b>
-                            <h2 class="main__section__recomendados__precio">$10.000</h2>
-                            <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general">VER MÁS</button>
-                            </div>
-                        </article>
-                        <article class="main__section__recomendados__articulos__tablet">
-                            <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                alt="">
-                            <b class="main__section__recomendados__articulos__detalle">Nombre del producto +
-                                detalles</b>
-                            <h2 class="main__section__recomendados__precio">$10.000</h2>
-                            <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general">VER MÁS</button>
-                            </div>
-                        </article>
+                        <% productsFound.forEach(({name, id, price, discountAmount}) => { %>
+                            <article class="main__section__recomendados__articulos">
+                                <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
+                                    alt="">
+                                <p class="main__section__recomendados__articulos__detalle detalle__main__title"><%= name %> +</p>
+                                 <p> <%= discountAmount%>%OFF</p>
+                                <h2 class="main__section__recomendados__precio">$<%= price %></h2>
+                                <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
+                                <div class="article1__boton__general button">
+                                    <a href="/product/detail/<%= id %>"><button class="boton__general">VER MÁS</button></a>
+                                </div>
+                            </article>
+                        <% }) %>
                     </div>
                 </section>
                 <div class="flechas__navegador">
@@ -228,8 +110,6 @@
                     <a href="">3</a>
                     <i class="fa-solid fa-arrow-right"></i>
                 </div>
-
-
             </main>
             <!-- footer -->
             <%- include('../partials/footer') %>

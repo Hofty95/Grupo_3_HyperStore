@@ -88,18 +88,14 @@
                 </section>
                 <section>
                     <div class="main__section__article">
-                        <% productsFound.forEach(({name, id, price, discountAmount}) => { %>
-                            <article class="main__section__recomendados__articulos">
-                                <img src="/images/Productos-img/PC-GAMER-AMD-RYZEN-5-5500-RTX-3050-B450M-16GB-500SSD-500W-AUREOX-ORION.webp"
-                                    alt="">
-                                <p class="main__section__recomendados__articulos__detalle detalle__main__title"><%= name %> +</p>
-                                 <p> <%= discountAmount%>%OFF</p>
-                                <h2 class="main__section__recomendados__precio">$<%= price %></h2>
-                                <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
-                                <div class="article1__boton__general button">
-                                    <a href="/product/detail/<%= id %>"><button class="boton__general">VER MÁS</button></a>
-                                </div>
-                            </article>
+                        <% productsFound.forEach(({id, name, price, discountAmount, images}) => { %>
+                            <%- include('../partials/productCard',{
+                                id,
+                                name,
+                                price,
+                                discountAmount,
+                                images
+                            }) %>
                         <% }) %>
                     </div>
                 </section>

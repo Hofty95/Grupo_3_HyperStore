@@ -1,5 +1,4 @@
 const products = require("../data/products.json");
-
 const { readJson, writeJson } = require("../data/readWrite");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 /* const Swal = require('sweetalert2') */
@@ -8,8 +7,18 @@ module.exports = {
   busqueda: (req, res) => {
     const products = readJson("products.json");
     const categories = readJson("categories.json");
-    const { keywords, state, category } = req.query;
-    console.log(category);
+
+    if (!req.query.keywords && !req.query.state && !req.query.category) {
+      writeJson("queriesSearch.json" ,{})
+    }
+    
+    let queries = readJson("queriesSearch.json")
+
+    writeJson("queriesSearch.json" ,{ ...queries, ...req.query })
+
+    queries = readJson("queriesSearch.json")
+
+    const { keywords, state, category } = queries;
 
     let productsFound = products;
 

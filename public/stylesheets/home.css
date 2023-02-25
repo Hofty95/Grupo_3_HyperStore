@@ -152,6 +152,11 @@
   border: 1px solid var(--colorGris);
 }
 
+.card img{
+  aspect-ratio: 2/2;
+  object-fit: unset;
+}
+
 .card:hover{
 /*   box-shadow: 0px 0px 3px 3px var(--colorVioleta); */
 box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);

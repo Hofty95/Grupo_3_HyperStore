@@ -294,7 +294,7 @@
         border-radius: 8px;
     }
     .main__section__imagenes img{
-        aspect-ratio: 3/3.5;
+        aspect-ratio: 3/3;
     }
     .main__section__article1__info__container{
         justify-content: center;
@@ -391,6 +391,6 @@
   } 
   @media (min-width:1180px) {
     .main__section__imagenes img{
-        aspect-ratio: 3/2;
+        aspect-ratio: 3/3;
     }
   }

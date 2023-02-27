@@ -10,6 +10,22 @@
     border-radius: 8px;
     padding: 20px;
 }
+
+.main__section__recomendados__articulos img{
+    aspect-ratio: 3/3;
+    object-fit: inherit;
+}
+
+.main__section__carousel2 img{
+    aspect-ratio: 3/3;
+    object-fit: inherit;
+}
+
+.main__section__carouselnav img{
+    aspect-ratio: 3/3;
+    object-fit: inherit;
+}
+
 .main__section__article1__description{
     padding: 10px 0px 15px;
 }

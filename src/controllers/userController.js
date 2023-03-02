@@ -1,3 +1,5 @@
+const {validationResult} = require("express-validator")
+const {hashSync} = require('bcryptjs')
 const users = require("../data/users.json");
 const {readJson, writeJson} = require("../data/readWrite")
 
@@ -12,10 +14,50 @@ module.exports = {
             title: 'Hyper Store | Register'
         });
     },
-    registerSave : (req,res) =>{
+    registerProcess : (req,res) =>{
+
+        const errors = validationResult(req)
+
+        if (errors.isEmpty()) {
+            const users = readJson('users.json')
+            const {name, surname, email, password} = req.body
+
+            const newUser = {
+                id: users.length ? users[users.length - 1].id + 1 : 1,
+                rol:"user",
+                email,
+                name,
+                surname,
+                password : hashSync(password,10),
+                phone: null,
+                dni: null,
+                street: null,
+                streetNumber: null,
+                floor: null,
+                dept: null,
+                ref: null,
+                postcode : null,
+                province: null,
+                location: null
+            }
+            users.push(newUser)
+
+            writeJson('users.json', users)
+
+            return res.redirect("/user/login")
+
+        }else{
         return res.render('users/register',{
-            title: 'Hyper Store | Register'
-        });
+            title: 'Hyper Store | Register',
+            errors : errors.mapped(),
+            old : req.body
+        });            
+        }
+
+
+
+
+
     },
     usuario : (req,res) =>{
         return res.render('users/usuario',{

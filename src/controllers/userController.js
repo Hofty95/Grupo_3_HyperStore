@@ -53,11 +53,6 @@ module.exports = {
             old : req.body
         });            
         }
-
-
-
-
-
     },
     usuario : (req,res) =>{
         return res.render('users/usuario',{

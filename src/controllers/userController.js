@@ -12,6 +12,11 @@ module.exports = {
             title: 'Hyper Store | Register'
         });
     },
+    registerSave : (req,res) =>{
+        return res.render('users/register',{
+            title: 'Hyper Store | Register'
+        });
+    },
     usuario : (req,res) =>{
         return res.render('users/usuario',{
             title: "HyperStore | user"

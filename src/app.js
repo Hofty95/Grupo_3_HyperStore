@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride =  require('method-override');
+const session = require('express-session');
 
 /* Router */
 const mainRouter = require('./routes/main');
@@ -21,8 +22,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '..','public')));
 app.use(methodOverride('_method'));
+app.use(session({
+  secret:"hyperStoreForEver",
+  resave:false,
+  saveUninitialized:true
+}));
+
 
 /* Rutas */
 app.use('/', mainRouter);

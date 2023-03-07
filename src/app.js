@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride =  require('method-override');
 const session = require('express-session');
+const cookiecheck = require('./middlewares/cookieChecker')
+const localsUser = require('./middlewares/localsUserCheck')
 
 /* Router */
 const mainRouter = require('./routes/main');
@@ -29,6 +31,8 @@ app.use(session({
   resave:false,
   saveUninitialized:true
 }));
+app.use(cookiecheck) //checkea si hay cookie y la manda a session
+app.use(localsUser) //checkea si hay session y lo manda a locals
 
 
 /* Rutas */

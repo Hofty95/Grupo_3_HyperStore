@@ -9,6 +9,31 @@ module.exports = {
             title: 'Hyper Store | Login'
         });
     },
+    loginProcess : (req,res) => {
+
+        const errors = validationResult(req);
+
+        if(errors.isEmpty()){
+
+            const {id, name} = readJSON('users.json').find(user => user.email === req.body.email);
+
+            req.session.userLogin = {
+                id,
+                name,
+            };
+
+           if(req.body.remember){
+                res.cookie('hyperstorecookie',req.session.userLogin,{maxAge: 1000*60} )
+           }
+
+            return res.redirect('/')
+        }else{
+            return res.render('user/login',{
+                title : "Inicio de sesión",
+                errors : errors.mapped()
+            })
+        }
+    },
     register : (req,res) =>{
         return res.render('users/register',{
             title: 'Hyper Store | Register'

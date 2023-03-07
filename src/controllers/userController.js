@@ -15,20 +15,21 @@ module.exports = {
 
         if(errors.isEmpty()){
 
-            const {id, name} = readJSON('users.json').find(user => user.email === req.body.email);
+            const {id, name, rol} = readJson('users.json').find(user => user.email === req.body.email);
 
             req.session.userLogin = {
                 id,
                 name,
+                rol,
             };
 
            if(req.body.remember){
-                res.cookie('hyperstorecookie',req.session.userLogin,{maxAge: 1000*60} )
+                res.cookie('hyperStoreUser',req.session.userLogin,{maxAge: 1000*60} )
            }
 
             return res.redirect('/')
         }else{
-            return res.render('user/login',{
+            return res.render('users/login',{
                 title : "Inicio de sesión",
                 errors : errors.mapped()
             })
@@ -88,6 +89,11 @@ module.exports = {
         return res.render('users/cambioContraseña',{
             title: "HyperStore | cambio pass",
         })
+    },
+    logout : (req,res) => {
+        req.session.destroy();
+        res.clearCookie("hyperStoreUser");
+        return res.redirect('/')
     },
     confirmRemoveUser : (req, res) => {
         const id = req.params.id;

@@ -1,101 +1,132 @@
-    <!-- HEADER -->
-    <header>
-        <section class="header__bootstrap">
-            <!-- BOOTSTRAP -->
-            <div class="navbar__mobile">
-            <nav class="navbar navbar-dark bg-dark fixed-top">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#">
-                    <div class="header__section__logo1">
-                        <a href="/"><img src="/images/logo1.png" alt="hyperstore"></a>
-                    </div>
-                  </a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-                    <div class="offcanvas-header">
-                      <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
-                        <div class="header__section__logo1">
-                            <a href="/"><img src="/images/logo1.png" alt="hyperstore"></a>
-                        </div>
-                      </h5>
-                      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                          <a class="nav-link" href="/user/login">Mi Cuenta</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/product/carrito">Mi Carrito</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/product/category">Búsqueda por categoría</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">Armá tu PC</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">Contactános!</a>
-                        </li>
-                        <!-- BOTON DASHBOARD PROVISORIO -->
-                        <li class="nav-item">
-                          <a class="nav-link" href="../admin/dashboard">DASHBOARD</a>
-                        </li>
-                      </ul>
-                      <form action="/busqueda" method="GET" class="d-flex mt-3">
-                        <input class="header__section__buscador__barra" name="keywords" type="text" placeholder="Buscar productos">
-                        <button class="boton__general" type="submit">Buscar</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </nav>
+<!-- HEADER -->
+<header>
+  <section class="header__bootstrap">
+    <!-- BOOTSTRAP -->
+    <div class="navbar__mobile">
+      <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <div class="header__section__logo1">
+              <a href="/"><img src="/images/logo1.png" alt="hyperstore"></a>
             </div>
-              <!-- HEADER -->
-            <section class="header__section">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
                 <div class="header__section__logo1">
-                    <a href="/"><img src="/images/logo1.png" alt="hyperstore"></a>
+                  <a href="/"><img src="/images/logo1.png" alt="hyperstore"></a>
                 </div>
-                <div class="header__section__logo2">
-                    <a href="/"><img  src="/images/logo2.png" alt="hyperstore"></a>
-                </div>
-                <div class="header__section__buscador">
-                    <form action="/product/busqueda" method="get">
-                        <input class="header__section__buscador__barra" type="text" placeholder="Buscar productos" name="keywords">
-                        <button class="header__section__buscador__boton" type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                </div>
-                <div class="header__section__menu1">
-                   <a href="/login"><i class="fa-solid fa-user"></i></a> 
-                   <a href=""><i class="fa-solid fa-magnifying-glass"></i></a> 
-                   <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
-                <div class="header__section__menu2">
-                    <ul>
-                        <li><a href="/user/login"><span><i class="fa-solid fa-user"></i></span> Mi Cuenta</a></li>
-                        <li><a href="/product/carrito"><span><i class="fa-solid fa-cart-shopping"></i></span> Mi Carrito <span><p class="header__section__menu2__contador">0</p></span></a></li>
-                    </ul>
-                </div>
-            </section>
-        </section>
-        <section class="header__section2">
-            <div class="header__section2__categorias">
-              <form action="/product/busqueda" method="get">
-                <button type="submit"><i class="fa-solid fa-bars"></i> Todos los Productos</button>
+              </h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <% if (locals.userLogin) { %>
+                  <li>
+                    <a class="nav-link" style="color: white" href="/user/usuario">Hola, <%= userLogin.name %></a>
+                  </li>
+                  <% if (userLogin.rol==="admin" ) { %>
+                    <li>
+                      <a class="nav-link" href="/admin/dashboard">DASHBOARD</a>
+                    </li>
+                    <% } %>
+                      <% }else{ %>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/user/login">Acceder</a>
+                        </li>
+                        <% } %>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/product/carrito">Mi Carrito</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/product/category">Búsqueda por categoría</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Armá tu PC</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Contactános!</a>
+                          </li>
+                          <% if (locals.userLogin) { %>
+                            <li>
+                              <a class="nav-link" href="/user/logout">Salir</a>
+                            </li>
+                          <% } %>
+              </ul>
+              <form action="/busqueda" method="GET" class="d-flex mt-3">
+                <input class="header__section__buscador__barra" name="keywords" type="text"
+                  placeholder="Buscar productos">
+                <button class="boton__general" type="submit">Buscar</button>
               </form>
             </div>
-            <div class="header__section2__armarpc">
-                <button>Armá tu Pc</button>
-            </div>
-            <div class="header__section2__contacto">
-                <button>Contactános!</button>
-            </div>
-        </section>
-        <!-- BOTON DASHBOARD PROVISORIO -->
-          <div class="BOTON__DASHBOARD__PROVISORIO">
-            <a class="nav-link" href="/admin/dashboard">DASHBOARD</a>
           </div>
+        </div>
+      </nav>
+    </div>
+    <!-- HEADER -->
+    <section class="header__section">
+      <div class="header__section__logo1">
+        <a href="/"><img src="/images/logo1.png" alt="hyperstore"></a>
+      </div>
+      <div class="header__section__logo2">
+        <a href="/"><img src="/images/logo2.png" alt="hyperstore"></a>
+      </div>
+      <div class="header__section__buscador">
+        <form action="/product/busqueda" method="get">
+          <input class="header__section__buscador__barra" type="text" placeholder="Buscar productos" name="keywords">
+          <button class="header__section__buscador__boton" type="submit"><i
+              class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+      <!-- <div class="header__section__menu1">
+        <a href="/login"><i class="fa-solid fa-user"></i></a>
+        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+      </div> -->
+      <div class="header__section__menu2">
+        <ul>
+          <% if (!locals.userLogin) { %>
+            <li>
+              <a class="nav-link" style="color: white" href="/user/login"><span><i class="fa-solid fa-user"></i></span>Acceder</a>
+            </li>
+          <% } else { %>
+            <li>
+              <a class="nav-link" style="color: white" href="/user/usuario"><span><i class="fa-solid fa-user"></i></span>Hola, <%= userLogin.name %></a>
+            </li>
+            <li><a href="/product/carrito"><span><i class="fa-solid fa-cart-shopping"></i></span> Mi Carrito <span>
+              <p class="header__section__menu2__contador">0</p>
+            </span></a></li>
+            <li>
+              <a class="nav-link" style="color: white" href="/user/logout">Salir</a>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </section>
+  </section>
+  <section class="header__section2">
+    <div class="header__section2__categorias">
+      <form action="/product/busqueda" method="get">
+        <button type="submit"><i class="fa-solid fa-bars"></i> Todos los Productos</button>
+      </form>
+    </div>
+    <div class="header__section2__armarpc">
+      <button>Armá tu Pc</button>
+    </div>
+    <div class="header__section2__contacto">
+      <button>Contactános!</button>
+    </div>
+  </section>
+  <% if (locals.userLogin && userLogin.rol==="admin") { %>
+  <div class="BOTON__DASHBOARD__PROVISORIO">
+    <a class="nav-link" href="/admin/dashboard">DASHBOARD</a>
+  </div>
+  <% } %>
 
-    </header>
+</header>

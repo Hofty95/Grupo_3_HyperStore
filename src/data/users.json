@@ -16,5 +16,23 @@
       "postcode": null,
       "province": null,
       "location": null
+   },
+   {
+      "id": 2,
+      "rol": "admin",
+      "email": "gabrielnicolas.dg@gmail.com",
+      "name": "Gabriel Nicolas",
+      "surname": "Lanzillotti",
+      "password": "$2a$10$eYTIUcnVloJs0hKP178VY.1v9VCvdkuuN/2scZ9yXa7Ww8USJKht.",
+      "phone": null,
+      "dni": null,
+      "street": null,
+      "streetNumber": null,
+      "floor": null,
+      "dept": null,
+      "ref": null,
+      "postcode": null,
+      "province": null,
+      "location": null
    }
 ]

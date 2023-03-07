@@ -11,16 +11,16 @@
                 <h2>Inicio de Sesión</h2>
                 <h4>Inicia sesión con tu correo electrónico</h4>
               </div>
-              <form action="" method="POST" class="login__main__section__form">
+              <form action="" method="POST" id="user-login" class="login__main__section__form">
                 <div class="form__box__login">
                   <label for="">Email</label>
-                  <input type="email" placeholder="Ingresa tu email" id="email" name="email"/>
-                  <small class="text-danger ms-2"><%= (locals.errors && errors.email) && errors.email.msg %></small>
+                  <input type="email" placeholder="Ingresa tu email" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>"/>
+                  <small style="color:red"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
                 </div>
                 <div class="form__box__login">
                   <label for="">Contraseña</label>
-                  <input type="password" placeholder="Ingresa tu contraseña" id="password" name="password" />
-                  <small class="text-danger ms-2"><%= (locals.errors && errors.password) && errors.password.msg %></small>
+                  <input type="password" placeholder="Ingresa tu contraseña" id="password" name="password" value="<%= locals.old && old.password ? old.password : null %>"/>
+                  <small style="color:red"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
                   <button type="button">
                     <i class="fa-solid fa-eye"></i>
                   </button>

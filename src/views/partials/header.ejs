@@ -31,33 +31,34 @@
                   <li>
                     <a class="nav-link" style="color: white" href="/user/usuario">Hola, <%= userLogin.name %></a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="color: white" href="/product/carrito">Mi Carrito</a>
+                  </li>
+                  <li>
+                    <a class="nav-link" style="color: white" href="/user/logout">Salir</a>
+                  </li>
                   <% if (userLogin.rol==="admin" ) { %>
                     <li>
-                      <a class="nav-link" href="/admin/dashboard">DASHBOARD</a>
+                      <a class="nav-link" style="color: white" href="/admin/dashboard">DASHBOARD</a>
                     </li>
                     <% } %>
                       <% }else{ %>
                         <li class="nav-item">
                           <a class="nav-link" href="/user/login">Acceder</a>
                         </li>
-                        <% } %>
-                          <li class="nav-item">
-                            <a class="nav-link" href="/product/carrito">Mi Carrito</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="/product/category">Búsqueda por categoría</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Armá tu PC</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Contactános!</a>
-                          </li>
-                          <% if (locals.userLogin) { %>
-                            <li>
-                              <a class="nav-link" href="/user/logout">Salir</a>
-                            </li>
-                          <% } %>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/product/carrito">Mi Carrito</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/product/category">Búsqueda por categoría</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Armá tu PC</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Contactános!</a>
+                        </li>
+                      <% } %>
               </ul>
               <form action="/busqueda" method="GET" class="d-flex mt-3">
                 <input class="header__section__buscador__barra" name="keywords" type="text"
@@ -84,26 +85,28 @@
               class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
         </form>
       </div>
-      <!-- <div class="header__section__menu1">
-        <a href="/login"><i class="fa-solid fa-user"></i></a>
-        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-        <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-      </div> -->
       <div class="header__section__menu2">
         <ul>
           <% if (!locals.userLogin) { %>
             <li>
               <a class="nav-link" style="color: white" href="/user/login"><span><i class="fa-solid fa-user"></i></span>Acceder</a>
             </li>
+          </li>
+          <li><a href="/product/carrito"><span><i class="fa-solid fa-cart-shopping"></i></span> Mi Carrito <span>
+            <p class="header__section__menu2__contador">0</p>
+          </span></a></li>
           <% } else { %>
             <li>
               <a class="nav-link" style="color: white" href="/user/usuario"><span><i class="fa-solid fa-user"></i></span>Hola, <%= userLogin.name %></a>
             </li>
-            <li><a href="/product/carrito"><span><i class="fa-solid fa-cart-shopping"></i></span> Mi Carrito <span>
-              <p class="header__section__menu2__contador">0</p>
-            </span></a></li>
             <li>
-              <a class="nav-link" style="color: white" href="/user/logout">Salir</a>
+              <a href="/product/carrito"><span><i class="fa-solid fa-cart-shopping"></i></span> Mi Carrito <span>
+              <p class="header__section__menu2__contador">0</p>
+            </span></a>
+          </li>
+
+            <li>
+              <a class="nav-link" style="color: white" href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i>Salir</a>
             </li>
           <% } %>
         </ul>
@@ -123,10 +126,10 @@
       <button>Contactános!</button>
     </div>
   </section>
-  <% if (locals.userLogin && userLogin.rol==="admin") { %>
   <div class="BOTON__DASHBOARD__PROVISORIO">
+    <% if (locals.userLogin && userLogin.rol==="admin") { %>
     <a class="nav-link" href="/admin/dashboard">DASHBOARD</a>
+    <% } %>
   </div>
-  <% } %>
 
 </header>

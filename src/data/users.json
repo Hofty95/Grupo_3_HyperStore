@@ -34,5 +34,23 @@
       "postcode": null,
       "province": null,
       "location": null
+   },
+   {
+      "id": 3,
+      "rol": "admin",
+      "email": "thiagodelgado.dev@gmail.com",
+      "name": "thiago",
+      "surname": "delgado",
+      "password": "$2a$10$HYaGaDKLnS2jj7ZLxawYLubrFRh4dBPONqKpwwzSN2Pj2YojqsZAK",
+      "phone": null,
+      "dni": null,
+      "street": null,
+      "streetNumber": null,
+      "floor": null,
+      "dept": null,
+      "ref": null,
+      "postcode": null,
+      "province": null,
+      "location": null
    }
 ]

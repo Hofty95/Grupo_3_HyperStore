@@ -15,12 +15,13 @@ module.exports = {
 
         if(errors.isEmpty()){
 
-            const {id, name, rol} = readJson('users.json').find(user => user.email === req.body.email);
+            const {id, name, rol,email} = readJson('users.json').find(user => user.email === req.body.email);
 
             req.session.userLogin = {
                 id,
                 name,
                 rol,
+                email
             };
 
            if(req.body.remember){
@@ -81,13 +82,60 @@ module.exports = {
         }
     },
     usuario : (req,res) =>{
+        const users = readJson('users.json');
+        const {id} = req.session.userLogin;
+        
+        const user = users.find((user) => user.id === +id)
+
         return res.render('users/usuario',{
-            title: "HyperStore | user"
+            title: "HyperStore | Perfil de usuario",
+            ...user,
+            old: req.body
         })
+    },  
+    changeInfo : (req,res) =>{
+        const users = readJson('users.json');
+        const {id, name, email} = req.session.userLogin;
+        const {phone,dni,surname,street,streetNumber,floor,dept,ref,postcode,province,location} = req.body;
+        //const user = users.find((user) => user.id === +id)
+
+       
+        let usersModified = users.map((user) => {
+            if (user.id === id){
+                let userEdited = {
+                id : +id,
+                rol: 'user',
+                email: email,
+                name : name,
+                surname: surname,
+                password: user.password,
+                phone: +phone,
+                dni: +dni,
+                street,
+                streetNumber: +streetNumber,
+                floor,
+                dept,
+                ref,
+                postcode: +postcode,
+                province,
+                location
+
+                };
+                return userEdited
+            }
+            return user
+        })
+        writeJson('users.json', usersModified)
+        return res.redirect('/')
+
+/*         return res.render('users/usuario',{
+            title: "HyperStore | Perfil de usuario",
+            ...user
+        }) */
     },
     changepass : (req,res) =>{
         return res.render('users/cambioContraseña',{
-            title: "HyperStore | cambio pass",
+            title: "HyperStore | cambio de contraseña",
         })
     },
     logout : (req,res) => {
@@ -100,12 +148,6 @@ module.exports = {
         const user = users.find(user => user.id === +id);
         const users = readJson('users.json');
         
-/*         
-
-        return res.render('users/confirmRemoveUser', {
-            title: "HyperStore | confirm",
-            ...user
-        }) */
     },
     removeUser : (req, res) => {
         const users = readJson('users.json');

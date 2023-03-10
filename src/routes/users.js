@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const registerValidation = require("../validations/registerValidation")
-const {login, register, usuario,changepass, confirmRemoveUser, removeUser, registerProcess, loginProcess, logout} = require('../controllers/userController');
+const {login, register, usuario,changepass, confirmRemoveUser, removeUser, registerProcess, loginProcess, logout, changeInfo } = require('../controllers/userController');
 const localsUserCheck = require('../middlewares/localsUserCheck');
 const loginValidation = require('../validations/loginValidation');
 const checkUserLogin = require('../middlewares/checkUserLogin');
@@ -14,7 +14,8 @@ router
   .post('/login',loginValidation, loginProcess)
   .get('/register',checkUser ,register)
   .post('/register',registerValidation  ,registerProcess)
-  .get('/usuario',checkUserLogin ,usuario)
+  .get('/usuario/:id',checkUserLogin ,usuario)
+  .put('/edit/:id', checkUserLogin, changeInfo)
   .get('/changepass',checkUserLogin,changepass)
   .get('/remove/:id',checkUserLogin,confirmRemoveUser)
   .get('/logout', checkUserLogin, logout)

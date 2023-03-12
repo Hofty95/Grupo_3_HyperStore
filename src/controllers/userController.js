@@ -97,14 +97,13 @@ module.exports = {
         const users = readJson('users.json');
         const {id, name, email} = req.session.userLogin;
         const {phone,dni,surname,street,streetNumber,floor,dept,ref,postcode,province,location} = req.body;
-        //const user = users.find((user) => user.id === +id)
 
        
         let usersModified = users.map((user) => {
             if (user.id === id){
                 let userEdited = {
                 id : +id,
-                rol: 'user',
+                rol: user.rol,
                 email: email,
                 name : name,
                 surname: surname,

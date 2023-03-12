@@ -32,7 +32,6 @@ module.exports = {
             category : category,
             images : req.files.map(file=> file.filename),
         }
-       // return res.send(newProduct)
  
         products.push(newProduct)
 

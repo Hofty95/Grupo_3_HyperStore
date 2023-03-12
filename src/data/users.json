@@ -37,21 +37,21 @@
    },
    {
       "id": 3,
-      "rol": "user",
+      "rol": "admin",
       "email": "thiagodelgado.dev@gmail.com",
       "name": "thiago",
       "surname": "",
       "password": "$2a$10$HYaGaDKLnS2jj7ZLxawYLubrFRh4dBPONqKpwwzSN2Pj2YojqsZAK",
-      "phone": 1132423863,
-      "dni": 45396846,
-      "street": "Siempre viva",
+      "phone": 0,
+      "dni": 0,
+      "street": "",
       "streetNumber": 123,
       "floor": "",
       "dept": "",
       "ref": "",
-      "postcode": 5632,
-      "province": "Buenos aires",
-      "location": "Avellaneda"
+      "postcode": 0,
+      "province": "",
+      "location": ""
    },
    {
       "id": 4,

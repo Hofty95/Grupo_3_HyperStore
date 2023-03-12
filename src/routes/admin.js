@@ -10,16 +10,9 @@ const editProductValidation = require("../validations/editProductValidation");
 
 /* /Admin */
 
-<<<<<<< HEAD
-router.get("/dashboard", Admin);
-router.post("/dashboard", uploadProductImages.array('images'), addProductValidation,storeProduct)
-router.get("/dashboard/edit/:id", editProduct)
-router.put("/dashboard/edit/:id", editProductValidation, saveEditProduct)
-=======
 router.get("/dashboard",checkUserAdmin, Admin);
-router.post("/dashboard", uploadProductImages.array('images'),storeProduct)
+router.post("/dashboard", uploadProductImages.array('images'), addProductValidation,storeProduct)
 router.get("/dashboard/edit/:id",checkUserAdmin, editProduct)
-router.put("/dashboard/edit/:id", saveEditProduct)
->>>>>>> develop
+router.put("/dashboard/edit/:id", editProductValidation,saveEditProduct)
 
 module.exports = router

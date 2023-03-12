@@ -8,67 +8,62 @@
         <main class="main__user">
             <section class="main__section__user">
                 <article class="main__article__user__menu">
-                    <p>HyperStore</p>
-                    <p>hyperStore@gmail.com</p>
+                    <p><%= name %></p>
+                    <p><%= email %></p>
                     <button class="boton__general">Mis Compras</button>
                     <button class="boton__general">Salir</button>
                 </article>
                 <article class="main__article__user__datos">
                     <h2>Mis Datos</h2>
-                    <form action="">
+                    <form action="/user/edit/<%= userLogin.id %>?_method=PUT" method="post">
                         <div class="input__group__general">
-                            <input id="name" class="input__general" type="text" />
-                            <label for="name" class="label__general">Nombre</label>
+                            <input id="name" name="name" class="input__general" type="text" />
+                            <label for="name" class="label__general"> <%= name ? name : 'Ingrese su nombre' %> </label>
                           </div>
                           <div class="input__group__general">
-                            <input id="surname" class="input__general" type="text" />
-                            <label for="surname" class="label__general">Apellido</label>
+                            <input id="surname" name="surname" class="input__general" type="text" />
+                            <label for="surname" class="label__general"> <%= surname ? surname : 'Ingrese su apellido' %></label>
                           </div>
                           <div class="input__group__general">
-                            <input id="phone" class="input__general" type="number" />
-                            <label for="phone" class="label__general">Telefono</label>
+                            <input id="phone" name="phone" class="input__general" type="number" />
+                            <label for="phone" class="label__general"><%= phone ? phone : 'Ingrese su numero de telefono' %></label>
                           </div>
                           <div class="input__group__general">
-                            <input id="dni" class="input__general" type="number" />
-                            <label for="dni" class="label__general">Dni</label>
+                            <input id="dni" name="dni" class="input__general" type="number" />
+                            <label for="dni" class="label__general"><%= dni ? dni : 'Ingrese su DNI' %></label>
                           </div>
-                          <button class="boton__general">Guardar</button>
-                    </form>
-                </article>
-                <article class="main__article__user__direcciones">
-                    <h2>Mis Direcciones</h2>
-                    <form action="">
-                        <div class="input__group__general">
-                            <input id="street" class="input__general" type="number" />
-                            <label for="street" class="label__general">Calle</label>
+                            <h2>Mis Direcciones</h2>
+                          <div class="input__group__general">
+                            <input id="street" name="street" class="input__general" type="text" />
+                            <label for="street" class="label__general"><%= street ? street : 'Ingrese su direccion' %></label>
                           </div>
                           <div class="input__group__general">
-                            <input id="streetNumber" class="input__general" type="number" />
-                            <label for="streetNumber" class="label__general">Altura</label>
+                            <input id="streetNumber" name="streetNumber" class="input__general" type="number" />
+                            <label for="streetNumber" class="label__general"><%= streetNumber ? streetNumber : 'Ingrese su altura' %></label>
                           </div>
                           <div class="input__group__general">
-                            <input id="floor" class="input__general" type="number" />
-                            <label for="floor" class="label__general">Piso</label>
+                            <input id="floor" name="floor" class="input__general" type="number" />
+                            <label for="floor" class="label__general"><%= floor ? floor : 'Ingrese su piso' %></label>
                           </div>
                           <div class="input__group__general">
-                            <input id="dept" class="input__general" type="number" />
-                            <label for="dept" class="label__general">Departamento</label>
+                            <input id="dept" name="dept" class="input__general" type="number" />
+                            <label for="dept" class="label__general"><%= dept ? dept : 'Ingrese su departamento' %></label>
+                          </div>                          
+                          <div class="input__group__general">
+                            <input id="ref" name="ref" class="input__general" type="text" />
+                            <label for="ref" class="label__general"><%= ref ? ref : 'Ingrese alguna referencia' %></label>
                           </div>
                           <div class="input__group__general">
-                            <input id="ref" class="input__general" type="" />
-                            <label for="ref" class="label__general">Referencias</label>
+                            <input id="postcode" name="postcode" class="input__general" type="number" />
+                            <label for="postcode" class="label__general"><%= postcode ? postcode : 'Coloque su codigo postal' %></label>
                           </div>
                           <div class="input__group__general">
-                            <input id="postcode" class="input__general" type="number" />
-                            <label for="postcode" class="label__general">Codigo Postal</label>
+                            <input id="province" name="province" class="input__general" type="text" />
+                            <label for="province" class="label__general"><%= province ? province : 'Coloque su provincia' %></label>
                           </div>
                           <div class="input__group__general">
-                            <input id="province" class="input__general" type="number" />
-                            <label for="province" class="label__general">Provincia</label>
-                          </div>
-                          <div class="input__group__general">
-                            <input id="location" class="input__general" type="number" />
-                            <label for="location" class="label__general">Localidad</label>
+                            <input id="location" name="location" class="input__general" type="text" />
+                            <label for="location" class="label__general"><%= location ? province : 'Coloque su localidad' %></label>
                           </div>
                           <button class="boton__general">Guardar</button>
                     </form>

@@ -48,7 +48,7 @@
 .main__section__imagenes img{
     width: 100%;
     border-radius: 8px;
-    aspect-ratio: 3/2.8;
+    aspect-ratio: 3/3;
     object-fit: unset;
 }
 .main__section__carouselnav div{

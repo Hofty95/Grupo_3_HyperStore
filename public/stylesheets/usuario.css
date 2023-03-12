@@ -112,17 +112,19 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: center;
+        width: 80%;
         align-items: flex-start;
-        width: 70%;
     }
 
     .main__article__user__menu{
-        width:90% ;
+        width: 40%;
+        height: 200px;
+        margin: 0px 10px;
     }
 
     .main__article__user__datos{
-        width: 90%;
+        margin: 0;
+        width: 57%;
     }
 
     .main__article__user__direcciones{

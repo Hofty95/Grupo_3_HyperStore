@@ -30,6 +30,9 @@
     padding: 15px 0px 0px 0px;
 }
 
+.checkbox__login{
+  color: white;
+}
 
 .btn-primary{
     --bs-btn-hover-bg: var(--colorVioleta);

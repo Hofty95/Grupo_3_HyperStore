@@ -126,8 +126,8 @@
       <button>Contactános!</button>
     </div>
   </section>
-  <div class="BOTON__DASHBOARD__PROVISORIO">
-    <% if (locals.userLogin && userLogin.rol==="admin") { %>
+  <% if (locals.userLogin && userLogin.rol==="admin") { %>
+    <div class="BOTON__DASHBOARD__PROVISORIO">
     <a class="nav-link" href="/admin/dashboard">DASHBOARD</a>
     <% } %>
   </div>

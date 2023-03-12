@@ -145,15 +145,18 @@
                             <h3 id="agregar_producto">Agregar Producto</h3>
                             <div class="form__box__login">
                                 <label for="name">Introducir Nombre</label>
-                                <input type="text" name="name" placeholder="Ejemplo: HyperX Cloud Flight" />
+                                <input type="text" name="name" placeholder="Ejemplo: HyperX Cloud Flight" value="<%= locals.old && old.name ? old.name : null %>"/>
+                                <small style="color:red"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
                             </div>
                             <div class="form__box__login">
                                 <label for="code">Introducir Código</label>
-                                <input type="text" name="code" placeholder="Ejemplo: 987-654-321" />
+                                <input type="text" name="code" placeholder="Ejemplo: 987-654-321" value="<%= locals.old && old.code ? old.code : null %>"/>
+                                <small style="color:red"><%= locals.errors && errors.code ? errors.code.msg : null %></small>
                             </div>
                             <div class="form__box__login">
                                 <label for="price">Introducir Precio</label>
-                                <input type="number" name="price" placeholder="Ejemplo: $25.999" />
+                                <input type="number" name="price" placeholder="Ejemplo: $25.999" value="<%= locals.old && old.price ? old.price : null %>"/>
+                                <small style="color:red"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
                             </div>
                         </section>
                         <section class="producto__file">
@@ -162,14 +165,15 @@
                         </section>
                         <section>
                             <h3>Añadir Descripción</h3>
-                            <div class="form__box__login">
+<!--                             <div class="form__box__login">
                                 <label for="description">Descripción del Producto</label>
                                 <input type="text" name="description" placeholder="Introducir Texto..." />
                             </div> -->
                                 <div class="col-12 mb-3">
                                     <label for="description" class="form-label">Descripción del Producto</label>
                                     <textarea class="form-control" id="description" rows="3"
-                                        name="description"></textarea>
+                                        name="description"><%= locals.old && old.description ? old.description : null %></textarea>
+                                        <small style="color:red"><%= locals.errors && errors.description ? errors.description.msg : null %></small>
                                 </div>
                             </section>
                             <section>
@@ -180,7 +184,7 @@
                                 <div class="col-12 mb-3">
                                     <label for="subDescription" class="form-label">Sub-Descripción</label>
                                     <textarea class="form-control" id="subDescription" rows="3"
-                                        name="subDescription"></textarea>
+                                        name="subDescription"><%= locals.old && old.subDescription ? old.subDescription : null %></textarea>
                                 </div>
                                 <div class="main__info__section select">
                                     <p>Seleccione si el producto posee descuento o no.</p>
@@ -197,7 +201,8 @@
                                 <div class="form__box__login">
                                     <label for="discountAmount">Porcentaje de Descuento</label>
                                     <input type="text" name="discountAmount"
-                                        placeholder="Introducir porcentaje de Descuento..." />
+                                        placeholder="Introducir porcentaje de Descuento..." value="<%= locals.old && old.discountAmount ? old.discountAmount : null %>"/>
+                                        <small style="color:red"><%= locals.errors && errors.discountAmount ? errors.discountAmount.msg : null %></small>
                                 </div>
                                 <div class="main__info__section select">
                                     <p>Seleccionar Categoria</p>
@@ -213,6 +218,7 @@
                                         </optgroup>
                                     </select>
                                     <br><br>
+                                    <small style="color:red"><%= locals.errors && errors.category ? errors.category.msg : null %></small>
                                 </div>
                             </section>
                             <div class="article1__boton__general button">

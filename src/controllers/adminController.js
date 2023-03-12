@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path")
+const {validationResult} = require('express-validator')
 
 const categories = require("../data/categories.json");
 const products = require("../data/products.json");
@@ -19,26 +20,39 @@ module.exports = {
     },
     storeProduct : (req, res) => {
         const products = readJson('products.json')
-        const {code, name, price, discount, discountAmount, description, subDescription, category,image} = req.body
-        const newProduct = {
-            id : products[products.length - 1].id + 1,
-            code : code,
-            name : name,
-            price : +price,
-            discount : discount ? true : false,
-            discountAmount : +discountAmount,
-            description : description.trim(),
-            subDescription : subDescription.trim(),
-            category : category,
-            images : req.files.map(file=> file.filename),
-        }
-       // return res.send(newProduct)
+        const errors = validationResult(req)
+
+        if (errors.isEmpty()) {
+            const {code, name, price, discount, discountAmount, description, subDescription, category,image} = req.body
+            const newProduct = {
+                id : products.length ? products[products.length - 1].id + 1 : 1,
+                code : code,
+                name : name,
+                price : +price,
+                discount : discount ? true : false,
+                discountAmount : +discountAmount,
+                description : description,
+                subDescription : subDescription,
+                category : category,
+                images : req.files.map(file=> file.filename),
+            }
+       
  
-        products.push(newProduct)
+            products.push(newProduct)
 
-        writeJson('products.json', products)
+            writeJson('products.json', products)
 
-        res.redirect("/admin/dashboard");
+            res.redirect("/admin/dashboard");            
+        }else{
+            return res.render("admin/dashboard",{
+                title: "HyperStore | dashboard",
+                categories,
+                products,
+                users,
+                errors : errors.mapped(),
+                old : req.body
+            })
+        }
     },
     editProduct : (req, res) => {
         const products = readJson('products.json');
@@ -55,31 +69,46 @@ module.exports = {
     },
     saveEditProduct : (req, res) => {
         const products = readJson('products.json');
-        
-        const {id} = req.params;
-        const {code, name, price, discount, discountAmount, description, subDescription, category} = req.body
+        const errors = validationResult(req)
 
-        let productsEdited = products.map((product) => {
-            if (product.id === +id){
-                let productEdited = {
-                id : +id,
-                code : code,
-                name : name,
-                price : price,
-                discount : discount,
-                discountAmount : discountAmount,
-                description : description,
-                subDescription : subDescription,
-                category : category,
-                Image : null
-                };
-                return productEdited
-            }
-            return product
-        })
-        writeJson('products.json', productsEdited)
+        if (errors.isEmpty()) {
+            const {id} = req.params;
+            const {code, name, price, discount, discountAmount, description, subDescription, category} = req.body
 
-        res.redirect("/admin/dashboard");
+            let productsEdited = products.map((product) => {
+                if (product.id === +id){
+                    let productEdited = {
+                    id : +id,
+                    code : code,
+                    name : name,
+                    price : price,
+                    discount : discount,
+                    discountAmount : discountAmount,
+                    description : description,
+                    subDescription : subDescription,
+                    category : category,
+                    Image : null
+                    };
+                    return productEdited
+                }
+                return product
+            })
+            writeJson('products.json', productsEdited)
 
+            res.redirect("/admin/dashboard");
+        }else{
+            const products = readJson('products.json');
+
+            const {id} = req.params
+            const productToEdit = products.find(product => product.id === +id);
+    
+            return res.render("admin/dashboard_edit",{
+                title: "HyperStore | edit",
+                categories,
+                ...productToEdit,
+                errors : errors.mapped(),
+                old : req.body
+            })
+        }
     }
 }

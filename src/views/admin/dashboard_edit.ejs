@@ -13,15 +13,18 @@
                         <section>
                             <div class="form__box__login">
                                 <label for="name">Introducir Nombre</label>
-                                <input type="text" name="name" value="<%= name %>"/>
+                                <input type="text" name="name" value="<%= locals.old && old.name ? old.name : name %>"/>
+                                <small style="color:red"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
                             </div>
                             <div class="form__box__login">
                                 <label for="code">Introducir Código</label>
-                                <input type="text" name="code" value="<%= code %>"/>
+                                <input type="text" name="code" value="<%= locals.old && old.code ? old.code : code %>"/>
+                                <small style="color:red"><%= locals.errors && errors.code ? errors.code.msg : null %></small>
                             </div>
                             <div class="form__box__login">
                                 <label for="price">Introducir Precio</label>
-                                <input type="number" name="price" value="<%= price %>"/>
+                                <input type="number" name="price" value="<%= locals.old && old.price ? old.price : price %>"/>
+                                <small style="color:red"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
                             </div>
                         </section>
                         <section class="producto__file">
@@ -33,14 +36,16 @@
                             <div class="col-12 mb-3">
                                 <label for="description" class="form-label">Descripción del Producto</label>
                                 <textarea class="form-control" id="description" rows="3"
-                                    name="description"><%= description %></textarea>
+                                    name="description"><%= locals.old && old.description ? old.description : description %></textarea>
+
+                                    <small style="color:red"><%= locals.errors && errors.description ? errors.description.msg : null %></small>
                             </div>
                         </section>
                         <section>
                             <div class="col-12 mb-3">
                                 <label for="subDescription" class="form-label">Sub-Descripcion</label>
                                 <textarea class="form-control" id="subDescription" rows="3"
-                                    name="subDescription"><%= subDescription %></textarea>
+                                    name="subDescription"><%= locals.old && old.subDescription ? old.subDescription : subDescription %></textarea>
                             </div>
                             <div class="main__info__section select">
                                 <p>Seleccione si el producto posee descuento o no.</p>
@@ -55,7 +60,8 @@
                             </div>
                             <div class="form__box__login">
                                 <label for="discountAmount">Porcentaje de Descuento</label>
-                                <input type="text" name="discountAmount" value="<%= discountAmount %>"/>
+                                <input type="text" name="discountAmount" value="<%= locals.old && old.discountAmount ? old.discountAmount : discountAmount %>"/>
+                                <small style="color:red"><%= locals.errors && errors.discountAmount ? errors.discountAmount.msg : null %></small>
                             </div>
                             <div class="main__info__section select">
                                 <p>Seleccionar Categoria</p>
@@ -70,6 +76,7 @@
                                     </optgroup>
                                 </select>
                                 <br><br>
+                                <small style="color:red"><%= locals.errors && errors.category ? errors.category.msg : null %></small>
                             </div>
                         </section>
                         <div class="article1__boton__general button">

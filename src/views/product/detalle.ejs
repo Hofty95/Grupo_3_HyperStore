@@ -134,13 +134,14 @@
                     <h2 class="main__section__recomendados__titulo2"><b>RECOMENDADOS</b></h2>
                 </div>
                 <div class="main__section__recomendados__container">
-                    <% ofertProduct.forEach(({name,id,price,discount,discountAmount}) => { %>
+                    <% ofertProduct.forEach(({name,id,price,discount,discountAmount,images}) => { %>
                      <%- include('../partials/productCard',{
                         name,
                         id,
                         price,
                         discount,
-                        discountAmount
+                        discountAmount,
+                        images
                      }) %>
                     <% }) %>
                 </div>

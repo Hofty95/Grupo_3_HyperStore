@@ -8,7 +8,7 @@
       "discountAmount": 21,
       "description": "Release Cervical Nerve, Percutaneous Approach",
       "subDescription": "Release Cervical Nerve, Percutaneous Approach",
-      "category": "PC",
+      "category": "Pc",
       "images": [
          "notebook.webp",
          "notebook.webp",
@@ -27,7 +27,7 @@
       "discountAmount": 16,
       "description": "Release Accessory Nerve, Percutaneous Approach",
       "subDescription": "Release Accessory Nerve, Percutaneous Approach",
-      "category": "PC",
+      "category": "Pc",
       "images": [
          "pc-armada1.webp",
          "pc-armada1.webp",
@@ -46,7 +46,7 @@
       "discountAmount": 54,
       "description": "Excision of Common Bile Duct, Percutaneous Endoscopic Approach",
       "subDescription": "Excision of Common Bile Duct, Perc Endo Approach",
-      "category": "PC",
+      "category": "Pc",
       "images": [
          "placa-de-video-nvidia.webp",
          "placa-de-video-nvidia.webp",

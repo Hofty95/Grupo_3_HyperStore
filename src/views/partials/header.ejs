@@ -29,13 +29,13 @@
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <% if (locals.userLogin) { %>
                   <li>
-                    <a class="nav-link" style="color: white" href="/user/usuario/<%= userLogin.id %>">Hola, <%= userLogin.name %></a>
+                    <a class="nav-link" style="color: white" href="/user/usuario/<%= userLogin.id %>"> Hola, <%= userLogin.name %></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" style="color: white" href="/product/carrito">Mi Carrito</a>
+                    <a class="nav-link" style="color: white" href="/product/carrito"> Mi Carrito</a>
                   </li>
                   <li>
-                    <a class="nav-link" style="color: white" href="/user/logout">Salir</a>
+                    <a class="nav-link" style="color: white" href="/user/logout"> Salir</a>
                   </li>
                   <% if (userLogin.rol==="admin" ) { %>
                     <li>
@@ -44,7 +44,7 @@
                     <% } %>
                       <% }else{ %>
                         <li class="nav-item">
-                          <a class="nav-link" href="/user/login">Acceder</a>
+                          <a class="nav-link" href="/user/login"> Acceder</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="/product/carrito">Mi Carrito</a>
@@ -89,7 +89,7 @@
         <ul>
           <% if (!locals.userLogin) { %>
             <li>
-              <a class="nav-link" style="color: white" href="/user/login"><span><i class="fa-solid fa-user"></i></span>Acceder</a>
+              <a class="nav-link" style="color: white" href="/user/login"><span><i class="fa-solid fa-user"></i></span> Acceder</a>
             </li>
           </li>
           <li><a href="/product/carrito"><span><i class="fa-solid fa-cart-shopping"></i></span> Mi Carrito <span>
@@ -97,7 +97,7 @@
           </span></a></li>
           <% } else { %>
             <li>
-              <a class="nav-link" style="color: white" href="/user/usuario/<%- userLogin.id %>"><span><i class="fa-solid fa-user"></i></span>Hola, <%= userLogin.name %></a>
+              <a class="nav-link" style="color: white" href="/user/usuario/<%- userLogin.id %>"><span><i class="fa-solid fa-user"></i></span> Hola, <%= userLogin.name %></a>
             </li>
             <li>
               <a href="/product/carrito" style="color: white"><span><i class="fa-solid fa-cart-shopping"></i></span> Mi Carrito <span>
@@ -106,7 +106,7 @@
           </li>
 
             <li>
-              <a class="nav-link" style="color: white" href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i>Salir</a>
+              <a class="nav-link" style="color: white" href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
             </li>
           <% } %>
         </ul>

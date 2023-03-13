@@ -26,7 +26,8 @@ module.exports = {
       productsFound = productsFound.filter(
         (product) =>
           product.name.toLowerCase().includes(keywords.toLowerCase()) ||
-          product.description.toLowerCase().includes(keywords.toLowerCase())
+          product.description.toLowerCase().includes(keywords.toLowerCase()) ||
+          product.category.toLowerCase().includes(keywords.toLowerCase())
       );
     }
 

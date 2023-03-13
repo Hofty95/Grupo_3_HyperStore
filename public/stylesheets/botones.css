@@ -194,3 +194,8 @@
   display: flex;
   justify-content: space-around;
 }
+@media (max-width:380px) {
+.BOTON__DASHBOARD__PROVISORIO{
+  display: none;
+  }
+}

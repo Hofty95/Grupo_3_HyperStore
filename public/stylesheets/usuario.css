@@ -29,6 +29,7 @@
     border: solid 1px var(--colorGris);
     border-radius: 5px;
     margin-top: 10px;
+    padding: 35px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -118,7 +119,6 @@
 
     .main__article__user__menu{
         width: 40%;
-        height: 200px;
         margin: 0px 10px;
     }
 

@@ -1,12 +1,13 @@
-/* Mobile First */
+.logo__marca {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease; 
+}
 
-/* .home__main{
-
-} */
-
-/* .home__main__section__content{
-
-} */
+.logo__marca:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
+  filter: grayscale(0%);
+}
 
 .home__main__section__article__banner {
   width: 100%;

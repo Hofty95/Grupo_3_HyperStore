@@ -23,11 +23,11 @@
                         <div class="main__info__menutablet">
                             <h2>Categorías</h2>
                            <ul>
-                            <li>
                             <% categories.forEach(category => { %>
+                            <li>
                              <a href="/product/busqueda?category=<%= category.name %>"><%= category.name %></a>
-                            <% }) %>
                             </li>
+                            <% }) %>
                            </ul>
                             <hr>
                         </div>

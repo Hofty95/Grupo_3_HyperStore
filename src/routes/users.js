@@ -6,6 +6,7 @@ const localsUserCheck = require('../middlewares/localsUserCheck');
 const loginValidation = require('../validations/loginValidation');
 const checkUserLogin = require('../middlewares/checkUserLogin');
 const checkUser = require('../middlewares/checkUser');
+const profileValidation = require('../validations/profileValidation');
 
 
 /* /user */
@@ -14,8 +15,8 @@ router
   .post('/login',loginValidation, loginProcess)
   .get('/register',checkUser ,register)
   .post('/register',registerValidation  ,registerProcess)
-  .get('/usuario/:id',checkUserLogin ,usuario)
-  .put('/edit/:id', checkUserLogin, changeInfo)
+  .get('/usuario/:id',checkUserLogin, usuario)
+  .put('/edit/:id', profileValidation, changeInfo)
   .get('/changepass',checkUserLogin,changepass)
   .get('/remove/:id',checkUserLogin,confirmRemoveUser)
   .get('/logout', checkUserLogin, logout)

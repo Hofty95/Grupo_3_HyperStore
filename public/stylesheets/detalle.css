@@ -75,6 +75,10 @@
 .main__section__article1__precio h2{
     padding: 10px 0px 10px 0px;
 }
+
+.etiquetas__descuento i{
+    margin: 0px 15px 0px 0px;
+}
 .main__section__article1__descuento div{
     padding: 10px;
 }

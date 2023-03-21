@@ -47,10 +47,13 @@ module.exports = {
       });
     }
 
+    let numSearched = productsFound.length
+
     return res.render("product/busqueda", {
       title: "Search",
       productsFound,
       categories,
+      numSearched
     });
   },
   carrito: (req, res) => {

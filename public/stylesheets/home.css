@@ -19,6 +19,8 @@
   width: 100%;
   height: 450px;
   object-fit: cover;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .home__main__section__article__content {
@@ -166,7 +168,7 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
   z-index: 100;
 }
 
-.home__main__title p{
+/* .home__main__title p{
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -176,7 +178,8 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
   text-overflow:initial;
   overflow: visible;
   white-space:normal;
-}
+} */
+
 .card-title a{
   color: var(--colorVioleta);
 }
@@ -185,18 +188,18 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
   color: var(--colorGris);
 }
 
-.titulo-tarjeta-home{
+/* .titulo-tarjeta-home{
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  transition: all 600ms;
+  transition: all 2s;
 }
 
-.titulo-tarjeta-home :hover{
+.titulo-tarjeta-home:hover{
   text-overflow: initial;
   overflow: visible;
   white-space: normal;
-}
+} */
 
 .slick-dotted.slick-slider {
   margin: auto;
@@ -210,6 +213,18 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
 
 /* Tablet */
 @media (min-width:768px) {
+  .card-body{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.6s;
+  }
+  
+  .card-body:hover{
+    text-overflow: initial;
+    overflow: visible;
+    white-space: normal;
+  }
   .home__main__section__article__banner {
     display: block;
   }
@@ -239,6 +254,21 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
 /* Desktop */
 
 @media (min-width:1024px) {
+  .card-body{
+    height: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.6s;
+  }
+  
+  .card-body:hover{
+    height: 200px;
+    text-overflow: initial;
+    overflow: visible;
+    white-space: normal;
+  }
+
   .boton__home__first {
     height: 500px;
   }
@@ -249,5 +279,9 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
 
   .slick-prev:before, .slick-next:before {
     visibility: visible;
+  }
+
+  .home__main__section__article__banner img {
+    height: 440px;
   }
 }

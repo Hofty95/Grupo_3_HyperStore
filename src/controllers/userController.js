@@ -97,40 +97,50 @@ module.exports = {
         const users = readJson('users.json');
         const {id, name, email} = req.session.userLogin;
         const {phone,dni,surname,street,streetNumber,floor,dept,ref,postcode,province,location} = req.body;
+        const errors = validationResult(req)
 
-       
-        let usersModified = users.map((user) => {
-            if (user.id === id){
-                let userEdited = {
-                id : +id,
-                rol: user.rol,
-                email: email,
-                name : name,
-                surname: surname,
-                password: user.password,
-                phone: +phone,
-                dni: +dni,
-                street,
-                streetNumber: +streetNumber,
-                floor,
-                dept,
-                ref,
-                postcode: +postcode,
-                province,
-                location
+        if (errors.isEmpty()) {
 
-                };
-                return userEdited
-            }
-            return user
-        })
-        writeJson('users.json', usersModified)
-        return res.redirect('/')
+            let usersModified = users.map((user) => {
+                if (user.id === id){
+                    let userEdited = {
+                    id : +id,
+                    rol: user.rol,
+                    email: email,
+                    name : name,
+                    surname: surname,
+                    password: user.password,
+                    phone: +phone,
+                    dni: +dni,
+                    street,
+                    streetNumber: +streetNumber,
+                    floor,
+                    dept,
+                    ref,
+                    postcode: +postcode,
+                    province,
+                    location
 
-/*         return res.render('users/usuario',{
-            title: "HyperStore | Perfil de usuario",
-            ...user
-        }) */
+                    };
+                    return userEdited
+                }
+                return user
+            })
+            writeJson('users.json', usersModified)
+            return res.redirect('/')
+        }else{
+
+            const {id} = req.session.userLogin;
+            
+            const user = users.find((user) => user.id === +id)
+    
+            return res.render('users/usuario',{
+                title: "HyperStore | Perfil de usuario",
+                ...user,
+                old: req.body,
+                errors : errors.mapped()
+            })
+        }
     },
     changepass : (req,res) =>{
         return res.render('users/cambioContraseña',{

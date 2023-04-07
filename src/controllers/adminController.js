@@ -1,5 +1,4 @@
-const fs = require("fs");
-const path = require("path")
+const db = require('../database/models')
 const {validationResult} = require('express-validator')
 
 const categories = require("../data/categories.json");
@@ -10,13 +9,21 @@ const {readJson, writeJson} = require("../data/readWrite")
 
 module.exports = {
     Admin : (req, res) => {
-    const products = readJson("../data/products.json")
-        return res.render("admin/dashboard",{
-            title: "HyperStore | dashboard",
-            categories,
-            products,
-            users
-        })
+
+        const products = db.Product.findAll()
+        const categories = db.Category.findAll()
+        const users = db.User.findAll()
+
+        Promise.all([products,categories])
+            .then(([products,categories])=>{
+                return res.render("admin/dashboard",{
+                    title: "HyperStore | dashboard",
+                    categories,
+                    products,
+                    users
+                })                
+            })
+
     },
     storeProduct : (req, res) => {
         const products = readJson('products.json')

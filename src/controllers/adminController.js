@@ -13,9 +13,9 @@ module.exports = {
         const products = db.Product.findAll()
         const categories = db.Category.findAll()
         const users = db.User.findAll()
-
-        Promise.all([products,categories])
-            .then(([products,categories])=>{
+        
+        Promise.all([products,users,categories])
+            .then(([products,categories,users])=>{
                 return res.render("admin/dashboard",{
                     title: "HyperStore | dashboard",
                     categories,

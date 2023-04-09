@@ -12,10 +12,8 @@ module.exports = {
     loginProcess: (req, res) => {
 
         const errors = validationResult(req);
-        
         if (errors.isEmpty()) {
-
-            db.user.findOne({
+            db.User.findOne({
                 where: {
                     email: req.body.email
                 }

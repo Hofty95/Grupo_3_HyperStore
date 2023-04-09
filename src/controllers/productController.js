@@ -69,29 +69,41 @@ module.exports = {
     });
   },
   detalle: (req, res) => {
-    const { id } = req.params;
 
-    const product = db.Product.findByPk(id,{
-
+    const product = db.Product.findByPk(req.params.id,{
+      include : [
+        {
+          association : 'images',
+          attributes : ['name']
+        }
+      ]
     })
+    
 
-    const ofertProduct = db.Product.findAll({
+    const ofertProducts = db.Product.findAll({
+      include : [
+        {
+          association : 'images',
+          attributes : ['name'],
+        }
+      ],
       limit : 6,
       where: {
         discount: {
-          [Op.ne]: 5,
+          [Op.ne]: 25,
         },
       },
     })
     
-    Promise.all([product,ofertProduct])
+    Promise.all([product,ofertProducts])
     .then(([product,ofertProduct]) =>{
       return res.render('product/detalle',{
-        product,
+        title : 'Hyper Store | Detalle de producto',
+        ...product.dataValues,
         toThousand,
         ofertProduct
       })
-    })
+    }) 
   },
   confirmRemove: (req, res) => {
     const id = req.params.id;

@@ -12,7 +12,6 @@ module.exports = {
     loginProcess: (req, res) => {
 
         const errors = validationResult(req);
-        
         if (errors.isEmpty()) {
 
             db.User.findOne({
@@ -53,9 +52,9 @@ module.exports = {
         if (errors.isEmpty()) {
             const { name, surname, email, password } = req.body
 
-            db.address.create()
+            db.Address.create()
                 .then( address => {
-                    db.user.create({
+                    db.User.create({
                         name : name.trim(),
                         surname : surname.trim(),
                         email : email.trim(),

@@ -15,7 +15,7 @@ module.exports = {
         
         if (errors.isEmpty()) {
 
-            db.user.findOne({
+            db.User.findOne({
                 where: {
                     email: req.body.email
                 }
@@ -33,7 +33,7 @@ module.exports = {
 
                 return res.redirect('/')
             }).catch(error => console.log(error))
-
+            console.log(errors)
         } else {
             return res.render('users/login', {
                 title: "Inicio de sesión",
@@ -53,9 +53,9 @@ module.exports = {
         if (errors.isEmpty()) {
             const { name, surname, email, password } = req.body
 
-            db.address.create()
+            db.Address.create()
                 .then( address => {
-                    db.user.create({
+                    db.User.create({
                         name : name.trim(),
                         surname : surname.trim(),
                         email : email.trim(),

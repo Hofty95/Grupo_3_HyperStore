@@ -20,6 +20,7 @@
     display: none;
 }
 
+
 .container__checkbox {
     display: none;
 }
@@ -75,11 +76,20 @@
     .main__info__section {
         padding: 30px 20px 5px;
     }
+    .main__info__section h2{
+        width: 100%;
+    }
 
     .main__info__section__container {
         border: 1px solid var(--colorGris);
         border-radius: 8px;
         padding: 20px;
+        transition: all 1.7ms;
+        transition-duration: 4s;        
+    }
+
+    .main__info__section__container ul li a:hover{
+        color: silver;
     }
 
     .container__checkbox {
@@ -111,7 +121,14 @@
     }
 
     .main__info__menutablet{
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .main__info__menutablet ul{
+        display: flex; 
+    }
+    .main__info__menutablet ul li{
+        padding: 0px 3px;
     }
 
     .main__section__article {

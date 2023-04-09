@@ -11,7 +11,7 @@ module.exports = [
         .notEmpty().withMessage('La contraseña es obligatoria').bail()
         .custom((value, {req}) => {
 
-            return db.user.findOne({
+            return db.User.findOne({
                 where : {
                     email : req.body.email
                 }

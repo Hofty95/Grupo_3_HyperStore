@@ -15,7 +15,7 @@ module.exports = {
         
         if (errors.isEmpty()) {
 
-            db.user.findOne({
+            db.User.findOne({
                 where: {
                     email: req.body.email
                 }

@@ -1,125 +1,124 @@
-const {validationResult} = require("express-validator")
-const {hashSync} = require('bcryptjs')
-const users = require("../data/users.json");
-const {readJson, writeJson} = require("../data/readWrite")
+const { validationResult } = require("express-validator")
+const { hashSync } = require('bcryptjs')
+const { readJson, writeJson } = require("../data/readWrite")
+const db = require('../database/models')
 
 module.exports = {
-    login : (req,res) =>{
-        return res.render('users/login',{
+    login: (req, res) => {
+        return res.render('users/login', {
             title: 'Hyper Store | Login'
         });
     },
-    loginProcess : (req,res) => {
+    loginProcess: (req, res) => {
 
         const errors = validationResult(req);
+        
+        if (errors.isEmpty()) {
 
-        if(errors.isEmpty()){
+            db.user.findOne({
+                where: {
+                    email: req.body.email
+                }
+            }).then(({ id, name, rolId }) => {
+                req.session.userLogin = {
+                    id,
+                    name,
+                    rol: rolId,
+                    /* email */
+                };
 
-            const {id, name, rol,email} = readJson('users.json').find(user => user.email === req.body.email);
+                if (req.body.remember) {
+                    res.cookie('hyperStoreUser', req.session.userLogin, { maxAge: 1000 * 60 })
+                }
 
-            req.session.userLogin = {
-                id,
-                name,
-                rol,
-                email
-            };
+                return res.redirect('/')
+            }).catch(error => console.log(error))
 
-           if(req.body.remember){
-                res.cookie('hyperStoreUser',req.session.userLogin,{maxAge: 1000*60} )
-           }
-
-            return res.redirect('/')
-        }else{
-            return res.render('users/login',{
-                title : "Inicio de sesión",
-                errors : errors.mapped()
+        } else {
+            return res.render('users/login', {
+                title: "Inicio de sesión",
+                errors: errors.mapped()
             })
         }
     },
-    register : (req,res) =>{
-        return res.render('users/register',{
+    register: (req, res) => {
+        return res.render('users/register', {
             title: 'Hyper Store | Register'
         });
     },
-    registerProcess : (req,res) =>{
+    registerProcess: (req, res) => {
 
         const errors = validationResult(req)
 
         if (errors.isEmpty()) {
-            const users = readJson('users.json')
-            const {name, surname, email, password} = req.body
+            const { name, surname, email, password } = req.body
 
-            const newUser = {
-                id: users.length ? users[users.length - 1].id + 1 : 1,
-                rol:"user",
-                email,
-                name,
-                surname,
-                password : hashSync(password,10),
-                phone: null,
-                dni: null,
-                street: null,
-                streetNumber: null,
-                floor: null,
-                dept: null,
-                ref: null,
-                postcode : null,
-                province: null,
-                location: null
-            }
-            users.push(newUser)
+            db.address.create()
+                .then( address => {
+                    db.user.create({
+                        name : name.trim(),
+                        surname : surname.trim(),
+                        email : email.trim(),
+                        password : hashSync(password, 10),
+                        rolId : 2,
+                        addressId : address.id
+                    }).then(({id, name, rolId}) => {
+                        req.session.userLogin = {
+                            id,
+                            name,
+                            rol : rolId
+                        };
+                        return res.redirect("/")
+                    })
+                }).catch(error => console.log(error))
 
-            writeJson('users.json', users)
-
-            return res.redirect("/user/login")
-
-        }else{
-        return res.render('users/register',{
-            title: 'Hyper Store | Register',
-            errors : errors.mapped(),
-            old : req.body
-        });            
+        } else {
+            return res.render('users/register', {
+                title: 'Hyper Store | Register',
+                errors: errors.mapped(),
+                old: req.body
+            });
         }
     },
-    usuario : (req,res) =>{
+    usuario: (req, res) => {
         const users = readJson('users.json');
-        const {id} = req.session.userLogin;
-        
+        const { id } = req.session.userLogin;
+
         const user = users.find((user) => user.id === +id)
 
-        return res.render('users/usuario',{
+        return res.render('users/usuario', {
             title: "HyperStore | Perfil de usuario",
             ...user,
             old: req.body
         })
-    },  
-    changeInfo : (req,res) =>{
+    },
+    changeInfo: (req, res) => {
         const users = readJson('users.json');
-        const {id, name, email} = req.session.userLogin;
-        const {phone,dni,surname,street,streetNumber,floor,dept,ref,postcode,province,location} = req.body;
+        const { id, name, email } = req.session.userLogin;
+        const { phone, dni, surname, street, streetNumber, floor, dept, ref, postcode, province, location } = req.body;
         const errors = validationResult(req)
 
         if (errors.isEmpty()) {
 
             let usersModified = users.map((user) => {
-                if (user.id === id){
+                if (user.id === id) {
                     let userEdited = {
-                    id : +id,
-                    rol: user.rol,
-                    email: email,
-                    name : name,
-                    surname: surname,
-                    password: user.password,
-                    phone: +phone,
-                    dni: +dni,
-                    street,
-                    streetNumber: +streetNumber,
-                    floor,
-                    dept,
-                    ref,
-                    postcode: +postcode,
-                    province,
-                    location
+                        id: +id,
+                        rol: user.rol,
+                        email: email,
+                        name: name,
+                        surname: surname,
+                        password: user.password,
+                        phone: +phone,
+                        dni: +dni,
+                        street,
+                        streetNumber: +streetNumber,
+                        floor,
+                        dept,
+                        ref,
+                        postcode: +postcode,
+                        province,
+                        location
 
                     };
                     return userEdited
@@ -128,44 +127,44 @@ module.exports = {
             })
             writeJson('users.json', usersModified)
             return res.redirect('/')
-        }else{
+        } else {
 
-            const {id} = req.session.userLogin;
-            
+            const { id } = req.session.userLogin;
+
             const user = users.find((user) => user.id === +id)
-    
-            return res.render('users/usuario',{
+
+            return res.render('users/usuario', {
                 title: "HyperStore | Perfil de usuario",
                 ...user,
                 old: req.body,
-                errors : errors.mapped()
+                errors: errors.mapped()
             })
         }
     },
-    changepass : (req,res) =>{
-        return res.render('users/cambioContraseña',{
+    changepass: (req, res) => {
+        return res.render('users/cambioContraseña', {
             title: "HyperStore | cambio de contraseña",
         })
     },
-    logout : (req,res) => {
+    logout: (req, res) => {
         req.session.destroy();
         res.clearCookie("hyperStoreUser");
         return res.redirect('/')
     },
-    confirmRemoveUser : (req, res) => {
+    confirmRemoveUser: (req, res) => {
         const id = req.params.id;
         const user = users.find(user => user.id === +id);
         const users = readJson('users.json');
-        
+
     },
-    removeUser : (req, res) => {
+    removeUser: (req, res) => {
         const users = readJson('users.json');
         const id = req.params.id;
         const deleteUser = users.filter(user => user.id !== +id);
 
         writeJson('users.json', deleteUser);
         res.redirect(`/admin/dashboard`)
-        return res.render('users/cambioContraseña',{
+        return res.render('users/cambioContraseña', {
             title: 'Hyper Store | Cambio Contraseña'
         })
     }

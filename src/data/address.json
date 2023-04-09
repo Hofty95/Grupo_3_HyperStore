@@ -1,0 +1,32 @@
+[
+    {
+      "street": "8th Floor",
+      "location": "Jamaica",
+      "province": "New York",
+      "postcode": 2948
+    },
+    {
+      "street": "Room 1493",
+      "location": "Chicago",
+      "province": "Illinois",
+      "postcode": 6249
+    },
+    {
+      "street": "Room 827",
+      "location": "Manassas",
+      "province": "Virginia",
+      "postcode": 9360
+    },
+    {
+      "street": "PO Box 996",
+      "location": "Denver",
+      "province": "Colorado",
+      "postcode": 1498
+    },
+    {
+      "street": "Suite 31",
+      "location": "Naples",
+      "province": "Florida",
+      "postcode": 2632
+    }
+  ]

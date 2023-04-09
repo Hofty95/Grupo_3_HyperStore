@@ -37,7 +37,7 @@
                   <li>
                     <a class="nav-link" style="color: white" href="/user/logout"> Salir</a>
                   </li>
-                  <% if (userLogin.rol==="admin" ) { %>
+                  <% if (userLogin.rol=== 1 ) { %>
                     <li>
                       <a class="nav-link" style="color: white" href="/admin/dashboard">DASHBOARD</a>
                     </li>
@@ -126,7 +126,7 @@
       <button><a href="https://web.whatsapp.com/" target="_blank">Contactános!</a></button>
     </div>
   </section>
-  <% if (locals.userLogin && userLogin.rol==="admin") { %>
+  <% if (locals.userLogin && userLogin.rol=== 1) { %>
     <div class="BOTON__DASHBOARD__PROVISORIO">
     <a class="nav-link" href="/admin/dashboard">DASHBOARD</a>
     <% } %>

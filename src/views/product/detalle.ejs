@@ -58,7 +58,7 @@
                             <p class="main__section__article1__add__1">1</p>
                             <p class="main__section__article1__add__signo2">+</p>
                         </div>
-                        <% if (locals.userLogin && userLogin.rol === "admin") { %>
+                        <% if (locals.userLogin && userLogin.rol === 1) { %>
                             <div class="d-flex justify-content-around">
                                 <form action="/admin/dashboard/edit/<%= id %>" method="get" class=""><button class="boton__general">Editar Producto</button></form>
                                 <form action="/product/remove/<%= id %>?_method=DELETE" id="form-delete" method="POST"><button type="submit" class="btn btn-danger">Eliminar Producto</button></form>

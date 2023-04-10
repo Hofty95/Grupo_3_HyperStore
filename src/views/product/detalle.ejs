@@ -17,7 +17,7 @@
                         <div class="main__section__carousel2">
                             <% images.forEach(image => { %>
                                 <div>
-                                    <img src="/images/Productos-img/<%= image ? image[0] : 'default-image.png' %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
+                                    <img src="/images/Productos-img/<%= image ? image.name : 'default-image.png' %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
                                     style="cursor:pointer">
                                 </div>
                                 <% }) %>                        
@@ -135,14 +135,13 @@
                     <h2 class="main__section__recomendados__titulo2"><b>RECOMENDADOS</b></h2>
                 </div>
                 <div class="main__section__recomendados__container">
-                    <% ofertProduct.forEach(({name,id,price,discount,discountAmount,images}) => { %>
+                    <% ofertProducts.forEach(({name,id,price,discount,images}) => { %>
                      <%- include('../partials/productCard',{
                         name,
                         id,
                         price,
                         discount,
-                        discountAmount,
-                        images
+                        images 
                      }) %>
                     <% }) %>
                 </div>

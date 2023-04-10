@@ -84,7 +84,7 @@ module.exports = {
       include : [
         {
           association : 'images',
-          attributes : ['name'],
+          attributes : ['name']
         }
       ],
       limit : 6,
@@ -94,14 +94,15 @@ module.exports = {
         },
       },
     })
-    
     Promise.all([product,ofertProducts])
-    .then(([product,ofertProduct]) =>{
+    .then(([product,ofertProducts]) =>{
+      //console.log(product)
+      //console.log(ofertProducts)
       return res.render('product/detalle',{
         title : 'Hyper Store | Detalle de producto',
         ...product.dataValues,
         toThousand,
-        ofertProduct
+        ofertProducts
       })
     }) 
   },

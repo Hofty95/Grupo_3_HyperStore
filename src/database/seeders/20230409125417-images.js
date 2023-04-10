@@ -33,7 +33,7 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name: "1.png",
+    name: "placa-1.png",
     productId: 2,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -61,7 +61,187 @@ const productImages = [
     productId: 2,
     createdAt: new Date(),
     updatedAt: new Date()
-  }
+  }, 
+  {
+    name: "monitor-daewoo-19-dw-mon19.jpg",
+    productId: 3,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "D_NQ_NP_788824-MLA48691141141_122021-O.jpg",
+    productId: 3,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "D_NQ_NP_705243-MLA49023731800_022022-O.jpg",
+    productId: 3,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "25958_25.jpg",
+    productId: 3,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }, 
+  {
+    name: "25958_5.jpg",
+    productId: 3,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }, 
+  {
+    name : "descarga.jpg",
+    productId: 4,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "g203-black-gallery-1.png",
+    productId: 4,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "g203-black-gallery-2.png",
+    productId: 4,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "g203-black-gallery-3.png",
+    productId: 4,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "maxresdefault.jpg",
+    productId: 4,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "1.png",
+    productId: 5,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "2.png",
+    productId: 5,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "3.png",
+    productId: 5,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "4.png",
+    productId: 5,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "5.png",
+    productId: 5,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "parlante-1.png",
+    productId: 6,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "parlante-2.png",
+    productId: 6,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "parlante-3.png",
+    productId: 6,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "parlante-4.png",
+    productId: 6,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "parlante-5.jpg",
+    productId: 6,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "escritorio-1.png",
+    productId: 7,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "escritorio-2.png",
+    productId: 7,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "escritorio-3.png",
+    productId: 7,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "escritorio-4.png",
+    productId: 7,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "escritorio-5.png",
+    productId: 7,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "camara-1.png",
+    productId: 8,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "camara-2.png",
+    productId: 8,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "camara-3.png",
+    productId: 8,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "camara-4.png",
+    productId: 8,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "camara-5.png",
+    productId: 8,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
 ];
 
 module.exports = {

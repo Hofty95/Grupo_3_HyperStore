@@ -1,5 +1,5 @@
 <article class="main__section__recomendados__articulos">
-    <img src="/images/Productos-img/<%= images[0] %>"
+    <img src="/images/Productos-img/<%= images.length ? images[0].name : null %>"
         alt="">
     <p class="main__section__recomendados__articulos__detalle detalle__main__title"><%= name %> +</p>
      <p> <%= discount%>%OFF</p>

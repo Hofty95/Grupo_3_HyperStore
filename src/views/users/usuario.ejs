@@ -12,7 +12,7 @@
             <form action="/user/edit/<%= userLogin.id %>?_method=PUT" method="post">
               <div class="main__article__user__menu">
                 <h2>
-                  <%= name %>
+                  <%= user.name %>
                 </h2>
                 <section class="profile__data">
                   <div class="relative block">
@@ -28,92 +28,67 @@
                   </label>
                 </section>
                 <h2>
-                  <%= email %>
+                  <%= user.email %>
                 </h2>
               </div>
               <h2>Mis Datos</h2>
+
               <div class="input__group__general">
-                <input id="name" name="name" class="input__general" type="text" value="<%= locals.old && old.name ? old.name : name %>"/>
-                <label for="name" class="label__general">
-                  <%= name ? name : 'Ingrese su nombre' %>
-                </label>
-                <small style="color:red"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
+                <label for="name"><small style="color: white;">Nombre</small></label>
+                <input id="name" name="name" class="input__general" type="text"
+                  value="<%= user.name ? user.name : 'Coloque su nombre' %>" />
+                <small style="color:red">
+                  <%= locals.errors && errors.user.name ? errors.user.name.msg : null %>
+                </small>
               </div>
+
               <div class="input__group__general">
-                <input id="surname" name="surname" class="input__general" type="text" value="<%= locals.old && old.surname ? old.surname : surname %>"/>
-                <label for="surname" class="label__general">
-                  <%= surname ? surname : 'Ingrese su apellido' %>
-                </label>
-                <small style="color:red"><%= locals.errors && errors.surname ? errors.surname.msg : null %></small>
+                <label for="surname"><small style="color: white;">Apellido</small></label>
+                <input id="surname" name="surname" class="input__general" type="text"
+                  value="<%= user.surname ? user.surname : 'Coloque su Apellido' %>" />
+                <small style="color:red">
+                  <%= locals.errors && errors.user.surname ? errors.user.surname.msg : null %>
+                </small>
               </div>
-              <div class="input__group__general">
-                <input id="phone" name="phone" class="input__general" type="number" value="<%= locals.old && old.phone ? old.phone : phone %>"/>
-                <label for="phone" class="label__general">
-                  <%= phone ? phone : 'Ingrese su numero de telefono' %>
-                </label>
-                <small style="color:red"><%= locals.errors && errors.phone ? errors.phone.msg : null %></small>
-              </div>
-              <div class="input__group__general">
-                <input id="dni" name="dni" class="input__general" type="number" value="<%= locals.old && old.dni ? old.dni : dni %>"/>
-                <label for="dni" class="label__general">
-                  <%= dni ? dni : 'Ingrese su DNI' %>
-                </label>
-                <small style="color:red"><%= locals.errors && errors.dni ? errors.dni.msg : null %></small>
-              </div>
+
               <h2>Mis Direcciones</h2>
+
               <div class="input__group__general">
-                <input id="street" name="street" class="input__general" type="text" value="<%= locals.old && old.street ? old.street : street %>"/>
-                <label for="street" class="label__general">
-                  <%= street ? street : 'Ingrese su direccion' %>
-                </label>
-                <small style="color:red"><%= locals.errors && errors.street ? errors.street.msg : null %></small>
+                <label for="street"><small style="color: white;">Calle</small></label>
+                <input id="street" name="street" class="input__general" type="text"
+                  value="<%= user.address.street ? user.address.street : 'Coloque su calle' %>" />
+                <small style="color:red">
+                  <%= locals.errors && errors.user.address.street ? errors.user.address.street.msg : null %>
+                </small>
               </div>
+
               <div class="input__group__general">
-                <input id="streetNumber" name="streetNumber" class="input__general" type="number" value="<%= locals.old && old.streetNumber ? old.streetNumber : streetNumber %>"/>
-                <label for="streetNumber" class="label__general">
-                  <%= streetNumber ? streetNumber : 'Ingrese su altura' %>
-                </label>
-                <small style="color:red"><%= locals.errors && errors.streetNumber ? errors.streetNumber.msg : null %></small>
+                <label for="postcode"><small style="color: white;">Código postal</small></label>
+                <input id="postcode" name="postcode" class="input__general" type="number"
+                  value="<%= user.address.postcode ? user.address.postcode : 'Coloque su código postal' %>" />
+                <small style="color:red">
+                  <%= locals.errors && errors.user.address.postcode ? errors.user.address.postcode.msg : null %>
+                </small>
               </div>
+
               <div class="input__group__general">
-                <input id="floor" name="floor" class="input__general" type="number" value="<%= locals.old && old.floor ? old.floor : floor %>"/>
-                <label for="floor" class="label__general">
-                  <%= floor ? floor : 'Ingrese su piso' %>
-                </label>
+                <label for="province"><small style="color: white;">Ciudad</small></label>
+                <input id="province" name="province" class="input__general" type="text"
+                  value="<%= user.address.province ? user.address.province : 'Coloque su ciudad' %>" />
+                <small style="color:red">
+                  <%= locals.errors && errors.user.address.province ? errors.user.address.province.msg : null %>
+                </small>
               </div>
+
               <div class="input__group__general">
-                <input id="dept" name="dept" class="input__general" type="number" value="<%= locals.old && old.dept ? old.dept : dept %>"/>
-                <label for="dept" class="label__general">
-                  <%= dept ? dept : 'Ingrese su departamento' %>
-                </label>
+                <label for="location"><small style="color: white;">Localidad</small></label>
+                <input id="location" name="location" class="input__general" type="text"
+                  value="<%= user.address.location ? user.address.location : 'Coloque su localidad' %>" />
+                <small style="color:red">
+                  <%= locals.errors && errors.user.address.location ? errors.user.address.location.msg : null %>
+                </small>
               </div>
-              <div class="input__group__general">
-                <input id="ref" name="ref" class="input__general" type="text" value="<%= locals.old && old.ref ? old.ref : ref %>"/>
-                <label for="ref" class="label__general">
-                  <%= ref ? ref : 'Ingrese alguna referencia' %>
-                </label>
-              </div>
-              <div class="input__group__general">
-                <input id="postcode" name="postcode" class="input__general" type="number" value="<%= locals.old && old.postcode ? old.postcode : postcode %>"/>
-                <label for="postcode" class="label__general">
-                  <%= postcode ? postcode : 'Coloque su codigo postal' %>
-                </label>
-                <small style="color:red"><%= locals.errors && errors.postcode ? errors.postcode.msg : null %></small>
-              </div>
-              <div class="input__group__general">
-                <input id="province" name="province" class="input__general" type="text" value="<%= locals.old && old.province ? old.province : province %>"/>
-                <label for="province" class="label__general">
-                  <%= province ? province : 'Coloque su provincia' %>
-                </label>
-                <small style="color:red"><%= locals.errors && errors.province ? errors.province.msg : null %></small>
-              </div>
-              <div class="input__group__general">
-                <input id="location" name="location" class="input__general" type="text" value="<%= locals.old && old.location ? old.location : location %>"/>
-                <label for="location" class="label__general">
-                  <%= location ? location : 'Coloque su localidad' %>
-                </label>
-                <small style="color:red"><%= locals.errors && errors.location ? errors.location.msg : null %></small>
-              </div>
+
               <button class="boton__general">Guardar</button>
             </form>
           </article>

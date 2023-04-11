@@ -80,16 +80,24 @@ module.exports = {
         }
     },
     usuario: (req, res) => {
-        const users = readJson('users.json');
         const { id } = req.session.userLogin;
 
-        const user = users.find((user) => user.id === +id)
-
-        return res.render('users/usuario', {
-            title: "HyperStore | Perfil de usuario",
-            ...user,
-            old: req.body
-        })
+        db.User.findByPk(req.session.userLogin.id, {
+            attributes : ['name', 'surname', 'email', /* 'image' */],
+            include : [
+                {
+                    association : 'address',
+                    attributes : ['street', 'location', 'province', 'postcode']
+                }
+            ]
+        }).then(user => {
+            return res.render('users/usuario', {
+                title: "HyperStore | Perfil de usuario",
+                user,
+                old: req.body
+            })
+        }).catch(error => console.log(error))
+        
     },
     changeInfo: (req, res) => {
         const users = readJson('users.json');

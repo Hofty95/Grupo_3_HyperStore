@@ -96,8 +96,6 @@ module.exports = {
     })
     Promise.all([product,ofertProducts])
     .then(([product,ofertProducts]) =>{
-      //console.log(product)
-      //console.log(ofertProducts)
       return res.render('product/detalle',{
         title : 'Hyper Store | Detalle de producto',
         ...product.dataValues,

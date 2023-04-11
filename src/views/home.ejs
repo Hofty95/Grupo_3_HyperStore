@@ -81,15 +81,13 @@
                 <h2>PC Destacado</h2>
                 <hr>
                 <div class="productos">
-                  <% products.forEach(product => { %>
-                    <% if (product.category === 'Pc') { %>
+                  <% productsPc.forEach(product => { %>
                       <%- include('./partials/cardArticle',{
-                    name: product.name,
-                    price: product.price,
-                    id: product.id,
-                    images : product.images
+                        name: product.name,
+                        price: product.price,
+                        id: product.id,
+                        images: product.images 
                 }) %>
-                <% } %>
                 <% }) %>
                 </div>
                 <h2>Ultimos Ingresos</h2>

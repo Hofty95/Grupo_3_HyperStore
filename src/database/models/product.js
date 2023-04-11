@@ -16,7 +16,19 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey : 'productId',
       onDelete : 'cascade'
      })
+     
+     Product.belongsTo(models.Gama,{
+      foreignKey : 'gamaId',
+      as : 'gama'
+     })
     
+ 
+     Product.belongsToMany(models.Category,{
+      foreignKey : 'productId',
+      otherKey : 'categoryId',
+      through : 'productCategories',
+      as : 'categories'
+     })
     }
   }
   Product.init({

@@ -1,21 +1,39 @@
 const db = require("../database/models");
+const product = require("../database/models/product");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
   Home: (req, res) => {
-    db.Product.findAll({
-      include : [
+    const products = db.Product.findAll({
+      include: [
         {
-          association : 'images',
-          attributes : ['name'],
-        }
-      ]
-    })
-      .then((products) => {
+          association: "images",
+          attributes: ["name"],
+        },
+      ],
+    });
+
+    const categoryPc = db.Category.findOne({
+      where: {
+        name: "Pc",
+      },
+      include: [
+        {
+          model : db.Product,
+          association: "products",
+          include: ["images"],
+        },
+      ],
+    });
+
+    Promise.all([products, categoryPc])
+      .then(([products, categoryPc]) => {
+      //return res.send(categoryPc)
+      
         return res.render("home", {
-          title: "Hyper Store | Home",
+          title: "HyperStore | Home",
           products,
-          toThousand,
+          productsPc : categoryPc.products,
         });
       })
       .catch((error) => console.log(error));

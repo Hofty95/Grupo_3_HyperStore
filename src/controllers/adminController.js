@@ -13,109 +13,144 @@ module.exports = {
         const products = db.Product.findAll()
         const categories = db.Category.findAll()
         const users = db.User.findAll()
+        const gamas = db.Gama.findAll()
+        const brands = db.Brand.findAll()
         
-        Promise.all([products,users,categories])
-            .then(([products,categories,users])=>{
+        Promise.all([products,users,categories,gamas,brands])
+            .then(([products,users,categories,gamas,brands])=>{
                 return res.render("admin/dashboard",{
                     title: "HyperStore | dashboard",
                     categories,
                     products,
-                    users
-                })                
+                    users,
+                    gamas,
+                    brands
+                })
             })
+            .catch(error => console.log(error))
 
     },
     storeProduct : (req, res) => {
-        const products = readJson('products.json')
         const errors = validationResult(req)
 
         if (errors.isEmpty()) {
-            const {code, name, price, discount, discountAmount, description, subDescription, category,image} = req.body
-            const newProduct = {
-                id : products.length ? products[products.length - 1].id + 1 : 1,
-                code : code,
-                name : name,
+            const {name, price, discount, description, specifications, category, gama, brand} = req.body
+
+            db.Product.create({
+                name : name.trim(),
                 price : +price,
-                discount : discount ? true : false,
-                discountAmount : +discountAmount,
-                description : description,
-                subDescription : subDescription,
-                category : category,
-                images : req.files.map(file=> file.filename),
-            }
-       
- 
-            products.push(newProduct)
-
-            writeJson('products.json', products)
-
-            res.redirect("/admin/dashboard");            
-        }else{
-            return res.render("admin/dashboard",{
-                title: "HyperStore | dashboard",
-                categories,
-                products,
-                users,
-                errors : errors.mapped(),
-                old : req.body
+                discount : +discount,
+                description : description.trim(),
+                specifications : specifications.trim(),
+                gamaId : +gama,
+                brandId : +brand
             })
+            .then((product) => {
+             req.files.forEach( async (image) => {
+                    await db.Image.create({
+                        name : image.filename,
+                        productId : product.id
+                    })
+                });
+                
+                return res.redirect("/admin/dashboard");
+            })
+            .catch(error => console.log(error))
+
+        }else{
+
+            const products = db.Product.findAll()
+            const categories = db.Category.findAll()
+            const users = db.User.findAll()
+            const gamas = db.Gama.findAll()
+            const brands = db.Brand.findAll()
+            
+            Promise.all([products,users,categories,gamas,brands])
+                .then(([products,users,categories,gamas,brands])=>{
+                    return res.render("admin/dashboard",{
+                        title: "HyperStore | dashboard",
+                        categories,
+                        products,
+                        users,
+                        gamas,
+                        brands,
+                        errors : errors.mapped(),
+                        old : req.body
+                    })
+                })
+                .catch(error => console.log(error))
         }
     },
     editProduct : (req, res) => {
-        const products = readJson('products.json');
 
         const {id} = req.params
-        const productToEdit = products.find(product => product.id === +id);
+        const productToEdit = db.Product.findByPk(id);
+        const categories = db.Category.findAll();
+        const gamas = db.Gama.findAll();
+        const brands = db.Brand.findAll();
 
-
-        return res.render("admin/dashboard_edit",{
-            title: "HyperStore | edit",
-            categories,
-            ...productToEdit
+        Promise.all([productToEdit,categories,gamas,brands])
+        .then(([productToEdit,categories,gamas,brands])=>{
+            return res.render("admin/dashboard_edit",{
+                title: "HyperStore | edit",
+                categories,
+                ...productToEdit.dataValues,
+                gamas,
+                brands
+            })            
         })
+        .catch(error => console.log(error));
     },
     saveEditProduct : (req, res) => {
-        const products = readJson('products.json');
         const errors = validationResult(req)
 
         if (errors.isEmpty()) {
             const {id} = req.params;
-            const {code, name, price, discount, discountAmount, description, subDescription, category} = req.body
+            const {name, price, discount, description, specifications, category, gama, brand} = req.body
 
-            let productsEdited = products.map((product) => {
-                if (product.id === +id){
-                    let productEdited = {
-                    id : +id,
-                    code : code,
-                    name : name,
-                    price : price,
-                    discount : discount,
-                    discountAmount : discountAmount,
-                    description : description,
-                    subDescription : subDescription,
-                    category : category,
-                    Image : null
-                    };
-                    return productEdited
+            db.Product.update(
+            {
+                name : name.trim(),
+                price : +price,
+                discount : +discount,
+                description : description.trim(),
+                specifications : specifications.trim(),
+                gamaId : +gama,
+                brandId : +brand
+            },
+            {
+                where : {
+                    id
                 }
-                return product
+            }
+            )
+            .then(() =>{
+                return res.redirect("/admin/dashboard");                
             })
-            writeJson('products.json', productsEdited)
+            .catch(error => console.log(error))
 
-            res.redirect("/admin/dashboard");
         }else{
-            const products = readJson('products.json');
 
             const {id} = req.params
-            const productToEdit = products.find(product => product.id === +id);
+            const productToEdit = db.Product.findByPk(id);
+            const categories = db.Category.findAll();
+            const gamas = db.Gama.findAll();
+            const brands = db.Brand.findAll();
     
-            return res.render("admin/dashboard_edit",{
-                title: "HyperStore | edit",
-                categories,
-                ...productToEdit,
-                errors : errors.mapped(),
-                old : req.body
+            Promise.all([productToEdit,categories,gamas,brands])
+            .then(([productToEdit,categories,gamas,brands])=>{
+                return res.render("admin/dashboard_edit",{
+                    title: "HyperStore | edit",
+                    categories,
+                    ...productToEdit.dataValues,
+                    gamas,
+                    brands,
+                    errors : errors.mapped(),
+                    old : req.body
+                })            
             })
+            .catch(error => console.log(error));
+
         }
     }
 }

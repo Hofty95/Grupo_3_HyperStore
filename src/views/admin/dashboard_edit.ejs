@@ -16,11 +16,7 @@
                                 <input type="text" name="name" value="<%= locals.old && old.name ? old.name : name %>"/>
                                 <small style="color:red"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
                             </div>
-                            <div class="form__box__login">
-                                <label for="code">Introducir Código</label>
-                                <input type="text" name="code" value="<%= locals.old && old.code ? old.code : code %>"/>
-                                <small style="color:red"><%= locals.errors && errors.code ? errors.code.msg : null %></small>
-                            </div>
+
                             <div class="form__box__login">
                                 <label for="price">Introducir Precio</label>
                                 <input type="number" name="price" value="<%= locals.old && old.price ? old.price : price %>"/>
@@ -43,33 +39,24 @@
                         </section>
                         <section>
                             <div class="col-12 mb-3">
-                                <label for="subDescription" class="form-label">Sub-Descripcion</label>
-                                <textarea class="form-control" id="subDescription" rows="3"
-                                    name="subDescription"><%= locals.old && old.subDescription ? old.subDescription : subDescription %></textarea>
-                            </div>
-                            <div class="main__info__section select">
-                                <p>Seleccione si el producto posee descuento o no.</p>
-                                <label for="discount">Descuento:</label>
-                                <select name="discount" id="discount">
-                                    <optgroup label="Descuento">
-                                        <option value="<%= discount === "true" && "selected" %>">Con descuento</option>
-                                        <option value="<%= discount === "false" && "selected" %>">Sin descuento</option>
-                                    </optgroup>
-                                </select>
-                                <br><br>
+                                <label for="specifications" class="form-label">Especificaciones</label>
+                                <textarea class="form-control" id="specifications" rows="3"
+                                    name="specifications"><%= locals.old && old.specifications ? old.specifications : specifications %></textarea>
                             </div>
                             <div class="form__box__login">
-                                <label for="discountAmount">Porcentaje de Descuento</label>
-                                <input type="text" name="discountAmount" value="<%= locals.old && old.discountAmount ? old.discountAmount : discountAmount %>"/>
-                                <small style="color:red"><%= locals.errors && errors.discountAmount ? errors.discountAmount.msg : null %></small>
+                                <label for="discount">Descuento</label>
+                                <input type="text" name="discount"
+                                    placeholder="Introducir Descuento..." value="<%= locals.old && old.discount ? old.discount : discount %>"/>
+                                    <small style="color:red"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
                             </div>
                             <div class="main__info__section select">
                                 <p>Seleccionar Categoria</p>
                                 <label for="category">Categorias:</label>
                                 <select name="category" id="category">
                                     <optgroup label="Categorias">
+                                        <option value="" selected hidden>Seleccione...</option>
                                         <% categories.forEach(category=> { %>
-                                            <option value="<%= category.name === category ? category.name : null%>">
+                                            <option value="<%= category.id %>">
                                                 <%= category.name %>
                                             </option>
                                             <% }) %>
@@ -77,6 +64,38 @@
                                 </select>
                                 <br><br>
                                 <small style="color:red"><%= locals.errors && errors.category ? errors.category.msg : null %></small>
+                            </div>
+                            <div class="main__info__section select">
+                                <p>Seleccionar Gama</p>
+                                <label for="gama">Gamas:</label>
+                                <select name="gama" id="gama">
+                                    <optgroup label="Gamas">
+                                        <option value="" selected hidden>Seleccione...</option>
+                                        <% gamas.forEach(gama=> { %>
+                                            <option value="<%= gama.id %>" <%= gama.id == gamaId && 'selected' %>>
+                                                <%= gama.name %>
+                                            </option>
+                                            <% }) %>
+                                    </optgroup>
+                                </select>
+                                <br><br>
+                                <small style="color:red"><%= locals.errors && errors.gama ? errors.gama.msg : null %></small>
+                            </div>
+                            <div class="main__info__section select">
+                                <p>Seleccionar Marca</p>
+                                <label for="brand">Marcas:</label>
+                                <select name="brand" id="brand">
+                                    <optgroup label="brands">
+                                        <option value="" selected hidden>Seleccione...</option>
+                                        <% brands.forEach(brand=> { %>
+                                            <option value="<%= brand.id %>" <%= brand.id == brandId && 'selected' %>>
+                                                <%= brand.name %>
+                                            </option>
+                                            <% }) %>
+                                    </optgroup>
+                                </select>
+                                <br><br>
+                                <small style="color:red"><%= locals.errors && errors.gama ? errors.gama.msg : null %></small>
                             </div>
                         </section>
                         <div class="article1__boton__general button">

@@ -26,14 +26,33 @@ module.exports = {
       ],
     });
 
-    Promise.all([products, categoryPc])
-      .then(([products, categoryPc]) => {
-      //return res.send(categoryPc)
+const productsMidGama = db.Product.findAll({
+
+  include : [
+    {
+      association: "images",
+      attributes: ["name"],
+    },
+    {
+      association: "gama",
+      attributes: ["id","name"]
+    }
+  ],  
+  where : {
+    gamaId : 2
+  },
+})
+
+    Promise.all([products, categoryPc,productsMidGama])
+      .then(([products, categoryPc, productsMidGama]) => {
+        console.log(productsMidGama)
+      //return res.send(productsMidGama)
       
         return res.render("home", {
           title: "HyperStore | Home",
           products,
           productsPc : categoryPc.products,
+          productsMidGama
         });
       })
       .catch((error) => console.log(error));

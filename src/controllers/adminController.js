@@ -15,7 +15,7 @@ module.exports = {
         const users = db.User.findAll()
         
         Promise.all([products,users,categories])
-            .then(([products,categories,users])=>{
+            .then(([products,users,categories])=>{
                 return res.render("admin/dashboard",{
                     title: "HyperStore | dashboard",
                     categories,

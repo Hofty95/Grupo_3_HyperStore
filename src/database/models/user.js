@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.belongsTo(models.Address,{
         foreignKey : 'addressId',
-        as : 'address'
+        as : 'address',
+        onDelete : 'cascade'
       });
 
       User.belongsTo(models.Rol,{

@@ -9,11 +9,8 @@
       <main class="main__user">
         <section class="main__section__user">
           <article class="main__article__user__datos">
-            <form action="/user/edit/<%= userLogin.id %>?_method=PUT" method="post">
+            <form action="/user/edit/<%= userLogin.id %>?_method=PUT" method="post" enctype="multipart/form-data">
               <div class="main__article__user__menu">
-                <h2>
-                  <%= user.name %>
-                </h2>
                 <section class="profile__data">
                   <div class="relative block">
                     <img alt="profil" src="/images/user.png" class="mx-auto object-cover rounded-full h-20 w-20 " />
@@ -24,9 +21,16 @@
                     file:rounded-full file:border-0
                     file:text-sm file:font-semibold
                     file:bg-violet-50 file:text-violet-700
-                    hover:file:bg-violet-100" type="file">
+                    hover:file:bg-violet-100" type="file" name="images" multiple>
                   </label>
                 </section>
+              </div>
+              </form>
+            <form action="/user/edit/<%= userLogin.id %>?_method=PUT" method="post">
+              <div class="main__article__user__menu">
+                <h2>
+                  <%= user.name %>
+                </h2>
                 <h2>
                   <%= user.email %>
                 </h2>

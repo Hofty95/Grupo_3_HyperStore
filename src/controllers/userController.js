@@ -53,19 +53,19 @@ module.exports = {
             const { name, surname, email, password } = req.body
 
             db.Address.create()
-                .then( address => {
+                .then(address => {
                     db.User.create({
-                        name : name.trim(),
-                        surname : surname.trim(),
-                        email : email.trim(),
-                        password : hashSync(password, 10),
-                        rolId : 2,
-                        addressId : address.id
-                    }).then(({id, name, rolId}) => {
+                        name: name.trim(),
+                        surname: surname.trim(),
+                        email: email.trim(),
+                        pass: hashSync(password, 10),
+                        rolId: 2,
+                        addressId: address.id
+                    }).then(({ id, name, rolId }) => {
                         req.session.userLogin = {
                             id,
                             name,
-                            rol : rolId
+                            rol: rolId
                         };
                         return res.redirect("/")
                     })
@@ -83,11 +83,11 @@ module.exports = {
         const { id } = req.session.userLogin;
 
         db.User.findByPk(req.session.userLogin.id, {
-            attributes : ['name', 'surname', 'email', /* 'image' */],
-            include : [
+            attributes: ['name', 'surname', 'email', /* 'image' */],
+            include: [
                 {
-                    association : 'address',
-                    attributes : ['street', 'location', 'province', 'postcode']
+                    association: 'address',
+                    attributes: ['street', 'location', 'province', 'postcode']
                 }
             ]
         }).then(user => {
@@ -97,56 +97,51 @@ module.exports = {
                 old: req.body
             })
         }).catch(error => console.log(error))
-        
+
     },
     changeInfo: (req, res) => {
-        const users = readJson('users.json');
-        const { id, name, email } = req.session.userLogin;
-        const { phone, dni, surname, street, streetNumber, floor, dept, ref, postcode, province, location } = req.body;
-        const errors = validationResult(req)
 
-        if (errors.isEmpty()) {
+        const { name, surname, street, postcode, province, location } = req.body;
+        const { id } = req.session.userLogin;
 
-            let usersModified = users.map((user) => {
-                if (user.id === id) {
-                    let userEdited = {
-                        id: +id,
-                        rol: user.rol,
-                        email: email,
+        db.User.findByPk(id)
+            .then(user => {
+                const addressUpdate = db.Address.update(
+                    {
+                        street: street ? street.trim() : null,
+                        postcode: postcode ? postcode : null,
+                        province: province ? province.trim() : null,
+                        location: location ? location.trim() : null
+                    },
+                    {
+                        where: {
+                            id: user.addressId
+                        }
+                    }
+                )
+                const userUpdate = db.User.update(
+                    {
                         name: name,
                         surname: surname,
-                        password: user.password,
-                        phone: +phone,
-                        dni: +dni,
-                        street,
-                        streetNumber: +streetNumber,
-                        floor,
-                        dept,
-                        ref,
-                        postcode: +postcode,
-                        province,
-                        location
+                        image: req.file ? req.file.filename : user.images
+                    },
+                    {
+                        where: {
+                            id
+                        }
+                    }
+                )
+                /* return res.send(userUpdate) */
 
-                    };
-                    return userEdited
-                }
-                return user
+                Promise.all(([addressUpdate, userUpdate]))
+                    .then(() => {
+
+                        (req.file && FileSystem.existSync('public/images/users/' + user.image)) && FileSystem.unlinkSync()
+
+                        req.session.message = "Datos actualizados"
+                        return res.redirect('/')
+                    }).catch(error => console.log(error))
             })
-            writeJson('users.json', usersModified)
-            return res.redirect('/')
-        } else {
-
-            const { id } = req.session.userLogin;
-
-            const user = users.find((user) => user.id === +id)
-
-            return res.render('users/usuario', {
-                title: "HyperStore | Perfil de usuario",
-                ...user,
-                old: req.body,
-                errors: errors.mapped()
-            })
-        }
     },
     changepass: (req, res) => {
         return res.render('users/cambioContraseña', {
@@ -161,18 +156,25 @@ module.exports = {
     confirmRemoveUser: (req, res) => {
         const id = req.params.id;
         const user = users.find(user => user.id === +id);
-        const users = readJson('users.json');
-
     },
     removeUser: (req, res) => {
-        const users = readJson('users.json');
-        const id = req.params.id;
-        const deleteUser = users.filter(user => user.id !== +id);
 
-        writeJson('users.json', deleteUser);
-        res.redirect(`/admin/dashboard`)
-        return res.render('users/cambioContraseña', {
-            title: 'Hyper Store | Cambio Contraseña'
+        const id = req.params.id
+
+        db.User.findByPk(id)
+        .then((user) => {
+            db.User.destroy({
+                where: {
+                    id
+                }
+            }).then(() => {
+                db.Address.destroy({
+                    where: {
+                        id: user.addressId
+                    }
+                }).then(() => res.redirect('/admin/dashboard'))
+            }).catch(error => console.log(error))
         })
     }
 }
+

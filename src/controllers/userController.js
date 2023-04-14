@@ -1,3 +1,4 @@
+const fs = require('fs');
 const { validationResult } = require("express-validator")
 const { hashSync } = require('bcryptjs')
 const { readJson, writeJson } = require("../data/readWrite")
@@ -82,8 +83,8 @@ module.exports = {
     usuario: (req, res) => {
         const { id } = req.session.userLogin;
 
-        db.User.findByPk(req.session.userLogin.id, {
-            attributes: ['name', 'surname', 'email', /* 'image' */],
+        db.User.findByPk(id, {
+            attributes: ['name', 'surname', 'email', 'image'],
             include: [
                 {
                     association: 'address',
@@ -94,7 +95,8 @@ module.exports = {
             return res.render('users/usuario', {
                 title: "HyperStore | Perfil de usuario",
                 user,
-                old: req.body
+                old: req.body,
+                id
             })
         }).catch(error => console.log(error))
 
@@ -123,7 +125,7 @@ module.exports = {
                     {
                         name: name,
                         surname: surname,
-                        image: req.file ? req.file.filename : user.images
+                        image: req.file ? req.file.filename : user.image
                     },
                     {
                         where: {
@@ -131,16 +133,16 @@ module.exports = {
                         }
                     }
                 )
-                /* return res.send(userUpdate) */
-
+                /* return res.send(req.body) */
+                
                 Promise.all(([addressUpdate, userUpdate]))
-                    .then(() => {
-
-                        (req.file && FileSystem.existSync('public/images/users/' + user.image)) && FileSystem.unlinkSync()
-
-                        req.session.message = "Datos actualizados"
-                        return res.redirect('/')
-                    }).catch(error => console.log(error))
+                .then(() => {
+                    
+                    (req.file && fs.existsSync('public/images/User-img' + user.image)) && fs.unlinkSync()
+                    
+                    req.session.message = "Datos actualizados"
+                    return res.redirect('/')
+                }).catch(error => console.log(error))
             })
     },
     changepass: (req, res) => {
@@ -173,6 +175,27 @@ module.exports = {
                         id: user.addressId
                     }
                 }).then(() => res.redirect('/admin/dashboard'))
+            }).catch(error => console.log(error))
+        })
+    },
+    removeSelf: (req, res) => {
+
+        const id = req.params.id
+
+        db.User.findByPk(id)
+        .then((user) => {
+            db.User.destroy({
+                where: {
+                    id
+                }
+            }).then(() => {
+                db.Address.destroy({
+                    where: {
+                        id: user.addressId
+                    }
+                }).then(() => req.session.destroy(),
+                res.clearCookie("hyperStoreUser")),
+                res.redirect('/user/login')
             }).catch(error => console.log(error))
         })
     }

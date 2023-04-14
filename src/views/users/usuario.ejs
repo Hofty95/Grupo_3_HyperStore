@@ -13,7 +13,7 @@
               <div class="main__article__user__menu">
                 <section class="profile__data">
                   <div class="relative block">
-                    <img alt="profil" src="/images/user.png" class="mx-auto object-cover rounded-full h-20 w-20 " />
+                    <img alt="profil" src="/images/User-img/<%= user.image ? user.image : "user.png"%>" class="mx-auto object-cover rounded-full h-20 w-20 " />
                   </div>
                   <label class="block" for="">
                     <input class="block w-full text-sm text-slate-500
@@ -21,12 +21,10 @@
                     file:rounded-full file:border-0
                     file:text-sm file:font-semibold
                     file:bg-violet-50 file:text-violet-700
-                    hover:file:bg-violet-100" type="file" name="images" multiple>
+                    hover:file:bg-violet-100" name="image" type="file" id="image">
                   </label>
                 </section>
               </div>
-              </form>
-            <form action="/user/edit/<%= userLogin.id %>?_method=PUT" method="post">
               <div class="main__article__user__menu">
                 <h2>
                   <%= user.name %>
@@ -92,9 +90,9 @@
                   <%= locals.errors && errors.user.address.location ? errors.user.address.location.msg : null %>
                 </small>
               </div>
-
               <button class="boton__general">Guardar</button>
             </form>
+            <form action="/user/removeme/<%= id %>?_method=DELETE" id="user-delete" method="POST"><button class="btn btn-danger">Eliminar</button></form>
           </article>
         </section>
       </main>

@@ -60,26 +60,26 @@ busqueda: async (req, res) => {
     }
 
     if (category) {
-      productsFound = db.Category.findAll({
-        where: {
-          name: {
-            [Op.substring]: `%${category}%`
-          }
-        },
-        include: {
-          model: db.Product,
-          as: 'products',
-          attributes: ["id", "name"],
-          include: {
+      productsFound = db.Product.findAll({
+        include: [
+          {
+            model: db.Category,
+            as: 'categories',
+            where: {
+              name: {
+                [Op.substring]: `%${category}%`,
+              },
+            },
+            attributes: ['id', 'name'],
+          },
+          {
             model: db.Image,
             as: 'images',
-            attributes: ["name"]
-          }
-        }
-      })
+            attributes: ['name'],
+          },
+        ],
+      });
     }
-    return res.send(req.body)
-
     Promise.all([productsFound])
     .then(([productsFound])=>{
       return res.render("product/busqueda", {

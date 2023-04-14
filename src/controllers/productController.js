@@ -1,4 +1,3 @@
-const products = require("../data/products.json");
 const db = require('../database/models');
 const { Op } = require("sequelize");
 const { readJson, writeJson } = require("../data/readWrite");
@@ -7,8 +6,6 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
   busqueda: (req, res) => {
-    const products = readJson("products.json");
-    const categories = readJson("categories.json");
 
     if (!req.query.keywords && !req.query.state && !req.query.category) {
       writeJson("queriesSearch.json" ,{})
@@ -20,36 +17,41 @@ module.exports = {
 
     queries = readJson("queriesSearch.json")
 
-    const { keywords, state, category } = queries;
+    const { keywords, gama, brand } = queries;
 
-    let productsFound = products;
+    let productsFound = db.Product.findAll();
 
     if (keywords) {
-      productsFound = productsFound.filter(
-        (product) =>
-          product.name.toLowerCase().includes(keywords.toLowerCase()) ||
-          product.description.toLowerCase().includes(keywords.toLowerCase()) ||
-          product.category.toLowerCase().includes(keywords.toLowerCase())
-      );
+      productsFound = db.Product.findAll({
+        where : {
+          [Op.or]: [
+          {
+            name: {
+              [Op.substring]: `%${keyword}%`,
+            },
+          },
+          {
+            description: {
+              [Op.substring]: `%${keyword}%`,
+            },
+          }
+        ]
+      }
+    });
+  }
+
+    if (gama) {
+      productsFound = db.findAll({
+        where : {gamaID : gama}
+      })
     }
 
-    if (state) {
-      productsFound = productsFound.sort((before, after) => {
-        if (state === "asc") {
-          return before.price - after.price;
-        } else {
-          return after.price - before.price;
-        }
-      });
+    if (brand) {
+      productsFound = db.findAll({
+        where : {brandId : brand}
+      })
     }
 
-    if (category) {
-      productsFound = productsFound.filter((product) => {
-        return product.category === category;
-      });
-    }
-
-    let numSearched = productsFound.length
 
     return res.render("product/busqueda", {
       title: "Search",
@@ -106,18 +108,22 @@ module.exports = {
   },
   confirmRemove: (req, res) => {
     const id = req.params.id;
-    const product = products.find((product) => product.id === +id);
+    const product = db.Product.findByPk(id)
 
-    return res.render("product/confirmRemove", {
-      title: "HyperStore | remove",
-      ...product,
-    });
+    Promise.all(product)
+    .then((product) => {
+      return res.render("product/confirmRemove", {
+        title: "HyperStore | remove",
+        ...product.dataValues
+      });
+    })
   },
   remove: (req, res) => {
-    const id = req.params.id;
-    const deleteProduct = products.filter((product) => product.id !== +id);
-
-    writeJson("products.json", deleteProduct);
-    res.redirect(`/admin/dashboard`);
+    const {id} = req.params
+    db.productCategories.destroy({where : {productId : id}})
+    .then(async () => {
+      await db.Product.destroy({where: {id : id}})
+      return res.redirect(`/admin/dashboard`);
+    })
   },
 };

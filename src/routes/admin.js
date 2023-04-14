@@ -11,8 +11,8 @@ const editProductValidation = require("../validations/editProductValidation");
 /* /Admin */
 
 router.get("/dashboard", Admin);
-router.post("/dashboard", uploadProductImages.array('images'), storeProduct)
+router.post("/dashboard", uploadProductImages.array('images'), addProductValidation, storeProduct)
 router.get("/dashboard/edit/:id", editProduct)
-router.put("/dashboard/edit/:id", saveEditProduct)
+router.put("/dashboard/edit/:id", editProductValidation, saveEditProduct)
 
 module.exports = router

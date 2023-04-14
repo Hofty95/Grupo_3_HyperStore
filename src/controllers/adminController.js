@@ -1,11 +1,6 @@
 const db = require('../database/models')
 const {validationResult} = require('express-validator')
 
-const categories = require("../data/categories.json");
-const products = require("../data/products.json");
-const users = require("../data/users.json");
-
-const {readJson, writeJson} = require("../data/readWrite")
 
 module.exports = {
     Admin : (req, res) => {
@@ -34,7 +29,8 @@ module.exports = {
         const errors = validationResult(req)
 
         if (errors.isEmpty()) {
-            const {name, price, discount, description, specifications, category, gama, brand} = req.body
+            const {name, price, discount, description, specifications, categories, gama, brand} = req.body
+
 
             db.Product.create({
                 name : name.trim(),
@@ -52,7 +48,13 @@ module.exports = {
                         productId : product.id
                     })
                 });
-                
+                categories.forEach( async (category) => {
+                    await db.productCategories.create({
+                        productId : product.id,
+                        categoryId : category
+                    })
+                })
+
                 return res.redirect("/admin/dashboard");
             })
             .catch(error => console.log(error))
@@ -84,20 +86,30 @@ module.exports = {
     editProduct : (req, res) => {
 
         const {id} = req.params
-        const productToEdit = db.Product.findByPk(id);
-        const categories = db.Category.findAll();
+        const productToEdit = db.Product.findByPk(id,{
+            include : [
+                {
+                  association : 'categories',
+                  attributes : ['id','name']
+                }
+              ]
+        });
+        const allCategories = db.Category.findAll();
         const gamas = db.Gama.findAll();
         const brands = db.Brand.findAll();
 
-        Promise.all([productToEdit,categories,gamas,brands])
-        .then(([productToEdit,categories,gamas,brands])=>{
+       
+
+        Promise.all([productToEdit,allCategories,gamas,brands])
+        .then(([productToEdit,allCategories,gamas,brands])=>{
+
             return res.render("admin/dashboard_edit",{
                 title: "HyperStore | edit",
-                categories,
+                allCategories,
                 ...productToEdit.dataValues,
                 gamas,
                 brands
-            })            
+            })
         })
         .catch(error => console.log(error));
     },
@@ -106,7 +118,7 @@ module.exports = {
 
         if (errors.isEmpty()) {
             const {id} = req.params;
-            const {name, price, discount, description, specifications, category, gama, brand} = req.body
+            const {name, price, discount, description, specifications, categories, gama, brand} = req.body
 
             db.Product.update(
             {
@@ -124,32 +136,64 @@ module.exports = {
                 }
             }
             )
-            .then(() =>{
+            .then((product) =>{
+                req.files.forEach( async (image) => {
+                    await db.Image.update({
+                        name : image.filename,
+                        productId : product.id
+                    },
+                    {
+                        where : {
+                            productId : product.id
+                        }
+                    }
+                    )
+                });
+                categories.forEach( async (category) => {
+                    await db.productCategories.update({
+                        productId : product.id,
+                        categoryId : category
+                    },
+                    {
+                        where : {
+                            productId : product.id
+                        }
+                    })
                 return res.redirect("/admin/dashboard");                
+            })
             })
             .catch(error => console.log(error))
 
         }else{
 
-            const {id} = req.params
-            const productToEdit = db.Product.findByPk(id);
-            const categories = db.Category.findAll();
-            const gamas = db.Gama.findAll();
-            const brands = db.Brand.findAll();
-    
-            Promise.all([productToEdit,categories,gamas,brands])
-            .then(([productToEdit,categories,gamas,brands])=>{
-                return res.render("admin/dashboard_edit",{
-                    title: "HyperStore | edit",
-                    categories,
-                    ...productToEdit.dataValues,
-                    gamas,
-                    brands,
-                    errors : errors.mapped(),
-                    old : req.body
-                })            
+        const {id} = req.params
+        const productToEdit = db.Product.findByPk(id,{
+            include : [
+                {
+                  association : 'categories',
+                  attributes : ['id','name']
+                }
+              ]
+        });
+        const allCategories = db.Category.findAll();
+        const gamas = db.Gama.findAll();
+        const brands = db.Brand.findAll();
+
+       
+
+        Promise.all([productToEdit,allCategories,gamas,brands])
+        .then(([productToEdit,allCategories,gamas,brands])=>{
+
+         
+            return res.render("admin/dashboard_edit",{
+                title: "HyperStore | edit",
+                allCategories,
+                ...productToEdit.dataValues,
+                gamas,
+                brands
             })
-            .catch(error => console.log(error));
+        })
+        .catch(error => console.log(error));
 
         }
     }

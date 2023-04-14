@@ -42,6 +42,7 @@
                                 <label for="specifications" class="form-label">Especificaciones</label>
                                 <textarea class="form-control" id="specifications" rows="3"
                                     name="specifications"><%= locals.old && old.specifications ? old.specifications : specifications %></textarea>
+                                    <small style="color:red"><%= locals.errors && errors.specifications ? errors.specifications.msg : null %></small>
                             </div>
                             <div class="form__box__login">
                                 <label for="discount">Descuento</label>
@@ -51,19 +52,17 @@
                             </div>
                             <div class="main__info__section select">
                                 <p>Seleccionar Categoria</p>
-                                <label for="category">Categorias:</label>
-                                <select name="category" id="category">
-                                    <optgroup label="Categorias">
-                                        <option value="" selected hidden>Seleccione...</option>
-                                        <% categories.forEach(category=> { %>
-                                            <option value="<%= category.id %>">
-                                                <%= category.name %>
-                                            </option>
+                                <label for="categories">Categorias:</label>
+                                        <% allCategories.forEach(category=> { %>
+                                            <label>
+                                                <input type="checkbox" id="categories" name="categories" value="<%= category.id %>" 
+                                                <% categories.forEach(categoryP => { %>
+                                                    <% categoryP.id === category.id && 'checked' %>
+                                                <% }) %>>
+                                                <%= category.name %></label>
                                             <% }) %>
-                                    </optgroup>
-                                </select>
                                 <br><br>
-                                <small style="color:red"><%= locals.errors && errors.category ? errors.category.msg : null %></small>
+                                <small style="color:red"><%= locals.errors && errors.categories ? errors.categories.msg : null %></small>
                             </div>
                             <div class="main__info__section select">
                                 <p>Seleccionar Gama</p>
@@ -95,7 +94,7 @@
                                     </optgroup>
                                 </select>
                                 <br><br>
-                                <small style="color:red"><%= locals.errors && errors.gama ? errors.gama.msg : null %></small>
+                                <small style="color:red"><%= locals.errors && errors.brand ? errors.brand.msg : null %></small>
                             </div>
                         </section>
                         <div class="article1__boton__general button">

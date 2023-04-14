@@ -59,29 +59,26 @@ busqueda: async (req, res) => {
       })
     }
 
-    if(category){
-      productsFound = db.Product.findAll({
-        include : [
-          {
-            association : 'categories',
-            attributes : ['id','name']
-          },
-          {
-            association: "images",
-            attributes: ["name"],
+    if (category) {
+      productsFound = db.Category.findAll({
+        where: {
+          name: {
+            [Op.substring]: `%${category}%`
           }
-        ],
-        where : {
-          [Op.or]: [
-            {
-              name: {
-                [Op.substring]: `%${category}%`,
-              },
-            },
-          ]
+        },
+        include: {
+          model: db.Product,
+          as: 'products',
+          attributes: ["id", "name"],
+          include: {
+            model: db.Image,
+            as: 'images',
+            attributes: ["name"]
+          }
         }
       })
     }
+    return res.send(req.body)
 
     Promise.all([productsFound])
     .then(([productsFound])=>{

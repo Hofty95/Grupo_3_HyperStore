@@ -10,7 +10,7 @@ const editProductValidation = require("../validations/editProductValidation");
 
 /* /Admin */
 
-router.get("/dashboard", Admin);
+router.get("/dashboard",checkUserAdmin, Admin);
 router.post("/dashboard", uploadProductImages.array('images'), storeProduct)
 router.get("/dashboard/edit/:id", editProduct)
 router.put("/dashboard/edit/:id", saveEditProduct)

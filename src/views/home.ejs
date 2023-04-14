@@ -60,15 +60,15 @@
                 <div class="botones__home">
                     <div class="boton__home__second">
                         <img src="/images/boton_home3.jpg" alt="">
-                        <a href=""><p>Pc Básica</p> </a>
+                        <a href="/product/busqueda?gama=low"><p>Pc Básica</p> </a>
                     </div>
                     <div class="boton__home__second">
                         <img src="/images/boton_home4.jpg" alt="">
-                        <a href=""><p>WorkStation</p></a>
+                        <a href="/product/busqueda?gama=mid"><p>WorkStation</p></a>
                     </div>
                     <div class="boton__home__second">
                         <img src="/images/boton_home5.jpeg" alt="">
-                        <a href=""><p>Gaming</p></a>
+                        <a href="/product/busqueda?gama=high"><p>Gaming</p></a>
                     </div>
                 </div>
             </article>
@@ -93,17 +93,14 @@
                 <h2>Ultimos Ingresos</h2>
                 <hr>
                 <div class="productos">
-                  <% products.forEach(product => { %>
-                    <% if (product.category === 'Perifericos') { %>
+                    <% productsOrder.forEach(product => { %>
                       <%- include('./partials/cardArticle',{
-                    name: product.name,
-                    price: product.price,
-                    id: product.id,
-                    images : product.images
-                }) %>
-                <% } %>
+                        name: product.name,
+                        price: product.price,
+                        id: product.id,
+                        images : product.images
+                   }) %>
                 <% }) %>
-                </div>
                 </div>
             </article>
         </section>

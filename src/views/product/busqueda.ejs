@@ -86,19 +86,35 @@
                         </div> -->
                     </div>
                 </section>
+				<% if (productsGamas) { %>
+					<section>
+						<div class="main__section__article">
+							<% productsGamas.forEach(product => { %>
+								<%- include('../partials/productCard',{
+									id : product.id,
+									name : product.name,
+									price : product.price,
+									discount : product.discount,
+									images : product.images 
+								}) %>
+							<% }) %>
+						</div>
+					</section>
+				<% }else{ %>
                 <section>
                     <div class="main__section__article">
-                        <% productsFound.forEach(({id, name, price, discountAmount, images}) => { %>
+                        <% categoriesProducts.forEach(product => { %>
                             <%- include('../partials/productCard',{
-                                id,
-                                name,
-                                price,
-                                discountAmount,
-                                images
+                                id : product.id,
+                                name : product.name,
+                                price : product.price,
+                                discount : product.discount,
+                                images : product.images 
                             }) %>
                         <% }) %>
                     </div>
                 </section>
+				<% } %>
                 <div class="flechas__navegador">
                     <i class="fa-solid fa-arrow-left"></i>
                     <a href="">1</a>

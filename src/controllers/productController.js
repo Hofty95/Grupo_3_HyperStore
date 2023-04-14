@@ -1,61 +1,154 @@
-const products = require("../data/products.json");
 const db = require('../database/models');
 const { Op } = require("sequelize");
 const { readJson, writeJson } = require("../data/readWrite");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-/* const Swal = require('sweetalert2') */
 
 module.exports = {
-  busqueda: (req, res) => {
-    const products = readJson("products.json");
-    const categories = readJson("categories.json");
-
-    if (!req.query.keywords && !req.query.state && !req.query.category) {
-      writeJson("queriesSearch.json" ,{})
-    }
-    
-    let queries = readJson("queriesSearch.json")
-
-    writeJson("queriesSearch.json" ,{ ...queries, ...req.query })
-
-    queries = readJson("queriesSearch.json")
-
-    const { keywords, state, category } = queries;
-
-    let productsFound = products;
-
-    if (keywords) {
-      productsFound = productsFound.filter(
-        (product) =>
-          product.name.toLowerCase().includes(keywords.toLowerCase()) ||
-          product.description.toLowerCase().includes(keywords.toLowerCase()) ||
-          product.category.toLowerCase().includes(keywords.toLowerCase())
-      );
-    }
-
-    if (state) {
-      productsFound = productsFound.sort((before, after) => {
-        if (state === "asc") {
-          return before.price - after.price;
-        } else {
-          return after.price - before.price;
+busqueda: async (req, res) => {
+  let lowGama; 
+  if(req.query.gama === 'low'){
+     lowGama = {
+      include : [
+        {
+          association: "images",
+          attributes: ["name"],
+        },
+        {
+          association: "gama",
+          attributes: ["id","name"]
+        },
+        {
+        as:'categories',
+        model:db.Category,
+        include:{all:true}
         }
-      });
+      ],  
+      where : {
+        gamaId : 1
+      },
     }
+  }
 
-    if (category) {
-      productsFound = productsFound.filter((product) => {
-        return product.category === category;
-      });
-    }
+  let midGama;
 
-    let numSearched = productsFound.length
+  if(req.query.gama === 'mid'){
+    midGama = {
+     include : [
+       {
+         association: "images",
+         attributes: ["name"],
+       },
+       {
+         association: "gama",
+         attributes: ["id","name"]
+       },
+       {
+       as:'categories',
+       model:db.Category,
+       include:{all:true}
+       }
+     ],  
+     where : {
+       gamaId : 2
+     },
+   }
+ }
 
+ let highGama;
+ if(req.query.gama === 'high'){
+  highGama = {
+   include : [
+     {
+       association: "images",
+       attributes: ["name"],
+     },
+     {
+       association: "gama",
+       attributes: ["id","name"]
+     },
+     {
+     as:'categories',
+     model:db.Category,
+     include:{all:true}
+     }
+   ],  
+   where : {
+     gamaId : 3
+   },
+ }
+}
+
+    const keyword = req.query.keywords;
+    const categories = await db.Category.findAll()
+    const productsGamas = await db.Product.findAll( lowGama || midGama || highGama,{
+      include: [{
+        as:'categories',
+        model:db.Category,
+      },
+      {
+        association: "images",
+        attributes: ["name"],
+      }],
+    });
+
+ /*    const productsFound = await db.Product.findAll({
+      include: [{
+        as:'categories',
+        model:db.Category,
+        include:{all:true}
+      }],
+      where: {
+        [Op.or]: [
+          {
+            name: {
+              [Op.substring]: keyword,
+            },
+          },
+          {
+            description: {
+              [Op.substring]: keyword,
+            },
+          }
+        ],
+      },
+    }); */
+
+    const categoriesProducts = await db.Product.findAll({
+      attributes : ["id","name","price","discount","description","specifications","gamaId","brandId"],
+      include : [
+        {
+          association: "images",
+          attributes: ["name"],
+        },
+        {
+        as:'categories',
+        model:db.Category,
+        attributes : ["id","name"]
+        }
+      ],
+      where: {
+        [Op.or]: [
+          {
+            name: {
+              [Op.substring]: keyword,
+            },
+          },
+          {
+            description: {
+              [Op.substring]: keyword,
+            },
+          }
+        ],
+      },
+    })
+    
+return res.send(categoriesProducts)
     return res.render("product/busqueda", {
       title: "Search",
-      productsFound,
+      productsGamas,
+      categoriesProducts,
       categories,
-      numSearched
+      numSearched: productsGamas.length || categoriesProducts.length,
     });
   },
   carrito: (req, res) => {

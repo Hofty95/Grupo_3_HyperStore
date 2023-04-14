@@ -5,151 +5,93 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
 busqueda: async (req, res) => {
-  let lowGama; 
-  if(req.query.gama === 'low'){
-     lowGama = {
-      include : [
-        {
-          association: "images",
-          attributes: ["name"],
-        },
-        {
-          association: "gama",
-          attributes: ["id","name"]
-        },
-        {
-        as:'categories',
-        model:db.Category,
-        include:{all:true}
-        }
-      ],  
-      where : {
-        gamaId : 1
-      },
-    }
-  }
-
-  let midGama;
-
-  if(req.query.gama === 'mid'){
-    midGama = {
-     include : [
-       {
-         association: "images",
-         attributes: ["name"],
-       },
-       {
-         association: "gama",
-         attributes: ["id","name"]
-       },
-       {
-       as:'categories',
-       model:db.Category,
-       include:{all:true}
-       }
-     ],  
-     where : {
-       gamaId : 2
-     },
-   }
- }
-
- let highGama;
- if(req.query.gama === 'high'){
-  highGama = {
-   include : [
-     {
-       association: "images",
-       attributes: ["name"],
-     },
-     {
-       association: "gama",
-       attributes: ["id","name"]
-     },
-     {
-     as:'categories',
-     model:db.Category,
-     include:{all:true}
-     }
-   ],  
-   where : {
-     gamaId : 3
-   },
- }
-}
-
-    const keyword = req.query.keywords;
+    const { keywords, gama, brand, category} = req.query;
     const categories = await db.Category.findAll()
-    const productsGamas = await db.Product.findAll( lowGama || midGama || highGama,{
-      include: [{
-        as:'categories',
-        model:db.Category,
-      },
-      {
+
+
+    let productsFound = db.Product.findAll({
+      include : {
         association: "images",
         attributes: ["name"],
-      }],
+      },
     });
 
- /*    const productsFound = await db.Product.findAll({
-      include: [{
-        as:'categories',
-        model:db.Category,
-        include:{all:true}
-      }],
-      where: {
-        [Op.or]: [
-          {
-            name: {
-              [Op.substring]: keyword,
-            },
-          },
-          {
-            description: {
-              [Op.substring]: keyword,
-            },
-          }
-        ],
-      },
-    }); */
-
-    const categoriesProducts = await db.Product.findAll({
-      attributes : ["id","name","price","discount","description","specifications","gamaId","brandId"],
-      include : [
-        {
+    if (keywords) {
+      productsFound = db.Product.findAll({
+        include : {
           association: "images",
           attributes: ["name"],
         },
-        {
-        as:'categories',
-        model:db.Category,
-        attributes : ["id","name"]
-        }
-      ],
-      where: {
-        [Op.or]: [
+        where : {
+          [Op.or]: [
           {
             name: {
-              [Op.substring]: keyword,
+              [Op.substring]: `%${keywords}%`,
             },
           },
           {
             description: {
-              [Op.substring]: keyword,
+              [Op.substring]: `%${keywords}%`,
             },
           }
-        ],
-      },
-    })
-    
-return res.send(categoriesProducts)
-    return res.render("product/busqueda", {
-      title: "Search",
-      productsGamas,
-      categoriesProducts,
-      categories,
-      numSearched: productsGamas.length || categoriesProducts.length,
+        ]
+      }
     });
+  }
+
+    if (gama) {
+      productsFound = db.Product.findAll({
+        include : {
+          association: "images",
+          attributes: ["name"],
+        },
+        where : {gamaId : gama}
+      })
+    }
+
+    if (brand) {
+      productsFound = db.Product.findAll({
+        include : {
+          association: "images",
+          attributes: ["name"],
+        },
+        where : {brandId : brand}
+      })
+    }
+
+    if(category){
+      productsFound = db.Product.findAll({
+        include : [
+          {
+            association : 'categories',
+            attributes : ['id','name']
+          },
+          {
+            association: "images",
+            attributes: ["name"],
+          }
+        ],
+        where : {
+          [Op.or]: [
+            {
+              name: {
+                [Op.substring]: `%${category}%`,
+              },
+            },
+          ]
+        }
+      })
+    }
+
+    Promise.all([productsFound])
+    .then(([productsFound])=>{
+      return res.render("product/busqueda", {
+        title: "Search",
+        productsFound,
+        categories,
+        numSearched: productsFound.length,
+      }); 
+    })
   },
   carrito: (req, res) => {
     return res.render("product/carrito", {

@@ -1,204 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./partials/head')  %> 
-<body>
-  <!-- Header -->
-    <%- include('./partials/header')  %> 
+  <%- include('./partials/head') %>
+  <body>
+    <!-- Header -->
+    <%- include('./partials/header') %>
     <!-- MAIN -->
     <main class="home__main">
-        <section class="home__main__section__content">
-            <article class="home__main__section__article__banner">
-                <img src="/images/Banner1.webp" alt="">
-            </article>
-            <article class="home__main__section__article__content">
-                <h2>Las Mejores Marcas</h2>
-                <hr>
-                <div class="marcas">
-                    <div><img class="logo__marca" src="/images/Marcas_logos/AMD-logo.png" alt=""></div>
-                    <div><img class="logo__marca" src="/images/Marcas_logos/Corsair_logo.png" alt=""></div>
-                    <div><img class="logo__marca" src="/images/Marcas_logos/gigabyte_logo.png" alt=""></div>
-                    <div><img class="logo__marca" src="/images/Marcas_logos/logitech-logo.png" alt=""></div>
-                    <div><img class="logo__marca" src="/images/Marcas_logos/Nvidia-Logo.png" alt=""></div>
-                    <div><img class="logo__marca" src="/images/Marcas_logos/Razer-Logo.png" alt=""></div>
-                    <div><img class="logo__marca" src="/images/Marcas_logos/redragon-logo.png" alt=""></div>
-                    <div><img class="logo__marca" src="/images/Marcas_logos/republic_logo.png" alt=""></div>
-                </div>
-                <div class="botones__home">
-                    <div class="boton__home__first">
-                        <a href=""><img src="/images/boton_home1.jpg" alt=""></a> 
-                        <a href="/product/busqueda"><p>Armá tu Pc</p></a> 
-                    </div>
-                    <div class="boton__home__first">
-                        <a href="/product/category"><img src="/images/boton_home2.webp" alt=""></a> 
-                        <a href="/product/category"><p>Category Room</p></a>
-                    </div>
-                </div>
-            </article>
-        </section>
-        <section class="home__main__section__content">
-            <article class="home__main__section__article__banner">
-                <img src="/images/Banner2.webp" alt="">
-            </article>
-            <article class="home__main__section__article__content">
-                <h2>Ofertas</h2>
-                <hr>
-                <div class="productos">
-                  <% products.forEach(({name,price,id,toThousand,discount, images}) => { %>
-                      <% if (discount) { %>
-                    <%- include('./partials/cardArticle',{
-                      name,
-                      price,
-                      id,
-                      images,
-                      toThousand
-                  }) %>
-                  <% } %>
-                  <% }) %>
-                </div>
-                <h2>PCs Recomendados</h2>
-                <hr>
-                <div class="botones__home">
-                    <div class="boton__home__second">
-                        <img src="/images/boton_home3.jpg" alt="">
-                        <a href="/product/busqueda?gama=low"><p>Pc Básica</p> </a>
-                    </div>
-                    <div class="boton__home__second">
-                        <img src="/images/boton_home4.jpg" alt="">
-                        <a href="/product/busqueda?gama=mid"><p>WorkStation</p></a>
-                    </div>
-                    <div class="boton__home__second">
-                        <img src="/images/boton_home5.jpeg" alt="">
-                        <a href="/product/busqueda?gama=high"><p>Gaming</p></a>
-                    </div>
-                </div>
-            </article>
-        </section>
-        <section class="home__main__section__content">
-            <article class="home__main__section__article__banner">
-                <img src="/images/Banner3.webp" alt="">
-            </article>
-            <article class="home__main__section__article__content">
-                <h2>PC Destacado</h2>
-                <hr>
-                <div class="productos">
-                  <% productsPc.forEach(product => { %>
-                      <%- include('./partials/cardArticle',{
-                        name: product.name,
-                        price: product.price,
-                        id: product.id,
-                        images: product.images 
-                }) %>
-                <% }) %>
-                </div>
-                <h2>Ultimos Ingresos</h2>
-                <hr>
-                <div class="productos">
-                    <% productsOrder.forEach(product => { %>
-                      <%- include('./partials/cardArticle',{
-                        name: product.name,
-                        price: product.price,
-                        id: product.id,
-                        images : product.images
-                   }) %>
-                <% }) %>
-                </div>
-            </article>
-        </section>
+      <section class="home__main__section__content">
+        <article class="home__main__section__article__banner">
+          <img src="/images/Banner1.webp" alt="" />
+        </article>
+        <article class="home__main__section__article__content">
+          <h2>Las Mejores Marcas</h2>
+          <hr />
+          <div class="marcas">
+            <div>
+              <a href="/product/busqueda?brand=1">
+                <img
+                class="logo__marca"
+                src="/images/Marcas_logos/AMD-logo.png"
+                alt=""/>
+              </a>
+            </div>
+            <div>
+               <a href="/product/busqueda?brand=2">
+                 <img
+                   class="logo__marca"
+                    src="/images/Marcas_logos/Corsair_logo.png"
+                    alt=""/>   
+                </a>
+            </div>
+            <div>
+                <a href="/product/busqueda?brand=3">
+                    <img
+                     class="logo__marca"
+                     src="/images/Marcas_logos/gigabyte_logo.png"
+                    alt=""/>
+                </a>
+            </div>
+            <div>
+                <a href="/product/busqueda?brand=4">
+                    <img
+                    class="logo__marca"
+                    src="/images/Marcas_logos/logitech-logo.png"
+                    alt=""/>
+                </a>
+            </div>
+            <div>
+                <a href="/product/busqueda?brand=5">
+                    <img
+                    class="logo__marca"
+                    src="/images/Marcas_logos/Nvidia-Logo.png"
+                    alt=""/>
+                </a>
+            </div>
+            <div>
+                <a href="/product/busqueda?brand=6">
+                    <img
+                    class="logo__marca"
+                    src="/images/Marcas_logos/Razer-Logo.png"
+                    alt=""/>    
+                </a>
+            </div>
+            <div>
+                <a href="/product/busqueda?brand=7">
+                    <img
+                    class="logo__marca"
+                    src="/images/Marcas_logos/redragon-logo.png"
+                    alt=""/>
+                </a>
+            </div>
+            <div>
+              <img
+                class="logo__marca"
+                src="/images/Marcas_logos/republic_logo.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="botones__home">
+            <div class="boton__home__first">
+              <a href=""><img src="/images/boton_home1.jpg" alt="" /></a>
+              <a href="/product/busqueda"><p>Armá tu Pc</p></a>
+            </div>
+            <div class="boton__home__first">
+              <a href="/product/category"
+                ><img src="/images/boton_home2.webp" alt=""
+              /></a>
+              <a href="/product/category"><p>Category Room</p></a>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section class="home__main__section__content">
+        <article class="home__main__section__article__banner">
+          <img src="/images/Banner2.webp" alt="" />
+        </article>
+        <article class="home__main__section__article__content">
+          <h2>Ofertas</h2>
+          <hr />
+          <div class="productos">
+            <% products.forEach(({name,price,id,toThousand,discount, images}) =>
+            { %> <% if (discount) { %> <%- include('./partials/cardArticle',{
+            name, price, id, images, toThousand }) %> <% } %> <% }) %>
+          </div>
+          <h2>PCs Recomendados</h2>
+          <hr />
+          <div class="botones__home">
+            <div class="boton__home__second">
+              <img src="/images/boton_home3.jpg" alt="" />
+              <a href="/product/busqueda?gama=1"><p>Pc Básica</p> </a>
+            </div>
+            <div class="boton__home__second">
+              <img src="/images/boton_home4.jpg" alt="" />
+              <a href="/product/busqueda?gama=2"><p>WorkStation</p></a>
+            </div>
+            <div class="boton__home__second">
+              <img src="/images/boton_home5.jpeg" alt="" />
+              <a href="/product/busqueda?gama=3"><p>Gaming</p></a>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section class="home__main__section__content">
+        <article class="home__main__section__article__banner">
+          <img src="/images/Banner3.webp" alt="" />
+        </article>
+        <article class="home__main__section__article__content">
+          <h2>PC Destacado</h2>
+          <hr />
+          <div class="productos">
+            <% productsPc.forEach(product => { %> <%-
+            include('./partials/cardArticle',{ name: product.name, price:
+            product.price, id: product.id, images: product.images }) %> <% }) %>
+          </div>
+          <h2>Ultimos Ingresos</h2>
+          <hr />
+          <div class="productos">
+            <% productsOrder.forEach(product => { %> <%-
+            include('./partials/cardArticle',{ name: product.name, price:
+            product.price, id: product.id, images : product.images }) %> <% })
+            %>
+          </div>
+        </article>
+      </section>
     </main>
     <!-- Fotter -->
-    <%- include('./partials/footer')  %> 
+    <%- include('./partials/footer') %>
     <!-- Bootsrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
     <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-migrate-3.4.0.min.js" integrity="sha256-mBCu5+bVfYzOqpYyK4jm30ZxAZRomuErKEFJFIyrwvM=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-migrate-3.4.0.min.js"
+      integrity="sha256-mBCu5+bVfYzOqpYyK4jm30ZxAZRomuErKEFJFIyrwvM="
+      crossorigin="anonymous"
+    ></script>
     <!-- slick -->
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
     <!-- Sliders scripts Marcas-->
     <script type="text/javascript">
-
-        $(document).ready(function(){
-            $('.marcas').slick({
-        dots: true,
-        infinite: true,
-        autoplay: true,
-        speed: 300,
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        responsive: [
+      $(document).ready(function () {
+        $(".marcas").slick({
+          dots: true,
+          infinite: true,
+          autoplay: true,
+          speed: 300,
+          slidesToShow: 6,
+          slidesToScroll: 1,
+          responsive: [
             {
-            breakpoint: 1024,
-            settings: {
+              breakpoint: 1024,
+              settings: {
                 slidesToShow: 5,
                 slidesToScroll: 1,
                 infinite: true,
-                dots: true
-            }
+                dots: true,
+              },
             },
             {
-            breakpoint: 600,
-            settings: {
+              breakpoint: 600,
+              settings: {
                 slidesToShow: 3,
-                slidesToScroll: 1
-            }
+                slidesToScroll: 1,
+              },
             },
             {
-            breakpoint: 480,
-            settings: {
+              breakpoint: 480,
+              settings: {
                 slidesToShow: 2,
-                slidesToScroll: 1
-            }
-            }
+                slidesToScroll: 1,
+              },
+            },
             // You can unslick at a given breakpoint now by adding:
             // settings: "unslick"
             // instead of a settings object
-        ]
+          ],
         });
-        });
+      });
     </script>
 
-        <!-- Sliders scripts Productos-->
-        <script type="text/javascript">
-
-            $(document).ready(function(){
-                $('.productos').slick({
-            dots: true,
-            infinite: true,
-            autoplay: true,
-            speed: 300,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            responsive: [
-                {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-                },
-                {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1
-                }
-                },
-                {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-                }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
-            ]
-            });
-            });
-        </script>
-
-</body>
+    <!-- Sliders scripts Productos-->
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".productos").slick({
+          dots: true,
+          infinite: true,
+          autoplay: true,
+          speed: 300,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true,
+              },
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+          ],
+        });
+      });
+    </script>
+  </body>
 </html>

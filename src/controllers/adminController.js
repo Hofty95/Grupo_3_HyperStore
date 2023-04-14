@@ -132,26 +132,13 @@ module.exports = {
             },
             {
                 where : {
-                    id
+                    id : id
                 }
             }
             )
             .then((product) =>{
-                req.files.forEach( async (image) => {
-                    await db.Image.update({
-                        name : image.filename,
-                        productId : product.id
-                    },
-                    {
-                        where : {
-                            productId : product.id
-                        }
-                    }
-                    )
-                });
                 categories.forEach( async (category) => {
                     await db.productCategories.update({
-                        productId : product.id,
                         categoryId : category
                     },
                     {
@@ -159,6 +146,7 @@ module.exports = {
                             productId : product.id
                         }
                     })
+
                 return res.redirect("/admin/dashboard");                
             })
             })

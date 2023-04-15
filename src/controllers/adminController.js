@@ -120,6 +120,7 @@ module.exports = {
             const {id} = req.params;
             const {name, price, discount, description, specifications, categories, gama, brand} = req.body
 
+
             db.Product.update(
             {
                 name : name.trim(),
@@ -136,14 +137,14 @@ module.exports = {
                 }
             }
             )
-            .then((product) =>{
+            .then(() =>{
                 categories.forEach( async (category) => {
                     await db.productCategories.update({
                         categoryId : category
                     },
                     {
                         where : {
-                            productId : product.id
+                            productId : id
                         }
                     })
 

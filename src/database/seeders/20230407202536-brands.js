@@ -25,6 +25,31 @@ module.exports = {
             createdAt : new Date(),
             updatedAt : new Date ()
           },
+          {
+            name : "Nvidia",
+            createdAt : new Date(),
+            updatedAt : new Date ()
+          },
+          {
+            name : "Razer",
+            createdAt : new Date(),
+            updatedAt : new Date ()
+          },
+          {
+            name : "Redragon",
+            createdAt : new Date(),
+            updatedAt : new Date ()
+          },
+          {
+            name : "Rog",
+            createdAt : new Date(),
+            updatedAt : new Date ()
+          },
+          {
+            name : "Other",
+            createdAt : new Date(),
+            updatedAt : new Date ()
+          },
         ],
       {});
     

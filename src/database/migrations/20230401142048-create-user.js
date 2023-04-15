@@ -21,6 +21,9 @@ module.exports = {
       pass: {
         type: Sequelize.STRING
       },
+      image: {
+        type: Sequelize.STRING
+      },
       addressId: {
         type: Sequelize.INTEGER,
         references : {

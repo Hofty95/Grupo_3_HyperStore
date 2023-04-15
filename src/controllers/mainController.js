@@ -1,10 +1,9 @@
 const db = require("../database/models");
 const product = require("../database/models/product");
-const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
-  Home: (req, res) => {
-    const products = db.Product.findAll({
+  Home: async (req, res) => {
+    const products = await db.Product.findAll({
       include: [
         {
           association: "images",
@@ -13,7 +12,7 @@ module.exports = {
       ],
     });
 
-    const categoryPc = db.Category.findOne({
+    const categoryPc = await db.Category.findOne({
       where: {
         name: "Pc",
       },
@@ -26,33 +25,26 @@ module.exports = {
       ],
     });
 
-const productsMidGama = db.Product.findAll({
-
-  include : [
-    {
-      association: "images",
-      attributes: ["name"],
-    },
-    {
-      association: "gama",
-      attributes: ["id","name"]
-    }
-  ],  
-  where : {
-    gamaId : 2
-  },
-})
-
-    Promise.all([products, categoryPc,productsMidGama])
-      .then(([products, categoryPc, productsMidGama]) => {
-        console.log(productsMidGama)
-      //return res.send(productsMidGama)
-      
+    const productsOrder = await db.Product.findAll({
+      order : [
+        ['name', 'ASC']
+      ],
+      limit : 6,
+      include: [
+        {
+          association: "images",
+          attributes: ["name"],
+        },
+      ],
+    })
+//return res.send(productsOrder)
+    Promise.all([products, categoryPc,productsOrder])
+      .then(([products, categoryPc,productsOrder]) => {
         return res.render("home", {
           title: "HyperStore | Home",
           products,
           productsPc : categoryPc.products,
-          productsMidGama
+          productsOrder
         });
       })
       .catch((error) => console.log(error));

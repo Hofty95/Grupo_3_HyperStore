@@ -2,37 +2,36 @@ const db = require('../database/models');
 const { Op } = require("sequelize");
 const { readJson, writeJson } = require("../data/readWrite");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-/* const Swal = require('sweetalert2') */
 
 module.exports = {
-  busqueda: (req, res) => {
+busqueda: async (req, res) => {
+    const { keywords, gama, brand, category} = req.query;
+    const categories = await db.Category.findAll()
 
-    if (!req.query.keywords && !req.query.state && !req.query.category) {
-      writeJson("queriesSearch.json" ,{})
-    }
-    
-    let queries = readJson("queriesSearch.json")
 
-    writeJson("queriesSearch.json" ,{ ...queries, ...req.query })
-
-    queries = readJson("queriesSearch.json")
-
-    const { keywords, gama, brand } = queries;
-
-    let productsFound = db.Product.findAll();
+    let productsFound = db.Product.findAll({
+      include : {
+        association: "images",
+        attributes: ["name"],
+      },
+    });
 
     if (keywords) {
       productsFound = db.Product.findAll({
+        include : {
+          association: "images",
+          attributes: ["name"],
+        },
         where : {
           [Op.or]: [
           {
             name: {
-              [Op.substring]: `%${keyword}%`,
+              [Op.substring]: `%${keywords}%`,
             },
           },
           {
             description: {
-              [Op.substring]: `%${keyword}%`,
+              [Op.substring]: `%${keywords}%`,
             },
           }
         ]
@@ -41,24 +40,56 @@ module.exports = {
   }
 
     if (gama) {
-      productsFound = db.findAll({
-        where : {gamaID : gama}
+      productsFound = db.Product.findAll({
+        include : {
+          association: "images",
+          attributes: ["name"],
+        },
+        where : {gamaId : gama}
       })
     }
 
     if (brand) {
-      productsFound = db.findAll({
+      productsFound = db.Product.findAll({
+        include : {
+          association: "images",
+          attributes: ["name"],
+        },
         where : {brandId : brand}
       })
     }
 
-
-    return res.render("product/busqueda", {
-      title: "Search",
-      productsFound,
-      categories,
-      numSearched
-    });
+    if (category) {
+      productsFound = db.Product.findAll({
+        include: [
+          {
+            model: db.Category,
+            as: 'categories',
+            where: {
+              name: {
+                [Op.substring]: `%${category}%`,
+              },
+            },
+            attributes: ['id', 'name'],
+          },
+          {
+            model: db.Image,
+            as: 'images',
+            attributes: ['name'],
+          },
+        ],
+      });
+    }
+//return res.send(productsFound)
+    Promise.all([productsFound])
+    .then(([productsFound])=>{
+      return res.render("product/busqueda", {
+        title: "Search",
+        productsFound,
+        categories,
+        numSearched: productsFound.length,
+      }); 
+    })
   },
   carrito: (req, res) => {
     return res.render("product/carrito", {

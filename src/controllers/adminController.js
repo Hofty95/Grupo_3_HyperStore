@@ -29,8 +29,11 @@ module.exports = {
         const errors = validationResult(req)
 
         if (errors.isEmpty()) {
-            const {name, price, discount, description, specifications, categories, gama, brand} = req.body
+            const {name, price, discount, description, specifications, gama, brand} = req.body
 
+            let categories = new Array(req.body.categories)
+
+            categories.flat(3)
 
             db.Product.create({
                 name : name.trim(),

@@ -86,19 +86,19 @@
                         </div> -->
                     </div>
                 </section>
-                <section>
-                    <div class="main__section__article">
-                        <% productsFound.forEach(({id, name, price, discountAmount, images}) => { %>
-                            <%- include('../partials/productCard',{
-                                id,
-                                name,
-                                price,
-                                discountAmount,
-                                images
-                            }) %>
-                        <% }) %>
-                    </div>
-                </section>
+					<section>
+						<div class="main__section__article">
+							<% productsFound.forEach(product => { %>
+								<%- include('../partials/productCard',{
+									id : product.id,
+									name : product.name,
+									price : product.price,
+									discount : product.discount,
+									images : product.images 
+								}) %>
+							<% }) %>
+						</div>
+					</section>
                 <div class="flechas__navegador">
                     <i class="fa-solid fa-arrow-left"></i>
                     <a href="">1</a>

@@ -1,62 +1,95 @@
-const products = require("../data/products.json");
 const db = require('../database/models');
 const { Op } = require("sequelize");
 const { readJson, writeJson } = require("../data/readWrite");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-/* const Swal = require('sweetalert2') */
 
 module.exports = {
-  busqueda: (req, res) => {
-    const products = readJson("products.json");
-    const categories = readJson("categories.json");
+busqueda: async (req, res) => {
+    const { keywords, gama, brand, category} = req.query;
+    const categories = await db.Category.findAll()
 
-    if (!req.query.keywords && !req.query.state && !req.query.category) {
-      writeJson("queriesSearch.json" ,{})
-    }
-    
-    let queries = readJson("queriesSearch.json")
 
-    writeJson("queriesSearch.json" ,{ ...queries, ...req.query })
-
-    queries = readJson("queriesSearch.json")
-
-    const { keywords, state, category } = queries;
-
-    let productsFound = products;
+    let productsFound = db.Product.findAll({
+      include : {
+        association: "images",
+        attributes: ["name"],
+      },
+    });
 
     if (keywords) {
-      productsFound = productsFound.filter(
-        (product) =>
-          product.name.toLowerCase().includes(keywords.toLowerCase()) ||
-          product.description.toLowerCase().includes(keywords.toLowerCase()) ||
-          product.category.toLowerCase().includes(keywords.toLowerCase())
-      );
+      productsFound = db.Product.findAll({
+        include : {
+          association: "images",
+          attributes: ["name"],
+        },
+        where : {
+          [Op.or]: [
+          {
+            name: {
+              [Op.substring]: `%${keywords}%`,
+            },
+          },
+          {
+            description: {
+              [Op.substring]: `%${keywords}%`,
+            },
+          }
+        ]
+      }
+    });
+  }
+
+    if (gama) {
+      productsFound = db.Product.findAll({
+        include : {
+          association: "images",
+          attributes: ["name"],
+        },
+        where : {gamaId : gama}
+      })
     }
 
-    if (state) {
-      productsFound = productsFound.sort((before, after) => {
-        if (state === "asc") {
-          return before.price - after.price;
-        } else {
-          return after.price - before.price;
-        }
-      });
+    if (brand) {
+      productsFound = db.Product.findAll({
+        include : {
+          association: "images",
+          attributes: ["name"],
+        },
+        where : {brandId : brand}
+      })
     }
 
     if (category) {
-      productsFound = productsFound.filter((product) => {
-        return product.category === category;
+      productsFound = db.Product.findAll({
+        include: [
+          {
+            model: db.Category,
+            as: 'categories',
+            where: {
+              name: {
+                [Op.substring]: `%${category}%`,
+              },
+            },
+            attributes: ['id', 'name'],
+          },
+          {
+            model: db.Image,
+            as: 'images',
+            attributes: ['name'],
+          },
+        ],
       });
     }
-
-    let numSearched = productsFound.length
-
-    return res.render("product/busqueda", {
-      title: "Search",
-      productsFound,
-      categories,
-      numSearched
-    });
+//return res.send(productsFound)
+    Promise.all([productsFound])
+    .then(([productsFound])=>{
+      return res.render("product/busqueda", {
+        title: "Search",
+        productsFound,
+        categories,
+        numSearched: productsFound.length,
+      }); 
+    })
   },
   carrito: (req, res) => {
     return res.render("product/carrito", {
@@ -96,8 +129,6 @@ module.exports = {
     })
     Promise.all([product,ofertProducts])
     .then(([product,ofertProducts]) =>{
-      //console.log(product)
-      //console.log(ofertProducts)
       return res.render('product/detalle',{
         title : 'Hyper Store | Detalle de producto',
         ...product.dataValues,

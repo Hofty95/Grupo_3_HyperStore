@@ -1,4 +1,6 @@
 const products = require("../data/products.json");
+const db = require('../database/models');
+const { Op } = require("sequelize");
 const { readJson, writeJson } = require("../data/readWrite");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 /* const Swal = require('sweetalert2') */
@@ -58,25 +60,51 @@ module.exports = {
   },
   carrito: (req, res) => {
     return res.render("product/carrito", {
-      title: "Carrito",
+      title: "Hyper Store | Carrito",
     });
   },
   category: (req, res) => {
     return res.render("product/category", {
-      title: "Category",
+      title: "Hyper Store | Category",
     });
   },
   detalle: (req, res) => {
-    const { id } = req.params;
-    const ofertProduct = products.filter((product) => product.discount);
-    const product = products.find((product) => product.id === +id);
-    return res.render("product/detalle", {
-      title: "Detalle de producto",
-      ...product,
-      products,
-      ofertProduct,
-      toThousand,
-    });
+
+    const product = db.Product.findByPk(req.params.id,{
+      include : [
+        {
+          association : 'images',
+          attributes : ['name']
+        }
+      ]
+    })
+    
+
+    const ofertProducts = db.Product.findAll({
+      include : [
+        {
+          association : 'images',
+          attributes : ['name']
+        }
+      ],
+      limit : 6,
+      where: {
+        discount: {
+          [Op.ne]: 25,
+        },
+      },
+    })
+    Promise.all([product,ofertProducts])
+    .then(([product,ofertProducts]) =>{
+      //console.log(product)
+      //console.log(ofertProducts)
+      return res.render('product/detalle',{
+        title : 'Hyper Store | Detalle de producto',
+        ...product.dataValues,
+        toThousand,
+        ofertProducts
+      })
+    }) 
   },
   confirmRemove: (req, res) => {
     const id = req.params.id;

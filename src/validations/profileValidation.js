@@ -14,14 +14,14 @@ module.exports = [
     check('phone')
         .notEmpty().withMessage('Debes ingresar un telefono de contacto').bail()
         .isNumeric().withMessage('Solo puedes ingresar caracteres numericos'),
-    check('dni')
+   /*  check('dni')
         .notEmpty().withMessage('Debes ingresar tu dni').bail()
-        .isNumeric().withMessage('Solo puedes ingresar caracteres numericos'),
+        .isNumeric().withMessage('Solo puedes ingresar caracteres numericos'), */
     check('street')
         .notEmpty().withMessage('Debes ingresar una calle'),
-    check('streetNumber')
+    /* check('streetNumber')
         .notEmpty().withMessage('Debes ingresar el numero de la direccion').bail()
-        .isNumeric().withMessage('Solo puedes ingresar caracteres numericos'),
+        .isNumeric().withMessage('Solo puedes ingresar caracteres numericos'), */
     check('postcode')
         .notEmpty().withMessage('Debes ingresar tu codigo postal').bail()
         .isNumeric().withMessage('Solo puedees ingresar caracteres numericos'),

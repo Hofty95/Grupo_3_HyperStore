@@ -241,8 +241,8 @@
                                         <thead class="table-light">
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Usuario</th>
-                                                <th scope="col">Número</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Apellido</th>
                                                 <th class="table__email" scope="col">Email</th>
                                                 <th scope="col"><i class="fa-solid fa-trash"></i></th>
                                             </tr>
@@ -254,10 +254,10 @@
                                                         <%= user.id %>
                                                     </th>
                                                     <td>
-                                                        <%= user.userName %>
+                                                        <%= user.name %>
                                                     </td>
                                                     <td>
-                                                        <%= user.phone %>
+                                                        <%= user.surname %>
                                                     </td>
                                                     <td>
                                                         <%= user.email %>
@@ -274,7 +274,7 @@
                                         <thead class="table-light">
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Usuario</th>
+                                                <th scope="col">Nombre</th>
                                                 <th scope="col"><i class="fa-solid fa-trash"></i></th>
                                             </tr>
                                         </thead>
@@ -285,7 +285,7 @@
                                                         <%= user.id %>
                                                     </th>
                                                     <td>
-                                                        <%= user.userName %>
+                                                        <%= user.name %>
                                                     </td>
                                                     <td>
                                                         <form action="/user/remove/<%= user.id %>?_method=DELETE" id="user-delete" method="POST"><button type="submit"><i class="fa-solid fa-trash"></i></button></form>

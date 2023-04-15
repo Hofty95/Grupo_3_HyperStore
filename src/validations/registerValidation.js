@@ -17,7 +17,7 @@ module.exports = [
         .notEmpty().withMessage("El Email es obligatorio").bail()
         .isEmail().withMessage("Debes ingresar un email valido")
         .custom((value, {req}) => {
-            return db.user.findOne({
+            return db.User.findOne({
                 where : {
                     email : value
                 }

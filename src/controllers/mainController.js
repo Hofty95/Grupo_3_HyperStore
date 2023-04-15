@@ -1,24 +1,31 @@
-const products = require('../data/products.json');
-const categories = require('../data/categories.json');
-const {readJson} = require('../data/readWrite')
+const db = require("../database/models");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-
-module.exports={
-    Home:(req, res) => {
-      const products = readJson('products.json')
-        return res.render('home',{
-          title: 'Hyper Store | Home',
+module.exports = {
+  Home: (req, res) => {
+    db.Product.findAll({
+      include : [
+        {
+          association : 'images',
+          attributes : ['name'],
+        }
+      ]
+    })
+      .then((products) => {
+        return res.render("home", {
+          title: "Hyper Store | Home",
           products,
-          toThousand
-        })
-      },
-    Help:(req, res) => {
-      return res.render('help',{
-        title:'Help'
+          toThousand,
+        });
       })
-    },
-    p404:(req, res) => {
-      return res.render('404')
-    }
-}
+      .catch((error) => console.log(error));
+  },
+  Help: (req, res) => {
+    return res.render("help", {
+      title: "Help",
+    });
+  },
+  p404: (req, res) => {
+    return res.render("404");
+  },
+};

@@ -11,14 +11,13 @@
             <article class="main__section__article1">
                 <div class="main__section__article1__description">
                     <h1><%= name %></h1>
-                    <small><%= code %></small>
                 </div>
                 <div class="main__section__container">
                     <div class="main__section__imagenes">
                         <div class="main__section__carousel2">
                             <% images.forEach(image => { %>
                                 <div>
-                                    <img src="/images/Productos-img/<%= image %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
+                                    <img src="/images/Productos-img/<%= image ? image.name : 'default-image.png' %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
                                     style="cursor:pointer">
                                 </div>
                                 <% }) %>                        
@@ -26,7 +25,7 @@
                         <div class="main__section__carouselnav">
                             <% images.forEach(image => { %>
                                 <div>
-                                    <img src="/images/Productos-img/<%= image %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
+                                    <img src="/images/Productos-img/<%= image ? image.name : 'default-image.png' %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
                                     style="cursor:pointer">
                                 </div>
                                 <% }) %>
@@ -34,10 +33,10 @@
                     </div>
                     <div class="main__section__article1__panel">
                         <div class="main__section__article1__precio">
-                            <p>PAGO CONTADO <b><%= discountAmount %>% OFF</b></p>
+                            <p>PAGO CONTADO <b><%= discount %>% OFF</b></p>
                             <h2>$<%= toThousand(price) %></h2>
                             <p>
-                        Precio con descuento: $<%= toThousand(Math.floor(price - (price * discountAmount) / 100)) %>
+                            Precio con descuento: $<%= toThousand(Math.floor(price - (price * discount) / 100)) %>
                             </p>
                             <i class="fa-solid fa-shield"></i>
                             <small>1 año de garantía</small></i>
@@ -115,17 +114,17 @@
                         <div class="main__section__article1__datos__tablet">
                             <b>Dato 4</b>
                             <hr>
-                            <p><%= subDescription %></p>
+                            <p><%= specifications %></p>
                         </div>
                         <div class="main__section__article1__datos__tablet">
                             <b>Dato 5</b>
                             <hr>
-                            <p><%= subDescription %></p>
+                            <p><%= specifications %></p>
                         </div>
                         <div class="main__section__article1__datos__tablet">
                             <b>Dato 6</b>
                             <hr>
-                            <p><%= subDescription %></p>
+                            <p><%= specifications %></p>
                         </div>
                     </div>
                 </div>
@@ -136,14 +135,13 @@
                     <h2 class="main__section__recomendados__titulo2"><b>RECOMENDADOS</b></h2>
                 </div>
                 <div class="main__section__recomendados__container">
-                    <% ofertProduct.forEach(({name,id,price,discount,discountAmount,images}) => { %>
+                    <% ofertProducts.forEach(({name,id,price,discount,images}) => { %>
                      <%- include('../partials/productCard',{
                         name,
                         id,
                         price,
                         discount,
-                        discountAmount,
-                        images
+                        images 
                      }) %>
                     <% }) %>
                 </div>

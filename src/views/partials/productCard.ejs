@@ -1,8 +1,7 @@
 <article class="main__section__recomendados__articulos">
-    <img src="/images/Productos-img/<%= images[0] %>"
-        alt="">
+    <img src="/images/Productos-img/<%= images.length ? images[0].name : null %>" alt="">
     <p class="main__section__recomendados__articulos__detalle detalle__main__title"><%= name %> +</p>
-     <p> <%= discountAmount%>%OFF</p>
+     <p> <%= discount%>%OFF</p>
     <h2 class="main__section__recomendados__precio">$<%= price %></h2>
     <small class="main__section__recomendados__cuotas">12 cuotas sin interés</small>
     <div class="article1__boton__general button">

@@ -57,7 +57,7 @@
                                             <label>
                                                 <input type="checkbox" id="categories" name="categories" value="<%= category.id %>" 
                                                 <% categories.forEach(categoryP => { %>
-                                                    <% categoryP.id === category.id && 'checked' %>
+                                                    <%= categoryP.id === category.id && 'checked' %>
                                                 <% }) %>>
                                                 <%= category.name %></label>
                                             <% }) %>

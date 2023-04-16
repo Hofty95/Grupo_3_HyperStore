@@ -1,8 +1,10 @@
 const db = require("../database/models");
-const product = require("../database/models/product");
 
 module.exports = {
   Home: async (req, res) => {
+    try {
+      
+    
     const products = await db.Product.findAll({
       include: [
         {
@@ -18,7 +20,6 @@ module.exports = {
       },
       include: [
         {
-          model : db.Product,
           association: "products",
           include: ["images"],
         },
@@ -37,17 +38,16 @@ module.exports = {
         },
       ],
     })
-//return res.send(productsOrder)
-    Promise.all([products, categoryPc,productsOrder])
-      .then(([products, categoryPc,productsOrder]) => {
+
         return res.render("home", {
           title: "HyperStore | Home",
           products,
           productsPc : categoryPc.products,
           productsOrder
         });
-      })
-      .catch((error) => console.log(error));
+      } catch (error) {
+      console.log(error.message)
+      }
   },
   Help: (req, res) => {
     return res.render("help", {

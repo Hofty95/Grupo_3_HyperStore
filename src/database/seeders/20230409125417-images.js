@@ -3,242 +3,650 @@
 /** @type {import('sequelize-cli').Migration} */
 const productImages = [
   {
-    name: "22766_800.jpg",
+    name: "placa1.jpg",
     productId: 1,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "22766_801.jpg",
+    name: "placa2.jpg",
     productId: 1,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "22766_802.jpg",
+    name: "placa3.jpg",
     productId: 1,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "22766_803.jpg",
+    name: "placa4.jpg",
     productId: 1,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "22766_804.jpg",
+    name: "placa5.jpg",
     productId: 1,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "placa-1.png",
+    name: "ryzen1.jpg",
     productId: 2,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "4_XLR8-RTX-3070-Ti-EPIC-X-Triple-Fan-P-la-2.png",
+    name: "ryzen2.jpg",
     productId: 2,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "4_XLR8-RTX-3070-Ti-EPIC-X-Triple-Fan-P-la-3.png",
+    name: "ryzen3.jpg",
     productId: 2,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "2543537-n0.jpg",
+    name: "ryzen4.jpg",
     productId: 2,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "XLR8-RTX-3070-EPIC-X-Triple-Fan-P-ra-4.png",
-    productId: 2,
-    createdAt: new Date(),
-    updatedAt: new Date()
-  }, 
-  {
-    name: "monitor-daewoo-19-dw-mon19.jpg",
+    name: "amd6800xt1.png",
     productId: 3,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "D_NQ_NP_788824-MLA48691141141_122021-O.jpg",
+    name: "amd6800xt2.png",
     productId: 3,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "D_NQ_NP_705243-MLA49023731800_022022-O.jpg",
+    name: "amd6800xt3.png",
     productId: 3,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "25958_25.jpg",
+    name: "amd6800xt4.png",
     productId: 3,
     createdAt: new Date(),
     updatedAt: new Date()
   }, 
   {
-    name: "25958_5.jpg",
+    name: "amd6800xt5.png",
     productId: 3,
     createdAt: new Date(),
     updatedAt: new Date()
   }, 
   {
-    name : "descarga.jpg",
+    name : "auricularHS801.png",
     productId: 4,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "g203-black-gallery-1.png",
+    name : "auricularHS802.webp",
     productId: 4,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "g203-black-gallery-2.png",
+    name : "auricularHS803.webp",
     productId: 4,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "g203-black-gallery-3.png",
+    name : "auricularHS804.png",
     productId: 4,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "maxresdefault.jpg",
+    name : "auricularHS805.webp",
     productId: 4,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "1.png",
+    name : "teclado-corsair-k70-1.png",
     productId: 5,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "2.png",
+    name : "teclado-corsair-k70-2.webp",
     productId: 5,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "3.png",
+    name : "teclado-corsair-k70-3.png",
     productId: 5,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "4.png",
-    productId: 5,
-    createdAt: new Date(),
-    updatedAt: new Date()
-  },
-  {
-    name : "5.png",
-    productId: 5,
-    createdAt: new Date(),
-    updatedAt: new Date()
-  },
-  {
-    name: "parlante-1.png",
+    name: "gabinete-corsair-delta1.png",
     productId: 6,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "parlante-2.png",
+    name: "gabinete-corsair-delta2.jpg",
     productId: 6,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "parlante-3.png",
+    name: "gabinete-corsair-delta3.jpg",
     productId: 6,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "parlante-4.png",
+    name: "gabinete-corsair-delta4.avif",
     productId: 6,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "parlante-5.jpg",
-    productId: 6,
-    createdAt: new Date(),
-    updatedAt: new Date()
-  },
-  {
-    name: "escritorio-1.png",
+    name: "monitor-gigabyte1.png",
     productId: 7,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "escritorio-2.png",
+    name: "monitor-gigabyte2.png",
     productId: 7,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "escritorio-3.png",
+    name: "monitor-gigabyte3.png",
     productId: 7,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "escritorio-4.png",
+    name: "monitor-gigabyte4.webp",
     productId: 7,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "escritorio-5.png",
-    productId: 7,
-    createdAt: new Date(),
-    updatedAt: new Date()
-  },
-  {
-    name: "camara-1.png",
+    name: "monitor-gigabyte-g27f-1.png",
     productId: 8,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "camara-2.png",
+    name: "monitor-gigabyte-g27f-2.png",
     productId: 8,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "camara-3.png",
+    name: "monitor-gigabyte-g27f-3.png",
     productId: 8,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "camara-4.png",
+    name: "monitor-gigabyte-g27f-4.png",
     productId: 8,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "camara-5.png",
+    name: "monitor-gigabyte-g27f-5.png",
     productId: 8,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "notebook-gigabyte-aero16-1.jpg",
+    productId: 9,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "notebook-gigabyte-aero16-2.jpg",
+    productId: 9,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "notebook-gigabyte-aero16-3.jpg",
+    productId: 9,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "notebook-gigabyte-aero16-4.webp",
+    productId: 9,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "notebook-gigabyte-aero16-5.webp",
+    productId: 9,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "mouse-logitech-g203-1.jpg",
+    productId: 10,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "mouse-logitech-g203-2.png",
+    productId: 10,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "mouse-logitech-g203-3.jpg",
+    productId: 10,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "mouse-logitech-g203-4.jpg",
+    productId: 10,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "mouse-logitech-g203-5.jpg",
+    productId: 10,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "auricular-inalambrico-logitech-g435-1.png",
+    productId: 11,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "auricular-inalambrico-logitech-g435-2.jpg",
+    productId: 11,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "auricular-inalambrico-logitech-g435-3.jpg",
+    productId: 11,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "auricular-inalambrico-logitech-g435-4.jpg",
+    productId: 11,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "teclado-bluetooth-logitech-1.png",
+    productId: 12,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "teclado-bluetooth-logitech-4.webp",
+    productId: 12,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "teclado-bluetooth-logitech-2.webp",
+    productId: 12,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "teclado-bluetooth-logitech-3.webp",
+    productId: 12,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "placa-de-video-nvidia-colourful-1.png",
+    productId: 13,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "placa-de-video-nvidia-colourful-2.webp",
+    productId: 13,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "placa-de-video-nvidia-colourful-3.webp",
+    productId: 13,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "placa-de-video-nvidia-colourful-4.png",
+    productId: 13,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "placa-de-video-nvidia-colourful-5.png",
+    productId: 13,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "placa-de-video-asus-1.png",
+    productId : 14,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "placa-de-video-asus-2.png",
+    productId : 14,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "placa-de-video-asus-3.png",
+    productId : 14,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "placa-de-video-asus-4.png",
+    productId : 14,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "placa-de-video-asus-1.png",
+    productId : 14,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "placa-de-video-asus-5.webp",
+    productId : 14,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "placa-de-video-nvidia-colourful-2060-1.jpg",
+    productId : 15,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "placa-de-video-nvidia-colourful-2060-2.jpg",
+    productId : 15,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "placa-de-video-nvidia-colourful-2060-3.jpg",
+    productId : 15,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "placa-de-video-nvidia-colourful-2060-4.jpg",
+    productId : 15,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "teclado-gamer-razer-bluetooth-1.jpg",
+    productId : 16,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "teclado-gamer-razer-bluetooth-2.webp",
+    productId : 16,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "teclado-gamer-razer-bluetooth-3.jpg",
+    productId : 16,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "teclado-gamer-razer-bluetooth-4.jpg",
+    productId : 16,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "auriculares-in-ear-razer-1.jpg",
+    productId : 17,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "auriculares-in-ear-razer-2.webp",
+    productId : 17,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "auriculares-in-ear-razer-3.jpg",
+    productId : 17,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "auriculares-in-ear-razer-4.jpg",
+    productId : 17,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "auriculares-in-ear-razer-5.jpg",
+    productId : 17,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "mousepad-razer-1.jpg",
+    productId : 18,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "mousepad-razer-2.jpg",
+    productId : 18,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "mousepad-razer-3.jpg",
+    productId : 18,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "mousepad-razer-4.jpg",
+    productId : 18,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "fuente-de-alimentacion-redragon-800w-1.jpg",
+    productId : 19,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "fuente-de-alimentacion-redragon-800w-2.webp",
+    productId : 19,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "fuente-de-alimentacion-redragon-800w-3.jpg",
+    productId : 19,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "fuente-de-alimentacion-redragon-800w-4.jpg",
+    productId : 19,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "fuente-de-alimentacion-redragon-800w-5.jpg",
+    productId : 19,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "mouse-redragon-m607-1.png",
+    productId : 20,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "mouse-redragon-m607-2.jpg",
+    productId : 20,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "mouse-redragon-m607-3.jpeg",
+    productId : 20,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "mouse-redragon-m607-4.webp",
+    productId : 20,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "joystick-inalambrico-redragon-1.jpg",
+    productId : 21,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "joystick-inalambrico-redragon-2.jpg",
+    productId : 21,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "joystick-inalambrico-redragon-3.webp",
+    productId : 21,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "joystick-inalambrico-redragon-4.jpg",
+    productId : 21,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "notebook-asus-rog-strix-1.jpg",
+    productId : 22,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "notebook-asus-rog-strix-2.jpg",
+    productId : 22,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "notebook-asus-rog-strix-3.jpg",
+    productId : 22,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "notebook-asus-rog-strix-4.jpg",
+    productId : 22,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "notebook-asus-rog-strix-5.jpg",
+    productId : 22,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "ultrabook-asus-rog-1.jpg",
+    productId : 23,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "ultrabook-asus-rog-2.jpg",
+    productId : 23,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "ultrabook-asus-rog-3.jpg",
+    productId : 23,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "ultrabook-asus-rog-4.jpg",
+    productId : 23,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "ultrabook-asus-rog-5.jpg",
+    productId : 23,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "auriculares-asus-rog-in-ear-1.jpeg",
+    productId : 24,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "auriculares-asus-rog-in-ear-2.jpg",
+    productId : 24,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "auriculares-asus-rog-in-ear-3.webp",
+    productId : 24,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name : "auriculares-asus-rog-in-ear-4.webp",
+    productId : 24,
     createdAt: new Date(),
     updatedAt: new Date()
   },

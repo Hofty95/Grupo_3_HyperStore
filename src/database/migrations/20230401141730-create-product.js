@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.STRING(1000)
       },
       specifications: {
-        type: Sequelize.STRING(500)
+        type: Sequelize.STRING(1000)
       },
       gamaId: {
         type: Sequelize.INTEGER,

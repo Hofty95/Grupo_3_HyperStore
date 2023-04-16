@@ -13,12 +13,9 @@ module.exports = {
         price : 149999,
         discount : getRandomDiscount(10,55),
         description : `Este componente electrónico procesa la información que llega al dispositivo y los transforma en imágenes o videos para mostrarla visualmente. Es ideal para trabajar con aplicaciones gráficas ya que permite obtener imágenes más nítidas.
-
         AMD es un fabricante estadounidense de placas de video, por su tecnología se ha destacado en crear procesadores de alta gama que permiten un excelente funcionamiento del motor gráfico de tu computadora.
-        
         Velocidad en cada lectura
         Como cuenta con 768 núcleos, los cálculos para el procesamiento de gráficos se realizarán de forma simultánea logrando un resultado óptimo del trabajo de la placa. Esto le permitirá ejecutar lecturas dispersas y rápidas de y hacia la GPU.
-        
         Calidad de imagen
         Criterio fundamental a la hora de elegir una placa de video, su resolución de 7680x4320 no te defraudará. La decodificación de los píxeles en tu pantalla te harán ver hasta los detalles más ínfimos en cada ilustración.`,
         specifications : `Interfaz PCI-Express 4.0.
@@ -31,7 +28,7 @@ module.exports = {
         Permite la conexión de hasta 2 pantallas simultáneas.
         Formatos de conexión: DisplayPort 1.4a, HDMI 2.1.
         Ideal para trabajar a alta velocidad.`,
-        gamaId : 1,
+        gamaId : 2,
         brandId : 1,
         createdAt : new Date(),
         updatedAt : new Date()
@@ -63,7 +60,7 @@ module.exports = {
         No
         Cantidad de hilos de CPU
         16`,
-        gamaId : 1,
+        gamaId : 3,
         brandId : 1,
         createdAt : new Date(),
         updatedAt : new Date()
@@ -90,7 +87,7 @@ module.exports = {
         Formatos de conexión: 3 DisplayPort 1.4, HDMI 2.1.
         Incluye: Guía rápida.
         Ideal para trabajar a alta velocidad.`,
-        gamaId : 1,
+        gamaId : 3,
         brandId : 1,
         createdAt : new Date(),
         updatedAt : new Date()
@@ -154,14 +151,10 @@ module.exports = {
         price : 40000,
         discount : getRandomDiscount(3,50),
         description : `GABINETE CORSAIR CARBIDE SPEC DELTA RGB
-
         El Carbide Series SPEC-DELTA RGB es un gabinete ATX Mid-Tower con vidrio templado con un estilo angular llamativo, un potente flujo de aire y tres ventiladores RGB de refrigeración incluidos.
-        
-        DISEÑO ANGULAR
-        Los elementos angulares y oscuros del panel frontal del SPEC-DELTA RGB se vuelven transparentes gracias a la retroiluminación, creando una ventana única en su sistema.`,
+        DISEÑO ANGULAR: Los elementos angulares y oscuros del panel frontal del SPEC-DELTA RGB se vuelven transparentes gracias a la retroiluminación, creando una ventana única en su sistema.`,
         specifications : `Incluye fuente de alimentación: No
-        Altura x Ancho x Largo: 45 cm x 21 cm x 44 cm
-        Es gamer: Sí`,
+        Altura x Ancho x Largo: 45 cm x 21 cm x 44 cm. Es gamer: Sí`,
         gamaId : 2,
         brandId : 2,
         createdAt : new Date(),
@@ -285,7 +278,7 @@ module.exports = {
         Cómodos y prácticos.
         La duración de la batería depende del uso que se le dé al producto.
         Tamaño del altavoz: 40mm.`,
-        gamaId : 1,
+        gamaId : 2,
         brandId : 4,
         createdAt : new Date(),
         updatedAt : new Date()
@@ -303,7 +296,7 @@ module.exports = {
         Medidas: 279mm de ancho, 124mm de alto y 16mm de profundidad.
         Indispensable para tus actividades.
         Las imágenes pueden ser ilustrativas.`,
-        gamaId : 1,
+        gamaId : 2,
         brandId : 4,
         createdAt : new Date(),
         updatedAt : new Date()
@@ -347,7 +340,7 @@ module.exports = {
         Formatos de conexión: HDMI 2.0b, DL-DVI-D, DisplayPort 1.4.
         Incluye: Guía rápida.
         Ideal para trabajar a alta velocidad.`,
-        gamaId : 1,
+        gamaId : 2,
         brandId : 5,
         createdAt : new Date(),
         updatedAt : new Date()
@@ -375,7 +368,7 @@ module.exports = {
         - DirectX: 12.1 / 4.5
         - NV technology Support: Real-Time Ray Tracing, Ansel, GPU Boost
         - Product Size: 253.5 x 131.5 x 41.5mm`,
-        gamaId : 3,
+        gamaId : 2,
         brandId : 5,
         createdAt : new Date(),
         updatedAt : new Date()
@@ -395,7 +388,7 @@ module.exports = {
         Con conector USB 2.0.
         Indispensable para tus actividades.
         Las imágenes pueden ser ilustrativas.`,
-        gamaId : 2,
+        gamaId : 3,
         brandId : 6,
         createdAt : new Date(),
         updatedAt : new Date()
@@ -435,7 +428,7 @@ module.exports = {
         specifications : `Su superficie dura y más suave ofrece un seguimiento preciso optimizado para los sensores ópticos, mientras que su perfil un 20 % más fino hace que se convierta en una parte más de tu escritorio. Disponible en tamaño grande y pequeño.
         1. La Razer Sphex V3 tiene 0,4 mm de grosor, un 20 % más fina que su predecesora, la Razer Sphex V2.
         2. Actualizada con un aspecto elegante y negro, además de una superficie más suave, la Sphex V3 es un 50 % más grande que la Sphex V2 estándar.`,
-        gamaId : 3,
+        gamaId : 2,
         brandId : 6,
         createdAt : new Date(),
         updatedAt : new Date()
@@ -446,9 +439,7 @@ module.exports = {
         discount : getRandomDiscount(10,45),
         description : `Diseñada para ganar espacio.
         Sus cables desmontables y flexibles permiten optimizar espacio utilizando sólo los necesarios. Si eres de los que prefieren prolijidad por fuera y también por dentro, esta fuente te encantará.
-        
-        Calidad 80 Plus Bronze.
-        Puedes estar seguro de que la eficiencia de la energía consumida siempre será superior al 80%. ¡Lo certificamos!`,
+        Calidad 80 Plus Bronze. Puedes estar seguro de que la eficiencia de la energía consumida siempre será superior al 80%. ¡Lo certificamos!`,
         specifications : `Tipo de fuente de alimentación para PC: ATX
         Tipo de refrigeración: Por aire
         Con protección de bajo voltaje: Sí
@@ -471,13 +462,8 @@ module.exports = {
         price : 6500,
         discount : getRandomDiscount(10,45),
         description : `Con más de 20 años de experiencia en fabricación de productos, Redragon innova día a día en diseño y calidad. Su objetivo es producir equipamiento de alta gama para jugadores, con excelentes prestaciones y a un precio accesible. Los mouses Redragon son adecuados para todas las ocasiones, ya sea para entretenerse en el hogar o usarlo en el trabajo. Experimentá el diseño cómodo y elegante de este dispositivo.`,
-        specifications : `Tipo de sensor
-        Óptico
-        Tecnología del sensor
-        PixArt P3212
-        Resolución del sensor
-        7200 dp`,
-        gamaId : 3,
+        specifications : `Tipo de sensor Óptico, Tecnología del sensor PixArt P3212 Resolución del sensor 7200 dp`,
+        gamaId : 2,
         brandId : 7,
         createdAt : new Date(),
         updatedAt : new Date()
@@ -488,27 +474,19 @@ module.exports = {
         discount : getRandomDiscount(10,45),
         description : `Control preciso
         Este mando combina funciones revolucionarias mientras conserva precisión, comodidad y exactitud en cada movimiento. Gracias a su ergonomía especialmente pensada para la posición de tu mano, podés pasar horas jugando con total confort.`,
-        specifications : `Mando inalámbrico.
-        Compatible con: Computadoras y PlayStation 3.
-        Incluye un control.
-        Con sistema de vibración incorporado.
-        Cuenta con 1 dongle usb 2.0, 1 cable micro-usb, sticker redragon y 1 manual.
-        Diversión garantizada con tu joystick Redragon.
-        Diseño ergonómico.`,
-        gamaId : 3,
+        specifications : `Mando inalámbrico. Compatible con: Computadoras y PlayStation 3. Incluye un control. Con sistema de vibración incorporado.
+        Cuenta con 1 dongle usb 2.0, 1 cable micro-usb, sticker redragon y 1 manual. Diversión garantizada con tu joystick Redragon. Diseño ergonómico.`,
+        gamaId : 2,
         brandId : 7,
         createdAt : new Date(),
         updatedAt : new Date()
       },
       {
-        name : `otebook gamer Asus ROG Strix G15(2022) gray 15.6", AMD Ryzen 7 6800H 16GB de RAM 512GB SSD, NVIDIA GeForce RTX 3050 144 Hz 1920x1080px Windows 11 Home`,
+        name : `Notebook gamer Asus ROG Strix G15(2022) gray 15.6", AMD Ryzen 7 6800H 16GB de RAM 512GB SSD, NVIDIA GeForce RTX 3050 144 Hz 1920x1080px Windows 11 Home`,
         price : 630000,
         discount : getRandomDiscount(10,45),
         description : `Disfrutá de la perfecta combinación de rendimiento y diseño con esta notebook Asus ROG Strix G15(2022). Encontrarás en ella una excelente herramienta para tus trabajos de todos los días y para tus momentos de entretenimiento. Aprovechá la experiencia extraordinaria que la marca tiene para ofrecerte y optimizá la calidad de tus imágenes y videos.
-
-        Pantalla con gran impacto visual
-        Su pantalla de 15.6" y 1920x1080 px de resolución te brindará colores más vivos y definidos. Tus películas y series preferidas cobrarán vida, ya que ganarán calidad y definición en cada detalle.
-        `,
+        Pantalla con gran impacto visual. Su pantalla de 15.6" y 1920x1080 px de resolución te brindará colores más vivos y definidos. Tus películas y series preferidas cobrarán vida, ya que ganarán calidad y definición en cada detalle.`,
         specifications : `Procesador AMD Ryzen 7.
         Memoria RAM de 16GB.
         Resolución de 1920x1080 px.
@@ -519,7 +497,7 @@ module.exports = {
         Modo de sonido Dolby Atmos, Stereo.
         Con teclado retroiluminado.
         La duración de la batería depende del uso que se le dé al producto.`,
-        gamaId : 1,
+        gamaId : 3,
         brandId : 8,
         createdAt : new Date(),
         updatedAt : new Date()
@@ -529,7 +507,6 @@ module.exports = {
         price : 1200000,
         discount : getRandomDiscount(10,45),
         description : `Disfrutá de la perfecta combinación de rendimiento y diseño con esta notebook Asus ROG Zephyrus G14 GA402RK. Encontrarás en ella una excelente herramienta para tus trabajos de todos los días y para tus momentos de entretenimiento. Aprovechá la experiencia extraordinaria que la marca tiene para ofrecerte y optimizá la calidad de tus imágenes y videos.
-
         Pantalla con gran impacto visual
         Su pantalla de 14" y 2560x1600 px de resolución te brindará colores más vivos y definidos. Tus películas y series preferidas cobrarán vida, ya que ganarán calidad y definición en cada detalle.`,
         specifications : `Procesador AMD Ryzen 9.
@@ -543,7 +520,7 @@ module.exports = {
         Modo de sonido Smart Amp, Dolby Atmos, Quad, AI noise-canceling.
         Con teclado retroiluminado.
         La duración de la batería depende del uso que se le dé al producto.`,
-        gamaId : 1,
+        gamaId : 3,
         brandId : 8 ,
         createdAt : new Date(),
         updatedAt : new Date()
@@ -553,7 +530,6 @@ module.exports = {
         price : 55000,
         discount : getRandomDiscount(10,45),
         description : `Auriculares de Alta Gama ROG Cetra RGB con Noice Cancellig Activa
-
         Auriculares internos para juegos ROG Cetra RGB con cancelación activa de ruido (ANC), controladores ASUS Essence de 10 mm y conector USB-C para PC, dispositivos móviles y Nintendo Switch, e iluminación Aura Sync`,
         specifications : `La tecnología de cancelación activa de ruido elimina el ruido ambiental para brindar experiencias de juego inmersivas en cualquier lugar.
         Los controladores ASUS Essence de gran tamaño de 10 mm ofrecen unos graves increíblemente potentes y un audio de juego optimizado.

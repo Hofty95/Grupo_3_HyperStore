@@ -12,6 +12,7 @@ module.exports = {
           attributes: ["name"],
         },
       ],
+      limit : 10
     });
 
     const categoryPc = await db.Category.findOne({

@@ -7,9 +7,9 @@
         <!-- header -->
         <%- include('../partials/header') %>
             <!-- MAIN -->
-            <main>
-                <section class="main__info__section">
-                    <div class="main__info__section__container">
+            <main class="busqueda__main">
+                <section class="main__info__section col-lg-4 position-relative">
+                    <div class="main__info__section__container position-sticky top-0">
                         <h2>Resultado de búsqueda</h2>
                         <small>Nº de resultados: <%= numSearched %></small>
                         <hr>
@@ -86,7 +86,7 @@
                         </div> -->
                     </div>
                 </section>
-					<section>
+					<section class="col-lg-8">
 						<div class="main__section__article">
 							<% productsFound.forEach(product => { %>
 								<%- include('../partials/productCard',{

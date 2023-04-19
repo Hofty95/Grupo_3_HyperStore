@@ -15,7 +15,7 @@
       <a href="/product/detalle/<%= id %>"><img src="/images/Productos-img/<%= images.length ? images[0].name : 'default-image.jpg' %>" alt="..."></a>
     </figure>
     <article class="product-box_data">
-      <h2>$<%= price %>
+      <h2>$<%= toThousand(price) %>
       </h2>
       <p><a href="/product/detalle/<%= id %>">
         <%= name %>

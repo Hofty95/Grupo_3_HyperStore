@@ -1,4 +1,5 @@
 const db = require("../database/models");
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
   Home: async (req, res) => {
@@ -43,7 +44,8 @@ module.exports = {
           title: "HyperStore | Home",
           products,
           productsPc : categoryPc.products,
-          productsOrder
+          productsOrder,
+          toThousand,
         });
       } catch (error) {
       console.log(error.message)

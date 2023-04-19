@@ -1,8 +1,26 @@
-<div class="card">
+<!-- <div class="card">
     <img src="/images/Productos-img/<%= images.length ? images[0].name : 'default-image.jpg' %>" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title titulo-tarjeta-home"><a href="/product/detalle/<%= id %>"><%= name %></a></h5>
       <p class="card-text">$<%= price %></p>
-      <a href="/product/detalle/<%= id %>" class="btn btn-primary">Ver Mas</a>
+      <div class="card-description">
+        <p><a href="/product/detalle/<%= id %>"><%= name %></a></p>
+        <a href="/product/detalle/<%= id %>" class="btn btn-primary">Ver Mas</a>
+      </div>
     </div>
-  </div>
+  </div> -->
+
+<div class="col-12 col-sm-6 col-lg-3">
+  <section class="product-box">
+    <figure class="product-box_image">
+      <a href="/product/detalle/<%= id %>"><img src="/images/Productos-img/<%= images.length ? images[0].name : 'default-image.jpg' %>" alt="..."></a>
+    </figure>
+    <article class="product-box_data">
+      <h2>$<%= price %>
+      </h2>
+      <p><a href="/product/detalle/<%= id %>">
+        <%= name %>
+        </a></p>
+    </article>
+    </a>
+  </section>
+</div>

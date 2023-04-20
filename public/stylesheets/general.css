@@ -36,3 +36,12 @@ p{
 .slick-dots li.slick-active button:before{
     color: white;
 }
+.slick-dots{
+    visibility: hidden;
+}
+
+@media (min-width:768px) {
+    .slick-dots{
+        visibility: visible;
+    }
+}

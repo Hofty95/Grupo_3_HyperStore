@@ -6,9 +6,17 @@ const db = require('../database/models')
 
 module.exports = {
     login: (req, res) => {
-        return res.render('users/login', {
-            title: 'Hyper Store | Login'
-        });
+        const categories =  db.Category.findAll();
+        const brands =  db.Brand.findAll();
+
+        Promise.all([categories,brands])
+        .then(([categories,brands])=>{
+            return res.render('users/login', {
+                title: 'Hyper Store | Login',
+                categories,
+                brands
+            });            
+        })
     },
     loginProcess: (req, res) => {
 
@@ -35,16 +43,32 @@ module.exports = {
             }).catch(error => console.log(error))
             console.log(errors)
         } else {
-            return res.render('users/login', {
-                title: "Inicio de sesión",
-                errors: errors.mapped()
+            const categories =  db.Category.findAll();
+            const brands =  db.Brand.findAll();
+    
+            Promise.all([categories,brands])
+            .then(([categories,brands])=>{
+                return res.render('users/login', {
+                    title: 'Hyper Store | Login',
+                    categories,
+                    brands,
+                    errors: errors.mapped()
+                });            
             })
         }
     },
     register: (req, res) => {
-        return res.render('users/register', {
-            title: 'Hyper Store | Register'
-        });
+        const categories =  db.Category.findAll();
+        const brands =  db.Brand.findAll();
+
+        Promise.all([categories,brands])
+        .then(([categories,brands])=>{
+            return res.render('users/register', {
+                title: 'Hyper Store | Register',
+                categories,
+                brands
+            });            
+        })
     },
     registerProcess: (req, res) => {
 
@@ -73,17 +97,27 @@ module.exports = {
                 }).catch(error => console.log(error))
 
         } else {
-            return res.render('users/register', {
-                title: 'Hyper Store | Register',
-                errors: errors.mapped(),
-                old: req.body
-            });
+            const categories =  db.Category.findAll();
+            const brands =  db.Brand.findAll();
+    
+            Promise.all([categories,brands])
+            .then(([categories,brands])=>{
+                return res.render('users/register', {
+                    title: 'Hyper Store | Register',
+                    categories,
+                    brands,
+                    errors: errors.mapped(),
+                    old: req.body
+                });            
+            })
         }
     },
     usuario: (req, res) => {
         const { id } = req.session.userLogin;
+        const categories =  db.Category.findAll();
+        const brands =  db.Brand.findAll();
 
-        db.User.findByPk(id, {
+        const user = db.User.findByPk(id, {
             attributes: ['name', 'surname', 'email', 'image'],
             include: [
                 {
@@ -91,15 +125,19 @@ module.exports = {
                     attributes: ['street', 'location', 'province', 'postcode']
                 }
             ]
-        }).then(user => {
+        });
+
+        Promise.all([user,id,categories,brands])
+        .then(([user,id,categories,brands])=>{
             return res.render('users/usuario', {
                 title: "HyperStore | Perfil de usuario",
                 user,
                 old: req.body,
-                id
+                id,
+                categories,
+                brands
             })
-        }).catch(error => console.log(error))
-
+        })
     },
     changeInfo: (req, res) => {
 
@@ -146,8 +184,16 @@ module.exports = {
             })
     },
     changepass: (req, res) => {
-        return res.render('users/cambioContraseña', {
-            title: "HyperStore | cambio de contraseña",
+        const categories =  db.Category.findAll();
+        const brands =  db.Brand.findAll();
+
+        Promise.all([categories,brands])
+        .then(([categories,brands])=>{
+            return res.render('users/cambioContraseña', {
+                title: "Hyper Store | Change Password",
+                categories,
+                brands,
+            });            
         })
     },
     logout: (req, res) => {

@@ -1,7 +1,6 @@
 const db = require('../database/models');
 const { Op } = require("sequelize");
-const { readJson, writeJson } = require("../data/readWrite");
-/* const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); */
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
 busqueda: async (req, res) => {
@@ -89,7 +88,8 @@ busqueda: async (req, res) => {
         productsFound,
         categories,
         numSearched: productsFound.length,
-        brands
+        brands,
+        toThousand
       }); 
     })
   },

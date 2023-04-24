@@ -14,12 +14,9 @@
                     <h3>Categorías</h3>
                     <ul>
                         <li>
-                            <a href="">Placas de video</a>
-                            <a href="">Procesadores</a>
-                            <a href="">Memorias</a>
-                            <a href="">Almacenamiento</a>
-                            <a href="">Refrigeración</a>
-                            <a href="">Todas las categorías</a>
+                            <% categories.forEach(category => { %>
+                            <a href="/product/busqueda?category=<%= category.name %>"><%= category.name %></a>                             
+                            <% }) %>
                         </li>
                     </ul>
                 </div>
@@ -27,12 +24,9 @@
                     <h3>Marcas</h3>
                     <ul>
                         <li>
-                            <a href="">Intel</a>
-                            <a href="">Ryzen</a>
-                            <a href="">AMD</a>
-                            <a href="">Asus</a>
-                            <a href="">Nvidia</a>
-                            <a href="">Razer</a>
+                            <% brands.forEach(brand => { %>
+                                <a href="/product/busqueda?brand=<%= brand.id %>"><%= brand.name %></a>                             
+                            <% }) %>
                         </li>
                     </ul>
                 </div>

@@ -17,8 +17,7 @@
 
 .home__main__section__article__banner img {
   width: 100%;
-  height: 450px;
-  object-fit: cover;
+  object-fit: contain;
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -378,9 +377,6 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
     display: block;
   }
 
-  .home__main__section__article__banner img {
-    height: 250px;
-  }
 
   .botones__home {
     flex-direction: row;
@@ -503,7 +499,4 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
     visibility: visible;
   }
 
-  .home__main__section__article__banner img {
-    height: 440px;
-  }
 }

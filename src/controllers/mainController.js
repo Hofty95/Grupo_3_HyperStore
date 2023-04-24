@@ -5,6 +5,9 @@ module.exports = {
   Home: async (req, res) => {
     try {
       
+      const categories = await db.Category.findAll();
+
+      const brands = await db.Brand.findAll();
     
     const products = await db.Product.findAll({
       include: [
@@ -45,6 +48,8 @@ module.exports = {
           products,
           productsPc : categoryPc.products,
           productsOrder,
+          categories,
+          brands,
           toThousand,
         });
       } catch (error) {
@@ -52,9 +57,18 @@ module.exports = {
       }
   },
   Help: (req, res) => {
-    return res.render("help", {
-      title: "Help",
-    });
+    const categories =  db.Category.findAll();
+    const brands =  db.Brand.findAll();
+
+    Promise.all([categories,brands])
+    .then(([categories,brands])=>{
+        return res.render("help", {
+        title: "Help",
+        categories,
+        brands
+      })
+    })
+
   },
   p404: (req, res) => {
     return res.render("404");

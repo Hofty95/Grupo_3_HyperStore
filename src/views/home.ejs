@@ -103,9 +103,9 @@
           <h2>Ofertas</h2>
           <hr />
           <div class="productos">
-            <% products.forEach(({name,price,id,toThousand,discount, images}) =>
+            <% products.forEach(({name,price,id,discount, images}) =>
             { %> <% if (discount) { %> <%- include('./partials/cardArticle',{
-            name, price, id, images, toThousand }) %> <% } %> <% }) %>
+            name, price, id, images }) %> <% } %> <% }) %>
           </div>
           <h2>PCs Recomendados</h2>
           <hr />

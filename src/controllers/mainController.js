@@ -1,9 +1,13 @@
 const db = require("../database/models");
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
   Home: async (req, res) => {
     try {
       
+      const categories = await db.Category.findAll();
+
+      const brands = await db.Brand.findAll();
     
     const products = await db.Product.findAll({
       include: [
@@ -44,16 +48,28 @@ module.exports = {
           title: "HyperStore | Home",
           products,
           productsPc : categoryPc.products,
-          productsOrder
+          productsOrder,
+          categories,
+          brands,
+          toThousand,
         });
       } catch (error) {
       console.log(error.message)
       }
   },
   Help: (req, res) => {
-    return res.render("help", {
-      title: "Help",
-    });
+    const categories =  db.Category.findAll();
+    const brands =  db.Brand.findAll();
+
+    Promise.all([categories,brands])
+    .then(([categories,brands])=>{
+        return res.render("help", {
+        title: "Help",
+        categories,
+        brands
+      })
+    })
+
   },
   p404: (req, res) => {
     return res.render("404");

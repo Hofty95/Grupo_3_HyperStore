@@ -1,26 +1,42 @@
+const createResponseError = require("../../helpers/createResponseError");
+const { getAllProducts, getAllCategories, getAllGamas, getAllBrands } = require("../../services/productServices");
+const { getAllUsers } = require("../../services/userServices");
 const db = require("../database/models");
 const { validationResult } = require("express-validator");
 
 module.exports = {
-  Admin: (req, res) => {
-    const products = db.Product.findAll();
-    const categories = db.Category.findAll();
-    const users = db.User.findAll();
-    const gamas = db.Gama.findAll();
-    const brands = db.Brand.findAll();
+  Admin: async (req, res) => {
+    try {
+    const products = await getAllProducts();
+    const categories = await getAllCategories();
+    const users = await getAllUsers();
+    const gamas = await getAllGamas();
+    const brands = await getAllBrands();
 
-    Promise.all([products, users, categories, gamas, brands])
-      .then(([products, users, categories, gamas, brands]) => {
-        return res.render("admin/dashboard", {
-          title: "HyperStore | dashboard",
-          categories,
-          products,
-          users,
-          gamas,
-          brands,
-        });
-      })
-      .catch((error) => console.log(error));
+    return res.status(200).json({
+      ok : true,
+      meta : {
+        status : 200,
+        total : {
+          products : products.length,
+          categories : categories.length,
+          users : users.length,
+          gamas : gamas.length,
+          brands : brands.length
+        },
+        url: 'api/admin/dashboard'
+      },
+      data : {
+        products : products,
+        categories : categories,
+        users : users,
+        gamas : gamas,
+        brands : brands
+      }
+    })
+    } catch (error) {
+      return createResponseError(res,error)
+    }
   },
   storeProduct: (req, res) => {
     const errors = validationResult(req);

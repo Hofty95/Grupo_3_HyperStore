@@ -38,7 +38,7 @@ module.exports = {
     },
     getProductsByCategory : async () => {
         try {
-         await db.Category.findOne({
+         const productsByCategory = await db.Category.findOne({
             where: {
               name: "Pc",
             },
@@ -48,7 +48,9 @@ module.exports = {
                 include: ["images"],
               },
             ],
-          });            
+          });
+
+          return productsByCategory
         } catch (error) {
             throw {
                 status : 500,
@@ -56,5 +58,41 @@ module.exports = {
             }
         }
 
+    },
+    getAllCategories : async () => {
+        try {
+            const categories = await db.Category.findAll();
+
+            return categories
+        } catch (error) {
+            throw {
+                status : 500,
+                message : error.message
+            }
+        }
+    },
+    getAllBrands : async () => {
+        try {
+            const brands = await db.Brand.findAll();
+
+            return brands
+        } catch (error) {
+            throw {
+                status : 500,
+                message : error.message
+            }
+        }
+    },
+    getAllGamas : async () => {
+        try {
+            const gamas = await db.Gama.findAll();
+
+            return gamas
+        } catch (error) {
+            throw {
+                status : 500,
+                message : error.message
+            }
+        }
     }
 }

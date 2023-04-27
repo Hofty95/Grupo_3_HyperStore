@@ -1,12 +1,12 @@
 const express = require('express');
 /* const { confirmRemove } = require('../controllers/adminController'); */
-const router = express.Router();
+/* const router = express.Router();
 
 const {busqueda, carrito, category, detalle, confirmRemove, remove} = require('../controllers/productController');
-const checkUserLogin = require('../middlewares/checkUserLogin');
+const checkUserLogin = require('../middlewares/checkUserLogin'); */
 /* product */
 
-router.get('/busqueda', busqueda)
+/* router.get('/busqueda', busqueda)
 router.get('/carrito',checkUserLogin, carrito)
 router.get('/category', category)
 router.get('/detalle/:id', detalle)
@@ -14,3 +14,4 @@ router.get('/remove/:id',checkUserLogin,confirmRemove)
 router.delete('/remove/:id', remove)
 
 module.exports = router;
+ */

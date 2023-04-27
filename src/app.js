@@ -13,6 +13,7 @@ const mainRouter = require('./routes/main');
 const userRouter = require('./routes/users');
 const productRouter = require('./routes/product');
 const adminRouter = require('./routes/admin');
+const { usersApi } = require('./routes/api');
 
 const app = express();
 
@@ -40,6 +41,9 @@ app.use('/', mainRouter);
 app.use('/admin', adminRouter);
 app.use('/user', userRouter); 
 app.use('/product', productRouter);
+
+/* Api Rutas */
+app.use('/api/user', usersApi)
 
 // catch 404 and forward to error handler
 app.use('*', function(req, res) {

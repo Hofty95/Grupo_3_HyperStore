@@ -9,7 +9,7 @@ module.exports = {
 
       const brands = await db.Brand.findAll();
     
-    const products = await db.Product.findAll({
+      const products = await db.Product.findAll({
       include: [
         {
           association: "images",

@@ -176,8 +176,8 @@ module.exports = {
                 Promise.all(([addressUpdate, userUpdate]))
                 .then(() => {
                     
-                    (req.file && fs.existsSync('public/images/User-img' + user.image)) && fs.unlinkSync()
-                    
+                    (req.file && fs.existsSync(`public/images/User-img/${user.image}`)) && fs.unlinkSync(`public/images/User-img/${user.image}`)
+
                     req.session.message = "Datos actualizados"
                     return res.redirect('/')
                 }).catch(error => console.log(error))

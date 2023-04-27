@@ -16,7 +16,7 @@ router
   .post('/login',loginValidation, loginProcess)
   .get('/register',checkUser ,register)
   .post('/register',registerValidation  ,registerProcess)
-  .get('/usuario/:id',checkUserLogin, usuario)
+  .get('/:id',checkUserLogin, usuario)
   .put('/edit/:id',uploadUserImage.single('image') ,profileValidation, changeInfo)
   .get('/changepass',checkUserLogin,changepass)
   .get('/remove/:id',checkUserLogin,confirmRemoveUser)

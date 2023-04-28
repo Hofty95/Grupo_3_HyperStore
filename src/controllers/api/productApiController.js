@@ -1,6 +1,6 @@
 const db = require("../../database/models");
 const { Op } = require("sequelize");
-const { getOneProduct, deleteProduct, getProductsByCategory, getAllCategories } = require("../../services/productServices");
+const { getOneProduct, deleteProduct, getAllCategories, deleteProductCategories } = require("../../services/productServices");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
@@ -147,7 +147,21 @@ busqueda: async (req, res) => {
   },
   remove: async (req, res) => {
     try {
-      
+      const {id} = req.params
+      const deleteCategory = await deleteProductCategories(id);
+      const deletedProduct = await deleteProduct(id);
+
+      return res.status(200).json({
+        ok : true,
+        meta : {
+          status : 200,
+          total : 1,
+        },
+        data : {
+          category : deleteCategory,
+          product : deletedProduct
+        }
+      })
     } catch (error) {
       return res.status(500).json({
         msg : error.message

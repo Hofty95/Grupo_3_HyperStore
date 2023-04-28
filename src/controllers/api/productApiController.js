@@ -1,8 +1,24 @@
-const db = require('../database/models');
+const db = require("../../database/models");
 const { Op } = require("sequelize");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
+  Home: async (req, res) => {
+    try {
+      const products = await getAllProducts();
+      return res.send(req.json)
+      return res.status(200).json({
+        ok : true,
+        data : products,
+        meta : {
+          status : 200,
+          total : products.length
+        }
+      })
+      } catch (error) {
+      console.log(error.message)
+      }
+  },
 busqueda: async (req, res) => {
     const { keywords, gama, brand, category} = req.query;
     const categories = await db.Category.findAll()
@@ -159,22 +175,6 @@ busqueda: async (req, res) => {
         brands
       })
     }) 
-  },
-  confirmRemove: (req, res) => {
-    const id = req.params.id;
-    const product = db.Product.findByPk(id)
-    const categories =  db.Category.findAll();
-    const brands =  db.Brand.findAll();
-
-    Promise.all(product)
-    .then((product) => {
-      return res.render("product/confirmRemove", {
-        title: "HyperStore | remove",
-        ...product.dataValues,
-        categories,
-        brands
-      });
-    })
   },
   remove: (req, res) => {
     const {id} = req.params

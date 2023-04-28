@@ -1,11 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {Home, Help, p404} = require("../../controllers/api/mainApiController")
+const {Home} = require("../../controllers/api/mainApiController")
 
-/* / */
-router.get('/', Home);
-router.get("/help", Help);
-router.get("/404", p404);
+/* /api/product */
+router.get('/index', Home);
     
 
 module.exports = router;

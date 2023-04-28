@@ -1,8 +1,7 @@
 const fs = require('fs');
 const { validationResult } = require("express-validator")
 const { hashSync } = require('bcryptjs')
-const { readJson, writeJson } = require("../data/readWrite")
-const db = require('../database/models')
+const db = require("../../database/models");
 
 module.exports = {
     login: (req, res) => {

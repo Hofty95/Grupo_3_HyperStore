@@ -15,9 +15,13 @@ module.exports = {
     },
     getOneProduct : async (id) => {
         try {
-            
+            const product = await db.Product.findByPk(id);
+            return product
         } catch (error) {
-            
+            throw {
+                status : 500,
+                message : error.message
+            }
         }
     }
 }

@@ -1,11 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const registerValidation = require("../../validations/registerValidation")
-const {login, register, usuario,changepass, confirmRemoveUser, removeUser, registerProcess, loginProcess, logout, changeInfo, removeSelf } = require('../../controllers/api/userApiController');
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
+const {list } = require('../../controllers/api/userApiController');
 const localsUserCheck = require('../../middlewares/localsUserCheck');
 const loginValidation = require('../../validations/loginValidation');
 const checkUserLogin = require('../../middlewares/checkUserLogin');

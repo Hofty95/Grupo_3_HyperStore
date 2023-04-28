@@ -14,8 +14,6 @@ const mainRouter = require('./routes/main');
 const userRouter = require('./routes/users');
 const productRouter = require('./routes/product');
 const adminRouter = require('./routes/admin');
-const {admin,main,product,users} = require('./routes/api/index');
-
 const app = express();
 
 // view engine setup

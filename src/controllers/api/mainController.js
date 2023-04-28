@@ -57,21 +57,4 @@ module.exports = {
       console.log(error.message)
       }
   },
-  Help: (req, res) => {
-    const categories =  db.Category.findAll();
-    const brands =  db.Brand.findAll();
-
-    Promise.all([categories,brands])
-    .then(([categories,brands])=>{
-        return res.render("help", {
-        title: "Help",
-        categories,
-        brands
-      })
-    })
-
-  },
-  p404: (req, res) => {
-    return res.render("404");
-  },
 };

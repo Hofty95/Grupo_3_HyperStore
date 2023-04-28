@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const {Admin,storeProduct,editProduct,saveEditProduct} = require('../../controllers/api/adminController')
+const {Admin,storeProduct,editProduct,saveEditProduct} = require('../../controllers/api/adminApiController')
 const checkUserAdmin = require("../../middlewares/checkUserAdmin");
 const { uploadProductImages } = require("../../middlewares/uploadIMG");
 const addProductValidation = require("../../validations/addProductValidation");

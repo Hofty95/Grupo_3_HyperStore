@@ -72,6 +72,7 @@ module.exports = {
     try {
       const errors = validationResult(req);
       const {id} = req.params
+      console.log(id)
 
       if(!errors.isEmpty()) throw {
         status : 400,

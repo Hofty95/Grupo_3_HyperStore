@@ -178,7 +178,7 @@ module.exports = {
         };
     }
   },
-  editAProduct : async (id,body) => {
+  editAProduct : async (body,id) => {
     try {
         const {
             name,
@@ -187,9 +187,9 @@ module.exports = {
             description,
             specifications,
             gama,
-            brand,
+            brand
           } = body
-
+          
           const editedProduct = await db.Product.update(
             {
               name: name,
@@ -198,12 +198,12 @@ module.exports = {
               description: description,
               specifications: specifications,
               gamaId: +gama,
-              brandId: +brand,
+              brandId: +brand
             },
             {
               where: {
-                id: id,
-              },
+                id: id
+              }
             }
           );
 
@@ -211,7 +211,7 @@ module.exports = {
     } catch (error) {
         throw {
             status: 500,
-            message: error.message,
+            message: error.message
         };
     }
   },
@@ -224,11 +224,11 @@ module.exports = {
         const category = categories.forEach(async (category) => {
             await db.productCategories.update(
               {
-                categoryId: category,
+                categoryId: category
               },
               {
                 where: {
-                  productId: id,
+                  productId: id
                 },
               }
             );
@@ -249,7 +249,7 @@ module.exports = {
               name: image.filename,
             },
             {
-                where : {productId: id,}
+                where : {productId: id}
             }
             );
             (files && fs.existsSync(`public/images/Productos-img/${image.filename}`)) && fs.unlinkSync(`public/images/Productos-img/${image.filename}`)

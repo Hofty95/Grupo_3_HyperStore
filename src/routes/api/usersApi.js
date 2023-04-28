@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const registerValidation = require("../../validations/registerValidation")
-const {list } = require('../../controllers/api/userApiController');
+const {list,detail,destroy} = require('../../controllers/api/userApiController');
 const localsUserCheck = require('../../middlewares/localsUserCheck');
 const loginValidation = require('../../validations/loginValidation');
 const checkUserLogin = require('../../middlewares/checkUserLogin');

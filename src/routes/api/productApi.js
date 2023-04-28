@@ -2,7 +2,7 @@ const express = require('express');
 /* const { confirmRemove } = require('../controllers/adminController'); */
 const router = express.Router();
 
-const {busqueda, carrito, category, detalle, confirmRemove, remove} = require('../../controllers/api/productController');
+const {busqueda, carrito, category, detalle, confirmRemove, remove} = require('../../controllers/api/productApiController');
 const checkUserLogin = require('../../middlewares/checkUserLogin');
 /* /api/product */
 

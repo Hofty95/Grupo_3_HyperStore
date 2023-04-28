@@ -19,10 +19,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       description: {
-        type: Sequelize.STRING(1000)
+        type: Sequelize.TEXT
       },
       specifications: {
-        type: Sequelize.STRING(500)
+        type: Sequelize.TEXT
       },
       gamaId: {
         type: Sequelize.INTEGER,

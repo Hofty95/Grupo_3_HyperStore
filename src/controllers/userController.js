@@ -1,3 +1,4 @@
+const fs = require('fs');
 const { validationResult } = require("express-validator")
 const { hashSync } = require('bcryptjs')
 const { readJson, writeJson } = require("../data/readWrite")
@@ -5,14 +6,23 @@ const db = require('../database/models')
 
 module.exports = {
     login: (req, res) => {
-        return res.render('users/login', {
-            title: 'Hyper Store | Login'
-        });
+        const categories =  db.Category.findAll();
+        const brands =  db.Brand.findAll();
+
+        Promise.all([categories,brands])
+        .then(([categories,brands])=>{
+            return res.render('users/login', {
+                title: 'Hyper Store | Login',
+                categories,
+                brands
+            });            
+        })
     },
     loginProcess: (req, res) => {
 
         const errors = validationResult(req);
         if (errors.isEmpty()) {
+
             db.User.findOne({
                 where: {
                     email: req.body.email
@@ -31,18 +41,34 @@ module.exports = {
 
                 return res.redirect('/')
             }).catch(error => console.log(error))
-
+            console.log(errors)
         } else {
-            return res.render('users/login', {
-                title: "Inicio de sesión",
-                errors: errors.mapped()
+            const categories =  db.Category.findAll();
+            const brands =  db.Brand.findAll();
+    
+            Promise.all([categories,brands])
+            .then(([categories,brands])=>{
+                return res.render('users/login', {
+                    title: 'Hyper Store | Login',
+                    categories,
+                    brands,
+                    errors: errors.mapped()
+                });            
             })
         }
     },
     register: (req, res) => {
-        return res.render('users/register', {
-            title: 'Hyper Store | Register'
-        });
+        const categories =  db.Category.findAll();
+        const brands =  db.Brand.findAll();
+
+        Promise.all([categories,brands])
+        .then(([categories,brands])=>{
+            return res.render('users/register', {
+                title: 'Hyper Store | Register',
+                categories,
+                brands
+            });            
+        })
     },
     registerProcess: (req, res) => {
 
@@ -51,97 +77,123 @@ module.exports = {
         if (errors.isEmpty()) {
             const { name, surname, email, password } = req.body
 
-            db.address.create()
-                .then( address => {
-                    db.user.create({
-                        name : name.trim(),
-                        surname : surname.trim(),
-                        email : email.trim(),
-                        password : hashSync(password, 10),
-                        rolId : 2,
-                        addressId : address.id
-                    }).then(({id, name, rolId}) => {
+            db.Address.create()
+                .then(address => {
+                    db.User.create({
+                        name: name.trim(),
+                        surname: surname.trim(),
+                        email: email.trim(),
+                        pass: hashSync(password, 10),
+                        rolId: 2,
+                        addressId: address.id
+                    }).then(({ id, name, rolId }) => {
                         req.session.userLogin = {
                             id,
                             name,
-                            rol : rolId
+                            rol: rolId
                         };
                         return res.redirect("/")
                     })
                 }).catch(error => console.log(error))
 
         } else {
-            return res.render('users/register', {
-                title: 'Hyper Store | Register',
-                errors: errors.mapped(),
-                old: req.body
-            });
+            const categories =  db.Category.findAll();
+            const brands =  db.Brand.findAll();
+    
+            Promise.all([categories,brands])
+            .then(([categories,brands])=>{
+                return res.render('users/register', {
+                    title: 'Hyper Store | Register',
+                    categories,
+                    brands,
+                    errors: errors.mapped(),
+                    old: req.body
+                });            
+            })
         }
     },
     usuario: (req, res) => {
-        const users = readJson('users.json');
         const { id } = req.session.userLogin;
+        const categories =  db.Category.findAll();
+        const brands =  db.Brand.findAll();
 
-        const user = users.find((user) => user.id === +id)
+        const user = db.User.findByPk(id, {
+            attributes: ['name', 'surname', 'email', 'image'],
+            include: [
+                {
+                    association: 'address',
+                    attributes: ['street', 'location', 'province', 'postcode']
+                }
+            ]
+        });
 
-        return res.render('users/usuario', {
-            title: "HyperStore | Perfil de usuario",
-            ...user,
-            old: req.body
+        Promise.all([user,id,categories,brands])
+        .then(([user,id,categories,brands])=>{
+            return res.render('users/usuario', {
+                title: "HyperStore | Perfil de usuario",
+                user,
+                old: req.body,
+                id,
+                categories,
+                brands
+            })
         })
     },
     changeInfo: (req, res) => {
-        const users = readJson('users.json');
-        const { id, name, email } = req.session.userLogin;
-        const { phone, dni, surname, street, streetNumber, floor, dept, ref, postcode, province, location } = req.body;
-        const errors = validationResult(req)
 
-        if (errors.isEmpty()) {
+        const { name, surname, street, postcode, province, location } = req.body;
+        const { id } = req.session.userLogin;
 
-            let usersModified = users.map((user) => {
-                if (user.id === id) {
-                    let userEdited = {
-                        id: +id,
-                        rol: user.rol,
-                        email: email,
+        db.User.findByPk(id)
+            .then(user => {
+                const addressUpdate = db.Address.update(
+                    {
+                        street: street ? street.trim() : null,
+                        postcode: postcode ? postcode : null,
+                        province: province ? province.trim() : null,
+                        location: location ? location.trim() : null
+                    },
+                    {
+                        where: {
+                            id: user.addressId
+                        }
+                    }
+                )
+                const userUpdate = db.User.update(
+                    {
                         name: name,
                         surname: surname,
-                        password: user.password,
-                        phone: +phone,
-                        dni: +dni,
-                        street,
-                        streetNumber: +streetNumber,
-                        floor,
-                        dept,
-                        ref,
-                        postcode: +postcode,
-                        province,
-                        location
+                        image: req.file ? req.file.filename : user.image
+                    },
+                    {
+                        where: {
+                            id
+                        }
+                    }
+                )
+                /* return res.send(req.body) */
+                
+                Promise.all(([addressUpdate, userUpdate]))
+                .then(() => {
+                    
+                    (req.file && fs.existsSync(`public/images/User-img/${user.image}`)) && fs.unlinkSync(`public/images/User-img/${user.image}`)
 
-                    };
-                    return userEdited
-                }
-                return user
+                    req.session.message = "Datos actualizados"
+                    return res.redirect('/')
+                }).catch(error => console.log(error))
             })
-            writeJson('users.json', usersModified)
-            return res.redirect('/')
-        } else {
-
-            const { id } = req.session.userLogin;
-
-            const user = users.find((user) => user.id === +id)
-
-            return res.render('users/usuario', {
-                title: "HyperStore | Perfil de usuario",
-                ...user,
-                old: req.body,
-                errors: errors.mapped()
-            })
-        }
     },
     changepass: (req, res) => {
-        return res.render('users/cambioContraseña', {
-            title: "HyperStore | cambio de contraseña",
+        const categories =  db.Category.findAll();
+        const brands =  db.Brand.findAll();
+
+        Promise.all([categories,brands])
+        .then(([categories,brands])=>{
+            return res.render('users/cambioContraseña', {
+                title: "Hyper Store | Change Password",
+                categories,
+                brands,
+            });            
         })
     },
     logout: (req, res) => {
@@ -152,18 +204,46 @@ module.exports = {
     confirmRemoveUser: (req, res) => {
         const id = req.params.id;
         const user = users.find(user => user.id === +id);
-        const users = readJson('users.json');
-
     },
     removeUser: (req, res) => {
-        const users = readJson('users.json');
-        const id = req.params.id;
-        const deleteUser = users.filter(user => user.id !== +id);
 
-        writeJson('users.json', deleteUser);
-        res.redirect(`/admin/dashboard`)
-        return res.render('users/cambioContraseña', {
-            title: 'Hyper Store | Cambio Contraseña'
+        const id = req.params.id
+
+        db.User.findByPk(id)
+        .then((user) => {
+            db.User.destroy({
+                where: {
+                    id
+                }
+            }).then(() => {
+                db.Address.destroy({
+                    where: {
+                        id: user.addressId
+                    }
+                }).then(() => res.redirect('/admin/dashboard'))
+            }).catch(error => console.log(error))
+        })
+    },
+    removeSelf: (req, res) => {
+
+        const id = req.params.id
+
+        db.User.findByPk(id)
+        .then((user) => {
+            db.User.destroy({
+                where: {
+                    id
+                }
+            }).then(() => {
+                db.Address.destroy({
+                    where: {
+                        id: user.addressId
+                    }
+                }).then(() => req.session.destroy(),
+                res.clearCookie("hyperStoreUser")),
+                res.redirect('/user/login')
+            }).catch(error => console.log(error))
         })
     }
 }
+

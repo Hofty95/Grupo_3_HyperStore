@@ -144,12 +144,11 @@
 /* DESKTOP */
 
 @media (min-width: 1024px){
-    .main__info__section__container {
-        width: 75%;
-        margin: auto;
+
+    .busqueda__main{
+        display: flex;
     }
-    .main__section__article {
-        width: 75%;
-        margin: auto;
+    .main__info__menutablet ul{
+        flex-direction: column;
     }
 }

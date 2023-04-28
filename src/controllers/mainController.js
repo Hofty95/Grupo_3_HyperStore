@@ -1,8 +1,14 @@
 const db = require("../database/models");
-const product = require("../database/models/product");
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
   Home: async (req, res) => {
+    try {
+      
+      const categories = await db.Category.findAll();
+
+      const brands = await db.Brand.findAll();
+    
     const products = await db.Product.findAll({
       include: [
         {
@@ -10,6 +16,7 @@ module.exports = {
           attributes: ["name"],
         },
       ],
+      limit : 10
     });
 
     const categoryPc = await db.Category.findOne({
@@ -18,7 +25,6 @@ module.exports = {
       },
       include: [
         {
-          model : db.Product,
           association: "products",
           include: ["images"],
         },
@@ -37,22 +43,33 @@ module.exports = {
         },
       ],
     })
-//return res.send(productsOrder)
-    Promise.all([products, categoryPc,productsOrder])
-      .then(([products, categoryPc,productsOrder]) => {
+
         return res.render("home", {
           title: "HyperStore | Home",
           products,
           productsPc : categoryPc.products,
-          productsOrder
+          productsOrder,
+          categories,
+          brands,
+          toThousand,
         });
-      })
-      .catch((error) => console.log(error));
+      } catch (error) {
+      console.log(error.message)
+      }
   },
   Help: (req, res) => {
-    return res.render("help", {
-      title: "Help",
-    });
+    const categories =  db.Category.findAll();
+    const brands =  db.Brand.findAll();
+
+    Promise.all([categories,brands])
+    .then(([categories,brands])=>{
+        return res.render("help", {
+        title: "Help",
+        categories,
+        brands
+      })
+    })
+
   },
   p404: (req, res) => {
     return res.render("404");

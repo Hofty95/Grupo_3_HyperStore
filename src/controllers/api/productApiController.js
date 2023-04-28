@@ -1,12 +1,12 @@
 const db = require("../../database/models");
 const { Op } = require("sequelize");
+const { getOneProduct } = require("../../services/productServices");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
   Home: async (req, res) => {
     try {
       const products = await getAllProducts();
-      return res.send(req.json)
       return res.status(200).json({
         ok : true,
         data : products,
@@ -135,46 +135,24 @@ busqueda: async (req, res) => {
         });
     })
   },
-  detalle: (req, res) => {
-    const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    const categories =  db.Category.findAll();
-    const brands =  db.Brand.findAll();
-
-    const product = db.Product.findByPk(req.params.id,{
-      include : [
-        {
-          association : 'images',
-          attributes : ['name']
-        }
-      ]
+  detalle: async (req,res) => {
+  try {
+    const {id} = req.params
+    const product = await getOneProduct(id);
+    return res.status(200).json({
+      ok : true,
+      data : product,
+      meta : {
+        status : 200,
+        total : 1,
+      }
     })
-    
-
-    const ofertProducts = db.Product.findAll({
-      include : [
-        {
-          association : 'images',
-          attributes : ['name']
-        }
-      ],
-      limit : 6,
-      where: {
-        discount: {
-          [Op.ne]: 25,
-        },
-      },
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      msg : error.message
     })
-    Promise.all([product,ofertProducts,categories,brands])
-    .then(([product,ofertProducts,categories,brands]) =>{
-      return res.render('product/detalle',{
-        title : 'Hyper Store | Detalle de producto',
-        ...product.dataValues,
-        toThousand,
-        ofertProducts,
-        categories,
-        brands
-      })
-    }) 
+  }
   },
   remove: (req, res) => {
     const {id} = req.params

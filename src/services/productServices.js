@@ -48,7 +48,7 @@ module.exports = {
       };
     }
   },
-  getProductsByCategoryById: async (id) => {
+  getProductsByCategory: async () => {
     try {
       const productsByCategory = await db.Product.findAll({
         include: [
@@ -64,22 +64,16 @@ module.exports = {
             association : 'categories',
             attributes : {
               include : [
-                'name','id'
+                'name','id','categoryId'
               ]
             }
           }
         ],
-        where : {
-          categoryId : id
-        }
       });
 console.log(productsByCategory)
       return productsByCategory;
     } catch (error) {
-      throw {
-        status: 500,
-        message: error.message,
-      };
+     console.log(error)
     }
   },
   getAllCategories: async () => {
@@ -271,11 +265,19 @@ console.log(productsByCategory)
         
     }
   },
-  deleteProduct : async (id) =>{
+  deleteProductCategories : async (id) =>{
     try {
       await db.productCategories.destroy({where : {productId : id}})
-      await db.Product.destroy({where: {id : id}})
-      return { success: true };
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    };
+    }
+  },
+  deleteProduct : async (id)  =>{
+    try {
+      await db.Product.destroy({where : {id : id}})
     } catch (error) {
       throw {
         status: 500,

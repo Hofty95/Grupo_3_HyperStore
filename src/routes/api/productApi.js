@@ -8,7 +8,7 @@ const checkUserLogin = require('../../middlewares/checkUserLogin');
 
 router.get('/', busqueda)
 router.get('/',checkUserLogin, carrito)
-router.get('/category/:id', category)
+router.get('/category', category)
 router.get('/:id', detalle)
 router.delete('/:id', remove)
 

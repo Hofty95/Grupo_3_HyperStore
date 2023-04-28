@@ -192,11 +192,11 @@ module.exports = {
 
           const editedProduct = await db.Product.update(
             {
-              name: name.trim(),
+              name: name,
               price: +price,
               discount: +discount,
-              description: description.trim(),
-              specifications: specifications.trim(),
+              description: description,
+              specifications: specifications,
               gamaId: +gama,
               brandId: +brand,
             },

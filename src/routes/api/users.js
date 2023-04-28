@@ -11,7 +11,7 @@ const profileValidation = require('../../validations/profileValidation');
 const { uploadUserImage } = require('../../middlewares/uploadIMG');
 
 
-/* /user */
+/* /api/user */
 router
   .get('/login',checkUser, login)
   .post('/login',loginValidation, loginProcess)

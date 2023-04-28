@@ -1,24 +1,9 @@
 const db = require("../../database/models");
 const { Op } = require("sequelize");
+const { getOneProduct, deleteProduct, getProductsByCategoryById } = require("../../services/productServices");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
-  Home: async (req, res) => {
-    try {
-      const products = await getAllProducts();
-      
-      return res.status(200).json({
-        ok : true,
-        data : products,
-        meta : {
-          status : 200,
-          total : products.length
-        }
-      })
-      } catch (error) {
-      console.log(error.message)
-      }
-  },
 busqueda: async (req, res) => {
     const { keywords, gama, brand, category} = req.query;
     const categories = await db.Category.findAll()
@@ -122,66 +107,56 @@ busqueda: async (req, res) => {
         });            
     })
   },
-  category: (req, res) => {
-    const categories =  db.Category.findAll();
-    const brands =  db.Brand.findAll();
-
-    Promise.all([categories,brands])
-    .then(([categories,brands])=>{
-        return res.render("product/category", {
-            title: "Hyper Store | Category",
-            categories,
-            brands,
-        });
-    })
-  },
-  detalle: (req, res) => {
-    const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    const categories =  db.Category.findAll();
-    const brands =  db.Brand.findAll();
-
-    const product = db.Product.findByPk(req.params.id,{
-      include : [
-        {
-          association : 'images',
-          attributes : ['name']
+  category: (req,res) => {
+    try {
+      const {id} = req.params
+      const category = getProductsByCategoryById(id);
+      return res.status(200).json({
+        ok : true,
+        data : category,
+        meta : {
+          status : 200,
+          total : 1
         }
-      ]
-    })
-    
-
-    const ofertProducts = db.Product.findAll({
-      include : [
-        {
-          association : 'images',
-          attributes : ['name']
-        }
-      ],
-      limit : 6,
-      where: {
-        discount: {
-          [Op.ne]: 25,
-        },
-      },
-    })
-    Promise.all([product,ofertProducts,categories,brands])
-    .then(([product,ofertProducts,categories,brands]) =>{
-      return res.render('product/detalle',{
-        title : 'Hyper Store | Detalle de producto',
-        ...product.dataValues,
-        toThousand,
-        ofertProducts,
-        categories,
-        brands
       })
-    }) 
-  },
-  remove: (req, res) => {
-    const {id} = req.params
-    db.productCategories.destroy({where : {productId : id}})
-    .then(async () => {
-      await db.Product.destroy({where: {id : id}})
-      return res.redirect(`/admin/dashboard`);
+    } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      msg : error.message
     })
+    }
+    
+  },
+  detalle: async (req,res) => {
+  try {
+    const {id} = req.params
+    const product = await getOneProduct(id);
+    return res.status(200).json({
+      ok : true,
+      data : product,
+      meta : {
+        status : 200,
+        total : 1,
+      }
+    })
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      msg : error.message
+    })
+  }
+  },
+  remove: async (req, res) => {
+    try {
+        const {id} = req.params
+        const result = await deleteProduct(id);
+        return res.json(result);
+
+    } catch (error) {
+      return res.status(500).json({
+        msg : error.message
+      })
+    }
+ 
   },
 };

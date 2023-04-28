@@ -184,7 +184,7 @@ console.log(productsByCategory)
         };
     }
   },
-  editAProduct : async (id,body) => {
+  editAProduct : async (body,id) => {
     try {
         const {
             name,
@@ -193,23 +193,23 @@ console.log(productsByCategory)
             description,
             specifications,
             gama,
-            brand,
+            brand
           } = body
-
+          
           const editedProduct = await db.Product.update(
             {
-              name: name.trim(),
+              name: name,
               price: +price,
               discount: +discount,
-              description: description.trim(),
-              specifications: specifications.trim(),
+              description: description,
+              specifications: specifications,
               gamaId: +gama,
-              brandId: +brand,
+              brandId: +brand
             },
             {
               where: {
-                id: id,
-              },
+                id: id
+              }
             }
           );
 
@@ -217,7 +217,7 @@ console.log(productsByCategory)
     } catch (error) {
         throw {
             status: 500,
-            message: error.message,
+            message: error.message
         };
     }
   },
@@ -230,11 +230,11 @@ console.log(productsByCategory)
         const category = categories.forEach(async (category) => {
             await db.productCategories.update(
               {
-                categoryId: category,
+                categoryId: category
               },
               {
                 where: {
-                  productId: id,
+                  productId: id
                 },
               }
             );
@@ -255,7 +255,7 @@ console.log(productsByCategory)
               name: image.filename,
             },
             {
-                where : {productId: id,}
+                where : {productId: id}
             }
             );
             (files && fs.existsSync(`public/images/Productos-img/${image.filename}`)) && fs.unlinkSync(`public/images/Productos-img/${image.filename}`)

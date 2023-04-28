@@ -6,6 +6,7 @@ module.exports = {
   Home: async (req, res) => {
     try {
       const products = await getAllProducts();
+      /* return res.send(req.json) */
       return res.status(200).json({
         ok : true,
         data : products,

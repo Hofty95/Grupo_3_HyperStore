@@ -1,4 +1,4 @@
-const { getAllUsers, getOneUser } = require('../../services/userServices');
+const { getAllUsers, getOneUser, destroyUser } = require('../../services/userServices');
 const createResponseError = require('../../helpers/createResponseError');
 
 module.exports = {
@@ -52,6 +52,25 @@ module.exports = {
             }) 
         } catch {
             /* return res.send(req.json) */
+            return createResponseError(res, error)
+        }
+    },
+
+    destroy: async (req, res) => {
+        try {
+
+            const id = req.params.id
+            const userDeleted = await destroyUser(id)
+            return res.status(200).json({
+                ok: true,
+                data: userDeleted,
+                meta: {
+                    status: 200,
+                    total: 1,
+                    url: `/api/user/${id}`
+                }
+            })
+        } catch(error) {
             return createResponseError(res, error)
         }
     }

@@ -8,12 +8,13 @@ const checkUserLogin = require('../middlewares/checkUserLogin');
 const checkUser = require('../middlewares/checkUser');
 const profileValidation = require('../validations/profileValidation');
 const { uploadUserImage } = require('../middlewares/uploadIMG'); */
-const { list, detail } = require('../../controllers/api/userApiController');
+const { list, detail, destroy } = require('../../controllers/api/userApiController');
 
 
 /* api/user */
 router
   .get('/', list)
   .get('/:id', detail)
+  .delete('/:id', destroy)
 
 module.exports = router;

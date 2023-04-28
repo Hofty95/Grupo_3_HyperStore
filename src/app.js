@@ -7,6 +7,7 @@ const methodOverride =  require('method-override');
 const session = require('express-session');
 const cookiecheck = require('./middlewares/cookieChecker')
 const localsUser = require('./middlewares/localsUserCheck')
+const {admin,users,product,main} = require('./routes/api/index')
 
 /* Router */
 const mainRouter = require('./routes/main');
@@ -42,6 +43,7 @@ app.use('/admin', adminRouter);
 app.use('/user', userRouter); 
 app.use('/product', productRouter);
 
+/* Api */
 app.use('/api/admin',admin);
 app.use('/api/main',main);
 app.use('/api/product',product);

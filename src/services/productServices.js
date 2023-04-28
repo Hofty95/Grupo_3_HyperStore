@@ -1,4 +1,5 @@
 const db = require("../database/models");
+const fs = require('fs')
 
 module.exports = {
   getAllProducts: async () => {
@@ -241,7 +242,21 @@ module.exports = {
         };
     }
   },
-  editAProductImage : async () => {
-
+  editAProductImage : async (files,id) => {
+    try {
+        const images = files.forEach(async (image) => {
+            await db.Image.update({
+              name: image.filename,
+            },
+            {
+                where : {productId: id,}
+            }
+            );
+            (files && fs.existsSync(`public/images/Productos-img/${image.filename}`)) && fs.unlinkSync(`public/images/Productos-img/${image.filename}`)
+          });
+          return images
+    } catch (error) {
+        
+    }
   }
 };

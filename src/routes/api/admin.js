@@ -13,6 +13,6 @@ const checkUserLogin = require("../../middlewares/checkUserLogin");
 
 router.get("/dashboard", Admin);
 router.post("/dashboard", uploadProductImages.array('images'), addProductValidation,storeProduct)
-router.put("/dashboard/edit/:id", editProductValidation,saveEditProduct)
+router.put("/dashboard/edit/:id", uploadProductImages.array('images'),editProductValidation,saveEditProduct)
 
 module.exports = router

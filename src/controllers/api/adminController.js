@@ -1,5 +1,5 @@
 const createResponseError = require("../../helpers/createResponseError");
-const { getAllProducts, getAllCategories, getAllGamas, getAllBrands, createNewProduct, createImagesForProduct, createCategoriesForProduct } = require("../../services/productServices");
+const { getAllProducts, getAllCategories, getAllGamas, getAllBrands, createNewProduct, createImagesForProduct, createCategoriesForProduct, editAProduct } = require("../../services/productServices");
 const { getAllUsers } = require("../../services/userServices");
 const { validationResult } = require("express-validator");
 
@@ -68,7 +68,22 @@ module.exports = {
       return createResponseError(res,error)
     }
   },
-  saveEditProduct: (req, res) => {
+  saveEditProduct: async (req, res) => {
+    try {
+      const errors = validationResult(req);
+      const {id} = req.params
+
+      if(!errors.isEmpty()) throw {
+        status : 400,
+        message : errors.mapped()
+      }
+
+      
+      const editProduct = editAProduct(req.body,id)
+      
+    } catch (error) {
+      
+    }
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {

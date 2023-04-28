@@ -50,24 +50,30 @@ module.exports = {
   },
   getProductsByCategory: async () => {
     try {
-      const productsByCategory = await db.Category.findOne({
-        where: {
-          name: "Pc",
-        },
+      const productsByCategory = await db.Product.findAll({
         include: [
           {
-            association: "products",
-            include: ["images"],
+            association: "images",
+            attributes: {
+              include : [
+                "name"
+              ]
+            }
           },
+          {
+            association : 'categories',
+            attributes : {
+              include : [
+                'name','id','categoryId'
+              ]
+            }
+          }
         ],
       });
-
+console.log(productsByCategory)
       return productsByCategory;
     } catch (error) {
-      throw {
-        status: 500,
-        message: error.message,
-      };
+     console.log(error)
     }
   },
   getAllCategories: async () => {
@@ -258,5 +264,26 @@ module.exports = {
     } catch (error) {
         
     }
+  },
+  deleteProductCategories : async (id) =>{
+    try {
+      await db.productCategories.destroy({where : {productId : id}})
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    };
+    }
+  },
+  deleteProduct : async (id)  =>{
+    try {
+      await db.Product.destroy({where : {id : id}})
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    };
+    }
   }
+
 };

@@ -1,7 +1,6 @@
 const createResponseError = require("../../helpers/createResponseError");
-const { getAllProducts, getAllCategories, getAllGamas, getAllBrands } = require("../../services/productServices");
+const { getAllProducts, getAllCategories, getAllGamas, getAllBrands, createNewProduct, createImagesForProduct, createCategoriesForProduct } = require("../../services/productServices");
 const { getAllUsers } = require("../../services/userServices");
-const db = require("../database/models");
 const { validationResult } = require("express-validator");
 
 module.exports = {
@@ -38,98 +37,35 @@ module.exports = {
       return createResponseError(res,error)
     }
   },
-  storeProduct: (req, res) => {
+  storeProduct: async (req, res) => {
+    try {
     const errors = validationResult(req);
 
-    if (errors.isEmpty()) {
-      const {
-        name,
-        price,
-        discount,
-        description,
-        specifications,
-        gama,
-        brand,
-      } = req.body;
-
-      let categories = new Array(req.body.categories);
-
-      categories.flat(3);
-
-      db.Product.create({
-        name: name.trim(),
-        price: +price,
-        discount: +discount,
-        description: description.trim(),
-        specifications: specifications.trim(),
-        gamaId: +gama,
-        brandId: +brand,
-      })
-        .then((product) => {
-          req.files.forEach(async (image) => {
-            await db.Image.create({
-              name: image.filename,
-              productId: product.id,
-            });
-          });
-          categories.forEach(async (category) => {
-            await db.productCategories.create({
-              productId: product.id,
-              categoryId: category,
-            });
-          });
-
-          return res.redirect("/admin/dashboard");
-        })
-        .catch((error) => console.log(error));
-    } else {
-      const products = db.Product.findAll();
-      const categories = db.Category.findAll();
-      const users = db.User.findAll();
-      const gamas = db.Gama.findAll();
-      const brands = db.Brand.findAll();
-
-      Promise.all([products, users, categories, gamas, brands])
-        .then(([products, users, categories, gamas, brands]) => {
-          return res.render("admin/dashboard", {
-            title: "HyperStore | dashboard",
-            categories,
-            products,
-            users,
-            gamas,
-            brands,
-            errors: errors.mapped(),
-            old: req.body,
-          });
-        })
-        .catch((error) => console.log(error));
+    if(!errors.isEmpty()) throw {
+      status : 400,
+      message : errors.mapped()
     }
-  },
-  editProduct: async (req, res) => {
-    try {
-      const { id } = req.params;
-      const productToEdit = await db.Product.findByPk(id, {
-        include: [
-          {
-            association: "categories",
-            attributes: ["id", "name"],
-          },
-        ],
-      });
 
-      const allCategories = await db.Category.findAll();
-      const gamas = await db.Gama.findAll();
-      const brands = await db.Brand.findAll();
+    const newProduct = await createNewProduct(req.body)
+    const imagesNewProduct = await createImagesForProduct(req.files,newProduct.id)
+    const categoryForProduct = await createCategoriesForProduct(req.body,newProduct.id)
 
-      return res.render("admin/dashboard_edit", {
-        title: "HyperStore | edit",
-        allCategories,
-        ...productToEdit.dataValues,
-        gamas,
-        brands,
-      });
+    return res.status(200).json({
+      ok : true,
+      meta : {
+        status : 200,
+        total : 1,
+        url : `/api/product/detalle/${newProduct.id}`
+      },
+      data : {
+        newProduct : newProduct,
+        categories : categoryForProduct,
+        images : imagesNewProduct
+      }
+    })
+
     } catch (error) {
-      console.log(error);
+      return createResponseError(res,error)
     }
   },
   saveEditProduct: (req, res) => {
@@ -176,8 +112,6 @@ module.exports = {
                 },
               }
             );
-
-            return res.redirect("/admin/dashboard");
           });
         })
         .catch((error) => console.log(error));

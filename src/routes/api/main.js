@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const {Home, Help, p404} = require("../controllers/mainController")
+const {Home, Help, p404} = require("../../controllers/api/mainController")
 
-/* / */
+/* /api */
 router.get('/', Home);
 router.get("/help", Help);
 router.get("/404", p404);

@@ -2,9 +2,9 @@ const express = require('express');
 /* const { confirmRemove } = require('../controllers/adminController'); */
 const router = express.Router();
 
-const {busqueda, carrito, category, detalle, confirmRemove, remove} = require('../controllers/productController');
-const checkUserLogin = require('../middlewares/checkUserLogin');
-/* product */
+const {busqueda, carrito, category, detalle, confirmRemove, remove} = require('../../controllers/api/productController');
+const checkUserLogin = require('../../middlewares/checkUserLogin');
+/* /api/product */
 
 router.get('/busqueda', busqueda)
 router.get('/carrito',checkUserLogin, carrito)

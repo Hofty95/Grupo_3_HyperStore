@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator')
-const { getAllUsers, getOneUser, destroyUser, registerUser, updateUser, verifyUserByEmail } = require('../../services/userServices');
+const { getAllUsers, getOneUser, destroyUser, addressCreate, registerUser, updateUser, verifyUserByEmail } = require('../../services/userServices');
 const createResponseError = require('../../helpers/createResponseError');
 
 module.exports = {
@@ -61,27 +61,27 @@ module.exports = {
         try {
             const errors = validationResult(req)
 
-            if(!errors.isEmpty()) throw{
-                status:400,
-                message:errors.mapped()
+            if (!errors.isEmpty()) throw {
+                status: 400,
+                message: errors.mapped()
             }
 
             const user = await updateUser(req.params.id, req.body, req.file)
             return res.status(200).json({
-                ok: true,            
-                data : {
-                    message : "Usuario modificado satisfactoriamente",
+                ok: true,
+                data: {
+                    message: "Usuario modificado satisfactoriamente",
                     user: {
                         id: user.id,
-                        name:user.name,
-                        surname:user.surname,
-                        email:user.email
-                    }    
+                        name: user.name,
+                        surname: user.surname,
+                        email: user.email
+                    }
                 },
-                meta : {
+                meta: {
                     status: 200,
-                    total : 1,
-                    url : `/api/users/${req.params.id}` 
+                    total: 1,
+                    url: `/api/users/${req.params.id}`
                 }
             })
         } catch (error) {
@@ -108,14 +108,14 @@ module.exports = {
         }
     },
 
-    verifyEmail : async (req,res) => {
+    verifyEmail: async (req, res) => {
         try {
 
             let existUser = await verifyUserByEmail(req.body.email);
 
             return res.status(200).json({
-                ok : true,
-                data : {
+                ok: true,
+                data: {
                     existUser
                 }
             })
@@ -135,29 +135,22 @@ module.exports = {
                 status: 400,
                 message: errors.mapped()
             }
-
             const newUser = await registerUser(req.body)
+            const user = await getOneUser(newUser.id, req)
+
             return res.status(200).json({
                 ok: true,
-                data: {
-                    message: "Usuario registrado satisfactoriamente",
-                    newUser: {
-                        id: newUser.id,
-                        name: newUser.name,
-                        surname: newUser.surname,
-                        email: newUser.email,
-                        addressId: address.id
-                    }
-                },
+                data: user,
                 meta: {
                     status: 200,
-                    total: 1
-                },
+                    total: 1,
+                    url: `/api/users/${newUser.id}`
+                }
             })
 
         } catch (error) {
             return createResponseError(res, error)
         }
-    },
+    }
 }
 

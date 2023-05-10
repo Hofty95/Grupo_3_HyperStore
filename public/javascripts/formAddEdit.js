@@ -189,11 +189,11 @@ inputSpecifications.addEventListener("blur", function (event) {
 
   /* input Categories */
   
-  inputCategories.addEventListener('blur', function (event) {
+  inputCategories.addEventListener('change', function (event) {
     if (!this.value) {
       errorMsg('categoriesError', "Debes seleccionar al menos una categoria que pertenece el producto", event)
     } else {
-      this.classList.add('is-valid')
+      this.classList.add('input_valid')
     }
   })
 
@@ -207,7 +207,7 @@ inputSpecifications.addEventListener("blur", function (event) {
         if (!this.value) {
           errorMsg('gamaError', "Debes seleccionar a que gama pertenece el producto", event)
         } else {
-          this.classList.add('is-valid')
+          this.classList.add('input_valid')
         }
       })
     
@@ -221,7 +221,7 @@ inputSpecifications.addEventListener("blur", function (event) {
         if (!this.value) {
           errorMsg('brandError', "Debes seleccionar a que marca pertenece el producto", event)
         } else {
-          this.classList.add('is-valid')
+          this.classList.add('input_valid')
         }
       })
     
@@ -247,3 +247,29 @@ inputSpecifications.addEventListener("blur", function (event) {
             break;
         }
       });
+
+      /* Form */
+
+      formAdd.addEventListener('submit',function (event) {
+        
+        event.preventDefault();
+
+        let error = false
+
+        for (let i = 0; i < this.elements.length - 1; i++) {
+          
+          if(!this.elements[i].value || this.elements[i].classList.contains('input_invalid')){
+            error = true
+          }
+          
+        }
+
+        if (!error) {
+          this.submit()
+        }else{
+          for (let i = 0; i < this.elements.length - 1; i++) {
+            !this.elements[i].value && this.elements[i].classList.add('input_invalid')
+          }
+          $('formError').innerHTML = "Todos los campos son obligatorios."
+        }
+      })

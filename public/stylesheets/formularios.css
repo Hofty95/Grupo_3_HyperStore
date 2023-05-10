@@ -33,9 +33,9 @@
 }
 
 .input_invalid{
-    border: solid 2px tomato;
+    border: solid 2px tomato !important;
 }
 
 .input_valid{
-    border: solid 2px greenyellow;
+    border: solid 2px greenyellow !important;
 }

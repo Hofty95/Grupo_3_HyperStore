@@ -31,3 +31,11 @@
     color: var(--colorVioleta);
     background-color: var(--colorFondo);
 }
+
+.input_invalid{
+    border: solid 2px tomato;
+}
+
+.input_valid{
+    border: solid 2px greenyellow;
+}

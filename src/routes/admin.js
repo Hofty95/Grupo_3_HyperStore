@@ -11,9 +11,9 @@ const checkUserLogin = require("../middlewares/checkUserLogin");
 
 /* /Admin */
 
-router.get("/dashboard",checkUserAdmin, Admin);
+router.get("/dashboard",/* checkUserAdmin, */ Admin);
 router.post("/dashboard", uploadProductImages.array('images'), addProductValidation,storeProduct)
-router.get("/dashboard/edit/:id",checkUserAdmin, editProduct)
+router.get("/dashboard/edit/:id",/* checkUserAdmin, */ editProduct)
 router.put("/dashboard/edit/:id", editProductValidation,saveEditProduct)
 
 module.exports = router

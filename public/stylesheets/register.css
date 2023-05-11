@@ -117,6 +117,10 @@
     font-size: 15px;
     letter-spacing: 2px;
   }
+  .register__form__box small{
+    color: red;
+    width: 80%;
+  }
 }
 @media (min-width: 1024px) {
     .register__main__section{

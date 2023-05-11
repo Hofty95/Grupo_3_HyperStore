@@ -12,12 +12,12 @@
             <h2>Registrarse</h2>
             <h4>Registrate con tu correo electronico</h4>
           </div>
-          <form action="" class="register__main__section__form" method="post">
+          <form action="" class="register__main__section__form" method="post" id="form-register">
             <div class="register__form__box">
               <label for="name">Nombre</label>
               <input id="name" type="text" placeholder="Ingresa tu nombre" name="name"
                 value="<%= locals.old && old.name ? old.name : null %>" />
-              <small style="color:red">
+              <small id="errorName">
                 <%= locals.errors && errors.name ? errors.name.msg : null %>
               </small>
             </div>
@@ -25,7 +25,7 @@
               <label for="surname">Apellido</label>
               <input id="surname" type="text" placeholder="Ingresa tu apellido" name="surname"
                 value="<%= locals.old && old.surname ? old.surname : null %>" />
-              <small style="color:red">
+              <small id="errorSurname">
                 <%= locals.errors && errors.surname ? errors.surname.msg : null %>
               </small>
             </div>
@@ -33,14 +33,14 @@
               <label for="email">Email</label>
               <input type="email" placeholder="Ingresa tu email" id="email" name="email"
                 value="<%= locals.old && old.email ? old.email : null %>" />
-              <small style="color:red">
+              <small id="errorEmail">
                 <%= locals.errors && errors.email ? errors.email.msg : null %>
               </small>
             </div>
             <div class="register__form__box">
               <label for="password">Contraseña</label>
               <input type="password" placeholder="Ingresa tu contraseña" id="password" name="password" />
-              <small style="color:red">
+              <small id="errorPassword">
                 <%= locals.errors && errors.password ? errors.password.msg : null %>
               </small>
               <button type="button">
@@ -50,7 +50,7 @@
             <div class="register__form__box">
               <label for="password2">Repetir contraseña</label>
               <input type="password" placeholder="Repite tu contraseña" id="password2" name="password2" />
-              <small style="color:red">
+              <small id="errorPassword2">
                 <%= locals.errors && errors.password2 ? errors.password2.msg : null %>
               </small>
               <button type="button">
@@ -74,6 +74,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
           crossorigin="anonymous"></script>
+
+          <script src="/javascripts/register.js"></script>
   </body>
 
 </html>

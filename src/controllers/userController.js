@@ -198,7 +198,7 @@ module.exports = {
     },
     logout: (req, res) => {
         req.session.destroy();
-        res.clearCookie("hyperStoreUser");
+        res.clearCookie('hyperStoreUser');
         return res.redirect('/')
     },
     confirmRemoveUser: (req, res) => {

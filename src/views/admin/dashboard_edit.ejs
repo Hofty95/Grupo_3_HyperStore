@@ -9,23 +9,26 @@
                 <div class="producto__container">
                     <div class="producto">
                         <h3 id="editar_producto">Editar Producto</h3>
-                        <form action="/admin/dashboard/edit/<%= id %>?_method=PUT" method="post">
+                        <form action="/admin/dashboard/edit/<%= id %>?_method=PUT" method="post" id="formEdit">
                         <section>
                             <div class="form__box__login">
                                 <label for="name">Introducir Nombre</label>
-                                <input type="text" name="name" value="<%= locals.old && old.name ? old.name : name %>"/>
-                                <small style="color:red"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
+                                <input type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : name %>"/>
+                                <small id="nameError" style="color:red"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
                             </div>
 
                             <div class="form__box__login">
                                 <label for="price">Introducir Precio</label>
-                                <input type="number" name="price" value="<%= locals.old && old.price ? old.price : price %>"/>
-                                <small style="color:red"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
+                                <input type="number" name="price" id="price" value="<%= locals.old && old.price ? old.price : price %>"/>
+                                <small id="priceError" style="color:red"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
                             </div>
                         </section>
                         <section class="producto__file">
                             <h3>Añadir Imágenes</h3>
-                            <input type="file" accept="jpg, png" multiple name="" id="">
+                            <input type="file"  multiple name="images" id="images">
+                            <div>
+                                <small id="imagesError" style="color: red;"></small>
+                            </div>
                         </section>
                         <section>
                             <h3>Añadir Descripción</h3>
@@ -34,7 +37,7 @@
                                 <textarea class="form-control" id="description" rows="3"
                                     name="description"><%= locals.old && old.description ? old.description : description %></textarea>
 
-                                    <small style="color:red"><%= locals.errors && errors.description ? errors.description.msg : null %></small>
+                                    <small id="descriptionError" style="color:red"><%= locals.errors && errors.description ? errors.description.msg : null %></small>
                             </div>
                         </section>
                         <section>
@@ -42,13 +45,13 @@
                                 <label for="specifications" class="form-label">Especificaciones</label>
                                 <textarea class="form-control" id="specifications" rows="3"
                                     name="specifications"><%= locals.old && old.specifications ? old.specifications : specifications %></textarea>
-                                    <small style="color:red"><%= locals.errors && errors.specifications ? errors.specifications.msg : null %></small>
+                                    <small id="specificationsError" style="color:red"><%= locals.errors && errors.specifications ? errors.specifications.msg : null %></small>
                             </div>
                             <div class="form__box__login">
                                 <label for="discount">Descuento</label>
-                                <input type="text" name="discount"
+                                <input type="text" name="discount" id="discount"
                                     placeholder="Introducir Descuento..." value="<%= locals.old && old.discount ? old.discount : discount %>"/>
-                                    <small style="color:red"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
+                                    <small id="discountError" style="color:red"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
                             </div>
                             <div class="main__info__section select">
                                 <p>Seleccionar Categoria</p>
@@ -62,7 +65,7 @@
                                                 <%= category.name %></label>
                                             <% }) %>
                                 <br><br>
-                                <small style="color:red"><%= locals.errors && errors.categories ? errors.categories.msg : null %></small>
+                                <small id="categoriesError" style="color:red"><%= locals.errors && errors.categories ? errors.categories.msg : null %></small>
                             </div>
                             <div class="main__info__section select">
                                 <p>Seleccionar Gama</p>
@@ -78,7 +81,7 @@
                                     </optgroup>
                                 </select>
                                 <br><br>
-                                <small style="color:red"><%= locals.errors && errors.gama ? errors.gama.msg : null %></small>
+                                <small id="gamasError" style="color:red"><%= locals.errors && errors.gama ? errors.gama.msg : null %></small>
                             </div>
                             <div class="main__info__section select">
                                 <p>Seleccionar Marca</p>
@@ -94,13 +97,16 @@
                                     </optgroup>
                                 </select>
                                 <br><br>
-                                <small style="color:red"><%= locals.errors && errors.brand ? errors.brand.msg : null %></small>
+                                <small id="brandError" style="color:red"><%= locals.errors && errors.brand ? errors.brand.msg : null %></small>
                             </div>
                         </section>
                         <div class="article1__boton__general button">
                             <button class="boton__general" type="submit">
                                 Enviar
                             </button>
+                        </div>
+                        <div>
+                            <small id="formError" style="color: red;"></small>
                         </div>
                         </form>
                     </div>
@@ -110,5 +116,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
                     crossorigin="anonymous"></script>
+                        <!-- JAVASCRIPT FRONT -->
+                        <script src="/javascripts/formEdit.js"></script>
     </body>
 </html>

@@ -1,98 +1,23 @@
 const db = require("../../database/models");
 const { Op } = require("sequelize");
-const { getOneProduct, deleteProduct, getAllCategories, deleteProductCategories } = require("../../services/productServices");
+const { getOneProduct, deleteProduct, getAllCategories, deleteProductCategories, searchProduct, searchByGama, searchByBrand } = require("../../services/productServices");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
 busqueda: async (req, res) => {
-    const { keywords, gama, brand, category} = req.query;
-    const categories = await db.Category.findAll()
-    const brands = await db.Brand.findAll()
-
-
-    let productsFound = db.Product.findAll({
-      include : {
-        association: "images",
-        attributes: ["name"],
-      },
-    });
-
-    if (keywords) {
-      productsFound = db.Product.findAll({
-        include : {
-          association: "images",
-          attributes: ["name"],
-        },
-        where : {
-          [Op.or]: [
-          {
-            name: {
-              [Op.substring]: `%${keywords}%`,
-            },
-          },
-          {
-            description: {
-              [Op.substring]: `%${keywords}%`,
-            },
-          }
-        ]
+  try {
+    const result = await searchProduct(req.query.keyword)
+    return res.status(200).json({
+      ok : true,
+      data : result,
+      meta : {
+        status : 200,
+        total : result.length
       }
-    });
-  }
-
-    if (gama) {
-      productsFound = db.Product.findAll({
-        include : {
-          association: "images",
-          attributes: ["name"],
-        },
-        where : {gamaId : gama}
-      })
-    }
-
-    if (brand) {
-      productsFound = db.Product.findAll({
-        include : {
-          association: "images",
-          attributes: ["name"],
-        },
-        where : {brandId : brand}
-      })
-    }
-
-    if (category) {
-      productsFound = db.Product.findAll({
-        include: [
-          {
-            model: db.Category,
-            as: 'categories',
-            where: {
-              name: {
-                [Op.substring]: `%${category}%`,
-              },
-            },
-            attributes: ['id', 'name'],
-          },
-          {
-            model: db.Image,
-            as: 'images',
-            attributes: ['name'],
-          },
-        ],
-      });
-    }
-//return res.send(productsFound)
-    Promise.all([productsFound])
-    .then(([productsFound])=>{
-      return res.render("product/busqueda", {
-        title: "Search",
-        productsFound,
-        categories,
-        numSearched: productsFound.length,
-        brands,
-        toThousand
-      }); 
     })
+  } catch (error) {
+    return createResponseError(res,error)
+  }
   },
   carrito: (req, res) => {
     const categories =  db.Category.findAll();
@@ -120,9 +45,7 @@ busqueda: async (req, res) => {
       })
     } catch (error) {
     console.log(error);
-    return res.status(500).json({
-      msg : error.message
-    })
+    return createResponseError(res,error)
     }
     
   },
@@ -140,9 +63,7 @@ busqueda: async (req, res) => {
     })
   } catch (error) {
     console.log(error);
-    return res.status(500).json({
-      msg : error.message
-    })
+    return createResponseError(res,error)
   }
   },
   remove: async (req, res) => {
@@ -163,10 +84,38 @@ busqueda: async (req, res) => {
         }
       })
     } catch (error) {
-      return res.status(500).json({
-        msg : error.message
-      })
+      return createResponseError(res,error)
     }
  
   },
+  gama : async (req,res) => {
+    try {
+      const products = await searchByGama(req.query.gama)
+      return res.status(200).json({
+        ok : true,
+        data : products,
+        meta : {
+          status : 200,
+          total : products.length,
+        }
+      })
+    } catch (error) {
+      return createResponseError(res,error)
+    }
+  },
+  brand : async (req,res) => {
+    try {
+      const products = await searchByBrand(req.query.brand)
+      return res.status(200).json({
+        ok : true,
+        data : products,
+        meta : {
+          status : 200,
+          total : products.length,
+        }
+      })
+    } catch (error) {
+      return createResponseError(res,error)
+    }
+  }
 };

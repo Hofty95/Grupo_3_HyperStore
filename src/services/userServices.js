@@ -1,5 +1,5 @@
 const db = require('../database/models');
-const {hashSync} = require('bcryptjs');
+const { hashSync } = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
@@ -67,9 +67,9 @@ module.exports = {
                 surname: userData.surname,
                 image: file ? file.filename : "user.png"
             },
-            {
-                where: {id: id}
-            })
+                {
+                    where: { id: id }
+                })
 
             return userUpdated
 
@@ -81,38 +81,61 @@ module.exports = {
         }
     },
 
-    verifyUserByEmail : async (email) => {
+    verifyUserByEmail: async (email) => {
         try {
 
             let user = await db.User.findOne({
-                where : {
+                where: {
                     email
                 }
             })
-            /* return console.log(user) */
-            return user
-            
+            return user ? true : false
+
         } catch (error) {
             console.log(error);
-            throw{
-                status : 500,
-                message : error.message
+            throw {
+                status: 500,
+                message: error.message
             }
         }
     },
 
+    /* addressCreate: async () => {
+        try {
+            const newAddress = await db.Address.create({
+                street: null,
+                postcode: null,
+                province: null,
+                location: null
+            })
+
+            return newAddress
+
+        } catch (error) {
+            throw {
+                status: 500,
+                message: error.message
+            }
+        }
+    }, */
+
     registerUser: async (userData) => {
         try {
+
+            const { name, surname, email, password } = userData
+            const address = await db.Address.create()
             const newUser = await db.User.create({
-                name: userData.name,
-                surname: userData.surname,
-                email: userData.email,
-                pass: hashSync(userData.pass, 10),
-                rolId: 2
+                name: name,
+                surname: surname,
+                email: email,
+                pass: hashSync(password, 10),
+                rolId: 2,
+                addressId: address.id
             })
             return newUser
+
         } catch (error) {
             throw new Error(error.message);
         }
-    },
+    }
 }

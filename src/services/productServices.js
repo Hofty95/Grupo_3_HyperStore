@@ -1,5 +1,7 @@
 const db = require("../database/models");
-const fs = require('fs')
+const fs = require('fs');
+const { Op } = require("sequelize");
+
 
 module.exports = {
   getAllProducts: async () => {
@@ -184,6 +186,29 @@ console.log(productsByCategory)
         };
     }
   },
+  productToEdit : async (id) => {
+    try {
+      const product = await db.Product.findByPk(id, {
+        include: [
+          {
+            association: "categories",
+            attributes: ["id", "name"],
+          },
+          {
+            association: "images",
+            attributes: ["name"],
+          },
+        ],
+      });
+
+      return product;
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    };
+    }
+  },
   editAProduct : async (body,id) => {
     try {
         const {
@@ -284,6 +309,71 @@ console.log(productsByCategory)
         message: error.message,
     };
     }
+  },
+  searchProduct : async (keyword) => {
+    try {
+      const product = await db.Product.findAll({
+        include : [
+          {
+            association: "images",
+            attributes: ["name"]
+          },
+        ],
+        where : {
+          [Op.or]: [
+          {
+            name: {
+              [Op.substring]: `%${keyword}%`,
+            },
+          },
+          {
+            description: {
+              [Op.substring]: `%${keyword}%`,
+            },
+          }
+        ]
+      }
+    })
+    return product
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    }
+    }
+  },
+  searchByGama : async (gama) => {
+    try {
+      const products = db.Product.findAll({
+        include : {
+          association: "images",
+          attributes: ["name"],
+        },
+        where : {gamaId : gama}
+      })
+      return products
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    }
+    }
+  },
+  searchByBrand : async (brand) => {
+    try {
+      const products = db.Product.findAll({
+        include : {
+          association: "images",
+          attributes: ["name"],
+        },
+        where : {brandId : brand}
+      })
+      return products
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    }
+    }
   }
-
 };

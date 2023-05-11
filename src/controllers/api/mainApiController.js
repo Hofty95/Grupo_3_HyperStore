@@ -15,7 +15,7 @@ module.exports = {
         }
       })
       } catch (error) {
-      console.log(error.message)
+        return createResponseError(res,error)
       }
   },
 };

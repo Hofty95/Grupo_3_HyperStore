@@ -1,5 +1,5 @@
 const createResponseError = require("../../helpers/createResponseError");
-const { getAllProducts, getAllCategories, getAllGamas, getAllBrands, createNewProduct, createImagesForProduct, createCategoriesForProduct, editAProduct, editAProductCategory, editAProductImage } = require("../../services/productServices");
+const { getAllProducts, getAllCategories, getAllGamas, getAllBrands, createNewProduct, createImagesForProduct, createCategoriesForProduct, editAProduct, editAProductCategory, editAProductImage, productToEdit } = require("../../services/productServices");
 const { getAllUsers } = require("../../services/userServices");
 const { validationResult } = require("express-validator");
 
@@ -64,6 +64,22 @@ module.exports = {
       }
     })
 
+    } catch (error) {
+      return createResponseError(res,error)
+    }
+  },
+  editProduct : async (req, res) => {
+    try {
+      const product = await productToEdit(req.params.id)
+
+      return res.status(200).json({
+        ok : true,
+        data : product,
+        meta : {
+          status : 200,
+          total : 1
+        }
+      })
     } catch (error) {
       return createResponseError(res,error)
     }

@@ -3,12 +3,12 @@ const $ = (id) => document.getElementById(id);
 
 const msgError = (element, message, { target }) => {
     $(element).innerHTML = message;
-    target.classList.add("is-invalid");
-  };
+    target.classList.add("input_invalid");
+};
   
   const cleanError = (element, { target }) => {
-    target.classList.remove("is-invalid");
-    target.classList.remove("is-valid");
+    target.classList.remove("input_invalid");
+    target.classList.remove("input_valid");
     $(element).innerHTML = null;
   };
 
@@ -32,7 +32,7 @@ $('name').addEventListener('blur',function(e){
         break;    
  
     default:
-        this.classList.add('is-valid')
+        this.classList.add('input_valid')
         break;
  }
 })
@@ -55,7 +55,7 @@ $('surname').addEventListener('blur',function(e){
            break;    
     
        default:
-           this.classList.add('is-valid')
+           this.classList.add('input_valid')
            break;
     }
    })
@@ -74,7 +74,7 @@ $('surname').addEventListener('blur',function(e){
            break;    
     
        default:
-           this.classList.add('is-valid')
+           this.classList.add('input_valid')
            break;
     }
    })
@@ -85,6 +85,7 @@ $('surname').addEventListener('blur',function(e){
 
 
    $('password').addEventListener('blur',function(e){
+    $('msgPassword').hidden = true
     switch (true) {
        case !this.value.trim():
            msgError('errorPassword','La contraseña es obligatoria',e)
@@ -93,14 +94,37 @@ $('surname').addEventListener('blur',function(e){
            msgError('errorPassword',"Debe tener entre 6 y 12 caracteres \n tener una mayuscula, \n una minuscula,  \n un numero",e)
            break;    
        default:
-           this.classList.add('is-valid')
+           this.classList.add('input_valid')
            break;
     }
    })
    $('password').addEventListener('focus',function(e){
-       cleanError('errorPassword',e)
+       cleanError('errorPassword',e);
+       $('msgPassword').hidden = false;
    })
 
+const exRegs = {
+    exRegMayu: /[A-Z]/,
+    exRegMinu: /[a-z]/,
+    exRegNum: /[0-9]/,
+    exRegEsp: /[$@!%*?&_-]/,
+}
+
+const validPassword = (element,exReg,value) =>{
+    if(!exReg.test(value)){
+        $(element).classList.add('text_danger');
+    }else{        
+        $(element).classList.add('text_sucess');
+        $(element).classList.remove('text_danger');
+    }
+}
+
+$('password').addEventListener('keyup',function(){
+    validPassword("mayuscula", exRegs.exRegMayu, this.value);
+    validPassword("minuscula", exRegs.exRegMinu, this.value);
+    validPassword("number", exRegs.exRegNum, this.value);
+    validPassword("special", exRegs.exRegEsp, this.value);
+})
 
    
    $('password2').addEventListener('blur',function(e){
@@ -112,7 +136,7 @@ $('surname').addEventListener('blur',function(e){
            msgError('errorPassword2','La confirmacion no coincdide',e)
            break;    
        default:
-           this.classList.add('is-valid')
+           this.classList.add('input_valid')
            break;
     }
    })
@@ -121,4 +145,19 @@ $('surname').addEventListener('blur',function(e){
        cleanError('errorPassword2',e)
    })
 
-console.log('hello world');
+
+   $('form-register').addEventListener('submit',function(e){
+    e.preventDefault();
+    let error = false;
+
+    for (let i = 0; i < this.elements.length -3; i++) {
+        if (!this.elements[i].value.trim() || this.elements[i].classList.contains("input_invalid")){
+            error = true;
+            this.elements[i].classList.add('input_invalid')
+            $('error-form').innerHTML = "Hay campos con errores o estan vacios"
+        }
+        
+    }
+    !error && this.submit();
+   })
+

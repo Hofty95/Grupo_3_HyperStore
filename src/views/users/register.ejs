@@ -43,9 +43,12 @@
               <small id="errorPassword">
                 <%= locals.errors && errors.password ? errors.password.msg : null %>
               </small>
-              <button type="button">
-                <i class="fa-solid fa-eye"></i>
-              </button>
+              <ul id="msgPassword" class="small" hidden>
+                <li id="mayuscula">Una mayuscula</li>
+                <li id="minuscula">Una minuscula</li>
+                <li id="number">Un numero</li>
+                <li id="special">Un caracter especial (@!%*?&-_) </li>
+              </ul>
             </div>
             <div class="register__form__box">
               <label for="password2">Repetir contraseña</label>
@@ -53,9 +56,9 @@
               <small id="errorPassword2">
                 <%= locals.errors && errors.password2 ? errors.password2.msg : null %>
               </small>
-              <button type="button">
-                <i class="fa-solid fa-eye"></i>
-              </button>
+            </div>
+            <div>
+              <p class="text-danger small text-center" id="error-form"></p>
             </div>
             <div class="register__button">
               <button type="submit" class="boton__general">Registrarse</button>

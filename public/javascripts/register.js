@@ -150,14 +150,21 @@ $('password').addEventListener('keyup',function(){
     e.preventDefault();
     let error = false;
 
-    for (let i = 0; i < this.elements.length -3; i++) {
-        if (!this.elements[i].value.trim() || this.elements[i].classList.contains("input_invalid")){
-            error = true;
-            this.elements[i].classList.add('input_invalid')
-            $('error-form').innerHTML = "Hay campos con errores o estan vacios"
+    for (let i = 0; i < this.elements.length - 3; i++) {
+
+        if (!this.elements[i].value || this.elements[i].classList.contains('input_invalid')) {
+            error = true
         }
-        
+
     }
-    !error && this.submit();
+
+    if (!error) {
+        this.submit()
+    } else {
+        for (let i = 0; i < this.elements.length - 3; i++) {
+
+            !this.elements[i].value && this.elements[i].classList.add('input_invalid')          
+        }
+    }
    })
 

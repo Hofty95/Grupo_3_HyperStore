@@ -89,6 +89,9 @@
   padding: 10px 15px;
 }
 
+ul li{
+  color: #fff;
+}
 @media (min-width: 768px) {
   .register__main__section {
     width: 60%;

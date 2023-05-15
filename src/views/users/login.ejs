@@ -21,9 +21,9 @@
                   <label for="">Contraseña</label>
                   <input type="password" placeholder="Ingresa tu contraseña" id="password" name="password" value="<%= locals.old && old.password ? old.password : null %>"/>
                   <small id="loginPasswordError" style="color:red"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
-                  <!-- <button type="button">
+                  <button type="button" id="togglePassword">
                     <i class="fa-solid fa-eye"></i>
-                  </button> -->
+                  </button> 
                   <a class="form__box__login__link" href="/user/changepass">¿Olvidaste tu contraseña?</a>
                 </div>
                 <hr>

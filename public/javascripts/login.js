@@ -83,15 +83,26 @@ inputPassword.addEventListener('focus', function (event) {
     cleanError('loginPasswordError', event)
 })
 
+//PASSWORD TOGGLE
+
+const togglePasswordButton = document.getElementById('togglePassword');
+const passwordField = document.getElementById('password');
+
+togglePasswordButton.addEventListener('click', function () {
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+    this.classList.toggle('active');
+});
+
 //FORM VALIDATION
 
 formLogin.addEventListener('submit', function (event) {
     event.preventDefault();
     let error = false;
     for (let i = 0; i < this.elements.length - 3; i++) {
-
-        if (!this.elements[i].value || this.elements[i].classList.contains('input_invalid')) {
-            error = true
+        const element = this.elements[i];
+        if (element !== togglePasswordButton && (!element.value || element.classList.contains('input_invalid'))) {
+            error = true;
         }
 
     }
@@ -100,18 +111,11 @@ formLogin.addEventListener('submit', function (event) {
         this.submit()
     } else {
         for (let i = 0; i < this.elements.length - 3; i++) {
-
-            !this.elements[i].value && this.elements[i].classList.add('input_invalid')          
+            const element = this.elements[i];
+            if (element !== togglePasswordButton && !element.value) {
+                element.classList.add('input_invalid');
+            }
         }
     }
 
 })
-
-  const togglePasswordButton = document.getElementById('togglePassword');
-  const passwordField = document.getElementById('password');
-
-  togglePasswordButton.addEventListener('click', function () {
-    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-    passwordField.setAttribute('type', type);
-    this.classList.toggle('active');
-  });

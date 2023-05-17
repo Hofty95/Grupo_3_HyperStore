@@ -13,7 +13,8 @@
               <div class="main__article__user__menu">
                 <section class="profile__data">
                   <div class="relative block">
-                    <img alt="profil" src="/images/User-img/<%= user.image ? user.image : "user.png"%>" class="mx-auto object-cover rounded-full h-20 w-20 " />
+                    <img alt="profil" src="<%= /http/.test(user.image) ? user.image : `/images/users/${user.image}`%>
+                    " class="mx-auto object-cover rounded-full h-20 w-20 " />
                   </div>
                   <label class="block" for="" >
                     <input class="block w-full text-sm text-slate-500
@@ -42,7 +43,7 @@
               <div class="input__group__general">
                 <label for="name"><small style="color: white;">Nombre</small></label>
                 <input id="name" name="name" class="input__general" type="text"
-                  value="<%= user.name ? user.name : 'Coloque su nombre' %>" />
+                  value="<%= user.name ? user.name : null %>" />
                 <small id="userNameError" style="color:red">
                   <%= locals.errors && errors.user.name ? errors.user.name.msg : null %>
                 </small>
@@ -51,7 +52,7 @@
               <div class="input__group__general">
                 <label for="surname"><small style="color: white;">Apellido</small></label>
                 <input id="surname" name="surname" class="input__general" type="text"
-                  value="<%= user.surname ? user.surname : 'Coloque su Apellido' %>" />
+                  value="<%= user.surname ? user.surname : null %>" />
                 <small id="userSurnameError" style="color:red">
                   <%= locals.errors && errors.user.surname ? errors.user.surname.msg : null %>
                 </small>
@@ -62,7 +63,7 @@
               <div class="input__group__general">
                 <label for="street"><small style="color: white;">Calle</small></label>
                 <input id="street" name="street" class="input__general" type="text"
-                  value="<%= user.address.street ? user.address.street : 'Coloque su calle' %>" />
+                  value="<%= user.address.street ? user.address.street : null %>" />
                 <small id="userStreetError" style="color:red">
                   <%= locals.errors && errors.user.address.street ? errors.user.address.street.msg : null %>
                 </small>
@@ -71,7 +72,7 @@
               <div class="input__group__general">
                 <label for="postcode"><small style="color: white;">Código postal</small></label>
                 <input id="postcode" name="postcode" class="input__general" type="number"
-                  value="<%= user.address.postcode ? user.address.postcode : 'Coloque su código postal' %>" />
+                  value="<%= user.address.postcode ? user.address.postcode : null %>" />
                 <small id="userPostcodeError" style="color:red">
                   <%= locals.errors && errors.user.address.postcode ? errors.user.address.postcode.msg : null %>
                 </small>
@@ -80,7 +81,7 @@
               <div class="input__group__general">
                 <label for="province"><small style="color: white;">Ciudad</small></label>
                 <input id="province" name="province" class="input__general" type="text"
-                  value="<%= user.address.province ? user.address.province : 'Coloque su ciudad' %>" />
+                  value="<%= user.address.province ? user.address.province : null %>" />
                 <small id="userProvinceError" style="color:red">
                   <%= locals.errors && errors.user.address.province ? errors.user.address.province.msg : null %>
                 </small>
@@ -89,7 +90,7 @@
               <div class="input__group__general">
                 <label for="location"><small style="color: white;">Localidad</small></label>
                 <input id="location" name="location" class="input__general" type="text"
-                  value="<%= user.address.location ? user.address.location : 'Coloque su localidad' %>" />
+                  value="<%= user.address.location ? user.address.location : null %>" />
                 <small id="userLocationError" style="color:red">
                   <%= locals.errors && errors.user.address.location ? errors.user.address.location.msg : null %>
                 </small>

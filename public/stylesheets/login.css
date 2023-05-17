@@ -3,6 +3,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+  background-size: cover;
 }
 
 .login__main__section {
@@ -56,7 +57,7 @@
 
 .form__box__login button {
   color: var(--colorGris);
-  background-color: var(--colorFondo);
+  background-color: transparent;
   border: none;
   display: block;
   position: absolute;

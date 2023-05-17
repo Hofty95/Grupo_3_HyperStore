@@ -3,6 +3,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+  background-size: cover;
 }
 
 .register__main__section {

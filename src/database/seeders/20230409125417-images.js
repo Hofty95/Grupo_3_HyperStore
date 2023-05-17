@@ -129,7 +129,7 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name : "teclado-corsair-k70-3.png",
+    name : "teclado-corsair-k70-3.jpg",
     productId: 5,
     createdAt: new Date(),
     updatedAt: new Date()

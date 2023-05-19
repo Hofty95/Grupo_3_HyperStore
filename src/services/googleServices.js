@@ -1,3 +1,4 @@
+require('dotenv').config()
 const passport = require('passport')
 const OAuth2Strategy = require('passport-google-oauth').OAuth2Strategy
 

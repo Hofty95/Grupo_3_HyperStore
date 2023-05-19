@@ -7,7 +7,6 @@ const methodOverride =  require('method-override');
 const session = require('express-session');
 const cookiecheck = require('./middlewares/cookieChecker')
 const localsUser = require('./middlewares/localsUserCheck')
-const {admin,users,product,main} = require('./routes/api/index')
 const passport = require('passport')
 const { loginGoogleInitialize } = require('./services/googleServices');
 
@@ -17,6 +16,8 @@ const userRouter = require('./routes/users');
 const productRouter = require('./routes/product');
 const adminRouter = require('./routes/admin');
 const authRouter = require('./routes/auth');
+/* Router Api */
+const {admin,users,product,main,cartApi} = require('./routes/api/index')
 
 const app = express();
 loginGoogleInitialize()
@@ -52,7 +53,8 @@ app.use('/auth', authRouter)
 app.use('/api/admin',admin);
 app.use('/api/main',main);
 app.use('/api/product',product);
-app.use('/api/users',users)
+app.use('/api/users',users);
+app.use('/api/cart',cartApi);
 
 // catch 404 and forward to error handler
 app.use('*', function(req, res) {

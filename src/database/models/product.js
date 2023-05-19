@@ -33,7 +33,15 @@ module.exports = (sequelize, DataTypes) => {
       otherKey : 'categoryId',
       through : 'productCategories',
       as : 'categories'
-     })
+     });
+
+     Product.belongsToMany(models.Order,{
+      foreignKey : 'productId',
+      otherKey : 'orderId',
+      through : 'Carts',
+      as : 'cart'
+     });
+     
     }
   }
   Product.init({

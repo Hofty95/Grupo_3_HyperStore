@@ -39,6 +39,9 @@ p{
 .slick-dots{
     visibility: hidden;
 }
+.slick-slider .slick-track, .slick-slider .slick-list {
+    margin: auto;
+  }
 
 @media (min-width:768px) {
     .slick-dots{

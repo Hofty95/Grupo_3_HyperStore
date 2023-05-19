@@ -13,8 +13,7 @@
               <div class="main__article__user__menu">
                 <section class="profile__data">
                   <div class="relative block">
-                    <img alt="profil" src="<%= /http/.test(user.image) ? user.image : `/images/users/${user.image}`%>
-                    " class="mx-auto object-cover rounded-full h-20 w-20 " />
+                    <img alt="profil" src="<%= /http/.test(user.image) ? user.image?.toString().trim() : `/images/users/${user.image || 'user.png'}` %>" class="mx-auto object-cover rounded-full h-20 w-20 " />
                   </div>
                   <label class="block" for="" >
                     <input class="block w-full text-sm text-slate-500

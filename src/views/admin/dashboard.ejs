@@ -6,10 +6,9 @@
         <!-- Header -->
         <%- include('../partials/header') %>
             <!-- MAIN -->
-            <main>
+            <main class="contenedor_main">
                 <!-- MENÚ DE NAVEGACIÓN -->
-                <section class="dash__section">
-                    <div class="dash__container">
+<!--                 <section class="dash__section">
                         <div class="dashboard__section__container">
                             <button><i class="fa-solid fa-cart-shopping"></i></button><a href="#articulos_en_venta">
                                 <p>Artículos en Venta</p>
@@ -24,11 +23,29 @@
                                 <p>Usuarios</p>
                             </a>
                         </div>
-                    </div>
-                </section>
+                </section> -->
                 <!-- ESTADÍSTICAS -->
-                <div class="estadisticas">
                     <section class="estadisticas__section">
+                        <div class="estadisticas__container">
+                            <a href="#articulos_en_venta"><i class="fa-solid fa-cart-shopping"></i>
+                                <p>Artículos en Venta</p>
+                            </a>
+                        </div>
+                        <div class="estadisticas__container">
+                            <a href="#agregar_producto"><i class="fa-solid fa-plus"></i>
+                                <p>Agregar Producto</p>
+                            </a>
+                        </div>
+                        <div class="estadisticas__container">
+                            <a href="#articulos_en_venta"><i class="fa-solid fa-pen-to-square"></i>
+                                <p>Editar Producto</p>
+                            </a>
+                        </div>
+                        <div class="estadisticas__container">
+                            <a href="#usuarios"><i class="fa-solid fa-user"></i>
+                                <p>Usuarios</p>
+                            </a>
+                        </div>
                         <div class="estadisticas__container">
                             <h2>Ventas Totales</h2>
                             <p>0000</p>
@@ -46,11 +63,10 @@
                             <p>0000</p>
                         </div>
                     </section>
-                </div>
                 <!-- ARTICULOS EN VENTA -->
-                <div>
-                    <div>
-                        <section class="dash__section">
+                <!-- <div>
+                    <div> -->
+                       <!--  <section class="dash__section"> -->
                             <div class="lista__container">
                                 <h2 id="articulos_en_venta">Artículos en venta</h2>
                                 <div>
@@ -101,6 +117,7 @@
                                             </tbody>
                                         </table>
                                     </section>
+                                    <!-- </section> -->
                                     <section class="table__mobile">
                                         <table class="table table-dark table-sm">
                                             <thead class="table-light">
@@ -143,8 +160,8 @@
                                 </div>
                             </div>
                         </section>
-                    </div>
-                </div>
+                    <!-- </div>
+                </div> -->
                 <!-- AÑADIR PRODUCTO -->
                 <div class="producto__container">
                     <div class="producto">

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {Home} = require("../../controllers/api/mainApiController")
 
-/* /api/product */
+/* /api/main */
 router.get('/index', Home);
     
 

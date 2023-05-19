@@ -4,9 +4,10 @@ const { Op } = require("sequelize");
 
 
 module.exports = {
-  getAllProducts: async () => {
+  getAllProducts: async (req,{withPagination = "false", page = 1, limit = 6} = {}) => {
     try {
-      const products = await db.Product.findAll({
+
+      let options = {
         include: [
           {
             association: "categories",
@@ -17,9 +18,30 @@ module.exports = {
             attributes: ["name"],
           },
         ],
-      });
+      }
 
-      return products;
+      if(withPagination === "true"){
+        options = {
+          ...options,
+          page,
+          paginate : limit
+        }
+
+        const { docs, pages, total } = await db.Product.paginate(options)
+
+        return {
+          products : docs,
+          pages,
+          count : total,
+        }
+      }
+
+      const {count, rows: products} = await db.Product.findAndCountAll(options);
+
+      return {
+        count,
+        products
+      };
     } catch (error) {
       throw {
         status: 500,

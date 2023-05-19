@@ -23,6 +23,7 @@
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.2.0",
     "sequelize": "^6.30.0",
+    "sequelize-paginate": "^1.1.6",
     "sweetalert2": "^11.4.8"
   }
 }

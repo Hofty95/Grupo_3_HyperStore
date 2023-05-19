@@ -38,6 +38,7 @@
     padding: 20px 25px 25px;
     width: 75%;
     margin: 20px auto;
+    background-color: var(--colorFondo);
 }
 .table__mobile{
     display: block;
@@ -97,6 +98,7 @@
     width: 75%;
     margin: auto;
     color: white;
+    background-color: var(--colorFondo);
 }
 
 .producto h3{

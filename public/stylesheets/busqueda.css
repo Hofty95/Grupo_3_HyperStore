@@ -4,6 +4,7 @@
 
 .main__info__section__container {
     padding: 10px;
+    background-color: var(--colorFondo);
 }
 
 .main__info__section h2 {

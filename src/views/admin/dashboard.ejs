@@ -6,10 +6,9 @@
         <!-- Header -->
         <%- include('../partials/header') %>
             <!-- MAIN -->
-            <main>
+            <main class="contenedor_main">
                 <!-- MENÚ DE NAVEGACIÓN -->
-                <section class="dash__section">
-                    <div class="dash__container">
+<!--                 <section class="dash__section">
                         <div class="dashboard__section__container">
                             <button><i class="fa-solid fa-cart-shopping"></i></button><a href="#articulos_en_venta">
                                 <p>Artículos en Venta</p>
@@ -24,11 +23,29 @@
                                 <p>Usuarios</p>
                             </a>
                         </div>
-                    </div>
-                </section>
+                </section> -->
                 <!-- ESTADÍSTICAS -->
-                <div class="estadisticas">
                     <section class="estadisticas__section">
+                        <div class="estadisticas__container">
+                            <a href="#articulos_en_venta"><i class="fa-solid fa-cart-shopping"></i>
+                                <p>Artículos en Venta</p>
+                            </a>
+                        </div>
+                        <div class="estadisticas__container">
+                            <a href="#agregar_producto"><i class="fa-solid fa-plus"></i>
+                                <p>Agregar Producto</p>
+                            </a>
+                        </div>
+                        <div class="estadisticas__container">
+                            <a href="#articulos_en_venta"><i class="fa-solid fa-pen-to-square"></i>
+                                <p>Editar Producto</p>
+                            </a>
+                        </div>
+                        <div class="estadisticas__container">
+                            <a href="#usuarios"><i class="fa-solid fa-user"></i>
+                                <p>Usuarios</p>
+                            </a>
+                        </div>
                         <div class="estadisticas__container">
                             <h2>Ventas Totales</h2>
                             <p>0000</p>
@@ -46,11 +63,10 @@
                             <p>0000</p>
                         </div>
                     </section>
-                </div>
                 <!-- ARTICULOS EN VENTA -->
-                <div>
-                    <div>
-                        <section class="dash__section">
+                <!-- <div>
+                    <div> -->
+                       <!--  <section class="dash__section"> -->
                             <div class="lista__container">
                                 <h2 id="articulos_en_venta">Artículos en venta</h2>
                                 <div>
@@ -60,9 +76,9 @@
                                                 <tr>
                                                     <th scope="col">#</th>
                                                     <th scope="col">Producto</th>
-                                                    <th scope="col">Código</th>
+                                                    <th scope="col"></th>
                                                     <th scope="col">Precio</th>
-                                                    <th><i class="fa-solid fa-pen-to-square"></i></th>
+                                                    <th scope="col"><i class="fa-solid fa-pen-to-square"></i></th>
                                                     <th scope="col"><i class="fa-solid fa-trash"></i></th>
                                                 </tr>
                                             </thead>
@@ -83,20 +99,25 @@
                                                         </td>
                                                         <td>
                                                             <form action="/admin/dashboard/edit/<%= product.id %>"
-                                                                method="get"><button><i
-                                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                                method="get"><button class="button_dash_list"><i
+                                                                        class="fa-regular fa-pen-to-square"
+                                                                        style="color: #ffffff;"></i></button>
                                                             </form>
                                                         </td>
                                                         <td>
                                                             <form
                                                                 action="/product/remove/<%= product.id %>?_method=DELETE"
-                                                                id="form-delete" method="POST"><button><i
-                                                                        class="fa-solid fa-trash"></i></button></form>
+                                                                id="form-delete" method="POST" class="form-delete">
+                                                                <button class="button_dash_list"><i
+                                                                        class="fa-solid fa-trash trash-list"
+                                                                        style="color: #ffffff;"></i></button>
+                                                            </form>
                                                     </tr>
                                                     <% }) %>
                                             </tbody>
                                         </table>
                                     </section>
+                                    <!-- </section> -->
                                     <section class="table__mobile">
                                         <table class="table table-dark table-sm">
                                             <thead class="table-light">
@@ -118,15 +139,19 @@
                                                         </td>
                                                         <td>
                                                             <form action="/admin/dashboard/edit/<%= product.id %>"
-                                                                method="get"><button><i
-                                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                                method="get"><button class="button_dash_list"><i
+                                                                        class="fa-regular fa-pen-to-square"
+                                                                        style="color: #ffffff;"></i></button>
                                                             </form>
                                                         </td>
                                                         <td>
                                                             <form
                                                                 action="/product/remove/<%= product.id %>?_method=DELETE"
-                                                                id="form-delete" method="POST"><button><i
-                                                                        class="fa-solid fa-trash"></i></button></form>
+                                                                id="form-delete" method="POST" class="form-delete">
+                                                                <button class="button_dash_list"><i
+                                                                        class="fa-solid fa-trash trash-list"
+                                                                        style="color: #ffffff;"></i></button>
+                                                            </form>
                                                     </tr>
                                                     <% }) %>
                                             </tbody>
@@ -135,37 +160,50 @@
                                 </div>
                             </div>
                         </section>
-                    </div>
-                </div>
+                    <!-- </div>
+                </div> -->
                 <!-- AÑADIR PRODUCTO -->
                 <div class="producto__container">
                     <div class="producto">
                         <form action="" method="post" enctype="multipart/form-data" id="formAdd">
-                        <section>
-                            <h3 id="agregar_producto">Agregar Producto</h3>
-                            <div class="form__box__login">
-                                <label for="name">Introducir Nombre</label>
-                                <input type="text" name="name" id="name" placeholder="Ejemplo: HyperX Cloud Flight" value="<%= locals.old && old.name ? old.name : null %>"/>
-                                <small id="nameError" style="color:red"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
-                            </div>
-                            <div class="form__box__login">
-                                <label for="price">Introducir Precio</label>
-                                <input type="number" name="price" id="price" placeholder="Ejemplo: $25.999" value="<%= locals.old && old.price ? old.price : null %>"/>
-                                <small id="priceError" style="color:red"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
-                            </div>
-                        </section>
-                        <section class="producto__file">
-                            <h3>Añadir Imágenes</h3>
-                            <input type="file" name="images" id="images" multiple>
-                            <div><small id="imagesError" style="color: red;"></small></div>
-                        </section>
-                        <section>
-                            <h3>Añadir Descripción</h3>
+                            <section>
+                                <h3 id="agregar_producto">Agregar Producto</h3>
+                                <div class="form__box__login">
+                                    <label for="name">Introducir Nombre</label>
+                                    <input type="text" name="name" id="name" placeholder="Ejemplo: HyperX Cloud Flight"
+                                        value="<%= locals.old && old.name ? old.name : null %>" />
+                                    <small id="nameError" style="color:red">
+                                        <%= locals.errors && errors.name ? errors.name.msg : null %>
+                                    </small>
+                                </div>
+                                <div class="form__box__login">
+                                    <label for="price">Introducir Precio</label>
+                                    <input type="number" name="price" id="price" placeholder="Ejemplo: $25.999"
+                                        value="<%= locals.old && old.price ? old.price : null %>" />
+                                    <small id="priceError" style="color:red">
+                                        <%= locals.errors && errors.price ? errors.price.msg : null %>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="producto__file">
+                                <h3>Añadir Imágenes</h3>
+                                <input type="file" name="images" id="images" multiple class="block w-full text-sm text-slate-500
+                                file:mr-4 file:py-2 file:px-4
+                                file:rounded-full file:border-0
+                                file:text-sm file:font-semibold
+                                file:bg-violet-50 file:text-violet-700
+                                hover:file:bg-violet-100">
+                                <div><small id="imagesError" style="color: red;"></small></div>
+                            </section>
+                            <section>
+                                <h3>Añadir Descripción</h3>
                                 <div class="col-12 mb-3">
                                     <label for="description" class="form-label">Descripción del Producto</label>
                                     <textarea class="form-control" id="description" rows="3"
                                         name="description"><%= locals.old && old.description ? old.description : null %></textarea>
-                                        <small id="descriptionError" style="color:red"><%= locals.errors && errors.description ? errors.description.msg : null %></small>
+                                    <small id="descriptionError" style="color:red">
+                                        <%= locals.errors && errors.description ? errors.description.msg : null %>
+                                    </small>
                                 </div>
                             </section>
                             <section>
@@ -173,36 +211,48 @@
                                     <label for="specifications" class="form-label">Especificaciones</label>
                                     <textarea class="form-control" id="specifications" rows="3"
                                         name="specifications"><%= locals.old && old.specifications ? old.specifications : null %></textarea>
-                                        <small id="specificationsError" style="color:red"><%= locals.errors && errors.specifications ? errors.specifications.msg : null %></small>
+                                    <small id="specificationsError" style="color:red">
+                                        <%= locals.errors && errors.specifications ? errors.specifications.msg : null %>
+                                    </small>
                                 </div>
                                 <div class="form__box__login">
                                     <label for="discount">Descuento</label>
                                     <input type="text" name="discount" id="discount"
-                                        placeholder="Introducir Descuento..." value="<%= locals.old && old.discount ? old.discount : null %>"/>
-                                        <small id="discountError" style="color:red"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
+                                        placeholder="Introducir Descuento..."
+                                        value="<%= locals.old && old.discount ? old.discount : null %>" />
+                                    <small id="discountError" style="color:red">
+                                        <%= locals.errors && errors.discount ? errors.discount.msg : null %>
+                                    </small>
                                 </div>
                                 <div class="main__info__section select">
-                                    <p>Seleccionar Categoria</p>
-                                    <label for="categories">Categorias:</label>
-                                            <% categories.forEach(category=> { %>
-                                                <label><input type="checkbox" id="categories" name="categories" value="<%= category.id %>"><%= category.name %></label>
-                                                <% }) %>
-                                    <br><br>
-                                    <small id="categoriesError" style="color:red"><%= locals.errors && errors.categories ? errors.categories.msg : null %></small>
+                                    <p>Seleccionar Categoría</p>
+                                    <label for="categories">Categorías:</label>
+                                    <% categories.forEach(category=> { %>
+                                        <label><input class="form-check-input" type="checkbox" id="categories" name="categories"
+                                                value="<%= category.id %>">
+                                            <%= category.name %>
+                                        </label>
+                                        <% }) %>
+                                            <br><br>
+                                            <small id="categoriesError" style="color:red">
+                                                <%= locals.errors && errors.categories ? errors.categories.msg : null %>
+                                            </small>
                                 </div>
                                 <div class="main__info__section select">
                                     <p>Seleccionar Gama</p>
                                     <label for="gama">Gamas:</label>
                                     <select name="gama" id="gama">
-                                            <option value="" selected hidden>Seleccione...</option>
-                                            <% gamas.forEach(gama=> { %>
-                                                <option value="<%= gama.id %>">
-                                                    <%= gama.name %>
-                                                </option>
-                                                <% }) %>
+                                        <option value="" selected hidden>Seleccione...</option>
+                                        <% gamas.forEach(gama=> { %>
+                                            <option value="<%= gama.id %>">
+                                                <%= gama.name %>
+                                            </option>
+                                            <% }) %>
                                     </select>
                                     <br><br>
-                                    <small id="gamaError" style="color:red"><%= locals.errors && errors.gama ? errors.gama.msg : null %></small>
+                                    <small id="gamaError" style="color:red">
+                                        <%= locals.errors && errors.gama ? errors.gama.msg : null %>
+                                    </small>
                                 </div>
                                 <div class="main__info__section select">
                                     <p>Seleccionar Marca</p>
@@ -218,13 +268,13 @@
                                         </optgroup>
                                     </select>
                                     <br><br>
-                                    <small id="brandError" style="color:red"><%= locals.errors && errors.brand ? errors.brand.msg : null %></small>
+                                    <small id="brandError" style="color:red">
+                                        <%= locals.errors && errors.brand ? errors.brand.msg : null %>
+                                    </small>
                                 </div>
                             </section>
-                            <div class="article1__boton__general button">
-                                <button class="boton__general" type="submit">
-                                    Enviar
-                                </button>
+                            <div class="article1__boton__general">
+                                <button class="boton__general">ENVIAR</button>
                             </div>
                             <div>
                                 <small id="formError" style="color: red;"></small>
@@ -266,7 +316,13 @@
                                                         <%= user.email %>
                                                     </td>
                                                     <td>
-                                                        <form action="/user/remove/<%= user.id %>?_method=DELETE" id="user-delete" method="POST"><button type="submit"><i class="fa-solid fa-trash"></i></button></form>
+                                                        <form action="/user/remove/<%= user.id %>?_method=DELETE"
+                                                            id="user-delete" method="POST" class="user-delete-form">
+                                                            <button class="button_dash_list" type="submit"><i
+                                                                    class="fa-solid fa-trash trash-list"
+                                                                    style="color: #ffffff;"></i></button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                                 <% }) %>
                                         </tbody>
@@ -291,7 +347,13 @@
                                                         <%= user.name %>
                                                     </td>
                                                     <td>
-                                                        <form action="/user/remove/<%= user.id %>?_method=DELETE" id="user-delete" method="POST"><button type="submit"><i class="fa-solid fa-trash"></i></button></form>
+                                                        <form action="/user/remove/<%= user.id %>?_method=DELETE"
+                                                            id="user-delete" method="POST" class="user-delete-form">
+                                                            <button class="button_dash_list" type="submit"><i
+                                                                    class="fa-solid fa-trash trash-list"
+                                                                    style="color: #ffffff;"></i></button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                                 <% }) %>
                                         </tbody>
@@ -312,6 +374,8 @@
             </main>
             <!-- Footer -->
             <%- include('../partials/footer') %>
+            /* LIGHTMODE */
+          <script src="/javascripts/enableLightMode.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
                     crossorigin="anonymous"></script>
@@ -320,6 +384,15 @@
                 <script src="/javascripts/removeProductAlert.js"></script>
                 <!-- JAVASCRIPT FRONT -->
                 <script src="/javascripts/formAdd.js"></script>
+                <!-- TAILWIND -->
+                <script src="https://cdn.tailwindcss.com"></script>
+
+                <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js"
+                    integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19"
+                    crossorigin="anonymous"></script>
+                <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
+                    integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
+                    crossorigin="anonymous"></script>
     </body>
 
 </html>

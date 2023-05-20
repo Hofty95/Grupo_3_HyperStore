@@ -24,6 +24,12 @@ module.exports = {
       image: {
         type: Sequelize.STRING
       },
+      socialId: {
+        type: Sequelize.STRING
+      },
+      provider: {
+        type: Sequelize.STRING
+      },
       addressId: {
         type: Sequelize.INTEGER,
         references : {

@@ -26,10 +26,13 @@
                 aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
+              <!-- BOTON MODO CLARO -->
+              <!-- <input type="checkbox" id="checkitem" onclick="enableLightMode()"> -->
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <% if (locals.userLogin) { %>
                   <li>
-                    <a class="nav-link" style="color: white" href="/user/<%= userLogin.id %>"> Hola, <%= userLogin.name %></a>
+                    <a class="nav-link" style="color: white" href="/user/<%= userLogin.id %>"> Hola, <%= userLogin.name
+                        %></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" style="color: white" href="/product/carrito"> Mi Carrito</a>
@@ -37,7 +40,7 @@
                   <li>
                     <a class="nav-link" style="color: white" href="/user/logout"> Salir</a>
                   </li>
-                  <% if (userLogin.rol=== 1 ) { %>
+                  <% if (userLogin.rol===1 ) { %>
                     <li>
                       <a class="nav-link" style="color: white" href="/admin/dashboard">DASHBOARD</a>
                     </li>
@@ -58,7 +61,7 @@
                         <li class="nav-item">
                           <a class="nav-link" href="https://web.whatsapp.com/" target="_blank">Contactános!</a>
                         </li>
-                      <% } %>
+                        <% } %>
               </ul>
               <form action="/busqueda" method="GET" class="d-flex mt-3">
                 <input class="header__section__buscador__barra" name="keywords" type="text"
@@ -89,26 +92,35 @@
         <ul>
           <% if (!locals.userLogin) { %>
             <li>
-              <a class="nav-link" style="color: white" href="/user/login"><span><i class="fa-solid fa-user"></i></span> Acceder</a>
+              <a class="nav-link" style="color: white" href="/user/login"><span><i class="fa-solid fa-user"></i></span>
+                Acceder</a>
             </li>
-          </li>
-          <li><a href="/product/carrito"><span><i class="fa-solid fa-cart-shopping"></i></span> Mi Carrito <span>
-            <p class="header__section__menu2__contador">0</p>
-          </span></a></li>
-          <% } else { %>
-            <li>
-              <a class="nav-link" style="color: white" href="/user/<%- userLogin.id %>"><span><i class="fa-solid fa-user"></i></span> Hola, <%= userLogin.name %></a>
             </li>
-            <li>
-              <a href="/product/carrito" style="color: white"><span><i class="fa-solid fa-cart-shopping"></i></span> Mi Carrito <span>
-              <p class="header__section__menu2__contador">0</p>
-            </span></a>
-          </li>
-
-            <li>
-              <a class="nav-link" style="color: white" href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
-            </li>
-          <% } %>
+            <li><a href="/product/carrito" style="color: white"><span><i class="fa-solid fa-cart-shopping"></i></span>
+                Mi Carrito <span>
+                  <p class="header__section__menu2__contador">0</p>
+                </span></a></li>
+            <% } else { %>
+              <li>
+                <a class="nav-link" style="color: white" href="/user/<%- userLogin.id %>"><span><i
+                      class="fa-solid fa-user"></i></span> Hola, <%= userLogin.name %></a>
+              </li>
+              <li>
+                <a href="/product/carrito" style="color: white"><span><i class="fa-solid fa-cart-shopping"></i></span>
+                  Mi Carrito <span>
+                    <p class="header__section__menu2__contador">0</p>
+                  </span></a>
+              </li>
+              <li>
+                <a class="nav-link" style="color: white" href="/user/logout"><i
+                    class="fa-solid fa-right-from-bracket"></i> Salir</a>
+              </li>
+              <% } %>
+                <!-- BOTON MODO CLARO -->
+                <label class="switch-light">
+                  <input type="checkbox" id="checkitem" class="input-light" onclick="enableLightMode()">
+                  <span class="check"></span>
+                </label>
         </ul>
       </div>
     </section>
@@ -125,11 +137,11 @@
     <div class="header__section2__contacto">
       <button><a href="https://web.whatsapp.com/" target="_blank">Contactános!</a></button>
     </div>
+    <% if (locals.userLogin && userLogin.rol===1) { %>
+      <div class="header__section2__contacto">
+        <button><a class="nav-link" href="/admin/dashboard">DASHBOARD</a></button>
+      </div>
+      <% } %>
   </section>
-  <% if (locals.userLogin && userLogin.rol=== 1) { %>
-    <div class="BOTON__DASHBOARD__PROVISORIO">
-    <a class="nav-link" href="/admin/dashboard">DASHBOARD</a>
-    <% } %>
-  </div>
 
 </header>

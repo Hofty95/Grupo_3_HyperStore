@@ -152,7 +152,7 @@
 /* CARD ARTICLE HOME */
 
 .product-box {
-  background-color: var(--colorFondo);
+  /* background-color: var(--colorFondo); */
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
@@ -274,11 +274,15 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
   visibility: hidden;
 }
 
+.slick-track{
+  margin: auto;
+}
+
 
 /* Tablet */
 @media (min-width:768px) {
   .product-box {
-    background-color: var(--colorFondo);
+    /* background-color: var(--colorFondo); */
     border-radius: 5px;
     overflow: hidden;
     transition: 300ms;
@@ -398,7 +402,7 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
 
 @media (min-width:1024px) {
   .product-box {
-    background-color: var(--colorFondo);
+    /* background-color: var(--colorFondo); */
     border-radius: 5px;
     overflow: hidden;
     transition: 300ms;

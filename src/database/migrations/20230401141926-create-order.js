@@ -15,20 +15,14 @@ module.exports = {
       total: {
         type: Sequelize.INTEGER
       },
+      status: {
+        type: Sequelize.STRING
+      },
       userId: {
         type: Sequelize.INTEGER,
         references : {
           model :{
             tableName : "Users"
-          },
-          key : 'id'
-        },
-      },
-      cartId: {
-        type: Sequelize.INTEGER,
-        references : {
-          model :{
-            tableName : "Carts"
           },
           key : 'id'
         },

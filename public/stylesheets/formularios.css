@@ -39,3 +39,10 @@
 .input_valid{
     border: solid 2px greenyellow !important;
 }
+
+.text_danger{
+    color: tomato !important; 
+}
+.text_sucess{
+color: greenyellow !important
+}

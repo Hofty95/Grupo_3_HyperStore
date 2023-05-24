@@ -4,7 +4,7 @@ const { Op } = require("sequelize");
 
 
 module.exports = {
-  getAllProducts: async (req,{withPagination = "false", page = 1, limit = 6} = {}) => {
+  getAllProducts: async (req, {withPagination = "false", page = 1, limit = 6} = {}) => {
     try {
 
       let options = {
@@ -20,20 +20,21 @@ module.exports = {
         ],
       }
 
-      if(withPagination === "true"){
+      if (withPagination === 'true'){
         options = {
           ...options,
           page,
-          paginate : limit
-        }
+          paginate: limit,
+        };
 
         const { docs, pages, total } = await db.Product.paginate(options)
 
         return {
           products : docs,
           pages,
-          count : total,
-        }
+          count: total,
+        };
+
       }
 
       const {count, rows: products} = await db.Product.findAndCountAll(options);

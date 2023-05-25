@@ -44,7 +44,7 @@ module.exports = mtd = {
             }
         }
 
-        const [order] = await mtd.getOrder({userId})
+        const [order] = await mtd.getOrder({ userId })
 
         await mtd.getCart({ orderId: order.id, productId })
 
@@ -120,10 +120,7 @@ module.exports = mtd = {
             await cart.save()
         }
 
-
-
         const orderReload = await order.reload({ include: { all: true } })
-
         order.total = mtd.calcTotal(orderReload)
         await order.save()
     },
@@ -144,11 +141,15 @@ module.exports = mtd = {
         }
         const [order] = await mtd.getOrder({ userId });
 
-        return db.Cart.destroy({
+        await db.Cart.destroy({
             where: {
                 orderId: order.id
             }
         })
+
+        const orderReload = await order.reload({ include: { all: true } })
+        order.total = mtd.calcTotal(orderReload)
+        await order.save()
     },
     modifyStatusFromOrder: async ({ userId, status }) => {
         if (!userId || !status) {

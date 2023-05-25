@@ -52,6 +52,8 @@
     border-radius: 8px;
     aspect-ratio: 3/3;
     object-fit: unset;
+    background: rgb(127,0,255);
+    background: radial-gradient(circle, rgba(127,0,255,1) 45%, rgba(127,0,255,0.5718662464985995) 77%);
 }
 .main__section__carouselnav div{
     padding: 5px;
@@ -375,14 +377,14 @@
         aspect-ratio: 3/3;
     }
     .main__section__article1{
-        width: 75%;
+        width: 60%;
         margin: 0 auto;
     }
     .main__section__article1__panel{
         height: 100%;
     }
     .main__section__recomendados__container{
-        width: 75%;
+        width: 60%;
         margin: 0 auto;
     }
     .main__section__categoria{

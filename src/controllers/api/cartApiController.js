@@ -13,7 +13,8 @@ module.exports = {
 
       return res.status(isCreated ? 201 : 200).json({
         ok: true,
-        data: order
+        data: order,
+        totalProducts: totalProducts
       })
     } catch (error) {
       createResponseError(res, error)

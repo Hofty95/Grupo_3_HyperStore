@@ -3,6 +3,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+  background-size: cover;
 }
 
 .login__main__section {
@@ -56,7 +57,7 @@
 
 .form__box__login button {
   color: var(--colorGris);
-  background-color: var(--colorFondo);
+  background-color: transparent;
   border: none;
   display: block;
   position: absolute;
@@ -105,7 +106,9 @@
 .login__forget-account {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
 }
 
 .login__forget-account h4 {
@@ -190,8 +193,5 @@
     width: 40%;
     font-size: 16px;
   }
-  .login__forget-account {
-    margin: 0px 4px;
-    font-size: 18px;
-  }
+
 }

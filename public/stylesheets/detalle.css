@@ -14,6 +14,8 @@
 .main__section__recomendados__articulos img{
     aspect-ratio: 3/3;
     object-fit: inherit;
+    background: rgb(127,0,255);
+    background: radial-gradient(circle, rgba(127,0,255,1) 45%, rgba(127,0,255,0.5718662464985995) 77%);
 }
 
 .main__section__carousel2 img{

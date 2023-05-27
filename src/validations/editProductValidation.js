@@ -21,7 +21,7 @@ module.exports = [
         .isInt({min:0}).withMessage('Solo números positivos o cero'),
     check('categories')
         .notEmpty().withMessage('Debes seleccionar al menos una categoria que pertenece el producto'),
-    check('gamas')
+    check('gama')
         .notEmpty().withMessage('Debes seleccionar a que gama pertenece el producto'),
     check('brand')
         .notEmpty().withMessage('Debes seleccionar a que marca pertenece el producto'),

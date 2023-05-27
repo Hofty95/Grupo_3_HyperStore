@@ -20,7 +20,12 @@ module.exports = (sequelize, DataTypes) => {
       User.belongsTo(models.Rol,{
         foreignKey : 'rolId',
         as : 'rol'
-      })
+      });
+
+      User.hasMany(models.Order,{
+        foreignKey:'userId',
+        as:'orders'
+      });
     }
   }
   User.init({
@@ -28,9 +33,11 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     surname: DataTypes.STRING,
     pass: DataTypes.STRING,
-    image: DataTypes.INTEGER,
+    image: DataTypes.STRING,
+    socialId: DataTypes.STRING,
+    provider: DataTypes.STRING,
     addressId: DataTypes.INTEGER,
-    rolId: DataTypes.INTEGER
+    rolId: {type: DataTypes.INTEGER, defaultValue:2}
   }, {
     sequelize,
     modelName: 'User',

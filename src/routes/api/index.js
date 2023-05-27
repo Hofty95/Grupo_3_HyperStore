@@ -1,6 +1,7 @@
 module.exports = {
-    admin : require('./admin'),
-    main : require('./main'),
-    product : require('./product'),
-    users : require('./users')
+    admin : require('./adminApi'),
+    main : require('./mainApi'),
+    product : require('./productApi'),
+    users : require('./usersApi'),
+    cartApi : require('./cartApi')
 }

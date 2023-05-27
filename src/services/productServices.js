@@ -1,10 +1,13 @@
 const db = require("../database/models");
-const fs = require('fs')
+const fs = require('fs');
+const { Op } = require("sequelize");
+
 
 module.exports = {
-  getAllProducts: async () => {
+  getAllProducts: async (req, {withPagination = "false", page = 1, limit = 6} = {}) => {
     try {
-      const products = await db.Product.findAll({
+
+      let options = {
         include: [
           {
             association: "categories",
@@ -15,9 +18,31 @@ module.exports = {
             attributes: ["name"],
           },
         ],
-      });
+      }
 
-      return products;
+      if (withPagination === 'true'){
+        options = {
+          ...options,
+          page,
+          paginate: limit,
+        };
+
+        const { docs, pages, total } = await db.Product.paginate(options)
+
+        return {
+          products : docs,
+          pages,
+          count: total,
+        };
+
+      }
+
+      const {count, rows: products} = await db.Product.findAndCountAll(options);
+
+      return {
+        count,
+        products
+      };
     } catch (error) {
       throw {
         status: 500,
@@ -48,7 +73,7 @@ module.exports = {
       };
     }
   },
-  getProductsByCategoryById: async (id) => {
+  getProductsByCategory: async () => {
     try {
       const productsByCategory = await db.Product.findAll({
         include: [
@@ -56,20 +81,22 @@ module.exports = {
             association: "images",
           },
           {
+<<<<<<< HEAD
             association : 'categories'
+=======
+            association : 'categories',
+            attributes : {
+              include : [
+                'name','id','categoryId'
+              ]
+>>>>>>> 0d0ddd7b5be88b6dc9ba3474e2d37ad4aae524e3
             }
         ],
-        where : {
-          categoryId : id
-        }
       });
 console.log(productsByCategory)
       return productsByCategory;
     } catch (error) {
-      throw {
-        status: 500,
-        message: error.message,
-      };
+     console.log(error)
     }
   },
   getAllCategories: async () => {
@@ -180,7 +207,30 @@ console.log(productsByCategory)
         };
     }
   },
-  editAProduct : async (id,body) => {
+  productToEdit : async (id) => {
+    try {
+      const product = await db.Product.findByPk(id, {
+        include: [
+          {
+            association: "categories",
+            attributes: ["id", "name"],
+          },
+          {
+            association: "images",
+            attributes: ["name"],
+          },
+        ],
+      });
+
+      return product;
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    };
+    }
+  },
+  editAProduct : async (body,id) => {
     try {
         const {
             name,
@@ -189,23 +239,23 @@ console.log(productsByCategory)
             description,
             specifications,
             gama,
-            brand,
+            brand
           } = body
-
+          
           const editedProduct = await db.Product.update(
             {
-              name: name.trim(),
+              name: name,
               price: +price,
               discount: +discount,
-              description: description.trim(),
-              specifications: specifications.trim(),
+              description: description,
+              specifications: specifications,
               gamaId: +gama,
-              brandId: +brand,
+              brandId: +brand
             },
             {
               where: {
-                id: id,
-              },
+                id: id
+              }
             }
           );
 
@@ -213,7 +263,7 @@ console.log(productsByCategory)
     } catch (error) {
         throw {
             status: 500,
-            message: error.message,
+            message: error.message
         };
     }
   },
@@ -226,11 +276,11 @@ console.log(productsByCategory)
         const category = categories.forEach(async (category) => {
             await db.productCategories.update(
               {
-                categoryId: category,
+                categoryId: category
               },
               {
                 where: {
-                  productId: id,
+                  productId: id
                 },
               }
             );
@@ -251,7 +301,7 @@ console.log(productsByCategory)
               name: image.filename,
             },
             {
-                where : {productId: id,}
+                where : {productId: id}
             }
             );
             (files && fs.existsSync(`public/images/Productos-img/${image.filename}`)) && fs.unlinkSync(`public/images/Productos-img/${image.filename}`)
@@ -261,17 +311,90 @@ console.log(productsByCategory)
         
     }
   },
-  deleteProduct : async (id) =>{
+  deleteProductCategories : async (id) =>{
     try {
       await db.productCategories.destroy({where : {productId : id}})
-      await db.Product.destroy({where: {id : id}})
-      return { success: true };
     } catch (error) {
       throw {
         status: 500,
         message: error.message,
     };
     }
+  },
+  deleteProduct : async (id)  =>{
+    try {
+      await db.Product.destroy({where : {id : id}})
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    };
+    }
+  },
+  searchProduct : async (keyword) => {
+    try {
+      const product = await db.Product.findAll({
+        include : [
+          {
+            association: "images",
+            attributes: ["name"]
+          },
+        ],
+        where : {
+          [Op.or]: [
+          {
+            name: {
+              [Op.substring]: `%${keyword}%`,
+            },
+          },
+          {
+            description: {
+              [Op.substring]: `%${keyword}%`,
+            },
+          }
+        ]
+      }
+    })
+    return product
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    }
+    }
+  },
+  searchByGama : async (gama) => {
+    try {
+      const products = db.Product.findAll({
+        include : {
+          association: "images",
+          attributes: ["name"],
+        },
+        where : {gamaId : gama}
+      })
+      return products
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    }
+    }
+  },
+  searchByBrand : async (brand) => {
+    try {
+      const products = db.Product.findAll({
+        include : {
+          association: "images",
+          attributes: ["name"],
+        },
+        where : {brandId : brand}
+      })
+      return products
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    }
+    }
   }
-
 };

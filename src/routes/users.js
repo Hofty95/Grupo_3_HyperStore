@@ -16,11 +16,11 @@ router
   .post('/login',loginValidation, loginProcess)
   .get('/register',checkUser ,register)
   .post('/register',registerValidation  ,registerProcess)
+  .get('/logout',checkUserLogin, logout)
   .get('/:id',checkUserLogin, usuario)
   .put('/edit/:id',uploadUserImage.single('image') ,profileValidation, changeInfo)
   .get('/changepass',checkUserLogin,changepass)
   .get('/remove/:id',checkUserLogin,confirmRemoveUser)
-  .get('/logout', checkUserLogin, logout)
   .delete('/remove/:id', removeUser)
   .delete('/removeme/:id', removeSelf)
 

@@ -7,6 +7,8 @@
 
 body{
     background-color: var(--colorFondo);
+    color: white;
+    transition: 0.5s ease-in-out;
 }
 
 li{
@@ -23,8 +25,21 @@ a{
     color: white;
 }
 
-p{
-    color: white;
+.light-mode {
+    background-color:#D7D6D6;
+    color: black;
+}
+.light-mode h1, .light-mode h2, .light-mode h3, .light-mode h4 {
+    color: black;
+}
+.light-mode label{
+    color: black;
+}
+.light-mode b{
+    color: black;
+}
+.light-mode small{
+    color: black;
 }
 
 
@@ -39,6 +54,9 @@ p{
 .slick-dots{
     visibility: hidden;
 }
+.slick-slider .slick-track, .slick-slider .slick-list {
+    margin: auto;
+  }
 
 @media (min-width:768px) {
     .slick-dots{

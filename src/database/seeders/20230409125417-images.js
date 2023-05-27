@@ -93,13 +93,13 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name : "auricularHS802.webp",
+    name : "auricularHS802.png",
     productId: 4,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "auricularHS803.webp",
+    name : "auricularHS803.png",
     productId: 4,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -111,7 +111,7 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name : "auricularHS805.webp",
+    name : "auricularHS805.png",
     productId: 4,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -123,13 +123,13 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name : "teclado-corsair-k70-2.webp",
+    name : "teclado-corsair-k70-2.png",
     productId: 5,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "teclado-corsair-k70-3.png",
+    name : "teclado-corsair-k70-3.jpg",
     productId: 5,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -153,7 +153,7 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name: "gabinete-corsair-delta4.avif",
+    name: "gabinete-corsair-delta4.jpg",
     productId: 6,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -177,7 +177,7 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name: "monitor-gigabyte4.webp",
+    name: "monitor-gigabyte4.png",
     productId: 7,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -231,13 +231,13 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name: "notebook-gigabyte-aero16-4.webp",
+    name: "notebook-gigabyte-aero16-4.png",
     productId: 9,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "notebook-gigabyte-aero16-5.webp",
+    name: "notebook-gigabyte-aero16-5.png",
     productId: 9,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -303,19 +303,19 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name: "teclado-bluetooth-logitech-4.webp",
+    name: "teclado-bluetooth-logitech-2.png",
     productId: 12,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "teclado-bluetooth-logitech-2.webp",
+    name: "teclado-bluetooth-logitech-3.png",
     productId: 12,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "teclado-bluetooth-logitech-3.webp",
+    name: "teclado-bluetooth-logitech-4.png",
     productId: 12,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -327,13 +327,13 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name: "placa-de-video-nvidia-colourful-2.webp",
+    name: "placa-de-video-nvidia-colourful-2.png",
     productId: 13,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "placa-de-video-nvidia-colourful-3.webp",
+    name: "placa-de-video-nvidia-colourful-3.png",
     productId: 13,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -375,13 +375,7 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name : "placa-de-video-asus-1.png",
-    productId : 14,
-    createdAt: new Date(),
-    updatedAt: new Date()
-  },
-  {
-    name : "placa-de-video-asus-5.webp",
+    name : "placa-de-video-asus-5.png",
     productId : 14,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -417,7 +411,7 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name : "teclado-gamer-razer-bluetooth-2.webp",
+    name : "teclado-gamer-razer-bluetooth-2.jpg",
     productId : 16,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -441,7 +435,7 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name : "auriculares-in-ear-razer-2.webp",
+    name : "auriculares-in-ear-razer-2.jpg",
     productId : 17,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -495,7 +489,7 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name : "fuente-de-alimentacion-redragon-800w-2.webp",
+    name : "fuente-de-alimentacion-redragon-800w-2.jpg",
     productId : 19,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -525,19 +519,19 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name : "mouse-redragon-m607-2.jpg",
+    name : "mouse-redragon-m607-2.png",
     productId : 20,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "mouse-redragon-m607-3.jpeg",
+    name : "mouse-redragon-m607-3.png",
     productId : 20,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "mouse-redragon-m607-4.webp",
+    name : "mouse-redragon-m607-4.png",
     productId : 20,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -555,7 +549,7 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name : "joystick-inalambrico-redragon-3.webp",
+    name : "joystick-inalambrico-redragon-3.jpg",
     productId : 21,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -639,13 +633,13 @@ const productImages = [
     updatedAt: new Date()
   },
   {
-    name : "auriculares-asus-rog-in-ear-3.webp",
+    name : "auriculares-asus-rog-in-ear-3.jpg",
     productId : 24,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name : "auriculares-asus-rog-in-ear-4.webp",
+    name : "auriculares-asus-rog-in-ear-4.jpg",
     productId : 24,
     createdAt: new Date(),
     updatedAt: new Date()

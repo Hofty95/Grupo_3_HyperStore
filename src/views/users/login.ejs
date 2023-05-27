@@ -15,15 +15,15 @@
                 <div class="form__box__login">
                   <label for="">Email</label>
                   <input type="email" placeholder="Ingresa tu email" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>"/>
-                  <small style="color:red"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
+                  <small id="loginEmailError" style="color:red"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
                 </div>
                 <div class="form__box__login">
                   <label for="">Contraseña</label>
                   <input type="password" placeholder="Ingresa tu contraseña" id="password" name="password" value="<%= locals.old && old.password ? old.password : null %>"/>
-                  <small style="color:red"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
-                  <button type="button">
+                  <small id="loginPasswordError" style="color:red"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
+                  <button type="button" id="togglePassword">
                     <i class="fa-solid fa-eye"></i>
-                  </button>
+                  </button> 
                   <a class="form__box__login__link" href="/user/changepass">¿Olvidaste tu contraseña?</a>
                 </div>
                 <hr>
@@ -38,18 +38,21 @@
                 </div>
                 <div class="login__socialmedia">
                   <h4>Iniciar sesion con:</h4>
-                  <button href=""><i class="fa-brands fa-google"></i>Google</button>
-                  <button href=""><i class="fa-brands fa-facebook"></i>Facebook</button>
+                  <a class="login_google_btn" href="/auth/login/google"><i class="fa-brands fa-google"></i> Google</a>
                 </div>
                 <div class="login__forget-account">
-                  <h4>¿No tienes cuenta?</h4>
-                  <a href="/user/register">Registrate</a>
+                  <h4>¿No tienes cuenta?   </h4>
+                  <div><a href="/user/register">Registrate</a></div>
+                  
                 </div>
               </form>
             </section>
           </main>
           <!-- Footer -->
           <%- include('../partials/footer')  %> 
+          /* LIGHTMODE */
+          <script src="/javascripts/enableLightMode.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+          <script src="/javascripts/login.js"></script>
     </body>
 </html>

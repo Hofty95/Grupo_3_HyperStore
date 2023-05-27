@@ -1,5 +1,5 @@
 const createResponseError = require("../../helpers/createResponseError");
-const { getAllProducts, getAllCategories, getAllGamas, getAllBrands, createNewProduct, createImagesForProduct, createCategoriesForProduct, editAProduct } = require("../../services/productServices");
+const { getAllProducts, getAllCategories, getAllGamas, getAllBrands, createNewProduct, createImagesForProduct, createCategoriesForProduct, editAProduct, editAProductCategory, editAProductImage, productToEdit } = require("../../services/productServices");
 const { getAllUsers } = require("../../services/userServices");
 const { validationResult } = require("express-validator");
 
@@ -68,93 +68,52 @@ module.exports = {
       return createResponseError(res,error)
     }
   },
+  editProduct : async (req, res) => {
+    try {
+      const product = await productToEdit(req.params.id)
+
+      return res.status(200).json({
+        ok : true,
+        data : product,
+        meta : {
+          status : 200,
+          total : 1
+        }
+      })
+    } catch (error) {
+      return createResponseError(res,error)
+    }
+  },
   saveEditProduct: async (req, res) => {
     try {
       const errors = validationResult(req);
       const {id} = req.params
+      console.log(id)
 
       if(!errors.isEmpty()) throw {
         status : 400,
         message : errors.mapped()
       }
 
-      
-      const editProduct = editAProduct(req.body,id)
-      
-    } catch (error) {
-      
-    }
-    const errors = validationResult(req);
+      const editProduct = await editAProduct(req.body,id)
+      const editCategory = await editAProductCategory(req.body,id)
+      const editImages = await editAProductImage(req.files,id)
 
-    if (errors.isEmpty()) {
-      const { id } = req.params;
-      const {
-        name,
-        price,
-        discount,
-        description,
-        specifications,
-        categories,
-        gama,
-        brand,
-      } = req.body;
-
-      db.Product.update(
-        {
-          name: name.trim(),
-          price: +price,
-          discount: +discount,
-          description: description.trim(),
-          specifications: specifications.trim(),
-          gamaId: +gama,
-          brandId: +brand,
+      return res.status(200).json({
+        ok : true,
+        meta : {
+          status : 200,
+          total : 1,
+          url : `/api/product/detalle/${id}`
         },
-        {
-          where: {
-            id: id,
-          },
+        data : {
+          editedProduct : editProduct,
+          categories : editCategory,
+          images : editImages
         }
-      )
-        .then(() => {
-          categories.forEach(async (category) => {
-            await db.productCategories.update(
-              {
-                categoryId: category,
-              },
-              {
-                where: {
-                  productId: id,
-                },
-              }
-            );
-          });
-        })
-        .catch((error) => console.log(error));
-    } else {
-      const { id } = req.params;
-      const productToEdit = db.Product.findByPk(id, {
-        include: [
-          {
-            association: "categories",
-            attributes: ["id", "name"],
-          },
-        ],
-      });
-      const allCategories = db.Category.findAll();
-      const gamas = db.Gama.findAll();
-      const brands = db.Brand.findAll();
-
-      Promise.all([productToEdit, allCategories, gamas, brands])
-        .then(([productToEdit, allCategories, gamas, brands]) => {
-          return res.render("admin/dashboard_edit", {
-            title: "HyperStore | edit",
-            allCategories,
-            ...productToEdit.dataValues,
-            gamas,
-            brands,
-          });
-        })
-        .catch((error) => console.log(error));
+      })
+    } catch (error) {
+      return createResponseError(res,error)
     }
   },
 };

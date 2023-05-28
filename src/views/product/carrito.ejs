@@ -4,9 +4,9 @@
 
   <body>
     <!-- header -->
-      <%- include('../partials/header')  %> 
+    <%- include('../partials/header') %>
       <!-- MAIN -->
-      <main class="main__cart">
+      <!-- <main class="main__cart">
         <section class="main__cart__section">
           <article class="main__cart__article__productos">
             <div class="carrito__vacio">
@@ -56,12 +56,41 @@
             </div>
           </article>
         </section>
+      </main> -->
+      <main class="container">
+
+        <div class="row position-relative">
+
+          <div id="cards-container" class="col-8">
+          </div>
+
+          <div class="card col-4 my-5 position-sticky" style="height:fit-content;top:20px">
+            <div class="card-body my-2 d-flex flex-column gap-2">
+              <button class="btn w-100 btn-danger" id="clear-cart">Vaciar Carrito</button>
+              <button class="btn w-100 btn-success" id="btn-buy">Comprar</button>
+              <a href="/product/busqueda" class="btn w-100 btn-dark">Seguir mirando</a>
+              <div class="text-end fs-3" style="color: black;">
+                <span>
+                  Total:
+                </span>
+                <output id="output-total">
+                  0
+                </output>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </main>
       <!-- Fotter -->
       <%- include('../partials/footer') %>
-      /* LIGHTMODE */
-          <script src="/javascripts/enableLightMode.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        /* LIGHTMODE */
+        <script src="/javascripts/enableLightMode.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+          crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/javascripts/cart.js"></script>
   </body>
 
 </html>

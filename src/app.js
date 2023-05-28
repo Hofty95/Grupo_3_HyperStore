@@ -18,7 +18,7 @@ const productRouter = require('./routes/product');
 const adminRouter = require('./routes/admin');
 const authRouter = require('./routes/auth');
 /* Router Api */
-const {admin,users,product,main,cartApi} = require('./routes/api/index')
+const {admin,users,product,main,cartApi} = require('./routes/api/index');
 
 const app = express();
 loginGoogleInitialize()

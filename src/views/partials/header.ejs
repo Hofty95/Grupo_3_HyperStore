@@ -98,7 +98,7 @@
             </li>
             <li><a href="/product/carrito" style="color: white"><span><i class="fa-solid fa-cart-shopping"></i></span>
                 Mi Carrito <span>
-                  <p class="header__section__menu2__contador">0</p>
+                  <p style="visibility: hidden;" class="header__section__menu2__contador">0</p>
                 </span></a></li>
             <% } else { %>
               <li>
@@ -107,9 +107,9 @@
               </li>
               <li>
                 <a href="/product/carrito" style="color: white"><span><i class="fa-solid fa-cart-shopping"></i></span>
-                  Mi Carrito <span>
-                    <p class="header__section__menu2__contador">0</p>
-                  </span></a>
+                  Mi Carrito <!-- <span>
+                    <p id="numeradorCarrito" class="header__section__menu2__contador">0</p>
+                  </span> --></a>
               </li>
               <li>
                 <a class="nav-link" style="color: white" href="/user/logout"><i

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {Home, Help, p404} = require("../controllers/mainController")
+const {Home, Help, p404} = require("../controllers/mainController");
 
 /* / */
 router.get('/', Home);

@@ -8,8 +8,8 @@ router
     .get('/getOrderPending',getOrderPending)
     .post('/addProduct',addProduct)
     .delete('/removeProduct',removeProduct)
-    .put('/moreQuantity',moreAmount)
-    .put('/lessQuantity',lessAmount)
+    .put('/moreAmount',moreAmount)
+    .put('/lessAmount',lessAmount)
     .delete('/clearCart',clearCart)
     .put('/statusOrder',statusOrder)
    

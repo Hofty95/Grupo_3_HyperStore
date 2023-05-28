@@ -1,6 +1,6 @@
 const createResponseError = require("../../helpers/createResponseError");
-const { getAllProducts, getAllCategories, getAllGamas, getAllBrands, createNewProduct, createImagesForProduct, createCategoriesForProduct, editAProduct, editAProductCategory, editAProductImage, productToEdit } = require("../../services/productServices");
-const { getAllUsers } = require("../../services/userServices");
+const { getAllProducts, getAllCategories, getAllGamas, getAllBrands, createNewProduct, createImagesForProduct, createCategoriesForProduct, editAProduct, editAProductCategory, editAProductImage, productToEdit, getTotalProducts, getTotalOrderCompleted } = require("../../services/productServices");
+const { getAllUsers, getTotalUsers } = require("../../services/userServices");
 const { validationResult } = require("express-validator");
 
 module.exports = {
@@ -116,4 +116,26 @@ module.exports = {
       return createResponseError(res,error)
     }
   },
+  metrics : async (req,res) => {
+    try {
+      const totalProducts = await getTotalProducts()
+      const totalOrders = await getTotalOrderCompleted()
+      const totalUsers = await getTotalUsers()
+
+      return res.status(200).json({
+        ok : true,
+        meta : {
+          status : 200,
+          url : `/api/admin/metrics`
+        },
+        data : {
+          totalProducts,
+          totalOrders,
+          totalUsers
+        }
+      })
+    } catch (error) {
+      return createResponseError(res,error)
+    }
+  }
 };

@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue:'pending',
       validate : {
         isIn:{
-          args:['pending','completed','canceled'],
+          args:[['pending','completed','canceled']],
           msg:'Los valores validos son pending, completed o canceled'
         }
       }

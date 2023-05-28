@@ -15,7 +15,7 @@
                 <section class="profile__data">
                   <div class="relative block">
                     <img alt="profil"
-                      src="<%= /http/.test(user.image) ? user.image?.toString().trim() : `/images/users/${user.image || 'user.png'}` %>"
+                      src="<%= /https/.test(user.image) ? user.image?.toString().trim() : `/images/User-img/${user.image || 'user.png'}` %>"
                       class="mx-auto object-cover rounded-full h-20 w-20 " />
                   </div>
                   <label class="block" for="">

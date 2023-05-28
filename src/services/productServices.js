@@ -393,5 +393,32 @@ console.log(productsByCategory)
         message: error.message,
     }
     }
+  },
+  getTotalProducts : async () =>{
+    try {
+      const totalProducts = await db.Product.count()
+
+      return totalProducts
+    } catch (error) {
+      throw {
+        status: 500,
+        message: error.message,
+    }
   }
+},
+getTotalOrderCompleted : async () =>{
+  try {
+    const totalOrders = await db.Order.count({
+      where : {status : 'completed'}
+    })
+
+    return totalOrders
+  } catch (error) {
+    throw {
+      status: 500,
+      message: error.message,
+  }
+}
+},
+
 };

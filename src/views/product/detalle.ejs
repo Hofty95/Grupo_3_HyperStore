@@ -1,187 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head')  %> 
-<body>
-    <!-- Header -->
-    <%- include('../partials/header')  %> 
-    <!-- MAIN -->
-    <main>
-        <section class="main__section">
-            <p class="main__section__categoria">Categoría > Subcategoría</p>
-            <article class="main__section__article1">
-                <div class="main__section__article1__description">
-                    <h1><%= name %></h1>
-                </div>
-                <div class="main__section__container">
-                    <div class="main__section__imagenes">
-                        <div class="main__section__carousel2">
-                            <% images.forEach(image => { %>
-                                <div>
-                                    <img src="/images/Productos-img/<%= image ? image.name : 'default-image.png' %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
-                                    style="cursor:pointer">
+<%- include('../partials/head') %>
+
+    <body>
+        <!-- Header -->
+        <%- include('../partials/header') %>
+            <!-- MAIN -->
+            <main>
+                <section class="main__section">
+                    <article class="main__section__article1">
+                        <div class="main__section__article1__description">
+                            <h1>
+                                <%= name %>
+                            </h1>
+                        </div>
+                        <div class="main__section__container">
+                            <div class="main__section__imagenes">
+                                <div class="main__section__carousel2">
+                                    <% images.forEach(image=> { %>
+                                        <div>
+                                            <img src="/images/Productos-img/<%= image ? image.name : 'default-image.png' %>"
+                                                alt=""
+                                                onclick="document.getElementById('images').setAttribute('src',event.target.src)"
+                                                style="cursor:pointer">
+                                        </div>
+                                        <% }) %>
                                 </div>
-                                <% }) %>                        
-                        </div>
-                        <div class="main__section__carouselnav">
-                            <% images.forEach(image => { %>
-                                <div>
-                                    <img src="/images/Productos-img/<%= image ? image.name : 'default-image.png' %>" alt="" onclick="document.getElementById('images').setAttribute('src',event.target.src)"
-                                    style="cursor:pointer">
+                                <div class="main__section__carouselnav">
+                                    <% images.forEach(image=> { %>
+                                        <div>
+                                            <img src="/images/Productos-img/<%= image ? image.name : 'default-image.png' %>"
+                                                alt=""
+                                                onclick="document.getElementById('images').setAttribute('src',event.target.src)"
+                                                style="cursor:pointer">
+                                        </div>
+                                        <% }) %>
                                 </div>
-                                <% }) %>
-                        </div>
-                    </div>
-                    <div class="main__section__article1__panel">
-                        <div class="main__section__article1__precio">
-                            <p>PAGO CONTADO <b><%= discount %>% OFF</b></p>
-                            <h2>$<%= toThousand(price) %></h2>
-                            <p>
-                            Precio con descuento: $<%= toThousand(Math.floor(price - (price * discount) / 100)) %>
-                            </p>
-                            <i class="fa-solid fa-shield"></i>
-                            <small>1 año de garantía</small></i>
-                        </div>
-                        <div class="main__section__article1__descuento">
-                            <div class="etiquetas__descuento">
-                                <p><i class="fa-brands fa-cc-visa fa-2xl"></i><b>12 CUOTAS SIN INTERÉS DE $<%= toThousand(Math.floor(price / 12)) %></b></p>
                             </div>
-                            <div class="etiquetas__descuento">
-                                <p><i class="fa-brands fa-cc-mastercard fa-2xl"></i><b>6 CUOTAS SIN INTERÉS DE $<%= toThousand(Math.floor(price / 6)) %></b></p>
+                            <div class="main__section__article1__panel">
+                                <div class="main__section__article1__precio">
+                                    <p>PAGO CONTADO <b>
+                                            <%= discount %>% OFF
+                                        </b></p>
+                                    <h2>$<%= toThousand(price) %>
+                                    </h2>
+                                    <p>
+                                        Precio con descuento: $<%= toThousand(Math.floor(price - (price * discount) /
+                                            100)) %>
+                                    </p>
+                                    <i class="fa-solid fa-shield"></i>
+                                    <small>1 año de garantía</small></i>
+                                </div>
+                                <div class="main__section__article1__descuento">
+                                    <div class="etiquetas__descuento">
+                                        <p><i class="fa-brands fa-cc-visa fa-2xl"></i><b>12 CUOTAS SIN INTERÉS DE $<%=
+                                                    toThousand(Math.floor(price / 12)) %></b></p>
+                                    </div>
+                                    <div class="etiquetas__descuento">
+                                        <p><i class="fa-brands fa-cc-mastercard fa-2xl"></i><b>6 CUOTAS SIN INTERÉS DE $
+                                                <%= toThousand(Math.floor(price / 6)) %></b></p>
+                                    </div>
+                                    <div class="etiquetas__descuento">
+                                        <p><i class="fa-brands fa-bitcoin fa-2xl"></i><b>PAGÁ AHORA CON BITCOINS ·
+                                                REINTEGRO DE HASTA 20%</b></p>
+                                    </div>
+                                </div>
+                                <% if (locals.userLogin && userLogin.rol===1) { %>
+                                    <div class="d-flex justify-content-around">
+                                        <form action="/admin/dashboard/edit/<%= id %>" method="get" class=""><button
+                                                class="boton__general">Editar Producto</button></form>
+                                        <form action="/product/remove/<%= id %>?_method=DELETE" id="form-delete"
+                                            method="POST"><button type="submit" class="btn btn-danger">Eliminar
+                                                Producto</button></form>
+                                    </div>
+                                    <% } %>
+                                    <div class="article1__boton__general">
+                                        <button class="boton__general" id="btn-addCart" data-id="<%= id %>">AGREGAR AL CARRITO</button>
+                                    </div>
                             </div>
-                            <div class="etiquetas__descuento">
-                                <p><i class="fa-brands fa-bitcoin fa-2xl"></i><b>PAGÁ AHORA CON BITCOINS · REINTEGRO DE HASTA 20%</b></p>
+                        </div>
+                        <div class="main__section__article1__info">
+                            <div class="main__section__article1__info__container">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <h3><b>¡últimas unidades!</b></h3>
+                                    <small>Solo para venta web</small>
+                                </div>
+                                <i class="fa-solid fa-house"></i>
+                                <div>
+                                    <h3>Retiro <b>¡gratis!</b></h3>
+                                    <small>En nuestras sucursales</small>
+                                </div>
+                                <i class="fa-solid fa-truck"></i>
+                                <div>
+                                    <h3>Envío a todo el país</h3>
+                                    <small>Ver costo de envío</small>
+                                </div>
                             </div>
                         </div>
-                        <div class="main__section__article1__add__tablet">
-                            <p class="main__section__article1__add__signo1">-</p>
-                            <p class="main__section__article1__add__1">1</p>
-                            <p class="main__section__article1__add__signo2">+</p>
-                        </div>
-                        <% if (locals.userLogin && userLogin.rol === 1) { %>
-                            <div class="d-flex justify-content-around">
-                                <form action="/admin/dashboard/edit/<%= id %>" method="get" class=""><button class="boton__general">Editar Producto</button></form>
-                                <form action="/product/remove/<%= id %>?_method=DELETE" id="form-delete" method="POST"><button type="submit" class="btn btn-danger">Eliminar Producto</button></form>
+
+                        <hr>
+                        <div class="main__section__article1__specs">
+                            <h3>especificaciones del producto</h3>
+                            <div class="main__section__article1__specs__container">
+                                <div class="main__section__article1__datos">
+                                    <b>Dato 1</b>
+                                    <hr>
+                                    <p>
+                                        <%= description %>
+                                    </p>
+                                </div>
+                                <div class="main__section__article1__datos">
+                                    <b>Dato 2</b>
+                                    <hr>
+                                    <p>
+                                        <%= description %>
+                                    </p>
+                                </div>
+                                <div class="main__section__article1__datos">
+                                    <b>Dato 3</b>
+                                    <hr>
+                                    <p>
+                                        <%= description %>
+                                    </p>
+                                </div>
+                                <div class="main__section__article1__datos__tablet">
+                                    <b>Dato 4</b>
+                                    <hr>
+                                    <p>
+                                        <%= specifications %>
+                                    </p>
+                                </div>
+                                <div class="main__section__article1__datos__tablet">
+                                    <b>Dato 5</b>
+                                    <hr>
+                                    <p>
+                                        <%= specifications %>
+                                    </p>
+                                </div>
+                                <div class="main__section__article1__datos__tablet">
+                                    <b>Dato 6</b>
+                                    <hr>
+                                    <p>
+                                        <%= specifications %>
+                                    </p>
+                                </div>
                             </div>
-                        <% } %>
-                    </div>
-                </div>
-                <div class="main__section__article1__info">
-                    <div class="main__section__article1__info__container">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <div>
-                            <h3><b>¡últimas unidades!</b></h3>
-                            <small>Solo para venta web</small>
                         </div>
-                        <i class="fa-solid fa-house"></i>
-                        <div>
-                            <h3>Retiro <b>¡gratis!</b></h3>
-                            <small>En nuestras sucursales</small>
+                    </article>
+                    <section class="main__section__recomendados">
+                        <div class="main__section__recomendados__titulos">
+                            <h2 class="main__section__recomendados__titulo1">PRODUCTOS</h2>
+                            <h2 class="main__section__recomendados__titulo2"><b>RECOMENDADOS</b></h2>
                         </div>
-                        <i class="fa-solid fa-truck"></i>
-                        <div>
-                            <h3>Envío a todo el país</h3>
-                            <small>Ver costo de envío</small>
+                        <div class="main__section__recomendados__container">
+                            <% ofertProducts.forEach(({name,id,price,discount,images})=> { %>
+                                <%- include('../partials/productCard',{ name, id, price, discount, images }) %>
+                                    <% }) %>
                         </div>
-                    </div>
-                </div>
-                <div class="main__section__article1__add">
-                    <p class="main__section__article1__add__signo1">-</p>
-                    <p class="main__section__article1__add__1">1</p>
-                    <p class="main__section__article1__add__signo2">+</p>
-                </div>
-                <div class="article1__boton__general">
-                    <button class="boton__general">AGREGAR AL CARRITO</button>
-                </div>
-                <hr>
-                <div class="main__section__article1__specs">
-                    <h3>especificaciones del producto</h3>
-                    <div class="main__section__article1__specs__container">
-                        <div class="main__section__article1__datos">
-                            <b>Dato 1</b>
-                            <hr>
-                            <p><%= description %></p>
-                        </div>
-                        <div class="main__section__article1__datos">
-                            <b>Dato 2</b>
-                            <hr>
-                            <p><%= description %></p>
-                        </div>
-                        <div class="main__section__article1__datos">
-                            <b>Dato 3</b>
-                            <hr>
-                            <p><%= description %></p>
-                        </div>
-                        <div class="main__section__article1__datos__tablet">
-                            <b>Dato 4</b>
-                            <hr>
-                            <p><%= specifications %></p>
-                        </div>
-                        <div class="main__section__article1__datos__tablet">
-                            <b>Dato 5</b>
-                            <hr>
-                            <p><%= specifications %></p>
-                        </div>
-                        <div class="main__section__article1__datos__tablet">
-                            <b>Dato 6</b>
-                            <hr>
-                            <p><%= specifications %></p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <section class="main__section__recomendados">
-                <div class="main__section__recomendados__titulos">
-                    <h2 class="main__section__recomendados__titulo1">PRODUCTOS</h2>
-                    <h2 class="main__section__recomendados__titulo2"><b>RECOMENDADOS</b></h2>
-                </div>
-                <div class="main__section__recomendados__container">
-                    <% ofertProducts.forEach(({name,id,price,discount,images}) => { %>
-                     <%- include('../partials/productCard',{
-                        name,
-                        id,
-                        price,
-                        discount,
-                        images 
-                     }) %>
-                    <% }) %>
-                </div>
-            </section>
-        </section>
-    </main>
-    <!-- Footer -->
-    <%- include('../partials/footer')  %> 
-    <!-- Scripts -->
-    /* LIGHTMODE */
-          <script src="/javascripts/enableLightMode.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-migrate-3.4.0.min.js"
-        integrity="sha256-mBCu5+bVfYzOqpYyK4jm30ZxAZRomuErKEFJFIyrwvM=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        <!-- SWEET ALERT -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="/javascripts/removeProductAlert.js"></script>
-    <!-- SCRIPT DE SLICK -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.main__section__carousel2').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: false,
-                fade: true,
-                asNavFor: '.main__section__carouselnav'
-            });
-            $('.main__section__carouselnav').slick({
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                asNavFor: '.main__section__carousel2',
-                dots: true,
-                centerMode: true,
-                focusOnSelect: true
-            });
-        });
-    </script>
-</body>
+                    </section>
+                </section>
+            </main>
+            <!-- Footer -->
+            <%- include('../partials/footer') %>
+                <script src="/javascripts/detail.js"></script>
+                <!-- Scripts -->
+                /* LIGHTMODE */
+                <script src="/javascripts/enableLightMode.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+                    crossorigin="anonymous"></script>
+                <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+                    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+                <script src="https://code.jquery.com/jquery-migrate-3.4.0.min.js"
+                    integrity="sha256-mBCu5+bVfYzOqpYyK4jm30ZxAZRomuErKEFJFIyrwvM=" crossorigin="anonymous"></script>
+                <script type="text/javascript"
+                    src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+                <!-- SWEET ALERT -->
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script src="/javascripts/removeProductAlert.js"></script>
+                <!-- SCRIPT DE SLICK -->
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $('.main__section__carousel2').slick({
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: false,
+                            fade: true,
+                            asNavFor: '.main__section__carouselnav'
+                        });
+                        $('.main__section__carouselnav').slick({
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            asNavFor: '.main__section__carousel2',
+                            dots: true,
+                            centerMode: true,
+                            focusOnSelect: true
+                        });
+                    });
+                </script>
+    </body>
 
 </html>

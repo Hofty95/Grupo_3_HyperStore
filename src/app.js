@@ -17,7 +17,7 @@ const productRouter = require('./routes/product');
 const adminRouter = require('./routes/admin');
 const authRouter = require('./routes/auth');
 /* Router Api */
-const {admin,users,product,main,cartApi} = require('./routes/api/index')
+const {admin,users,product,main,cartApi,favorites} = require('./routes/api/index')
 
 const app = express();
 loginGoogleInitialize()
@@ -53,6 +53,7 @@ app.use('/auth', authRouter)
 app.use('/api/admin',admin);
 app.use('/api/main',main);
 app.use('/api/product',product);
+app.use('/api/favorites',favorites)
 app.use('/api/users',users);
 app.use('/api/cart',cartApi);
 

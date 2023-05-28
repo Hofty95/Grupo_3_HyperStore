@@ -3,5 +3,6 @@ module.exports = {
     main : require('./mainApi'),
     product : require('./productApi'),
     users : require('./usersApi'),
-    cartApi : require('./cartApi')
+    cartApi : require('./cartApi'),
+    favorites : require('./favoritesApi')
 }

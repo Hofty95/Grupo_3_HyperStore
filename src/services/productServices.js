@@ -81,16 +81,13 @@ module.exports = {
             association: "images",
           },
           {
-<<<<<<< HEAD
-            association : 'categories'
-=======
             association : 'categories',
             attributes : {
               include : [
                 'name','id','categoryId'
               ]
->>>>>>> 0d0ddd7b5be88b6dc9ba3474e2d37ad4aae524e3
             }
+          }
         ],
       });
 console.log(productsByCategory)

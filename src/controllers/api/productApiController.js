@@ -1,6 +1,6 @@
 const db = require("../../database/models");
 const { Op } = require("sequelize");
-const { getOneProduct, deleteProduct, getAllCategories, deleteProductCategories, searchProduct, searchByGama, searchByBrand } = require("../../services/productServices");
+const { getOneProduct, deleteProduct, getAllCategories, deleteProductCategories, searchProduct, searchByGama, searchByBrand, getAllProducts } = require("../../services/productServices");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
@@ -32,15 +32,15 @@ busqueda: async (req, res) => {
         });            
     })
   },
-  category: (req,res) => {
+  category: async (req,res) => {
     try {
-      const category = getAllCategories();
+      const category = await getAllCategories();
       return res.status(200).json({
         ok : true,
-        data : category.dataValues,
+        data : category,
         meta : {
           status : 200,
-          total : 1
+          total : category.length
         }
       })
     } catch (error) {
@@ -117,5 +117,20 @@ busqueda: async (req, res) => {
     } catch (error) {
       return createResponseError(res,error)
     }
-  }
+  },
+  products : async (req,res) => {
+    try {
+      const products = await getAllProducts()
+      return res.status(200).json({
+        ok : true,
+        data : products,
+        meta : {
+          status : 200,
+          total : products.length,
+        }
+      })
+    } catch (error) {
+      return createResponseError(res,error)
+    }
+  },
 };

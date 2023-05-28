@@ -9,6 +9,7 @@ const cookiecheck = require('./middlewares/cookieChecker')
 const localsUser = require('./middlewares/localsUserCheck')
 const passport = require('passport')
 const { loginGoogleInitialize } = require('./services/googleServices');
+const cors = require('cors')
 
 /* Router */
 const mainRouter = require('./routes/main');
@@ -41,6 +42,7 @@ app.use(cookiecheck) //checkea si hay cookie y la manda a session
 app.use(localsUser) //checkea si hay session y lo manda a locals
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(cors())
 
 /* Rutas */
 app.use('/', mainRouter);

@@ -6,9 +6,6 @@
     <!-- header -->
     <%- include('../partials/header') %>
     <!-- MAIN -->
-    <div>
-    <%- include('../partials/paginador') %>    
-    </div>
 
     <main class="busqueda__main">
       <section class="main__info__section col-lg-4 position-relative">
@@ -94,11 +91,11 @@
         </div>
       </section>
       <section class="col-lg-8">
-        <div class="main__section__article" id="container-products-card">
-          <%# productsFound.forEach(product => { %> <%#
+        <div class="main__section__article">
+          <% productsFound.forEach(product => { %> <%
           include('../partials/productCard',{ id : product.id, name :
           product.name, price : product.price, discount : product.discount,
-          images : product.images }) %> <%# }) %>
+          images : product.images }) %> <% }) %>
         </div>
       </section>
     </main>
@@ -109,6 +106,5 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
-    <script src="/javascripts/paginator.js"></script>
   </body>
 </html>

@@ -137,11 +137,11 @@
     <div class="header__section2__contacto">
       <button><a href="https://web.whatsapp.com/" target="_blank">Contactános!</a></button>
     </div>
-    <% if (locals.userLogin && userLogin.rol===1) { %>
-      <div class="header__section2__contacto">
-        <button><a class="nav-link" href="/admin/dashboard">DASHBOARD/</a><a href="http://127.0.0.1:5173">DASHBOARD REACT</a></button>
-      </div>
-      <% } %>
   </section>
+  <% if (locals.userLogin && userLogin.rol=== 1) { %>
+    <div class="BOTON__DASHBOARD__PROVISORIO">
+    <a class="nav-link" href="/admin/dashboard">DASHBOARD</a><a href="http://127.0.0.1:5173" target="_blank">DASHBOARD REACT</a>
+    <% } %>
+  </div>
 
 </header>

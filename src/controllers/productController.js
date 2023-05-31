@@ -4,91 +4,74 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
   busqueda: async (req, res) => {
-    const { keywords, gama, brand, category } = req.query;
-    const categories = await db.Category.findAll()
-    const brands = await db.Brand.findAll()
+    const { keywords, gama, brand, category, state } = req.query;
+    const categories = await db.Category.findAll();
+    const brands = await db.Brand.findAll();
 
-
-    let productsFound = db.Product.findAll({
-      include: {
-        association: "images",
-        attributes: ["name"],
-      },
+    let productsFound = await db.Product.findAll({
+      include: [
+        {
+          model: db.Category,
+          as: 'categories',
+          attributes: ['id', 'name'],
+        },
+        {
+          model: db.Image,
+          as: 'images',
+          attributes: ['name'],
+        },
+      ],
     });
 
+    let filteredProducts = productsFound;
+
+    if(!keywords) {
+      productsFound = []
+    }
+
     if (keywords) {
-      productsFound = db.Product.findAll({
-        include: {
-          association: "images",
-          attributes: ["name"],
-        },
-        where: {
-          [Op.or]: [
-            {
-              name: {
-                [Op.substring]: `%${keywords}%`,
-              },
-            },
-            {
-              description: {
-                [Op.substring]: `%${keywords}%`,
-              },
-            }
-          ]
-        }
-      });
+      filteredProducts = filteredProducts.filter(
+        (product) =>
+          product.name.includes(keywords) || product.description.includes(keywords)
+      );
     }
 
     if (gama) {
-      productsFound = db.Product.findAll({
-        include: {
-          association: "images",
-          attributes: ["name"],
-        },
-        where: { gamaId: gama }
-      })
+      filteredProducts = filteredProducts.filter((product) => product.gamaId == gama);
     }
 
     if (brand) {
-      productsFound = db.Product.findAll({
-        include: {
-          association: "images",
-          attributes: ["name"],
-        },
-        where: { brandId: brand }
-      })
+      filteredProducts = filteredProducts.filter((product) => product.brandId == brand);
     }
 
     if (category) {
-      productsFound = db.Product.findAll({
-        include: [
-          {
-            model: db.Category,
-            as: 'categories',
-            where: {
-              name: {
-                [Op.substring]: `%${category}%`,
-              },
-            },
-            attributes: ['id', 'name'],
-          },
-          {
-            model: db.Image,
-            as: 'images',
-            attributes: ['name'],
-          },
-        ],
-      });
+      filteredProducts = filteredProducts.filter((product) =>
+        product.categories.some((cat) => cat.name.includes(category))
+      );
     }
+
+    if (state === 'desc' || state === 'asc') {
+      const order = state === 'desc' ? 'DESC' : 'ASC';
+      filteredProducts.sort((a, b) => (a.price - b.price) * (order === 'ASC' ? 1 : -1));
+    }
+
+    const categoryFilter = category ? `category=${category}` : '';
+    const brandFilter = brand ? `brand=${brand}` : '';
+    
     Promise.all([productsFound])
       .then(([productsFound]) => {
         return res.render("product/busqueda", {
           title: "Search",
-          productsFound,
+          productsFound: filteredProducts,
           categories,
-          numSearched: productsFound.length,
+          numSearched: filteredProducts.length,
           brands,
-          toThousand
+          toThousand,
+          keywords,
+          categoryFilter,
+          brandFilter,
+          category,
+          brand
         });
       })
   },

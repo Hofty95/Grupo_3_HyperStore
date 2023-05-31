@@ -15,11 +15,11 @@
           <hr />
           <h2>Ordenar productos</h2>
           <ul>
-            <li>
+            <!-- <li>
               <a href="/product/busqueda?state=relevant">Mayor Relevancia</a>
-            </li>
-            <li><a href="/product/busqueda?state=desc">Mayor Precio</a></li>
-            <li><a href="/product/busqueda?state=asc">Menor Precio</a></li>
+            </li> -->
+            <li><a href="/product/busqueda?keywords=<%= keywords %>&category=<%= category %>&brand=<%= brand %>&state=desc">Mayor Precio</a></li>
+            <li><a href="/product/busqueda?keywords=<%= keywords %>&category=<%= category %>&brand=<%= brand %>&state=asc">Menor Precio</a></li>
           </ul>
           <hr />
           <div class="main__info__menutablet">
@@ -90,14 +90,18 @@
                         </div> -->
         </div>
       </section>
-      <section class="col-lg-8">
+      <section>
         <div class="main__section__article">
-          <% productsFound.forEach(product => { %> <%
-          include('../partials/productCard',{ id : product.id, name :
-          product.name, price : product.price, discount : product.discount,
-          images : product.images }) %> <% }) %>
+            <% productsFound.forEach(({id, name, price, images}) => { %>
+                <%- include('../partials/cardArticle',{
+                    id,
+                    name,
+                    price,
+                    images
+                }) %>
+            <% }) %>
         </div>
-      </section>
+    </section>
     </main>
     <%- include('../partials/footer') %> /* LIGHTMODE */
     <script src="/javascripts/enableLightMode.js"></script>

@@ -17,6 +17,9 @@ module.exports = {
             association: "images",
             attributes: ["name"],
           },
+          {
+            association : "usersFavorites"
+          }
         ],
       }
 

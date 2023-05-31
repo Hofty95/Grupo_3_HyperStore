@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./src/bin/www",
     "db:create": "sequelize db:drop & sequelize db:create & sequelize db:migrate",
-    "db:reset": "sequelize db:migrate:undo:all & sequelize db:migrate & sequelize db:seed:all"
+    "db:reset": "sequelize db:migrate:undo:all & sequelize db:migrate & sequelize db:seed:all",
+    "init": "concurrently \"npm run start\" \"cd dashboard && npm run dev\""
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -28,5 +29,8 @@
     "sequelize": "^6.30.0",
     "sequelize-paginate": "^1.1.6",
     "sweetalert2": "^11.4.8"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1"
   }
 }

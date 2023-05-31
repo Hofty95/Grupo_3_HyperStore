@@ -36,9 +36,10 @@ module.exports = {
         brand,
       } = req.body;
 
-      let categories = new Array(req.body.categories);
+      let categories = new Array(req.body.categories).flat();
 
-      categories.flat(3);
+
+      console.log(categories)
 
       db.Product.create({
         name: name.trim(),

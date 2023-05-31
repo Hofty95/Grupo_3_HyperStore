@@ -329,10 +329,10 @@
     .main__section__article1__datos__tablet{
         display: block;
         padding: 10px 0px;
-        width: 33%;
+        width: 100%;
     }
     .main__section__article1__datos{
-        width: 33%;
+        width: 100%;
         padding: 10px 0px;
     }
     .main__section__article1__specs p{
@@ -341,9 +341,10 @@
     }
     .main__section__article1__specs__container{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
-        justify-content: space-between;
+        align-content: center;
+        text-align: center;
     }
     .main__section__article1__specs hr{
         width: 80%;

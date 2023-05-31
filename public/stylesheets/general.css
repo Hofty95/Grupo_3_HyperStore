@@ -1,65 +1,82 @@
-*{
+* {
     box-sizing: border-box;
     font-family: var(--fuenteBase);
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background-color: var(--colorFondo);
     color: white;
     transition: 0.5s ease-in-out;
 }
 
-li{
+li {
     list-style: none;
 }
 
-ul, ol{
+ul,
+ol {
     padding: 0;
     margin: 0;
 }
 
-a{
+a {
     text-decoration: none;
     color: white;
 }
 
 .light-mode {
-    background-color:#D7D6D6;
+    background-color: #D7D6D6;
     color: black;
 }
-.light-mode h1, .light-mode h2, .light-mode h3, .light-mode h4 {
+
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode h4 {
     color: black;
 }
-.light-mode label{
+
+.light-mode label {
     color: black;
 }
-.light-mode b{
+
+.light-mode b {
     color: black;
 }
-.light-mode small{
+
+.light-mode small {
     color: black;
 }
 
 
 /* CARROUSEL SLICK */
 
-.slick-dots li button:before{
+.slick-dots li button:before {
     color: var(--colorVioleta);
 }
-.slick-dots li.slick-active button:before{
+
+.slick-dots li.slick-active button:before {
     color: white;
 }
-.slick-dots{
+
+.slick-dots {
     visibility: hidden;
 }
-.slick-slider .slick-track, .slick-slider .slick-list {
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
     margin: auto;
-  }
+}
+
+.pagination {
+    justify-content: center;
+    padding: 0px 0px 35px;
+}
 
 @media (min-width:768px) {
-    .slick-dots{
+    .slick-dots {
         visibility: visible;
     }
 }

@@ -83,7 +83,7 @@
       </div>
       <div class="header__section__buscador">
         <form action="/product/busqueda" method="get">
-          <input class="header__section__buscador__barra" type="text" placeholder="Buscar productos" name="keywords">
+          <input class="header__section__buscador__barra" type="text" placeholder="Buscar productos" name="keywords" required>
           <button class="header__section__buscador__boton" type="submit"><i
               class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
         </form>
@@ -97,9 +97,9 @@
             </li>
             </li>
             <li><a href="/product/carrito" style="color: white"><span><i class="fa-solid fa-cart-shopping"></i></span>
-                Mi Carrito <span>
+                Mi Carrito <!-- <span>
                   <p style="visibility: hidden;" class="header__section__menu2__contador">0</p>
-                </span></a></li>
+                </span> --></a></li>
             <% } else { %>
               <li>
                 <a class="nav-link" style="color: white" href="/user/<%- userLogin.id %>"><span><i
@@ -127,7 +127,7 @@
   </section>
   <section class="header__section2">
     <div class="header__section2__categorias">
-      <form action="/product/busqueda" method="get">
+      <form action="/product/todos" method="get">
         <button type="submit"><i class="fa-solid fa-bars"></i> Todos los Productos</button>
       </form>
     </div>

@@ -12,7 +12,7 @@ const { uploadUserImage } = require('../../middlewares/uploadIMG');
 
 /* /api/users */
 router
-  .get('/lista', list)
+  .get('/list', list)
   .get('/detail/:id', detail)
   .put('/:id', update)
   .delete('/:id', destroy)

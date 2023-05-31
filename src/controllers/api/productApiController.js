@@ -1,6 +1,6 @@
 const db = require("../../database/models");
 const { Op } = require("sequelize");
-const { getOneProduct, deleteProduct, getAllCategories, deleteProductCategories, searchProduct, searchByGama, searchByBrand, getAllProducts } = require("../../services/productServices");
+const { getOneProduct, deleteProduct, getAllCategories, deleteProductCategories, searchProduct, searchByGama, searchByBrand, getAllProducts, getAllBrands } = require("../../services/productServices");
 const createResponseError = require("../../helpers/createResponseError");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -163,6 +163,21 @@ busqueda: async (req, res) => {
         meta : {
           status : 200,
           total : products.length,
+        }
+      })
+    } catch (error) {
+      return createResponseError(res,error)
+    }
+  },
+  allBrands : async (req,res) => {
+    try {
+      const brands = await getAllBrands()
+      return res.status(200).json({
+        ok : true,
+        data : brands,
+        meta : {
+          status : 200,
+          total : brands.length,
         }
       })
     } catch (error) {

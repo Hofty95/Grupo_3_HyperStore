@@ -11,7 +11,7 @@ export const Products = () => {
   });
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/product/products')
+    fetch('http://localhost:3000/api/product/allProducts')
     .then(response => {
       return response.json()
     })
@@ -19,7 +19,7 @@ export const Products = () => {
         ok &&
         setState({
           loading : false,
-          products : data
+          products : data.products
         })
       })
       .catch(() => console.error)

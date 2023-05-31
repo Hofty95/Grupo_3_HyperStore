@@ -1,7 +1,7 @@
 import React from 'react'
-import {ContentRowMovies} from '../components/ContentRowMovies'
-import {LastMovieInDb} from '../components/LastMovieInDb'
+import {ContentRowMetrics} from '../components/ContentRowMetrics'
 import {CategoriesInDb} from '../components/CategoriesInDb'
+import { BrandsInDb } from '../components/BrandsInDb'
 
 export const Home = () => {
   return (
@@ -10,11 +10,11 @@ export const Home = () => {
       <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
     </div>
 
-    <ContentRowMovies/>
+    <ContentRowMetrics/>
     
 
     <div className="row">
-      <LastMovieInDb />
+      <BrandsInDb/>
 
       <CategoriesInDb />
     </div>

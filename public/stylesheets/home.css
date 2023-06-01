@@ -333,7 +333,7 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
 
   .product-box_data span {
     padding: 5px;
-    margin: 10px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     border-radius: 5px;
     background-color: var(--colorVioleta);
     font-size: 0.8em;
@@ -359,6 +359,12 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
     white-space: normal;
   }
 
+  .product-box_data button i{
+    font-size: 22px;
+  }
+  .product-box_data_content {
+    margin-top: 10px;
+  }
   .product-box:hover {
     box-shadow: -1px 1px 15px 6px rgba(127, 0, 255, 0.81);
     -webkit-box-shadow: -1px 1px 15px 6px rgba(127, 0, 255, 0.81);
@@ -479,7 +485,9 @@ box-shadow: -1px 1px 15px 6px rgba(127,0,255,0.81);
     transition: 300ms;
     overflow: hidden;
   }
-
+  .product-box_data_content {
+    margin-top: 15px;
+  }
   .product-box:hover {
     box-shadow: -1px 1px 15px 6px rgba(127, 0, 255, 0.81);
     -webkit-box-shadow: -1px 1px 15px 6px rgba(127, 0, 255, 0.81);

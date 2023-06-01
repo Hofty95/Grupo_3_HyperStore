@@ -91,7 +91,7 @@
         </div>
       </section>
       <section>
-        <div class="main__section__article">
+        <div class="main__section__article" id="cards-container">
             <% productsFound.forEach(({id, name, price, images}) => { %>
                 <%- include('../partials/cardArticle',{
                     id,
@@ -111,6 +111,5 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/javascripts/paginator.js"></script>
   </body>
 </html>

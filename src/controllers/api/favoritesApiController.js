@@ -8,19 +8,19 @@ const {
 module.exports = {
   getFavorites: async (req, res) => {
     try {
-      const { id } = req.session.userLogin;
-      const user = await getUserWithFavorites({ userId: id });
-      sendSucessResponse(res, { data: user });
+       const { id } = req.session.userLogin;
+       const user = await getUserWithFavorites({ userId: id });
+      sendSucessResponse(res, { data: user.productFavorites });
     } catch (error) {
       createResponseError(res, error);
     }
   },
   toggleProductFavorite: async (req, res) => {
     try {
-      const { id } = req.session.userLogin;
-      const { productId } = req.body;
-      const user = await addOrRemoveToFavorite({ userId: id, productId });
-      sendSucessResponse(res, { data: user.productsFavorite });
+       const { id } = req.session.userLogin;
+       const { productId } = req.body;
+      const isRemove = await addOrRemoveToFavorite({ userId: id, productId });
+      sendSucessResponse(res, { data: { isRemove } });
     } catch (error) {
       createResponseError(res, error);
     }

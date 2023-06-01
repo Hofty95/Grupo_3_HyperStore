@@ -14,7 +14,12 @@ module.exports = {
     const config = {
         include : [
             {
-                association : 'productFavorites'
+                association : 'productFavorites',
+                include : [
+                    {
+                        association : 'images'
+                    }
+                ]
             }
         ]
     }

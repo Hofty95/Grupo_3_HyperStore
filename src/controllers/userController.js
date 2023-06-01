@@ -244,6 +244,17 @@ module.exports = {
                 res.redirect('/user/login')
             }).catch(error => console.log(error))
         })
+    },
+    favorites : async (req,res) =>{
+        const categories = await db.Category.findAll();
+        const brands = await db.Brand.findAll();
+        return res.render('users/favorites',{
+            title : 'Hyper Sotre | Favoritos',
+            categories,
+            brands
+        })
     }
+
+
 }
 

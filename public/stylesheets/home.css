@@ -216,7 +216,13 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
+.product-box_data button {
+    border: none;
+    background: none;
+}
+.product-box_data button i{
+  font-size: 20px;
+}
 .product-box p {
   height: 20px;
   margin-top: 5px;

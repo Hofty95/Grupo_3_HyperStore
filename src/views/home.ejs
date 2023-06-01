@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('./partials/head') %>
-  <body>
+  <body data-userId="<%= locals.userLogin?.id %>">
     <!-- Header -->
     <%- include('./partials/header') %>
     <!-- MAIN -->
@@ -103,9 +103,9 @@
           <h2>Ofertas</h2>
           <hr />
           <div class="productos">
-            <% products.forEach(({name,price,id,discount, images}) =>
+            <% products.forEach(({name,price,id,discount, images,isFavorite = false}) =>
             { %> <% if (discount) { %> <%- include('./partials/cardArticle',{
-            name, price, id, images }) %> <% } %> <% }) %>
+            name, price, id, images, isFavorite}) %> <% } %> <% }) %>
           </div>
           <h2>PCs Recomendados</h2>
           <hr />
@@ -135,14 +135,14 @@
           <div class="productos">
             <% productsPc.forEach(product => { %> <%-
             include('./partials/cardArticle',{ name: product.name, price:
-            product.price, id: product.id, images: product.images }) %> <% }) %>
+            product.price, id: product.id, images: product.images,isFavorite:product.isFavorite || false }) %> <% }) %>
           </div>
           <h2>Ultimos Ingresos</h2>
           <hr />
           <div class="productos">
             <% productsOrder.forEach(product => { %> <%-
             include('./partials/cardArticle',{ name: product.name, price:
-            product.price, id: product.id, images : product.images }) %> <% })
+            product.price, id: product.id, images : product.images,isFavorite:product.isFavorite || false }) %> <% })
             %>
           </div>
         </article>
@@ -257,5 +257,7 @@
         });
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/javascripts/favoritesFunctionViewSearch.js"></script>
   </body>
 </html>

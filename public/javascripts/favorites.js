@@ -58,7 +58,6 @@ const paintProducts = ({ products }) => {
 window.addEventListener("load", async () => {
   try {
     const { ok, data } = await getFavorites();
-    console.log(data);
     if (ok) {
       paintProducts({ products: data });
     }

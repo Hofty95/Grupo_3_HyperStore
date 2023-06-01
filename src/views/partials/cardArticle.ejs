@@ -11,7 +11,7 @@
       <div class="product-box_data_content d-flex justify-content-between w-100">
       <span>Envío Gratis</span>
       <button>
-        <i class="far fa-star" style="color: #7809d3;"></i>
+        <i class="fa-star <%= isFavorite ? 'fas' : 'far' %>" onclick="toggleFavorite('<%= id %>',event)" style="color: #7809d3;"></i>
       </button>
       </div>
     </article>

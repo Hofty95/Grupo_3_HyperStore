@@ -258,7 +258,7 @@ inputSpecifications.addEventListener("blur", function (event) {
 
         for (let i = 0; i < this.elements.length - 1; i++) {
           
-          if(!this.elements[i].value || this.elements[i].classList.contains('input_invalid')){
+          if(this.elements[i].name != 'images' && !this.elements[i].value || this.elements[i].classList.contains('input_invalid')){
             error = true
           }
           
@@ -268,7 +268,7 @@ inputSpecifications.addEventListener("blur", function (event) {
           this.submit()
         }else{
           for (let i = 0; i < this.elements.length - 1; i++) {
-            !this.elements[i].value && this.elements[i].classList.add('input_invalid')
+            this.elements[i].name != 'images' && (!this.elements[i].value && this.elements[i].classList.add('input_invalid'))
           }
           $('formError').innerHTML = "Todos los campos son obligatorios."
         }

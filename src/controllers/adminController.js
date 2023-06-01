@@ -119,7 +119,7 @@ module.exports = {
   },
   saveEditProduct: (req, res) => {
     const errors = validationResult(req);
-
+  
     if (errors.isEmpty()) {
       const { id } = req.params;
       const {
@@ -128,10 +128,13 @@ module.exports = {
         discount,
         description,
         specifications,
-        categories,
         gama,
         brand,
       } = req.body;
+
+      let categories = new Array(req.body.categories).flat();
+
+      console.log(categories);
 
       db.Product.update(
         {
@@ -149,7 +152,7 @@ module.exports = {
           },
         }
       )
-        .then(() => {
+        .then( async (product) => {
           categories.forEach(async (category) => {
             await db.productCategories.update(
               {
@@ -158,12 +161,24 @@ module.exports = {
               {
                 where: {
                   productId: id,
-                },
+                }
               }
             );
-
-            return res.redirect("/admin/dashboard");
+          })
+          req.files.length && 
+          await db.Image.destroy({
+            where : {
+              productId: id
+            }
+          })
+          req.files.forEach(async (image) => {
+            await db.Image.create(
+            {
+              name: image.filename,
+              productId: id
+            });
           });
+          return res.redirect("/admin/dashboard");
         })
         .catch((error) => console.log(error));
     } else {

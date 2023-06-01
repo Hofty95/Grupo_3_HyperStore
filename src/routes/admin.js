@@ -10,7 +10,7 @@ const { uploadProductImages } = require("../middlewares/uploadIMG");
 
 router.get("/dashboard",checkUserAdmin, Admin);
 router.post("/dashboard", uploadProductImages.array('images'), storeProduct)
-router.get("/dashboard/edit/:id", editProduct)
-router.put("/dashboard/edit/:id", saveEditProduct)
+router.get("/dashboard/edit/:id",checkUserAdmin, editProduct)
+router.put("/dashboard/edit/:id", uploadProductImages.array('images'), saveEditProduct)
 
 module.exports = router

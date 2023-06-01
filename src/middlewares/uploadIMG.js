@@ -19,7 +19,7 @@ const storageUserImage = multer.diskStorage({
         callback(null, "public/images/User-img");
     },
     filename: function (req, file, callback) {
-        callback(null, `${Date.now()}_users_${path.extname(file.originalname)}`);
+        callback(null, `${file.originalname.toString(32)}_users_${path.extname(file.originalname)}`);
     },
 });
 

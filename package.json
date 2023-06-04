@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build" : "node build.js && npm i",
     "start": "node ./src/bin/www",
     "db:create": "sequelize db:drop & sequelize db:create & sequelize db:migrate",
     "db:reset": "sequelize db:migrate:undo:all & sequelize db:migrate & sequelize db:seed:all",

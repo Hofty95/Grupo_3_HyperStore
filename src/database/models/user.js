@@ -24,14 +24,22 @@ module.exports = (sequelize, DataTypes) => {
 
       User.hasMany(models.Order,{
         foreignKey:'userId',
-        as:'orders'
+        as:'orders',
+        onDelete : 'cascade'
       });
+
+/*       User.hasMany(models.Cart, {
+        foreignKey: 'userId',
+        as: 'carts',
+        onDelete: 'cascade'
+      }); */
 
       User.belongsToMany(models.Product,{
         foreignKey : 'userId',
         otherKey : 'productId',
         through : 'favorites',
-        as : 'productFavorites'
+        as : 'productFavorites',
+        onDelete : 'cascade'
       })
     }
   }

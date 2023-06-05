@@ -97,13 +97,17 @@
                   <%= locals.errors && errors.user.address.location ? errors.user.address.location.msg : null %>
                 </small>
               </div>
-              <button class="boton__general">Guardar</button>
-              <div>
-                <small id="formError" style="color: red;"></small>
+              <div class="form-row d-flex justify-content-center">
+                <button class="boton__general col-md-4" onclick="limpiarCampos()">Limpiar</button>
+                <button class="boton__general col-md-4">Guardar</button>
+              </form>
+                <form action="/user/removeme/<%= id %>?_method=DELETE" id="user-delete" method="POST">
+                  <button class="boton__general col-md-4">Eliminar Usuario</button>
+                </form>
               </div>
-            </form>
-            <form action="/user/removeme/<%= id %>?_method=DELETE" id="user-delete" method="POST"><button
-                class="btn btn-danger">Eliminar</button></form>
+                <div class="form-row d-flex justify-content-center">
+                  <small id="formError" style="color: red;"></small>
+                </div>
           </article>
         </section>
       </main>

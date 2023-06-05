@@ -75,6 +75,12 @@ a {
     padding: 0px 0px 35px;
 }
 
+.pagination a {
+    background-color: var(--colorVioleta);
+    color: white;
+}
+
+
 @media (min-width:768px) {
     .slick-dots {
         visibility: visible;

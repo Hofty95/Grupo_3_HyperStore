@@ -34,9 +34,9 @@ module.exports = {
   removeProduct: async (req, res) => {
     try {
       const { productId } = req.body;
-      /* const { id } = req.session.userLogin; */
+      const { id } = req.session.userLogin;
 
-      await removeProductInCart({ userId: 1, productId })
+      await removeProductInCart({ userId: id, productId })
       sendSuccessResponse(res);
     } catch (error) {
       createResponseError(res, error)

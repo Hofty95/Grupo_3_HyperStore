@@ -1,5 +1,6 @@
 console.log('profile.js Success!');
 
+
 const $ = (id) => document.getElementById(id);
 
 //CAPTURANDO ELEMENTOS
@@ -169,6 +170,33 @@ inputImage.addEventListener("change", function (event) {
   }
 });
 
+function limpiarCampos() {
+    
+    document.getElementById("formUser").reset();
+    document.getElementById("imagesError").innerHTML = "";
+    document.getElementById("userNameError").innerHTML = "";
+    document.getElementById("userSurnameError").innerHTML = "";
+    document.getElementById("userStreetError").innerHTML = "";
+    document.getElementById("userPostcodeError").innerHTML = "";
+    document.getElementById("userProvinceError").innerHTML = "";
+    document.getElementById("userLocationError").innerHTML = "";
+    document.getElementById("formError").innerHTML = "";
+  
+    inputName.value = "";
+    inputSurname.value = "";
+    inputStreet.value = "";
+    inputPostcode.value = "";
+    inputProvince.value = "";
+    inputLocation.value = "";
+
+    const btnBorrar = document.getElementById("btnBorrar");
+    btnBorrar.addEventListener("click", limpiarCampos);
+    console.log(btnBorrar);
+  }
+  
+
+
+
 //FORM VALIDATION
 
 formUser.addEventListener('submit', function (event) {
@@ -214,24 +242,3 @@ formUser.addEventListener('submit', function (event) {
     }
   });
 
-function limpiarCampos() {
-    document.getElementById("formUser").reset();
-    document.getElementById("imagesError").innerHTML = "";
-    document.getElementById("userNameError").innerHTML = "";
-    document.getElementById("userSurnameError").innerHTML = "";
-    document.getElementById("userStreetError").innerHTML = "";
-    document.getElementById("userPostcodeError").innerHTML = "";
-    document.getElementById("userProvinceError").innerHTML = "";
-    document.getElementById("userLocationError").innerHTML = "";
-    document.getElementById("formError").innerHTML = "";
-  
-    inputName.value = "";
-    inputSurname.value = "";
-    inputStreet.value = "";
-    inputPostcode.value = "";
-    inputProvince.value = "";
-    inputLocation.value = "";
-  }
-  
-  const btnBorrar = document.getElementById("btnBorrar");
-  btnBorrar.addEventListener("click", limpiarCampos);

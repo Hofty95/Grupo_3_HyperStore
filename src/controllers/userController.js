@@ -14,7 +14,7 @@ module.exports = {
         Promise.all([categories, brands])
             .then(([categories, brands]) => {
                 return res.render('users/login', {
-                    title: 'Hyper Store | Login',
+                    title: 'HyperStore | Login',
                     categories,
                     brands
                 });
@@ -51,7 +51,7 @@ module.exports = {
             Promise.all([categories, brands])
                 .then(([categories, brands]) => {
                     return res.render('users/login', {
-                        title: 'Hyper Store | Login',
+                        title: 'HyperStore | Login',
                         categories,
                         brands,
                         errors: errors.mapped()
@@ -66,7 +66,7 @@ module.exports = {
         Promise.all([categories, brands])
             .then(([categories, brands]) => {
                 return res.render('users/register', {
-                    title: 'Hyper Store | Register',
+                    title: 'HyperStore | Register',
                     categories,
                     brands
                 });
@@ -105,7 +105,7 @@ module.exports = {
             Promise.all([categories, brands])
                 .then(([categories, brands]) => {
                     return res.render('users/register', {
-                        title: 'Hyper Store | Register',
+                        title: 'HyperStore | Register',
                         categories,
                         brands,
                         errors: errors.mapped(),
@@ -192,7 +192,7 @@ module.exports = {
         Promise.all([categories, brands])
             .then(([categories, brands]) => {
                 return res.render('users/cambioContraseña', {
-                    title: "Hyper Store | Change Password",
+                    title: "HyperStore | Change Password",
                     categories,
                     brands,
                 });
@@ -283,7 +283,7 @@ module.exports = {
         const categories = await db.Category.findAll();
         const brands = await db.Brand.findAll();
         return res.render('users/favorites', {
-            title: 'Hyper Sotre | Favoritos',
+            title: 'HyperStore | Favoritos',
             categories,
             brands
         })

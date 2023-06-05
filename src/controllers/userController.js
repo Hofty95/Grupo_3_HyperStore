@@ -208,23 +208,38 @@ module.exports = {
         const user = users.find(user => user.id === +id);
     },
     removeUser: (req, res) => {
-
         const id = req.params.id
 
         db.User.findByPk(id)
             .then((user) => {
-                db.User.destroy({
+                db.Cart.destroy({
                     where: {
-                        id
+                        orderId: {
+                            [Op.in]: sequelize.literal(
+                                `(SELECT id FROM Orders WHERE userId = ${id})`
+                            )
+                        }
                     }
                 }).then(() => {
-                    db.Address.destroy({
+                    return db.Order.destroy({
+                        where: {
+                            userId: id
+                        }
+                    });
+                }).then(() => {
+                    return db.User.destroy({
+                        where: {
+                            id
+                        }
+                    });
+                }).then(() => {
+                    return db.Address.destroy({
                         where: {
                             id: user.addressId
                         }
-                    }).then(() => res.redirect('/admin/dashboard'))
-                }).catch(error => console.log(error))
-            })
+                    });
+                }).then(() => res.redirect('/admin/dashboard'))
+            }).catch(error => console.log(error))
     },
     removeSelf: (req, res) => {
         const id = req.params.id;

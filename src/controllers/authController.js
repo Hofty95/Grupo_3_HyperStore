@@ -33,7 +33,7 @@ module.exports = {
         
         res.cookie('hyperStoreUser', req.session.userLogin, { maxAge: 1000 * 60 })
 
-        res.redirect('/')
+        return res.redirect(`/user/${user.id}`)
         } catch (error) {
             console.log(error);
         }

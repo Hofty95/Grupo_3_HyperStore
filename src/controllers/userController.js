@@ -22,6 +22,7 @@ module.exports = {
     },
     loginProcess: (req, res) => {
 
+
         const errors = validationResult(req);
         if (errors.isEmpty()) {
 
@@ -41,7 +42,7 @@ module.exports = {
                     res.cookie('hyperStoreUser', req.session.userLogin, { maxAge: 1000 * 60 })
                 }
 
-                return res.redirect('/')
+                return res.redirect(`/user/${id}`)
             }).catch(error => console.log(error))
             console.log(errors)
         } else {
@@ -94,7 +95,7 @@ module.exports = {
                             name,
                             rol: rolId
                         };
-                        return res.redirect("/")
+                        return res.redirect(`/user/${id}`)
                     })
                 }).catch(error => console.log(error))
 

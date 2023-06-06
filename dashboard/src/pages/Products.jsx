@@ -8,28 +8,49 @@ export const Products = () => {
   const [state, setState] = useState({
     loading: true,
     products: [],
+    pages : null,
+    currentPage : null
   });
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/product/allProducts')
-    .then(response => {
-      return response.json()
-    })
+    UseFetch('/product/results')
       .then(({ok, data}) => {
         ok &&
         setState({
           loading : false,
-          products : data.products
+          products : data.products,
+          pages : data.pages,
+          currentPage : data.currentPage
         })
       })
       .catch(() => console.error)
   }, []);
+
+  const handleGetPage = (page) => {
+    UseFetch(`/product/results?page=${page}`)
+    .then(({ok, data}) => {
+      ok &&
+      setState({
+        loading : false,
+        products : data.products,
+        pages : data.pages,
+        currentPage : data.currentPage
+      })
+    })
+    .catch(() => console.error)
+  }
+
   return (
       <div className="card">
         <div className="card-body">
           <div className="row">
             <div className="col-12 col-md-7">
-              <ProductsTable products = {state.products}/>
+              <ProductsTable 
+              products = {state.products}
+              pages = {state.pages}
+              currentPage = {state.currentPage}
+              handleGetPage ={handleGetPage}
+              />
             </div>
             <div className="col-12 col-md-5">
               <AddProduct />

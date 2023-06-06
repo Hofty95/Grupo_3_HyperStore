@@ -214,4 +214,14 @@ module.exports = {
         return res.redirect(`/admin/dashboard`);
       });
   },
+  armarPc: async (req, res) => {
+    const categories = await db.Category.findAll();
+    const brands = await db.Brand.findAll();
+
+  return res.render('product/armaTuPc',{
+    title : 'Hyper Store | Arma tu PC',
+    categories,
+    brands
+  })
+  },
 };

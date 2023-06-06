@@ -2,12 +2,13 @@ const express = require('express');
 /* const { confirmRemove } = require('../controllers/adminController'); */
 const router = express.Router();
 
-const {busqueda, carrito, category, detalle, confirmRemove, remove, showAllProducts} = require('../controllers/productController');
+const {busqueda, carrito, category, detalle, confirmRemove, remove, showAllProducts, armarPc} = require('../controllers/productController');
 const checkUserLogin = require('../middlewares/checkUserLogin');
-/* product */
+/* /product */
 
 router.get('/busqueda', busqueda)
 router.get('/todos', showAllProducts)
+router.get('/armatupc',armarPc)
 router.get('/carrito',checkUserLogin, carrito)
 router.get('/category', category)
 router.get('/detalle/:id', detalle)

@@ -35,14 +35,12 @@ const paintProducts = ({ products }) => {
                <p>
                 ${name}
                </p>
-               <div>
+               <div class="product-box_data_content d-flex justify-content-between w-100">
                <span>Envío Gratis</span>
                <button>
-               <i class="fas fa-star" style="color: #7809d3;" cursor:pointer onclick="toggleFavorite(${id})"></i>
-             </button>           
-               </div>
-               <div>
-               </div>
+                  <i class="fas fa-star" style="color: #7809d3;" cursor:pointer onclick="toggleFavorite(${id})"></i>
+               </button>           
+              </div>
              </article>
              </a>
            </section>
@@ -60,7 +58,6 @@ const paintProducts = ({ products }) => {
 window.addEventListener("load", async () => {
   try {
     const { ok, data } = await getFavorites();
-    console.log(data);
     if (ok) {
       paintProducts({ products: data });
     }

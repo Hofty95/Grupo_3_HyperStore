@@ -91,13 +91,14 @@
         </div>
       </section>
       <section>
-        <div class="main__section__article">
-            <% productsFound.forEach(({id, name, price, images}) => { %>
+        <div class="main__section__article" id="cards-container">
+            <% productsFound.forEach(({id, name, price, images, isFavorite}) => { %>
                 <%- include('../partials/cardArticle',{
                     id,
                     name,
                     price,
-                    images
+                    images,
+                    isFavorite:isFavorite || false
                 }) %>
             <% }) %>
         </div>
@@ -111,6 +112,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/javascripts/paginator.js"></script>
+    <script src="/javascripts/favoritesFunctionViewSearch.js"></script>
   </body>
 </html>

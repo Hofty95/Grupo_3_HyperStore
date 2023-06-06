@@ -35,12 +35,14 @@ const paintProducts = (products) => {
       <p>
         ${name} 
       </p>
+      <div class="product-box_data_content d-flex justify-content-between w-100">
       <span>Envío Gratis</span>
       <button>
-      </button> 
       <i class="${
         usersFavorites.some(({id}) => id == userId) ? "fas" : "far"
     } fa-star" style="color: #7809d3;" cursor:pointer onclick="toggleFavorite(${id},event)"></i>
+      </button> 
+      </div>
     </article>
     </a>
   </section>

@@ -58,7 +58,8 @@
                                     </div>
                                     <div class="etiquetas__descuento">
                                         <p><i class="fa-brands fa-cc-mastercard fa-2xl"></i><b>6 CUOTAS SIN INTERÉS DE $
-                                                <%= toThousand(Math.floor(price / 6)) %></b></p>
+                                                <%= toThousand(Math.floor(price / 6)) %>
+                                            </b></p>
                                     </div>
                                     <div class="etiquetas__descuento">
                                         <p><i class="fa-brands fa-bitcoin fa-2xl"></i><b>PAGÁ AHORA CON BITCOINS ·
@@ -74,9 +75,11 @@
                                                 Producto</button></form>
                                     </div>
                                     <% } %>
-                                    <div class="article1__boton__general">
-                                        <button class="boton__general" id="btn-addCart" data-id="<%= id %>">AGREGAR AL CARRITO</button>
-                                    </div>
+                                        <div class="article1__boton__general">
+                                            <input type="number" id="quantityInput" min="1" value="1">
+                                            <button class="boton__general" id="btn-addCart" data-id="<%= id %>">AGREGAR
+                                                AL CARRITO</button>
+                                        </div>
                             </div>
                         </div>
                         <div class="main__section__article1__info">
@@ -104,14 +107,14 @@
                             <div class="main__section__article1__specs__container">
                                 <div class="main__section__article1__datos">
                                     <b>Descripción</b>
-                                    
+
                                     <p>
                                         <%= description %>
                                     </p>
                                 </div>
                                 <div class="main__section__article1__datos__tablet">
                                     <b>Especificaciones</b>
-                                    
+
                                     <p>
                                         <%= specifications %>
                                     </p>

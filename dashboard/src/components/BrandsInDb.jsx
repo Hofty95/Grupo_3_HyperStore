@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CategoryCard } from './CategoryCard'
+import { UseFetch } from "../hooks/UseFetch";
 
 export const BrandsInDb = () => {
     const [state, setState] = useState({
@@ -7,11 +8,8 @@ export const BrandsInDb = () => {
         brands: [],
       });
     
-      useEffect(() => {
-        fetch('http://localhost:3000/api/product/allBrands')
-        .then(response => {
-          return response.json()
-        })
+      useEffect(() => { 
+          UseFetch('/product/allBrands')
           .then(({ ok, data }) => {
             setState({
               loading: false,

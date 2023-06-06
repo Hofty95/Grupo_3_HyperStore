@@ -13,7 +13,7 @@ const msgError = (element, message, { target }) => {
   };
 
 
-let regExLetter = /^[A-Z]+$/i;
+  let regExLetter = /^[A-Z\s]+$/i;
 let regExEmail = /^[\w.-]+@[\w.-]+\.[\w.-]+$/;
 let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/; //mayuscula, numero y 6 a 12 caracteres
 let regExPass2 =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&_-])[A-Za-z\d$@$!%*?&_-]{6,12}/;

@@ -1,5 +1,6 @@
 console.log('profile.js Success!');
 
+
 const $ = (id) => document.getElementById(id);
 
 //CAPTURANDO ELEMENTOS
@@ -169,28 +170,75 @@ inputImage.addEventListener("change", function (event) {
   }
 });
 
+function limpiarCampos() {
+    
+    document.getElementById("formUser").reset();
+    document.getElementById("imagesError").innerHTML = "";
+    document.getElementById("userNameError").innerHTML = "";
+    document.getElementById("userSurnameError").innerHTML = "";
+    document.getElementById("userStreetError").innerHTML = "";
+    document.getElementById("userPostcodeError").innerHTML = "";
+    document.getElementById("userProvinceError").innerHTML = "";
+    document.getElementById("userLocationError").innerHTML = "";
+    document.getElementById("formError").innerHTML = "";
+  
+    inputName.value = "";
+    inputSurname.value = "";
+    inputStreet.value = "";
+    inputPostcode.value = "";
+    inputProvince.value = "";
+    inputLocation.value = "";
+
+    const btnBorrar = document.getElementById("btnBorrar");
+    btnBorrar.addEventListener("click", limpiarCampos);
+    console.log(btnBorrar);
+  }
+  
+
+
+
 //FORM VALIDATION
 
 formUser.addEventListener('submit', function (event) {
     event.preventDefault();
     let error = false;
     for (let i = 1; i < this.elements.length - 1; i++) {
-
-        if (!this.elements[i].value || this.elements[i].classList.contains('input_invalid')) {
-            error = true
-        }
-
+      const element = this.elements[i];
+      
+      if (element.type === 'submit' || element.type === 'reset') {
+        continue;
+      }
+      
+      if (element.id === 'limpiar') {
+        continue;
+      }
+      if (!element.value || element.classList.contains('input_invalid')) {
+        error = true;
+      }
+      
+      else {
+        element.classList.remove('input_invalid');
+      }
     }
-
+  
     if (!error) {
-        this.submit()
+      this.submit();
     } else {
-        for (let i = 1; i < this.elements.length - 1; i++) {
-
-            !this.elements[i].value && this.elements[i].classList.add('input_invalid')
-            
+      for (let i = 1; i < this.elements.length - 1; i++) {
+        const element = this.elements[i];
+        
+        if (element.type === 'submit' || element.type === 'reset') {
+          continue;
         }
-        $('formError').innerHTML = "Los campos señalados son obligatorios."
+    
+        if (element.id === 'limpiar') {
+          continue;
+        }
+        if (!element.value) {
+          element.classList.add('input_invalid');
+        }
+      }
+      document.getElementById('formError').innerHTML = "Los campos señalados son obligatorios.";
     }
+  });
 
-})

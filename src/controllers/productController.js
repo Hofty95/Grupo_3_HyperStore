@@ -210,8 +210,12 @@ module.exports = {
     db.productCategories
       .destroy({ where: { productId: id } })
       .then(async () => {
+        await db.Cart.destroy({ where: { productId: id } });
         await db.Product.destroy({ where: { id: id } });
         return res.redirect(`/admin/dashboard`);
+      })
+      .catch((error) => {
+        console.error(error);
       });
   },
   armarPc: async (req, res) => {

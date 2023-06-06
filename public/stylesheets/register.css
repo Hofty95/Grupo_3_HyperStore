@@ -27,6 +27,8 @@
 }
 .register__main__section__form {
   margin: 15px 0px;
+  width: 250px;
+  margin: 0 auto;
 }
 .register__form__box {
   display: flex;
@@ -94,6 +96,11 @@ ul li{
   color: #fff;
 }
 @media (min-width: 768px) {
+  .register__main__section__form {
+    margin: 15px 0px;
+    width: 500px;
+    margin: 0 auto;
+  }
   .register__main__section {
     width: 60%;
     border-radius: 5px;
